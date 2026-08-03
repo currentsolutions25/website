@@ -108,17 +108,15 @@ const fadeUp = {
 function WaveDivider({
   topColor,
   bottomColor,
-  flip = false,
 }: {
   topColor: string;
   bottomColor: string;
-  flip?: boolean;
 }) {
   return (
     <div
       className="relative -mb-px h-16 w-full overflow-hidden sm:h-20 md:h-24"
       aria-hidden="true"
-      style={{ background: topColor, transform: flip ? "scaleY(-1)" : undefined }}
+      style={{ background: topColor }}
     >
       <svg
         className="absolute bottom-0 left-0 h-full w-full"
@@ -142,10 +140,10 @@ function WaveDivider({
 
 function CoastalLighthouseScene() {
   return (
-    <div className="relative h-full w-full min-h-[420px] sm:min-h-[520px]" aria-hidden="true">
+    <div className="relative h-full w-full" aria-hidden="true">
       <svg
         viewBox="0 0 560 560"
-        className="h-full w-full object-cover"
+        className="absolute inset-0 h-full w-full"
         preserveAspectRatio="xMidYMid slice"
         xmlns="http://www.w3.org/2000/svg"
         role="img"
@@ -194,6 +192,23 @@ function CoastalLighthouseScene() {
         <ellipse cx="150" cy="112" rx="34" ry="14" fill="#FFFFFF" opacity="0.28" />
         <ellipse cx="250" cy="90" rx="42" ry="14" fill="#FFFFFF" opacity="0.22" />
 
+        {/* Palm silhouette */}
+        <path
+          d="M95 430 C95 360 95 320 95 300"
+          stroke="#0B3A66"
+          strokeOpacity="0.28"
+          strokeWidth="4"
+          fill="none"
+        />
+        <path
+          d="M95 305 C60 290 45 270 40 250 M95 305 C70 275 75 245 80 230 M95 305 C120 280 140 255 150 235 M95 305 C130 295 155 285 170 265"
+          stroke="#0B3A66"
+          strokeOpacity="0.28"
+          strokeWidth="3"
+          fill="none"
+          strokeLinecap="round"
+        />
+
         {/* Distant hills / shoreline */}
         <path
           d="M0 340 C80 310 140 330 210 318 C280 306 330 280 400 295 C470 310 510 300 560 285 L560 380 L0 380 Z"
@@ -203,6 +218,11 @@ function CoastalLighthouseScene() {
 
         {/* Ocean */}
         <rect y="360" width="560" height="200" fill="url(#ocean)" />
+        <path
+          d="M0 375 C90 355 170 395 260 372 C350 350 430 360 560 350 L560 390 L0 390 Z"
+          fill="#7EB7D4"
+          opacity="0.35"
+        />
         <path
           d="M0 390 C70 375 140 410 210 395 C280 380 350 365 420 385 C490 405 530 390 560 380 L560 420 L0 420 Z"
           fill="#DCEFF7"
@@ -369,12 +389,12 @@ export default function HomePage() {
       {/* SECTION 1 — Floating glass navigation */}
       <header className="pointer-events-none fixed inset-x-0 top-0 z-50 px-4 pt-4 sm:px-6 sm:pt-5">
         <nav
-          className="pointer-events-auto mx-auto flex max-w-6xl items-center justify-between gap-4 rounded-2xl border px-4 py-3 shadow-[0_18px_50px_-24px_rgba(11,58,102,0.45)] backdrop-blur-xl sm:px-6 sm:py-3.5"
+          className="pointer-events-auto mx-auto flex max-w-6xl items-center justify-between gap-4 rounded-2xl border px-4 py-3 backdrop-blur-xl sm:px-6 sm:py-3.5"
           style={{
-            background: "rgba(255,255,255,0.55)",
-            borderColor: "rgba(220,239,247,0.75)",
+            background: "rgba(255,255,255,0.42)",
+            borderColor: "rgba(220,239,247,0.65)",
             boxShadow:
-              "0 18px 50px -24px rgba(11,58,102,0.4), inset 0 1px 0 rgba(255,255,255,0.65)",
+              "0 18px 50px -24px rgba(11,58,102,0.38), inset 0 1px 0 rgba(255,255,255,0.7)",
           }}
         >
           <a href="#home" className="shrink-0">
@@ -463,27 +483,27 @@ export default function HomePage() {
         >
           {/* Full-bleed coastal lighthouse scene */}
           <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
+            initial={{ scale: 1.03 }}
+            animate={{ scale: 1 }}
             transition={{ duration: 1.1, ease: "easeOut" }}
             className="pointer-events-none absolute inset-0"
             aria-hidden="true"
           >
-            <div className="absolute inset-y-0 right-0 w-full lg:w-[62%]">
+            <div className="absolute inset-0 top-[38%] opacity-90 sm:top-[28%] sm:opacity-100 lg:top-0 lg:left-[28%]">
               <CoastalLighthouseScene />
             </div>
             <div
               className="absolute inset-0 lg:hidden"
               style={{
                 background:
-                  "linear-gradient(180deg, rgba(255,246,232,0.72) 0%, rgba(246,241,231,0.35) 42%, rgba(107,163,196,0.15) 100%)",
+                  "linear-gradient(180deg, rgba(255,246,232,0.92) 0%, rgba(255,246,232,0.78) 28%, rgba(246,241,231,0.35) 52%, rgba(11,58,102,0.1) 100%)",
               }}
             />
             <div
-              className="absolute inset-y-0 left-0 hidden w-[55%] lg:block"
+              className="absolute inset-y-0 left-0 hidden w-[52%] lg:block"
               style={{
                 background:
-                  "linear-gradient(90deg, rgba(255,246,232,0.92) 0%, rgba(247,228,184,0.55) 48%, rgba(220,239,247,0) 100%)",
+                  "linear-gradient(90deg, rgba(255,246,232,0.88) 0%, rgba(247,228,184,0.42) 55%, rgba(220,239,247,0) 100%)",
               }}
             />
           </motion.div>
@@ -496,33 +516,32 @@ export default function HomePage() {
 
           <div className="relative mx-auto flex min-h-[calc(100svh-7rem)] max-w-6xl flex-col justify-center px-5 pb-28 pt-8 sm:px-8 sm:pb-36 sm:pt-12">
             <motion.div
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.3 }}
+              initial={{ y: 22 }}
+              animate={{ y: 0 }}
               transition={{ duration: 0.75, ease: "easeOut" }}
-              variants={fadeUp}
               className="max-w-xl lg:max-w-2xl"
             >
               <p
-                className="font-display mb-6 text-5xl font-semibold tracking-tight sm:text-6xl lg:text-7xl"
+                className="font-display mb-5 text-4xl font-semibold tracking-tight sm:mb-6 sm:text-6xl lg:text-7xl"
                 style={{ color: colors.navy }}
               >
                 Current Solutions
               </p>
               <h1
-                className="font-display text-2xl font-medium leading-snug tracking-tight sm:text-3xl lg:text-[2rem]"
+                className="font-display text-xl font-medium leading-snug tracking-tight sm:text-3xl lg:text-[2rem]"
                 style={{ color: colors.navy }}
               >
                 Reliable Electrical Solutions for Florida Homes &amp; Businesses
               </h1>
               <p
-                className="mt-7 max-w-lg text-base leading-relaxed sm:text-lg"
+                className="mt-6 max-w-lg text-base leading-relaxed sm:mt-7 sm:text-lg"
                 style={{ color: "rgba(11,58,102,0.78)" }}
               >
-                Family-owned electrical care for the Nature Coast—honest
-                workmanship, quality craftsmanship, and service you can trust.
+                Family-owned and operated electrical care for the Nature
+                Coast—honest workmanship, quality craftsmanship, and exceptional
+                customer service.
               </p>
-              <div className="mt-11 flex flex-col gap-4 sm:flex-row sm:items-center">
+              <div className="mt-10 flex flex-col gap-4 sm:mt-11 sm:flex-row sm:items-center">
                 <ScaleButton href="#contact" variant="gold">
                   Request a Free Quote
                 </ScaleButton>
