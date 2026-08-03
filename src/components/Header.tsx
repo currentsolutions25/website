@@ -12,7 +12,6 @@ import {
   PHONE_DISPLAY,
   PHONE_HREF,
   services,
-  SITE_SHORT_NAME,
 } from "@/lib/design";
 
 const primaryNav = navLinks.filter((link) => link.label !== "Services");
