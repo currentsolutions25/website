@@ -10,7 +10,6 @@ import {
   Phone,
   ShieldCheck,
   Users,
-  Wrench,
   Zap,
 } from "lucide-react";
 import Image from "next/image";
@@ -36,7 +35,7 @@ const trustCards = [
     icon: ShieldCheck,
   },
   {
-    title: "Family Owned & Operated",
+    title: "Family Owned",
     description: "Local neighbors who take pride in every connection.",
     icon: Users,
   },
@@ -49,11 +48,6 @@ const trustCards = [
     title: "On Time & Reliable",
     description: "Clear communication and dependable arrival windows.",
     icon: Clock,
-  },
-  {
-    title: "24/7 Emergency Service",
-    description: "Prompt help when power issues cannot wait.",
-    icon: Wrench,
   },
 ];
 
@@ -122,10 +116,10 @@ export default function HomePage() {
   return (
     <SiteShell>
       <main>
-        {/* Hero — full-bleed coastal artwork with left copy / right lighthouse */}
+        {/* 1–3. Full-screen cinematic hero + floating trust bar */}
         <section
           id="home"
-          className="hero-premium relative -mt-[5.25rem] min-h-[115vh] overflow-hidden pt-[5.25rem] sm:-mt-[5.75rem] sm:min-h-[118vh] sm:pt-[5.75rem]"
+          className="hero-premium relative -mt-[5.25rem] flex min-h-[100svh] flex-col overflow-hidden pt-[5.25rem] sm:-mt-[5.75rem] sm:pt-[5.75rem]"
         >
           <motion.div
             initial={{ opacity: 0 }}
@@ -148,7 +142,7 @@ export default function HomePage() {
             <div className="hero-text-veil" />
           </motion.div>
 
-          <div className="relative z-10 mx-auto grid min-h-[calc(115vh-5.25rem)] max-w-7xl grid-cols-1 items-center px-5 pb-36 pt-16 sm:min-h-[calc(118vh-5.75rem)] sm:px-8 sm:pb-40 sm:pt-20 lg:grid-cols-2 lg:items-center lg:px-10 lg:pb-44 lg:pt-24">
+          <div className="relative z-10 mx-auto grid w-full max-w-7xl flex-1 grid-cols-1 items-center px-5 pb-48 pt-14 sm:px-8 sm:pb-52 sm:pt-16 lg:grid-cols-2 lg:items-center lg:px-10 lg:pb-56 lg:pt-20">
             <div className="relative w-full max-w-xl lg:max-w-[36rem]">
               <motion.div
                 initial={{ opacity: 0, y: 16 }}
@@ -259,69 +253,56 @@ export default function HomePage() {
             <div className="hidden lg:block" aria-hidden="true" />
           </div>
 
-          <div className="absolute inset-x-0 bottom-0 z-20">
-            <WaveDivider
-              topColor="transparent"
-              bottomColor={colors.warmSand}
-              variant="hero"
-            />
+          {/* Floating trust bar — four premium cards over the bottom of the hero */}
+          <div className="pointer-events-none absolute inset-x-0 bottom-0 z-20 px-5 pb-6 sm:px-8 sm:pb-8 lg:px-10 lg:pb-10">
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.3 }}
+              variants={stagger}
+              aria-label="Why trust Current Solutions"
+              className="pointer-events-auto mx-auto grid max-w-7xl gap-4 sm:grid-cols-2 lg:grid-cols-4 lg:gap-5"
+            >
+              {trustCards.map((card) => {
+                const Icon = card.icon;
+                return (
+                  <motion.article
+                    key={card.title}
+                    variants={fadeUp}
+                    transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+                    whileHover={{ y: -5 }}
+                    className="trust-card px-5 py-7 text-center sm:px-6 sm:py-8"
+                  >
+                    <div
+                      className="mx-auto mb-4 flex h-11 w-11 items-center justify-center rounded-2xl"
+                      style={{
+                        background: `linear-gradient(145deg, ${colors.seaGlass}, rgba(220,239,247,0.35))`,
+                        color: colors.navy,
+                        boxShadow: "inset 0 0 0 1px rgba(11,58,102,0.05)",
+                      }}
+                    >
+                      <Icon size={20} strokeWidth={1.5} />
+                    </div>
+                    <h3
+                      className="text-[0.76rem] font-semibold tracking-[0.1em] uppercase"
+                      style={{ color: colors.navy }}
+                    >
+                      {card.title}
+                    </h3>
+                    <p
+                      className="mt-2.5 text-sm leading-relaxed"
+                      style={{ color: "rgba(11,58,102,0.62)" }}
+                    >
+                      {card.description}
+                    </p>
+                  </motion.article>
+                );
+              })}
+            </motion.div>
           </div>
         </section>
 
-        {/* Trust bar — floating glass cards */}
-        <section
-          aria-label="Why trust Current Solutions"
-          className="relative z-10 -mt-6 px-5 pb-20 pt-4 sm:-mt-10 sm:px-8 sm:pb-24 lg:px-10"
-          style={{ background: colors.warmSand }}
-        >
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.25 }}
-            variants={stagger}
-            className="mx-auto grid max-w-7xl gap-5 sm:grid-cols-2 lg:grid-cols-5 lg:gap-6"
-          >
-            {trustCards.map((card) => {
-              const Icon = card.icon;
-              return (
-                <motion.article
-                  key={card.title}
-                  variants={fadeUp}
-                  transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-                  whileHover={{ y: -5 }}
-                  className="trust-card px-5 py-9 text-center sm:px-6"
-                >
-                  <div
-                    className="mx-auto mb-5 flex h-12 w-12 items-center justify-center rounded-2xl"
-                    style={{
-                      background: `linear-gradient(145deg, ${colors.seaGlass}, rgba(220,239,247,0.35))`,
-                      color: colors.navy,
-                      boxShadow: "inset 0 0 0 1px rgba(11,58,102,0.05)",
-                    }}
-                  >
-                    <Icon size={22} strokeWidth={1.5} />
-                  </div>
-                  <h3
-                    className="text-[0.78rem] font-semibold tracking-[0.1em] uppercase"
-                    style={{ color: colors.navy }}
-                  >
-                    {card.title}
-                  </h3>
-                  <p
-                    className="mt-3 text-sm leading-relaxed"
-                    style={{ color: "rgba(11,58,102,0.62)" }}
-                  >
-                    {card.description}
-                  </p>
-                </motion.article>
-              );
-            })}
-          </motion.div>
-        </section>
-
-        <WaveDivider topColor={colors.warmSand} bottomColor={colors.white} />
-
-        {/* Services — large image cards, architectural spacing */}
+        {/* 4. Services preview */}
         <section
           id="services"
           className="px-5 py-28 sm:px-8 sm:py-36 lg:px-10"
@@ -417,7 +398,11 @@ export default function HomePage() {
           </motion.div>
 
           <div className="mt-16 text-center">
-            <ScaleButton href="/#services" variant="secondary" className="px-8 py-4 text-base">
+            <ScaleButton
+              href="/#services"
+              variant="secondary"
+              className="px-8 py-4 text-base"
+            >
               View All Services
               <ArrowRight size={18} strokeWidth={2.25} />
             </ScaleButton>
@@ -426,7 +411,7 @@ export default function HomePage() {
 
         <WaveDivider topColor={colors.white} bottomColor={colors.warmSand} />
 
-        {/* About — warm, family owned */}
+        {/* 5. About preview */}
         <section
           id="about"
           className="relative overflow-hidden px-5 py-28 sm:px-8 sm:py-36 lg:px-10"
@@ -488,7 +473,11 @@ export default function HomePage() {
                 Neighbors you can trust. Craftsmanship you can count on.
               </p>
               <div className="mt-10">
-                <ScaleButton href="/about" variant="gold" className="px-8 py-4 text-base">
+                <ScaleButton
+                  href="/about"
+                  variant="gold"
+                  className="px-8 py-4 text-base"
+                >
                   Learn More About Us
                   <ArrowRight size={18} strokeWidth={2.25} />
                 </ScaleButton>
@@ -497,7 +486,7 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* Projects — luxury gallery */}
+        {/* 6. Featured projects preview */}
         <section
           className="px-5 py-28 sm:px-8 sm:py-36 lg:px-10"
           style={{ background: colors.white }}
@@ -527,7 +516,11 @@ export default function HomePage() {
                   Coast homes and businesses.
                 </p>
               </div>
-              <ScaleButton href="/gallery" variant="secondary" className="px-8 py-4 text-base">
+              <ScaleButton
+                href="/gallery"
+                variant="secondary"
+                className="px-8 py-4 text-base"
+              >
                 View Full Gallery
                 <ArrowRight size={18} strokeWidth={2.25} />
               </ScaleButton>
@@ -569,7 +562,7 @@ export default function HomePage() {
 
         <WaveDivider topColor={colors.white} bottomColor={colors.warmSand} />
 
-        {/* Reviews — magazine-style */}
+        {/* 7. Customer reviews preview */}
         <section
           id="reviews"
           className="px-5 py-28 sm:px-8 sm:py-36 lg:px-10"
@@ -642,7 +635,11 @@ export default function HomePage() {
             </motion.div>
 
             <div className="mt-16 text-center">
-              <ScaleButton href="/reviews" variant="secondary" className="px-8 py-4 text-base">
+              <ScaleButton
+                href="/reviews"
+                variant="secondary"
+                className="px-8 py-4 text-base"
+              >
                 View All Reviews
                 <ArrowRight size={18} strokeWidth={2.25} />
               </ScaleButton>
@@ -650,7 +647,7 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* Contact CTA */}
+        {/* 8. Strong call-to-action */}
         <section
           id="contact"
           className="cta-surface relative overflow-hidden px-5 py-28 sm:px-8 sm:py-36 lg:px-10"
@@ -669,9 +666,7 @@ export default function HomePage() {
             >
               READY TO GET STARTED?
             </p>
-            <h2
-              className="font-display text-[clamp(2.3rem,5vw,3.75rem)] font-semibold leading-[1.08] tracking-tight text-white"
-            >
+            <h2 className="font-display text-[clamp(2.3rem,5vw,3.75rem)] font-semibold leading-[1.08] tracking-tight text-white">
               Request your free electrical quote today.
             </h2>
             <p
@@ -682,10 +677,18 @@ export default function HomePage() {
               with clear recommendations and honest guidance.
             </p>
             <div className="mt-12 flex flex-col items-center justify-center gap-4 sm:flex-row">
-              <ScaleButton href="/contact" variant="gold" className="px-10 py-5 text-base">
+              <ScaleButton
+                href="/contact"
+                variant="gold"
+                className="px-10 py-5 text-base"
+              >
                 Request a Quote
               </ScaleButton>
-              <ScaleButton href={PHONE_HREF} variant="secondary" className="px-10 py-5 text-base">
+              <ScaleButton
+                href={PHONE_HREF}
+                variant="secondary"
+                className="px-10 py-5 text-base"
+              >
                 <Phone size={16} strokeWidth={2.4} />
                 Call Now
               </ScaleButton>
