@@ -118,16 +118,19 @@ body {
   color: var(--champagne);
 }
 
-/* Keep lighthouse in frame on narrow viewports without crowding hero copy */
-@media (max-width: 640px) {
+/* Anchor the coastal scene to the right on narrow screens so the lighthouse remains visible */
+@media (max-width: 768px) {
   .coastal-scene {
-    transform: scale(1.12) translateX(-6%);
-    transform-origin: center center;
+    left: auto;
+    right: 0;
+    width: 165%;
+    max-width: none;
+    height: 100%;
   }
 }
 
-@media (max-width: 400px) {
+@media (max-width: 480px) {
   .coastal-scene {
-    transform: scale(1.18) translateX(-8%);
+    width: 195%;
   }
 }

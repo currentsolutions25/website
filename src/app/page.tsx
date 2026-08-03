@@ -663,8 +663,16 @@ function CoastalIllustration() {
           <circle cx="168" cy="436" r="1.8" fill="#D4AF37" />
         </g>
 
-        {/* Soft left veil for text legibility */}
+        {/* Soft left veil for text legibility — lighter on the right so the landmark reads */}
         <rect width="1440" height="900" fill="url(#textVeil)" />
+        <rect
+          x="980"
+          y="0"
+          width="460"
+          height="900"
+          fill="#F6F1E7"
+          opacity="0"
+        />
       </svg>
     </div>
   );
