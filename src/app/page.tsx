@@ -13,8 +13,9 @@ import {
   Wrench,
   Zap,
 } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
-import CoastalIllustration from "@/components/CoastalIllustration";
+import LighthouseMark from "@/components/LighthouseMark";
 import MediaPlaceholder from "@/components/MediaPlaceholder";
 import SiteShell from "@/components/SiteShell";
 import WaveDivider from "@/components/WaveDivider";
@@ -123,82 +124,105 @@ export default function HomePage() {
         {/* Hero */}
         <section
           id="home"
-          className="relative min-h-[88vh] overflow-hidden lg:min-h-[92vh]"
+          className="hero-premium relative -mt-[5.75rem] min-h-screen overflow-hidden pt-[5.75rem] sm:-mt-[6.25rem] sm:pt-[6.25rem]"
         >
-          <CoastalIllustration />
-          <div className="hero-readability-veil" aria-hidden="true" />
+          <div className="hero-atmosphere" aria-hidden="true" />
 
-          <div className="relative z-10 mx-auto flex min-h-[88vh] max-w-7xl items-center px-5 py-24 sm:px-8 lg:min-h-[92vh] lg:px-10 lg:py-28">
-            <div className="max-w-xl lg:max-w-2xl">
-              <motion.p
-                initial={{ opacity: 0, y: 14 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-                className="text-[0.78rem] font-bold tracking-[0.28em] uppercase sm:text-[0.85rem]"
-                style={{ color: colors.gold }}
-              >
-                Powering Florida&apos;s
-              </motion.p>
+          {/* Right — full-height lighthouse identity */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1.15, ease: [0.22, 1, 0.36, 1] }}
+            className="hero-image-panel pointer-events-none absolute inset-x-0 top-[5.75rem] bottom-0 z-[1] sm:top-[6.25rem] lg:inset-y-0 lg:left-auto lg:right-0 lg:w-[52%]"
+            aria-hidden="true"
+          >
+            <div className="hero-image-frame relative h-full min-h-[48vh] w-full overflow-hidden lg:min-h-screen">
+              <Image
+                src="/images/florida-lighthouse-sunrise.png"
+                alt=""
+                fill
+                priority
+                sizes="(max-width: 1024px) 100vw, 52vw"
+                className="hero-lighthouse-photo object-cover object-[58%_42%]"
+              />
+              <div className="hero-image-glow" />
+              <div className="hero-image-mist" />
+            </div>
+          </motion.div>
 
-              <motion.h1
-                initial={{ opacity: 0, y: 18 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{
-                  duration: 0.75,
-                  delay: 0.05,
-                  ease: [0.22, 1, 0.36, 1],
-                }}
-                className="font-display mt-3 text-[clamp(3.1rem,7.5vw,5.75rem)] font-bold leading-[0.92] tracking-[-0.02em]"
-                style={{ color: colors.navy }}
-              >
-                Nature Coast
-              </motion.h1>
-
+          <div className="relative z-10 mx-auto flex min-h-[calc(100vh-5.75rem)] max-w-7xl items-center px-5 pb-28 pt-8 sm:min-h-[calc(100vh-6.25rem)] sm:px-8 sm:pb-32 sm:pt-10 lg:px-10 lg:pb-36">
+            {/* Left — brand story & CTAs */}
+            <div className="relative w-full max-w-xl lg:max-w-[34rem]">
               <motion.div
-                initial={{ opacity: 0, scaleX: 0.6 }}
-                animate={{ opacity: 1, scaleX: 1 }}
-                transition={{ duration: 0.55, delay: 0.15 }}
-                className="mt-5 flex items-center gap-3"
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+                className="flex items-center gap-3.5"
               >
-                <span
-                  className="h-px w-10 sm:w-14"
-                  style={{ background: colors.gold }}
-                />
-                <Zap
-                  size={18}
-                  strokeWidth={2.2}
-                  fill={colors.gold}
-                  style={{ color: colors.gold }}
-                />
-                <span
-                  className="h-px w-10 sm:w-14"
-                  style={{ background: colors.gold }}
-                />
+                <LighthouseMark size={58} className="hero-logo-mark" />
+                <div className="leading-tight">
+                  <p
+                    className="font-display text-[1.45rem] font-bold tracking-[0.04em] sm:text-[1.7rem]"
+                    style={{ color: colors.navy }}
+                  >
+                    CURRENT SOLUTIONS
+                  </p>
+                  <p
+                    className="mt-0.5 text-[0.68rem] font-semibold tracking-[0.2em] uppercase"
+                    style={{ color: colors.gold }}
+                  >
+                    Electrical Services
+                  </p>
+                </div>
               </motion.div>
 
               <motion.p
-                initial={{ opacity: 0, y: 16 }}
+                initial={{ opacity: 0, y: 14 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{
-                  duration: 0.7,
-                  delay: 0.18,
+                  duration: 0.65,
+                  delay: 0.08,
                   ease: [0.22, 1, 0.36, 1],
                 }}
-                className="font-display mt-5 text-[clamp(1.35rem,2.6vw,1.85rem)] font-semibold tracking-tight"
+                className="mt-8 text-[0.78rem] font-bold tracking-[0.28em] uppercase sm:text-[0.82rem]"
+                style={{ color: colors.gold }}
+              >
+                Nature Coast Electrical
+              </motion.p>
+
+              <motion.h1
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{
+                  duration: 0.8,
+                  delay: 0.14,
+                  ease: [0.22, 1, 0.36, 1],
+                }}
+                className="font-display mt-4 text-[clamp(2.85rem,6.4vw,4.85rem)] font-bold leading-[0.98] tracking-[-0.02em]"
                 style={{ color: colors.navy }}
               >
-                Honest. Professional. Family Owned.
-              </motion.p>
+                Powering Florida&apos;s Nature Coast
+              </motion.h1>
+
+              <motion.div
+                initial={{ opacity: 0, scaleX: 0.55 }}
+                animate={{ opacity: 1, scaleX: 1 }}
+                transition={{ duration: 0.55, delay: 0.22 }}
+                className="mt-6 h-px w-24 origin-left"
+                style={{
+                  background: `linear-gradient(90deg, ${colors.gold}, rgba(212,175,55,0.15))`,
+                }}
+              />
 
               <motion.p
                 initial={{ opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{
                   duration: 0.7,
-                  delay: 0.26,
+                  delay: 0.28,
                   ease: [0.22, 1, 0.36, 1],
                 }}
-                className="mt-5 max-w-md text-base leading-[1.75] sm:text-lg"
+                className="mt-6 max-w-md text-base leading-[1.8] sm:text-lg"
                 style={{ color: "rgba(11,58,102,0.74)" }}
               >
                 Dependable electrical solutions for homes and businesses across
@@ -211,14 +235,14 @@ export default function HomePage() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{
                   duration: 0.7,
-                  delay: 0.34,
+                  delay: 0.36,
                   ease: [0.22, 1, 0.36, 1],
                 }}
                 className="mt-10 flex flex-col gap-3.5 sm:flex-row sm:items-center"
               >
                 <Link
                   href="/contact"
-                  className="cta-gold inline-flex items-center justify-center gap-2.5 rounded-md px-8 py-4 text-[0.82rem] font-bold tracking-[0.12em] uppercase transition-transform duration-200 hover:-translate-y-0.5"
+                  className="cta-gold hero-cta-primary inline-flex items-center justify-center gap-2.5 rounded-md px-8 py-4 text-[0.82rem] font-bold tracking-[0.12em] uppercase"
                   style={{ color: colors.navy }}
                 >
                   <Zap size={16} strokeWidth={2.4} fill="currentColor" />
@@ -226,10 +250,10 @@ export default function HomePage() {
                 </Link>
                 <a
                   href={PHONE_HREF}
-                  className="inline-flex items-center justify-center gap-2.5 rounded-md border-2 bg-white px-8 py-4 text-[0.82rem] font-bold tracking-[0.12em] uppercase transition-transform duration-200 hover:-translate-y-0.5"
+                  className="hero-cta-secondary inline-flex items-center justify-center gap-2.5 rounded-md border-2 bg-white/90 px-8 py-4 text-[0.82rem] font-bold tracking-[0.12em] uppercase backdrop-blur-sm"
                   style={{
                     color: colors.navy,
-                    borderColor: colors.navy,
+                    borderColor: "rgba(11,58,102,0.88)",
                   }}
                 >
                   <Phone size={16} strokeWidth={2.4} />
@@ -238,6 +262,11 @@ export default function HomePage() {
               </motion.div>
             </div>
           </div>
+
+          {/* Accessible image description for screen readers */}
+          <span className="sr-only">
+            Florida Nature Coast lighthouse at sunrise over calm Gulf water
+          </span>
 
           <div className="absolute inset-x-0 bottom-0 z-20">
             <WaveDivider
