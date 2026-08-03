@@ -86,7 +86,7 @@ export default function HomePage() {
 
           <div className="relative z-10 mx-auto flex min-h-[100vh] max-w-6xl items-center px-5 py-32 sm:px-8 sm:py-40 lg:py-44">
             <div className="max-w-xl lg:max-w-2xl">
-              <motion.p
+              <motion.h1
                 initial={{ opacity: 0, y: 18 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
@@ -94,9 +94,9 @@ export default function HomePage() {
                 style={{ color: colors.navy }}
               >
                 {SITE_SHORT_NAME}
-              </motion.p>
+              </motion.h1>
 
-              <motion.h1
+              <motion.p
                 initial={{ opacity: 0, y: 28 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{
@@ -108,7 +108,7 @@ export default function HomePage() {
                 style={{ color: colors.navy }}
               >
                 Powering Florida&apos;s Nature Coast
-              </motion.h1>
+              </motion.p>
 
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
