@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function Navbar() {
   return (
     <nav
@@ -9,9 +11,9 @@ export default function Navbar() {
         borderBottom: "1px solid #e5e5e5",
       }}
     >
-      <a href="/" style={{ fontWeight: 700, textDecoration: "none", color: "inherit" }}>
+      <Link href="/" style={{ fontWeight: 700, textDecoration: "none", color: "inherit" }}>
         Brand
-      </a>
+      </Link>
       <div style={{ display: "flex", gap: "1.5rem" }}>
         <a href="#features" style={{ textDecoration: "none", color: "inherit" }}>
           Features
