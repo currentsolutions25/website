@@ -197,29 +197,31 @@ function CoastalIllustration() {
       >
         <defs>
           <linearGradient id="sunriseSky" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stopColor="#F8C98A" />
-            <stop offset="12%" stopColor="#F5D4A0" />
-            <stop offset="28%" stopColor="#F0DFC0" />
-            <stop offset="48%" stopColor="#E8ECF0" />
-            <stop offset="68%" stopColor="#DCEFF7" />
-            <stop offset="86%" stopColor="#C5E2F0" />
-            <stop offset="100%" stopColor="#A8D0E4" />
+            <stop offset="0%" stopColor="#F4B878" />
+            <stop offset="10%" stopColor="#F7C992" />
+            <stop offset="22%" stopColor="#F3D6A8" />
+            <stop offset="38%" stopColor="#EDE4D0" />
+            <stop offset="55%" stopColor="#E2EDF3" />
+            <stop offset="72%" stopColor="#D4E8F4" />
+            <stop offset="88%" stopColor="#B9D8EA" />
+            <stop offset="100%" stopColor="#9CC8DE" />
           </linearGradient>
-          <radialGradient id="sunCore" cx="76%" cy="32%" r="8%">
-            <stop offset="0%" stopColor="#FFF6D8" stopOpacity="1" />
-            <stop offset="45%" stopColor="#FFE29A" stopOpacity="0.95" />
-            <stop offset="100%" stopColor="#F0C060" stopOpacity="0.35" />
+          <radialGradient id="sunCore" cx="76%" cy="34%" r="7%">
+            <stop offset="0%" stopColor="#FFF9E8" stopOpacity="1" />
+            <stop offset="40%" stopColor="#FFE29A" stopOpacity="0.98" />
+            <stop offset="75%" stopColor="#F0B860" stopOpacity="0.55" />
+            <stop offset="100%" stopColor="#E8A040" stopOpacity="0.15" />
           </radialGradient>
-          <radialGradient id="sunBloom" cx="76%" cy="32%" r="38%">
-            <stop offset="0%" stopColor="#FFE8B0" stopOpacity="0.72" />
-            <stop offset="28%" stopColor="#F0C878" stopOpacity="0.32" />
-            <stop offset="55%" stopColor="#D4AF37" stopOpacity="0.12" />
+          <radialGradient id="sunBloom" cx="76%" cy="34%" r="42%">
+            <stop offset="0%" stopColor="#FFE8B0" stopOpacity="0.85" />
+            <stop offset="22%" stopColor="#F5C878" stopOpacity="0.4" />
+            <stop offset="48%" stopColor="#E8B050" stopOpacity="0.16" />
             <stop offset="100%" stopColor="#D4AF37" stopOpacity="0" />
           </radialGradient>
           <linearGradient id="horizonWarmth" x1="0" y1="0" x2="0" y2="1">
             <stop offset="0%" stopColor="#F5C98A" stopOpacity="0" />
-            <stop offset="40%" stopColor="#F0B86A" stopOpacity="0.22" />
-            <stop offset="70%" stopColor="#E8A858" stopOpacity="0.14" />
+            <stop offset="35%" stopColor="#F0B060" stopOpacity="0.32" />
+            <stop offset="65%" stopColor="#E89848" stopOpacity="0.18" />
             <stop offset="100%" stopColor="#DCEFF7" stopOpacity="0" />
           </linearGradient>
           <linearGradient id="oceanDeep" x1="0" y1="0" x2="0" y2="1">
@@ -259,9 +261,10 @@ function CoastalIllustration() {
             <stop offset="100%" stopColor="#061F36" />
           </linearGradient>
           <linearGradient id="beamGrad" x1="0" y1="0" x2="1" y2="0">
-            <stop offset="0%" stopColor="#FFF3C4" stopOpacity="0.7" />
-            <stop offset="18%" stopColor="#D4AF37" stopOpacity="0.42" />
-            <stop offset="55%" stopColor="#FFE9A3" stopOpacity="0.14" />
+            <stop offset="0%" stopColor="#FFF8DC" stopOpacity="0.85" />
+            <stop offset="12%" stopColor="#FFE9A3" stopOpacity="0.55" />
+            <stop offset="35%" stopColor="#D4AF37" stopOpacity="0.28" />
+            <stop offset="70%" stopColor="#FFE9A3" stopOpacity="0.1" />
             <stop offset="100%" stopColor="#D4AF37" stopOpacity="0" />
           </linearGradient>
           <radialGradient id="lanternCore" cx="50%" cy="50%" r="50%">
@@ -276,10 +279,17 @@ function CoastalIllustration() {
             <stop offset="100%" stopColor="#DCEFF7" stopOpacity="0.2" />
           </linearGradient>
           <linearGradient id="textVeil" x1="0" y1="0" x2="1" y2="0">
-            <stop offset="0%" stopColor="#F6F1E7" stopOpacity="0.78" />
-            <stop offset="30%" stopColor="#F6F1E7" stopOpacity="0.42" />
-            <stop offset="52%" stopColor="#F6F1E7" stopOpacity="0.1" />
+            <stop offset="0%" stopColor="#F6F1E7" stopOpacity="0.9" />
+            <stop offset="22%" stopColor="#F6F1E7" stopOpacity="0.68" />
+            <stop offset="42%" stopColor="#F6F1E7" stopOpacity="0.28" />
+            <stop offset="58%" stopColor="#F6F1E7" stopOpacity="0.06" />
             <stop offset="100%" stopColor="#F6F1E7" stopOpacity="0" />
+          </linearGradient>
+          <linearGradient id="textVeilBottom" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stopColor="#F6F1E7" stopOpacity="0" />
+            <stop offset="55%" stopColor="#F6F1E7" stopOpacity="0" />
+            <stop offset="78%" stopColor="#F6F1E7" stopOpacity="0.35" />
+            <stop offset="100%" stopColor="#F6F1E7" stopOpacity="0.72" />
           </linearGradient>
           <filter id="softBlur" x="-20%" y="-20%" width="140%" height="140%">
             <feGaussianBlur stdDeviation="8" />
@@ -291,21 +301,30 @@ function CoastalIllustration() {
 
         {/* Sunrise sky */}
         <rect width="1440" height="900" fill="url(#sunriseSky)" />
-        <ellipse cx="1100" cy="290" rx="520" ry="280" fill="url(#sunBloom)" />
+        <ellipse cx="1100" cy="300" rx="560" ry="300" fill="url(#sunBloom)" />
         <ellipse
           cx="1095"
-          cy="300"
-          rx="280"
-          ry="120"
-          fill="#F5C070"
-          opacity="0.18"
+          cy="320"
+          rx="320"
+          ry="140"
+          fill="#F0A848"
+          opacity="0.22"
           filter="url(#softBlur)"
         />
-        <circle cx="1095" cy="285" r="56" fill="url(#sunCore)" />
-        <circle cx="1095" cy="285" r="92" fill="#FFE9A8" opacity="0.12" />
+        <ellipse
+          cx="1095"
+          cy="340"
+          rx="180"
+          ry="70"
+          fill="#FFD078"
+          opacity="0.28"
+          filter="url(#softBlur)"
+        />
+        <circle cx="1095" cy="295" r="62" fill="url(#sunCore)" />
+        <circle cx="1095" cy="295" r="110" fill="#FFE9A8" opacity="0.14" />
 
         {/* Warm horizon band */}
-        <rect y="380" width="1440" height="140" fill="url(#horizonWarmth)" />
+        <rect y="360" width="1440" height="160" fill="url(#horizonWarmth)" />
 
         {/* Soft floating clouds */}
         <motion.g
@@ -376,18 +395,42 @@ function CoastalIllustration() {
         <ellipse
           cx="1090"
           cy="530"
-          rx="220"
-          ry="36"
+          rx="240"
+          ry="40"
           fill="url(#oceanShimmer)"
-          opacity="0.85"
+          opacity="0.9"
         />
         <ellipse
           cx="1080"
-          cy="560"
-          rx="160"
-          ry="22"
+          cy="558"
+          rx="170"
+          ry="24"
           fill="#FFE9A8"
-          opacity="0.08"
+          opacity="0.12"
+        />
+        <ellipse
+          cx="1070"
+          cy="585"
+          rx="110"
+          ry="14"
+          fill="#FFF3C4"
+          opacity="0.07"
+        />
+
+        {/* Subtle wave surface lines */}
+        <path
+          d="M60,545 C220,530 380,560 540,545 C700,530 860,560 1020,542 C1160,528 1300,550 1420,540"
+          fill="none"
+          stroke="#DCEFF7"
+          strokeOpacity="0.14"
+          strokeWidth="1.5"
+        />
+        <path
+          d="M40,590 C200,575 360,605 520,588 C700,568 880,605 1060,585 C1200,570 1320,590 1420,580"
+          fill="none"
+          stroke="#DCEFF7"
+          strokeOpacity="0.1"
+          strokeWidth="1.25"
         />
 
         <path
@@ -588,24 +631,24 @@ function CoastalIllustration() {
           {/* Light beam — soft volumetric sweep */}
           <motion.g
             style={{ transformOrigin: "160px 118px" }}
-            animate={{ rotate: [-30, 34, -30], opacity: [0.75, 0.95, 0.75] }}
+            animate={{ rotate: [-30, 34, -30], opacity: [0.8, 1, 0.8] }}
             transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }}
           >
             <path
-              d="M168,118 L520,20 L545,210 Z"
+              d="M168,118 L560,8 L590,230 Z"
               fill="url(#beamGrad)"
               filter="url(#beamBlur)"
-              opacity="0.9"
+              opacity="0.95"
             />
             <path
-              d="M168,120 L480,90 L500,175 Z"
-              fill="#FFF3C4"
-              opacity="0.16"
+              d="M168,120 L500,70 L520,165 Z"
+              fill="#FFF8DC"
+              opacity="0.28"
             />
             <path
-              d="M168,122 L455,155 L440,225 Z"
+              d="M168,122 L470,140 L455,210 Z"
               fill="#D4AF37"
-              opacity="0.1"
+              opacity="0.16"
             />
           </motion.g>
 
@@ -673,8 +716,9 @@ function CoastalIllustration() {
           <circle cx="168" cy="434" r="1.8" fill="#D4AF37" />
         </g>
 
-        {/* Soft left veil for text legibility */}
+        {/* Soft veils for text legibility */}
         <rect width="1440" height="900" fill="url(#textVeil)" />
+        <rect width="1440" height="900" fill="url(#textVeilBottom)" />
       </svg>
     </div>
   );
@@ -888,7 +932,7 @@ export default function HomePage() {
                   ease: [0.22, 1, 0.36, 1],
                 }}
                 className="mt-8 max-w-md text-base leading-[1.75] sm:text-lg"
-                style={{ color: "rgba(11,58,102,0.72)" }}
+                style={{ color: "rgba(11,58,102,0.88)" }}
               >
                 Family-owned electrical professionals delivering dependable
                 service, honest workmanship, and quality craftsmanship
