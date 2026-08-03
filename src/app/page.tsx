@@ -207,7 +207,7 @@ function CoastalLighthouseScene() {
 
       {/* Full-scene SVG: clouds, ocean, lighthouse, sea oats */}
       <svg
-        className="absolute inset-0 h-full w-full"
+        className="absolute inset-0 h-full w-full max-sm:scale-[1.15] max-sm:origin-[72%_60%] sm:origin-center"
         viewBox="0 0 1440 900"
         preserveAspectRatio="xMidYMid slice"
         xmlns="http://www.w3.org/2000/svg"
@@ -333,8 +333,8 @@ function CoastalLighthouseScene() {
           fill="#EDE6D8"
         />
 
-        {/* Elegant lighthouse group */}
-        <g transform="translate(980, 280)">
+        {/* Elegant lighthouse group — right third, readable on mobile */}
+        <g transform="translate(900, 260)">
           {/* Soft ground shadow */}
           <ellipse cx="160" cy="470" rx="130" ry="28" fill="#072844" opacity="0.22" />
 
@@ -447,14 +447,14 @@ function CoastalLighthouseScene() {
 
       {/* Soft vignette for text readability on left */}
       <div
-        className="absolute inset-0"
+        className="absolute inset-0 max-sm:opacity-90"
         style={{
           background: `
             linear-gradient(105deg,
-              rgba(246,241,231,0.88) 0%,
-              rgba(246,241,231,0.62) 32%,
-              rgba(246,241,231,0.18) 52%,
-              transparent 68%
+              rgba(246,241,231,0.9) 0%,
+              rgba(246,241,231,0.58) 30%,
+              rgba(246,241,231,0.16) 50%,
+              transparent 66%
             )
           `,
         }}
