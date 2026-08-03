@@ -1,26 +1,80 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --navy: #0b3a66;
+  --navy-deep: #072844;
+  --sea-glass: #dceff7;
+  --warm-sand: #f6f1e7;
+  --champagne: #d4af37;
+  --champagne-soft: #e8d48a;
+  --white: #ffffff;
+  --ink-muted: rgba(11, 58, 102, 0.72);
+  --ink-soft: rgba(11, 58, 102, 0.55);
+  --background: var(--warm-sand);
+  --foreground: var(--navy);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-navy: var(--navy);
+  --color-sea-glass: var(--sea-glass);
+  --color-warm-sand: var(--warm-sand);
+  --color-champagne: var(--champagne);
+  --font-sans: var(--font-outfit);
+  --font-display: var(--font-cormorant);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-outfit), "Segoe UI", sans-serif;
+}
+
+::selection {
+  background: rgba(212, 175, 55, 0.28);
+  color: var(--navy);
+}
+
+.font-display {
+  font-family: var(--font-cormorant), Georgia, serif;
+}
+
+.glass-nav {
+  background: rgba(246, 241, 231, 0.55);
+  backdrop-filter: blur(22px) saturate(160%);
+  -webkit-backdrop-filter: blur(22px) saturate(160%);
+  border-bottom: 1px solid rgba(11, 58, 102, 0.08);
+  box-shadow: 0 10px 40px -24px rgba(11, 58, 102, 0.28);
+}
+
+.premium-card {
+  background: linear-gradient(165deg, #ffffff 0%, #fbf9f5 100%);
+  border: 1px solid rgba(11, 58, 102, 0.06);
+  box-shadow:
+    0 4px 6px -2px rgba(11, 58, 102, 0.04),
+    0 18px 48px -20px rgba(11, 58, 102, 0.18);
+  transition:
+    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.35s ease;
+}
+
+.premium-card:hover {
+  border-color: rgba(212, 175, 55, 0.35);
+  box-shadow:
+    0 8px 16px -8px rgba(11, 58, 102, 0.08),
+    0 28px 64px -24px rgba(11, 58, 102, 0.28);
+}
+
+.coastal-mesh {
+  background:
+    radial-gradient(ellipse 80% 60% at 15% 20%, rgba(220, 239, 247, 0.9) 0%, transparent 55%),
+    radial-gradient(ellipse 70% 50% at 85% 15%, rgba(212, 175, 55, 0.12) 0%, transparent 50%),
+    radial-gradient(ellipse 90% 70% at 50% 100%, rgba(11, 58, 102, 0.08) 0%, transparent 55%),
+    linear-gradient(165deg, #f6f1e7 0%, #e8f4f9 42%, #f6f1e7 100%);
 }
