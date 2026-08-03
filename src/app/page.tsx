@@ -1036,7 +1036,7 @@ export default function HomePage() {
                   className="premium-card group p-9 sm:p-11"
                 >
                   <div
-                    className="mb-8 flex h-16 w-16 items-center justify-center rounded-2xl transition-transform duration-400 group-hover:scale-105"
+                    className="mb-8 flex h-16 w-16 items-center justify-center rounded-2xl transition-transform duration-300 group-hover:scale-105"
                     style={{
                       background: `linear-gradient(145deg, ${colors.seaGlass}, rgba(220,239,247,0.35))`,
                       color: colors.navy,
