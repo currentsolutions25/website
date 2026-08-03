@@ -4,16 +4,19 @@ import {
   BUSINESS_HOURS,
   colors,
   EMAIL,
+  EMAIL_PLACEHOLDER_NOTE,
   navLinks,
   PHONE_DISPLAY,
   PHONE_HREF,
+  PHONE_PLACEHOLDER_NOTE,
   serviceAreas,
   services,
   SITE_NAME,
+  SITE_SHORT_NAME,
   socialLinks,
 } from "@/lib/design";
 
-const footerNav = navLinks.filter((link) => link.href !== "/#services");
+const quickLinks = navLinks.filter((link) => link.href !== "/#services");
 
 function SocialIcon({ label }: { label: string }) {
   if (label === "Facebook") {
@@ -49,9 +52,10 @@ export default function Footer() {
         borderColor: "rgba(11,58,102,0.08)",
       }}
     >
-      <div className="mx-auto max-w-6xl px-5 py-20 sm:px-8">
-        <div className="grid gap-14 lg:grid-cols-[1.15fr_0.85fr_0.85fr_1fr]">
-          <div className="max-w-sm">
+      <div className="mx-auto max-w-6xl px-5 py-20 sm:px-8 sm:py-24">
+        <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-12 lg:gap-10">
+          {/* Brand + contact + social */}
+          <div className="sm:col-span-2 lg:col-span-4">
             <div className="flex items-center gap-3">
               <span
                 className="flex h-12 w-12 items-center justify-center rounded-xl"
@@ -60,12 +64,13 @@ export default function Footer() {
                   boxShadow: "inset 0 0 0 1px rgba(11,58,102,0.08)",
                 }}
                 aria-hidden="true"
+                title="[Replace with company logo]"
               >
                 <span className="font-display text-xl font-semibold">CS</span>
               </span>
               <div>
                 <p className="font-display text-[1.55rem] font-semibold tracking-tight leading-tight">
-                  Current Solutions
+                  {SITE_SHORT_NAME}
                 </p>
                 <p
                   className="text-xs font-medium tracking-[0.14em] uppercase"
@@ -76,114 +81,38 @@ export default function Footer() {
               </div>
             </div>
             <p
-              className="mt-6 text-sm leading-relaxed tracking-wide"
+              className="mt-6 max-w-sm text-sm leading-relaxed tracking-wide"
               style={{ color: "rgba(11,58,102,0.65)" }}
             >
               Family Owned &amp; Operated · Serving Florida&apos;s Nature Coast
             </p>
-            <div className="mt-7 flex items-center gap-3">
-              {socialLinks.map((social) => (
-                <a
-                  key={social.label}
-                  href={social.href}
-                  aria-label={`${social.label} — ${social.placeholder}`}
-                  title={social.placeholder}
-                  className="flex h-10 w-10 items-center justify-center rounded-xl transition-opacity hover:opacity-70"
-                  style={{
-                    background: "rgba(220,239,247,0.7)",
-                    color: colors.navy,
-                  }}
-                >
-                  <SocialIcon label={social.label} />
-                </a>
-              ))}
-            </div>
-            <p
-              className="mt-4 text-xs leading-relaxed"
-              style={{ color: "rgba(11,58,102,0.45)" }}
-            >
-              Social links are placeholders for replacement with live profiles.
-            </p>
-          </div>
 
-          <div>
-            <p className="section-label mb-5">Navigation</p>
-            <ul className="flex flex-col gap-3 text-sm tracking-wide">
-              {footerNav.map((link) => (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className="transition-opacity hover:opacity-70"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div>
-            <p className="section-label mb-5">Services</p>
-            <ul className="flex flex-col gap-3 text-sm tracking-wide">
-              {services.map((service) => (
-                <li key={service.slug}>
-                  <Link
-                    href={`/services/${service.slug}`}
-                    className="transition-opacity hover:opacity-70"
-                  >
-                    {service.title}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-            <p className="section-label mb-4 mt-10">Service Areas</p>
-            <ul className="flex flex-col gap-2.5 text-sm tracking-wide">
-              {serviceAreas.slice(0, 5).map((area) => (
-                <li key={area.slug}>
-                  <Link
-                    href="/service-areas"
-                    className="transition-opacity hover:opacity-70"
-                  >
-                    {area.name}
-                  </Link>
-                </li>
-              ))}
-              <li>
-                <Link
-                  href="/service-areas"
-                  className="font-medium transition-opacity hover:opacity-70"
-                  style={{ color: colors.champagne }}
-                >
-                  View all areas →
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          <div>
-            <p className="section-label mb-5">Contact</p>
-            <ul className="flex flex-col gap-5 text-sm tracking-wide">
+            <ul className="mt-7 space-y-4">
               <li>
                 <a
                   href={PHONE_HREF}
-                  className="inline-flex items-start gap-3 transition-opacity hover:opacity-70"
+                  className="inline-flex items-center gap-3 transition-opacity duration-300 hover:opacity-70"
+                  title={PHONE_PLACEHOLDER_NOTE}
                 >
                   <span
-                    className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-xl"
+                    className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl"
                     style={{
-                      background: "rgba(220,239,247,0.7)",
-                      color: colors.navy,
+                      background:
+                        "linear-gradient(145deg, rgba(212,175,55,0.22), rgba(212,175,55,0.08))",
+                      color: colors.champagne,
                     }}
                   >
-                    <Phone size={16} strokeWidth={1.6} />
+                    <Phone size={16} strokeWidth={1.8} />
                   </span>
                   <span>
-                    <span className="block font-medium">{PHONE_DISPLAY}</span>
+                    <span className="block text-sm font-semibold">
+                      {PHONE_DISPLAY}
+                    </span>
                     <span
-                      className="mt-1 block text-xs"
+                      className="mt-0.5 block text-xs"
                       style={{ color: "rgba(11,58,102,0.45)" }}
                     >
-                      [Replace with real phone number]
+                      {PHONE_PLACEHOLDER_NOTE}
                     </span>
                   </span>
                 </a>
@@ -191,10 +120,11 @@ export default function Footer() {
               <li>
                 <a
                   href={`mailto:${EMAIL}`}
-                  className="inline-flex items-start gap-3 transition-opacity hover:opacity-70"
+                  className="inline-flex items-center gap-3 transition-opacity duration-300 hover:opacity-70"
+                  title={EMAIL_PLACEHOLDER_NOTE}
                 >
                   <span
-                    className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-xl"
+                    className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl"
                     style={{
                       background: "rgba(220,239,247,0.7)",
                       color: colors.navy,
@@ -203,39 +133,126 @@ export default function Footer() {
                     <Mail size={16} strokeWidth={1.6} />
                   </span>
                   <span>
-                    <span className="block font-medium break-all">{EMAIL}</span>
+                    <span className="block text-sm font-semibold break-all">
+                      {EMAIL}
+                    </span>
                     <span
-                      className="mt-1 block text-xs"
+                      className="mt-0.5 block text-xs"
                       style={{ color: "rgba(11,58,102,0.45)" }}
                     >
-                      [Replace with real email address]
+                      {EMAIL_PLACEHOLDER_NOTE}
                     </span>
                   </span>
                 </a>
               </li>
-              <li className="inline-flex items-start gap-3">
-                <span
-                  className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-xl"
-                  style={{
-                    background: "rgba(220,239,247,0.7)",
-                    color: colors.navy,
-                  }}
-                >
-                  <Clock size={16} strokeWidth={1.6} />
-                </span>
-                <span>
-                  <span className="mb-2 block font-medium">Business Hours</span>
-                  <ul className="space-y-1.5" style={{ color: "rgba(11,58,102,0.65)" }}>
-                    {BUSINESS_HOURS.map((item) => (
-                      <li key={item.day}>
-                        <span className="block">{item.day}</span>
-                        <span className="text-xs">{item.hours}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </span>
-              </li>
             </ul>
+
+            <div className="mt-8">
+              <p className="section-label mb-4">Social Media</p>
+              <div className="flex items-center gap-3">
+                {socialLinks.map((social) => (
+                  <a
+                    key={social.label}
+                    href={social.href}
+                    aria-label={`${social.label} — ${social.placeholder}`}
+                    title={social.placeholder}
+                    className="flex h-10 w-10 items-center justify-center rounded-xl transition-all duration-300 hover:-translate-y-0.5 hover:opacity-80"
+                    style={{
+                      background: "rgba(220,239,247,0.7)",
+                      color: colors.navy,
+                    }}
+                  >
+                    <SocialIcon label={social.label} />
+                  </a>
+                ))}
+              </div>
+              <p
+                className="mt-3 text-xs leading-relaxed"
+                style={{ color: "rgba(11,58,102,0.45)" }}
+              >
+                Social links are placeholders for replacement with live profiles.
+              </p>
+            </div>
+          </div>
+
+          {/* Quick Links */}
+          <div className="lg:col-span-2">
+            <p className="section-label mb-5">Quick Links</p>
+            <ul className="flex flex-col gap-3 text-sm tracking-wide">
+              {quickLinks.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="transition-opacity duration-300 hover:opacity-70"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Services */}
+          <div className="lg:col-span-2">
+            <p className="section-label mb-5">Services</p>
+            <ul className="flex flex-col gap-3 text-sm tracking-wide">
+              {services.map((service) => (
+                <li key={service.slug}>
+                  <Link
+                    href={`/services/${service.slug}`}
+                    className="transition-opacity duration-300 hover:opacity-70"
+                  >
+                    {service.shortTitle}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Service Areas */}
+          <div className="lg:col-span-2">
+            <p className="section-label mb-5">Service Areas</p>
+            <ul className="flex flex-col gap-2.5 text-sm tracking-wide">
+              {serviceAreas.map((area) => (
+                <li key={area.slug}>
+                  <Link
+                    href={`/service-areas#${area.slug}`}
+                    className="transition-opacity duration-300 hover:opacity-70"
+                  >
+                    {area.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Business Hours */}
+          <div className="lg:col-span-2">
+            <p className="section-label mb-5">Business Hours</p>
+            <div className="inline-flex items-start gap-3">
+              <span
+                className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-xl"
+                style={{
+                  background: "rgba(220,239,247,0.7)",
+                  color: colors.navy,
+                }}
+              >
+                <Clock size={16} strokeWidth={1.6} />
+              </span>
+              <ul
+                className="space-y-3 text-sm tracking-wide"
+                style={{ color: "rgba(11,58,102,0.7)" }}
+              >
+                {BUSINESS_HOURS.map((item) => (
+                  <li key={item.day}>
+                    <span className="block font-medium" style={{ color: colors.navy }}>
+                      {item.day}
+                    </span>
+                    <span className="text-xs">{item.hours}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         </div>
       </div>

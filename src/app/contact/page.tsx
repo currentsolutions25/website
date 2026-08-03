@@ -12,12 +12,22 @@ import {
   EMAIL,
   EMAIL_PLACEHOLDER_NOTE,
   EMERGENCY_HOURS_NOTE,
+  FACEBOOK,
   fadeUp,
   PHONE_DISPLAY,
   PHONE_HREF,
   PHONE_PLACEHOLDER_NOTE,
   serviceAreas,
+  stagger,
 } from "@/lib/design";
+
+function FacebookIcon() {
+  return (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M14 8h3V4h-3c-2.8 0-5 2.2-5 5v2H6v4h3v7h4v-7h3.1l.9-4H13V9c0-.6.4-1 1-1z" />
+    </svg>
+  );
+}
 
 export default function ContactPage() {
   return (
@@ -76,17 +86,17 @@ export default function ContactPage() {
           </motion.div>
         </section>
 
-        <section className="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-24">
+        <section className="mx-auto max-w-6xl px-5 py-20 sm:px-8 sm:py-28">
           <div className="grid items-start gap-12 lg:grid-cols-[0.95fr_1.05fr] lg:gap-16">
             <motion.div
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true, amount: 0.25 }}
+              viewport={{ once: true, amount: 0.2 }}
               transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
               variants={fadeUp}
             >
               <p className="section-label mb-5">Get In Touch</p>
-              <h2 className="font-display text-3xl font-semibold tracking-tight sm:text-4xl">
+              <h2 className="font-display text-3xl font-semibold tracking-tight sm:text-4xl lg:text-[2.75rem]">
                 Let&apos;s talk through your project
               </h2>
               <p
@@ -102,16 +112,19 @@ export default function ContactPage() {
                 <li>
                   <a
                     href={PHONE_HREF}
-                    className="inline-flex items-start gap-4 transition-opacity hover:opacity-75"
+                    className="group inline-flex items-start gap-4 rounded-2xl p-1 transition-opacity duration-300 hover:opacity-80"
+                    title={PHONE_PLACEHOLDER_NOTE}
                   >
                     <span
-                      className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl"
+                      className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl transition-transform duration-300 group-hover:scale-105"
                       style={{
-                        background: `linear-gradient(145deg, ${colors.seaGlass}, rgba(220,239,247,0.35))`,
-                        color: colors.navy,
+                        background:
+                          "linear-gradient(145deg, rgba(212,175,55,0.28), rgba(212,175,55,0.1))",
+                        color: colors.champagne,
+                        boxShadow: "inset 0 0 0 1px rgba(212,175,55,0.22)",
                       }}
                     >
-                      <Phone size={18} strokeWidth={1.6} />
+                      <Phone size={20} strokeWidth={1.9} />
                     </span>
                     <span>
                       <span
@@ -120,7 +133,7 @@ export default function ContactPage() {
                       >
                         Phone
                       </span>
-                      <span className="mt-1 block text-lg font-semibold">
+                      <span className="mt-1 block text-xl font-semibold tracking-tight">
                         {PHONE_DISPLAY}
                       </span>
                       <span
@@ -136,16 +149,17 @@ export default function ContactPage() {
                 <li>
                   <a
                     href={`mailto:${EMAIL}`}
-                    className="inline-flex items-start gap-4 transition-opacity hover:opacity-75"
+                    className="group inline-flex items-start gap-4 rounded-2xl p-1 transition-opacity duration-300 hover:opacity-80"
+                    title={EMAIL_PLACEHOLDER_NOTE}
                   >
                     <span
-                      className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl"
+                      className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl transition-transform duration-300 group-hover:scale-105"
                       style={{
                         background: `linear-gradient(145deg, ${colors.seaGlass}, rgba(220,239,247,0.35))`,
                         color: colors.navy,
                       }}
                     >
-                      <Mail size={18} strokeWidth={1.6} />
+                      <Mail size={20} strokeWidth={1.6} />
                     </span>
                     <span>
                       <span
@@ -154,7 +168,7 @@ export default function ContactPage() {
                       >
                         Email
                       </span>
-                      <span className="mt-1 block text-base font-semibold break-all">
+                      <span className="mt-1 block text-base font-semibold break-all sm:text-lg">
                         {EMAIL}
                       </span>
                       <span
@@ -167,44 +181,15 @@ export default function ContactPage() {
                   </a>
                 </li>
 
-                <li className="inline-flex items-start gap-4">
+                <li className="inline-flex items-start gap-4 p-1">
                   <span
-                    className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl"
+                    className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl"
                     style={{
                       background: `linear-gradient(145deg, ${colors.seaGlass}, rgba(220,239,247,0.35))`,
                       color: colors.navy,
                     }}
                   >
-                    <MapPin size={18} strokeWidth={1.6} />
-                  </span>
-                  <span>
-                    <span
-                      className="block text-xs font-semibold tracking-[0.16em] uppercase"
-                      style={{ color: "rgba(11,58,102,0.5)" }}
-                    >
-                      Service Area
-                    </span>
-                    <span className="mt-1 block text-base font-semibold">
-                      Florida&apos;s Nature Coast
-                    </span>
-                    <span
-                      className="mt-2 block text-sm leading-relaxed"
-                      style={{ color: "rgba(11,58,102,0.65)" }}
-                    >
-                      {serviceAreas.map((area) => area.name).join(" · ")}
-                    </span>
-                  </span>
-                </li>
-
-                <li className="inline-flex items-start gap-4">
-                  <span
-                    className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl"
-                    style={{
-                      background: `linear-gradient(145deg, ${colors.seaGlass}, rgba(220,239,247,0.35))`,
-                      color: colors.navy,
-                    }}
-                  >
-                    <Clock size={18} strokeWidth={1.6} />
+                    <Clock size={20} strokeWidth={1.6} />
                   </span>
                   <span className="w-full">
                     <span
@@ -213,11 +198,11 @@ export default function ContactPage() {
                     >
                       Business Hours
                     </span>
-                    <ul className="mt-3 space-y-2">
+                    <ul className="mt-3 space-y-2.5">
                       {BUSINESS_HOURS.map((item) => (
                         <li
                           key={item.day}
-                          className="flex flex-wrap items-baseline justify-between gap-2 border-b pb-2 text-sm"
+                          className="flex flex-wrap items-baseline justify-between gap-2 border-b pb-2.5 text-sm"
                           style={{ borderColor: "rgba(11,58,102,0.08)" }}
                         >
                           <span className="font-medium">{item.day}</span>
@@ -230,22 +215,117 @@ export default function ContactPage() {
                   </span>
                 </li>
               </ul>
+
+              <div className="mt-10">
+                <a
+                  href={FACEBOOK.href}
+                  title={FACEBOOK.placeholder}
+                  aria-label={`Facebook — ${FACEBOOK.placeholder}`}
+                  className="inline-flex items-center gap-3 rounded-2xl px-6 py-4 text-sm font-semibold tracking-wide transition-all duration-300 hover:-translate-y-0.5 hover:opacity-90"
+                  style={{
+                    background: colors.navy,
+                    color: colors.white,
+                    boxShadow: "0 16px 36px -16px rgba(11,58,102,0.55)",
+                  }}
+                >
+                  <FacebookIcon />
+                  Follow Us on Facebook
+                </a>
+                <p
+                  className="mt-3 text-xs"
+                  style={{ color: "rgba(11,58,102,0.45)" }}
+                >
+                  {FACEBOOK.placeholder}
+                </p>
+              </div>
             </motion.div>
 
             <motion.div
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true, amount: 0.2 }}
+              viewport={{ once: true, amount: 0.15 }}
               transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
               variants={fadeUp}
             >
+              <div className="mb-6">
+                <p className="section-label mb-3">Quote Request</p>
+                <h2 className="font-display text-2xl font-semibold tracking-tight sm:text-3xl">
+                  Tell us about your project
+                </h2>
+              </div>
               <ContactForm />
             </motion.div>
           </div>
         </section>
 
+        {/* Service Area */}
+        <section
+          className="py-20 sm:py-28"
+          style={{
+            background: `linear-gradient(180deg, rgba(220,239,247,0.45) 0%, ${colors.warmSand} 100%)`,
+          }}
+        >
+          <div className="mx-auto max-w-6xl px-5 sm:px-8">
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.35 }}
+              transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+              variants={fadeUp}
+              className="mx-auto max-w-2xl text-center"
+            >
+              <p className="section-label mb-5">Service Area</p>
+              <h2 className="font-display text-3xl font-semibold tracking-tight sm:text-4xl lg:text-[2.75rem]">
+                Proudly Serving Florida&apos;s Nature Coast
+              </h2>
+              <p
+                className="mt-6 text-base leading-relaxed sm:text-lg"
+                style={{ color: "rgba(11,58,102,0.68)" }}
+              >
+                Residential and commercial electrical service across the
+                communities below. Community notes are placeholders ready for
+                local details.
+              </p>
+            </motion.div>
+
+            <motion.ul
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.15 }}
+              variants={stagger}
+              className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-5"
+            >
+              {serviceAreas.map((area) => {
+                const Icon = area.icon;
+                return (
+                  <motion.li
+                    key={area.slug}
+                    variants={fadeUp}
+                    transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+                    whileHover={{ y: -4 }}
+                    className="premium-card flex items-center gap-3 px-4 py-4"
+                  >
+                    <span
+                      className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl"
+                      style={{
+                        background: `linear-gradient(145deg, ${colors.seaGlass}, rgba(220,239,247,0.35))`,
+                        color: colors.navy,
+                      }}
+                    >
+                      <Icon size={18} strokeWidth={1.5} />
+                    </span>
+                    <span className="font-display text-lg font-semibold tracking-tight">
+                      {area.name}
+                    </span>
+                  </motion.li>
+                );
+              })}
+            </motion.ul>
+          </div>
+        </section>
+
         {/* Google Map placeholder */}
-        <section className="mx-auto max-w-6xl px-5 pb-24 sm:px-8 sm:pb-32">
+        <section className="mx-auto max-w-6xl px-5 py-20 sm:px-8 sm:py-28">
           <motion.div
             initial="hidden"
             whileInView="visible"
@@ -254,11 +334,11 @@ export default function ContactPage() {
             variants={fadeUp}
           >
             <p className="section-label mb-5">Find Us</p>
-            <h2 className="font-display text-3xl font-semibold tracking-tight sm:text-4xl">
+            <h2 className="font-display text-3xl font-semibold tracking-tight sm:text-4xl lg:text-[2.75rem]">
               Service area map
             </h2>
             <p
-              className="mt-4 max-w-2xl text-base leading-relaxed"
+              className="mt-5 max-w-2xl text-base leading-relaxed sm:text-lg"
               style={{ color: "rgba(11,58,102,0.68)" }}
             >
               Google Map placeholder — replace with an embedded map once the

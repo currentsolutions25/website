@@ -5,6 +5,16 @@ import {
   Lightbulb,
   Zap,
   Siren,
+  Trees,
+  Landmark,
+  Waves,
+  Anchor,
+  Ship,
+  Store,
+  Droplets,
+  Leaf,
+  Sun,
+  Umbrella,
   type LucideIcon,
 } from "lucide-react";
 
@@ -58,6 +68,8 @@ export const socialLinks = [
     placeholder: "[Replace with Google Business URL]",
   },
 ] as const;
+
+export const FACEBOOK = socialLinks[0];
 
 export const navLinks = [
   { label: "Home", href: "/" },
@@ -512,7 +524,9 @@ export type ServiceArea = {
   slug: string;
   name: string;
   description: string;
+  cardDescription: string;
   highlights: string[];
+  icon: LucideIcon;
 };
 
 export const serviceAreas: ServiceArea[] = [
@@ -521,110 +535,140 @@ export const serviceAreas: ServiceArea[] = [
     name: "Spring Hill",
     description:
       "[Replace with Spring Hill service details] Current Solutions provides residential and commercial electrical support for Spring Hill properties.",
+    cardDescription:
+      "[Replace with Spring Hill details] Reliable electrical service for local homes and businesses.",
     highlights: [
       "[Replace] Home electrical upgrades",
       "[Replace] Panel and lighting projects",
       "[Replace] Local quote response",
     ],
+    icon: Trees,
   },
   {
     slug: "brooksville",
     name: "Brooksville",
     description:
       "[Replace with Brooksville service details] Dependable electrical service for Brooksville homes and businesses across everyday repairs and planned upgrades.",
+    cardDescription:
+      "[Replace with Brooksville details] Dependable upgrades, repairs, and project support.",
     highlights: [
       "[Replace] Residential troubleshooting",
       "[Replace] Commercial electrical support",
       "[Replace] Generator connections",
     ],
+    icon: Landmark,
   },
   {
     slug: "weeki-wachee",
     name: "Weeki Wachee",
     description:
       "[Replace with Weeki Wachee service details] Electrical services for Weeki Wachee properties that need careful, code-conscious workmanship.",
+    cardDescription:
+      "[Replace with Weeki Wachee details] Careful, code-conscious work for coastal properties.",
     highlights: [
       "[Replace] Coastal home electrical care",
       "[Replace] Exterior lighting installs",
       "[Replace] Storm-ready planning",
     ],
+    icon: Waves,
   },
   {
     slug: "hudson",
     name: "Hudson",
     description:
       "[Replace with Hudson service details] From panel upgrades to emergency troubleshooting, Hudson customers can request clear guidance and quality work.",
+    cardDescription:
+      "[Replace with Hudson details] Clear guidance for panels, lighting, and urgent needs.",
     highlights: [
       "[Replace] Panel upgrades",
       "[Replace] Emergency electrical help",
       "[Replace] Fixture and outlet updates",
     ],
+    icon: Anchor,
   },
   {
     slug: "port-richey",
     name: "Port Richey",
     description:
       "[Replace with Port Richey service details] Current Solutions supports Port Richey homes and storefronts with practical electrical solutions.",
+    cardDescription:
+      "[Replace with Port Richey details] Practical electrical solutions for homes and storefronts.",
     highlights: [
       "[Replace] Residential service calls",
       "[Replace] Business lighting upgrades",
       "[Replace] Circuit improvements",
     ],
+    icon: Ship,
   },
   {
     slug: "new-port-richey",
     name: "New Port Richey",
     description:
       "[Replace with New Port Richey service details] Professional electrical work for New Port Richey properties — planned projects and urgent needs alike.",
+    cardDescription:
+      "[Replace with New Port Richey details] Professional support for planned and urgent projects.",
     highlights: [
       "[Replace] Tenant improvement support",
       "[Replace] Home rewiring guidance",
       "[Replace] Free project quotes",
     ],
-  },
-  {
-    slug: "hernando-beach",
-    name: "Hernando Beach",
-    description:
-      "[Replace with Hernando Beach service details] Thoughtful electrical service for Hernando Beach homes that value safety, clarity, and clean finishing.",
-    highlights: [
-      "[Replace] Waterfront-area electrical care",
-      "[Replace] Exterior lighting projects",
-      "[Replace] Backup power connections",
-    ],
+    icon: Store,
   },
   {
     slug: "crystal-river",
     name: "Crystal River",
     description:
       "[Replace with Crystal River service details] Electrical contractor support for Crystal River residential and commercial properties.",
+    cardDescription:
+      "[Replace with Crystal River details] Residential and commercial electrical contractor support.",
     highlights: [
       "[Replace] Service panel upgrades",
       "[Replace] Commercial maintenance",
       "[Replace] Lighting installation",
     ],
+    icon: Droplets,
   },
   {
     slug: "homosassa",
     name: "Homosassa",
     description:
       "[Replace with Homosassa service details] Reliable electrical services for Homosassa homeowners and local businesses seeking dependable craftsmanship.",
+    cardDescription:
+      "[Replace with Homosassa details] Dependable craftsmanship for homeowners and local businesses.",
     highlights: [
       "[Replace] Home electrical repairs",
       "[Replace] Generator transfer setups",
       "[Replace] Safety-focused upgrades",
     ],
+    icon: Leaf,
   },
   {
     slug: "inverness",
     name: "Inverness",
     description:
       "[Replace with Inverness service details] Current Solutions serves Inverness with clear communication and quality electrical workmanship.",
+    cardDescription:
+      "[Replace with Inverness details] Clear communication and quality electrical workmanship.",
     highlights: [
       "[Replace] Residential upgrades",
       "[Replace] Business electrical projects",
       "[Replace] Emergency troubleshooting",
     ],
+    icon: Sun,
+  },
+  {
+    slug: "hernando-beach",
+    name: "Hernando Beach",
+    description:
+      "[Replace with Hernando Beach service details] Thoughtful electrical service for Hernando Beach homes that value safety, clarity, and clean finishing.",
+    cardDescription:
+      "[Replace with Hernando Beach details] Thoughtful electrical care for waterfront-area homes.",
+    highlights: [
+      "[Replace] Waterfront-area electrical care",
+      "[Replace] Exterior lighting projects",
+      "[Replace] Backup power connections",
+    ],
+    icon: Umbrella,
   },
 ];
 

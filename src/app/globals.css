@@ -76,7 +76,7 @@ body {
 }
 
 .premium-card:hover {
-  border-color: rgba(212, 175, 55, 0.32);
+  border-color: rgba(212, 175, 55, 0.34);
   box-shadow:
     0 8px 16px -10px rgba(11, 58, 102, 0.08),
     0 28px 56px -24px rgba(11, 58, 102, 0.24);
@@ -96,7 +96,7 @@ body {
 }
 
 .trust-card:hover {
-  border-color: rgba(212, 175, 55, 0.28);
+  border-color: rgba(212, 175, 55, 0.3);
   box-shadow:
     0 6px 14px -8px rgba(11, 58, 102, 0.08),
     0 24px 48px -22px rgba(11, 58, 102, 0.2);

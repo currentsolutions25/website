@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight, MapPin } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import PageHero from "@/components/PageHero";
 import ScaleButton from "@/components/ScaleButton";
@@ -32,21 +32,21 @@ export default function ServiceAreasPage() {
 
         <WaveDivider topColor={colors.seaGlass} bottomColor={colors.warmSand} />
 
-        <section className="mx-auto max-w-6xl px-5 py-20 sm:px-8 sm:py-28">
+        <section className="mx-auto max-w-6xl px-5 py-24 sm:px-8 sm:py-32">
           <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.35 }}
             transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
             variants={fadeUp}
-            className="mx-auto mb-14 max-w-2xl text-center"
+            className="mx-auto mb-16 max-w-2xl text-center"
           >
             <p className="section-label mb-5">Local Coverage</p>
-            <h2 className="font-display text-3xl font-semibold tracking-tight sm:text-4xl">
+            <h2 className="font-display text-3xl font-semibold tracking-tight sm:text-4xl lg:text-[2.75rem]">
               Communities we proudly serve
             </h2>
             <p
-              className="mt-5 text-base leading-relaxed"
+              className="mt-6 text-base leading-relaxed sm:text-lg"
               style={{ color: "rgba(11,58,102,0.68)" }}
             >
               Placeholder text is clearly labeled for replacement with
@@ -60,56 +60,64 @@ export default function ServiceAreasPage() {
             whileInView="visible"
             viewport={{ once: true, amount: 0.1 }}
             variants={stagger}
-            className="grid gap-7 sm:grid-cols-2 lg:grid-cols-3"
+            className="grid gap-7 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8"
           >
-            {serviceAreas.map((area) => (
-              <motion.article
-                key={area.slug}
-                id={area.slug}
-                variants={fadeUp}
-                transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-                whileHover={{ y: -6 }}
-                className="premium-card flex flex-col p-8"
-              >
-                <div
-                  className="mb-6 flex h-12 w-12 items-center justify-center rounded-2xl"
-                  style={{
-                    background: `linear-gradient(145deg, ${colors.seaGlass}, rgba(220,239,247,0.35))`,
-                    color: colors.navy,
-                  }}
+            {serviceAreas.map((area) => {
+              const Icon = area.icon;
+              return (
+                <motion.article
+                  key={area.slug}
+                  id={area.slug}
+                  variants={fadeUp}
+                  transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+                  whileHover={{ y: -8 }}
+                  className="premium-card group flex scroll-mt-32 flex-col p-8 sm:p-9"
                 >
-                  <MapPin size={20} strokeWidth={1.6} />
-                </div>
-                <h3 className="font-display text-2xl font-semibold tracking-tight">
-                  {area.name}
-                </h3>
-                <p
-                  className="mt-4 flex-1 text-sm leading-relaxed sm:text-base"
-                  style={{ color: "rgba(11,58,102,0.7)" }}
-                >
-                  {area.description}
-                </p>
-                <ul className="mt-6 space-y-2.5">
-                  {area.highlights.map((item) => (
-                    <li
-                      key={item}
-                      className="text-sm tracking-wide"
-                      style={{ color: "rgba(11,58,102,0.62)" }}
-                    >
-                      · {item}
-                    </li>
-                  ))}
-                </ul>
-                <Link
-                  href="/contact"
-                  className="mt-8 inline-flex items-center gap-2 text-sm font-semibold tracking-wide transition-opacity hover:opacity-70"
-                  style={{ color: colors.navy }}
-                >
-                  Request a quote in {area.name}
-                  <ArrowRight size={16} strokeWidth={2} />
-                </Link>
-              </motion.article>
-            ))}
+                  <div
+                    className="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl transition-transform duration-400 group-hover:scale-105"
+                    style={{
+                      background: `linear-gradient(145deg, ${colors.seaGlass}, rgba(220,239,247,0.35))`,
+                      color: colors.navy,
+                      boxShadow: "inset 0 0 0 1px rgba(11,58,102,0.05)",
+                    }}
+                  >
+                    <Icon size={24} strokeWidth={1.5} />
+                  </div>
+                  <h3 className="font-display text-2xl font-semibold tracking-tight sm:text-[1.75rem]">
+                    {area.name}
+                  </h3>
+                  <p
+                    className="mt-4 flex-1 text-sm leading-relaxed sm:text-base"
+                    style={{ color: "rgba(11,58,102,0.7)" }}
+                  >
+                    {area.description}
+                  </p>
+                  <ul className="mt-6 space-y-2.5">
+                    {area.highlights.map((item) => (
+                      <li
+                        key={item}
+                        className="text-sm tracking-wide"
+                        style={{ color: "rgba(11,58,102,0.62)" }}
+                      >
+                        · {item}
+                      </li>
+                    ))}
+                  </ul>
+                  <Link
+                    href="/contact"
+                    className="mt-8 inline-flex items-center gap-2 text-sm font-semibold tracking-wide transition-opacity duration-300 hover:opacity-70"
+                    style={{ color: colors.navy }}
+                  >
+                    Request a quote in {area.name}
+                    <ArrowRight
+                      size={16}
+                      strokeWidth={2.25}
+                      className="transition-transform duration-300 group-hover:translate-x-1"
+                    />
+                  </Link>
+                </motion.article>
+              );
+            })}
           </motion.div>
         </section>
 

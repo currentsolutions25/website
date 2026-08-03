@@ -15,6 +15,7 @@ import {
 import Link from "next/link";
 import CoastalIllustration from "@/components/CoastalIllustration";
 import ScaleButton from "@/components/ScaleButton";
+import ServiceAreasSection from "@/components/ServiceAreasSection";
 import SiteShell from "@/components/SiteShell";
 import WaveDivider from "@/components/WaveDivider";
 import {
@@ -442,9 +443,23 @@ export default function HomePage() {
           </motion.div>
         </section>
 
+        <WaveDivider
+          topColor={colors.warmSand}
+          bottomColor="rgba(220,239,247,0.35)"
+        />
+
+        {/* SECTION 6 — Service Areas */}
+        <div
+          style={{
+            background: `linear-gradient(180deg, rgba(220,239,247,0.35) 0%, ${colors.warmSand} 100%)`,
+          }}
+        >
+          <ServiceAreasSection />
+        </div>
+
         <WaveDivider topColor={colors.warmSand} bottomColor={colors.navy} />
 
-        {/* SECTION 6 — CTA */}
+        {/* SECTION 7 — CTA */}
         <section
           id="contact"
           className="cta-surface relative overflow-hidden px-5 py-36 sm:px-8 sm:py-44"
