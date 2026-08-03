@@ -77,37 +77,86 @@ body {
 
 .glass-nav {
   overflow: visible;
-  background: rgba(255, 255, 255, 0.48);
-  backdrop-filter: blur(24px) saturate(170%);
-  -webkit-backdrop-filter: blur(24px) saturate(170%);
-  border: 1px solid rgba(220, 239, 247, 0.78);
+  background: rgba(255, 255, 255, 0.58);
+  backdrop-filter: blur(28px) saturate(175%);
+  -webkit-backdrop-filter: blur(28px) saturate(175%);
+  border: 1px solid rgba(255, 255, 255, 0.72);
   box-shadow:
-    0 18px 50px -24px rgba(11, 58, 102, 0.38),
-    0 8px 24px -18px rgba(11, 58, 102, 0.22),
-    inset 0 1px 0 rgba(255, 255, 255, 0.78);
+    0 16px 40px -22px rgba(11, 58, 102, 0.34),
+    0 6px 18px -14px rgba(11, 58, 102, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.85);
 }
 
 .glass-nav-scrolled {
-  background: rgba(246, 241, 231, 0.86);
-  border-color: rgba(11, 58, 102, 0.1);
+  background: rgba(255, 255, 255, 0.82);
+  border-color: rgba(255, 255, 255, 0.88);
   box-shadow:
-    0 22px 56px -22px rgba(11, 58, 102, 0.46),
-    0 10px 28px -20px rgba(11, 58, 102, 0.28),
-    inset 0 1px 0 rgba(255, 255, 255, 0.82);
+    0 20px 48px -22px rgba(11, 58, 102, 0.4),
+    0 8px 22px -18px rgba(11, 58, 102, 0.24),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
 }
 
 .hero-premium {
   font-family: var(--font-inter), "Segoe UI", sans-serif;
 }
 
+.hero-lighthouse-photo {
+  transform: scale(1.05);
+  animation: hero-photo-settle 2s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
 .hero-atmosphere {
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(ellipse 48% 55% at 88% 18%, rgba(255, 214, 140, 0.34) 0%, transparent 58%),
-    radial-gradient(ellipse 42% 48% at 12% 78%, rgba(220, 239, 247, 0.55) 0%, transparent 55%),
-    radial-gradient(ellipse 60% 40% at 42% 0%, rgba(246, 241, 231, 0.7) 0%, transparent 60%),
-    linear-gradient(118deg, #f6f1e7 0%, #f3efe4 28%, #eaf3f7 62%, #dceff7 100%);
+    radial-gradient(ellipse 50% 42% at 78% 22%, rgba(255, 196, 110, 0.28) 0%, transparent 58%),
+    radial-gradient(ellipse 36% 30% at 88% 38%, rgba(255, 230, 160, 0.18) 0%, transparent 55%),
+    radial-gradient(ellipse 55% 40% at 18% 8%, rgba(90, 70, 130, 0.12) 0%, transparent 60%);
+}
+
+.hero-sky-wash {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(40, 28, 72, 0.12) 0%,
+    transparent 28%,
+    transparent 58%,
+    rgba(7, 31, 58, 0.18) 100%
+  );
+}
+
+.hero-ocean-depth {
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 42%;
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgba(11, 58, 102, 0.08) 45%,
+    rgba(7, 31, 58, 0.22) 100%
+  );
+}
+
+.hero-text-veil {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      100deg,
+      rgba(246, 241, 231, 0.88) 0%,
+      rgba(246, 241, 231, 0.72) 22%,
+      rgba(246, 241, 231, 0.32) 42%,
+      rgba(246, 241, 231, 0.08) 58%,
+      transparent 72%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(246, 241, 231, 0.28) 0%,
+      transparent 22%,
+      transparent 70%,
+      rgba(246, 241, 231, 0.35) 100%
+    );
 }
 
 .hero-logo-mark {
@@ -128,11 +177,13 @@ body {
 }
 
 .hero-cta-secondary {
-  background: rgba(255, 255, 255, 0.92);
-  border: 2px solid rgba(255, 255, 255, 0.95);
+  background: rgba(255, 255, 255, 0.88);
+  border: 2px solid rgba(255, 255, 255, 0.98);
   box-shadow:
     0 12px 30px -18px rgba(11, 58, 102, 0.28),
-    inset 0 0 0 1px rgba(11, 58, 102, 0.08);
+    inset 0 0 0 1px rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   transition:
     transform 0.28s cubic-bezier(0.22, 1, 0.36, 1),
     background-color 0.28s ease,
@@ -146,84 +197,42 @@ body {
   border-color: #ffffff;
   box-shadow:
     0 18px 36px -16px rgba(11, 58, 102, 0.34),
-    0 0 24px -8px rgba(212, 175, 55, 0.35),
-    inset 0 0 0 1px rgba(11, 58, 102, 0.1);
-}
-
-.hero-image-panel {
-  isolation: isolate;
-}
-
-.hero-image-frame {
-  box-shadow: none;
-}
-
-.hero-lighthouse-photo {
-  transform: scale(1.04);
-  animation: hero-photo-settle 1.8s cubic-bezier(0.22, 1, 0.36, 1) both;
-}
-
-.hero-image-glow {
-  pointer-events: none;
-  position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(
-      100deg,
-      rgba(246, 241, 231, 0.96) 0%,
-      rgba(246, 241, 231, 0.72) 18%,
-      rgba(234, 243, 247, 0.28) 38%,
-      transparent 58%
-    ),
-    radial-gradient(ellipse 55% 45% at 72% 28%, rgba(255, 220, 140, 0.22) 0%, transparent 60%),
-    linear-gradient(180deg, rgba(246, 241, 231, 0.18) 0%, transparent 28%, transparent 70%, rgba(7, 31, 58, 0.18) 100%);
-}
-
-.hero-image-mist {
-  pointer-events: none;
-  position: absolute;
-  inset: auto 0 0 0;
-  height: 28%;
-  background: linear-gradient(
-    180deg,
-    transparent 0%,
-    rgba(220, 239, 247, 0.16) 50%,
-    rgba(246, 241, 231, 0.4) 100%
-  );
+    0 0 24px -8px rgba(212, 175, 55, 0.35);
 }
 
 @keyframes hero-photo-settle {
   from {
-    transform: scale(1.1);
-    filter: saturate(0.94) brightness(1.03);
+    transform: scale(1.12);
+    filter: saturate(0.94) brightness(1.04);
   }
   to {
-    transform: scale(1.04);
+    transform: scale(1.05);
     filter: none;
   }
 }
 
 @media (max-width: 1023px) {
-  .hero-image-panel {
-    opacity: 0.42;
-  }
-
-  .hero-image-glow {
+  .hero-text-veil {
     background:
       linear-gradient(
         180deg,
-        rgba(246, 241, 231, 0.9) 0%,
-        rgba(246, 241, 231, 0.65) 35%,
-        rgba(234, 243, 247, 0.4) 68%,
-        rgba(246, 241, 231, 0.75) 100%
+        rgba(246, 241, 231, 0.78) 0%,
+        rgba(246, 241, 231, 0.55) 38%,
+        rgba(246, 241, 231, 0.42) 68%,
+        rgba(246, 241, 231, 0.62) 100%
       ),
-      radial-gradient(ellipse 70% 50% at 70% 30%, rgba(255, 220, 140, 0.2) 0%, transparent 65%);
+      linear-gradient(
+        100deg,
+        rgba(246, 241, 231, 0.55) 0%,
+        rgba(246, 241, 231, 0.2) 55%,
+        transparent 80%
+      );
   }
 
   .hero-atmosphere {
     background:
-      radial-gradient(ellipse 55% 45% at 80% 12%, rgba(255, 214, 140, 0.28) 0%, transparent 55%),
-      linear-gradient(165deg, #f6f1e7 0%, #f2eee4 45%, #eaf3f7 100%);
+      radial-gradient(ellipse 60% 45% at 80% 18%, rgba(255, 196, 110, 0.22) 0%, transparent 55%),
+      radial-gradient(ellipse 50% 35% at 20% 10%, rgba(90, 70, 130, 0.1) 0%, transparent 55%);
   }
 }
 

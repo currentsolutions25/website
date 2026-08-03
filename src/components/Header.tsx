@@ -52,27 +52,27 @@ export default function Header() {
     pathname.startsWith("/services") || pathname === "/";
 
   return (
-    <header className="sticky top-0 z-50 px-3 pt-3 sm:px-4 sm:pt-4 lg:px-5">
+    <header className="sticky top-0 z-50 px-3 pt-3 sm:px-5 sm:pt-4 lg:px-6">
       <div
-        className={`glass-nav mx-auto w-full rounded-2xl transition-[background,box-shadow,border-color] duration-300 ${
-          scrolled ? "glass-nav-scrolled" : ""
-        }`}
+        className={`glass-nav mx-auto w-full max-w-7xl transition-[background,box-shadow,border-radius,border-color] duration-300 ${
+          mobileOpen ? "rounded-[1.75rem]" : "rounded-full"
+        } ${scrolled ? "glass-nav-scrolled" : ""}`}
       >
-        <div className="flex items-center justify-between gap-3 px-4 py-3 sm:gap-4 sm:px-5 lg:px-5 xl:px-6 lg:py-3.5">
+        <div className="relative flex items-center justify-between gap-3 px-4 py-2.5 sm:gap-4 sm:px-5 sm:py-3 lg:px-6">
           <Link
             href="/"
-            className="group flex shrink-0 items-center gap-2.5"
+            className="group relative z-10 flex shrink-0 items-center gap-2.5"
           >
-            <LighthouseMark size={44} />
+            <LighthouseMark size={42} />
             <span className="leading-tight">
               <span
-                className="block font-display text-[1.1rem] font-bold tracking-[0.02em] sm:text-[1.22rem]"
+                className="block font-display text-[1.05rem] font-bold tracking-[0.02em] sm:text-[1.18rem]"
                 style={{ color: colors.navy }}
               >
                 CURRENT SOLUTIONS
               </span>
               <span
-                className="block text-[0.6rem] font-semibold tracking-[0.16em] uppercase sm:text-[0.64rem]"
+                className="block text-[0.58rem] font-semibold tracking-[0.16em] uppercase sm:text-[0.62rem]"
                 style={{ color: colors.gold }}
               >
                 Electrical Services
@@ -80,8 +80,11 @@ export default function Header() {
             </span>
           </Link>
 
-          <nav className="hidden min-w-0 items-center xl:flex" aria-label="Primary">
-            <ul className="flex items-center gap-0.5">
+          <nav
+            className="pointer-events-none absolute inset-y-0 left-1/2 hidden -translate-x-1/2 items-center xl:flex"
+            aria-label="Primary"
+          >
+            <ul className="pointer-events-auto flex items-center gap-0.5">
               {primaryNav
                 .filter((link) => link.href === "/")
                 .map((link) => (
@@ -98,8 +101,8 @@ export default function Header() {
                 <button
                   type="button"
                   className={`nav-link inline-flex items-center gap-1.5 px-2.5 py-2 text-[0.74rem] font-semibold tracking-[0.1em] uppercase transition-colors duration-200 ${
-                  servicesActive ? "nav-link-active" : ""
-                }`}
+                    servicesActive ? "nav-link-active" : ""
+                  }`}
                   style={{ color: colors.navy }}
                   aria-expanded={servicesOpen}
                   aria-haspopup="true"
@@ -121,7 +124,7 @@ export default function Header() {
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: 8 }}
                       transition={{ duration: 0.18 }}
-                      className="absolute left-1/2 top-full z-50 mt-3 w-64 -translate-x-1/2 overflow-hidden rounded-xl border bg-white/95 py-2 shadow-xl backdrop-blur-xl"
+                      className="absolute left-1/2 top-full z-50 mt-3 w-64 -translate-x-1/2 overflow-hidden rounded-2xl border bg-white/95 py-2 shadow-xl backdrop-blur-xl"
                       style={{ borderColor: "rgba(11,58,102,0.1)" }}
                     >
                       <Link
@@ -171,21 +174,21 @@ export default function Header() {
             </ul>
           </nav>
 
-          <div className="hidden shrink-0 items-center gap-3 lg:flex xl:gap-3.5">
+          <div className="relative z-10 hidden shrink-0 items-center gap-3 lg:flex xl:gap-3.5">
             <a
               href={PHONE_HREF}
               className="group whitespace-nowrap text-right leading-tight"
               aria-label={`Call ${PHONE_DISPLAY}`}
             >
               <span
-                className="flex items-center justify-end gap-1.5 text-[0.98rem] font-bold tracking-wide"
+                className="flex items-center justify-end gap-1.5 text-[0.95rem] font-bold tracking-wide"
                 style={{ color: colors.gold }}
               >
                 <Phone size={15} strokeWidth={2.4} />
                 {PHONE_DISPLAY}
               </span>
               <span
-                className="mt-0.5 block text-[0.58rem] font-semibold tracking-[0.14em] uppercase"
+                className="mt-0.5 block text-[0.56rem] font-semibold tracking-[0.14em] uppercase"
                 style={{ color: colors.navy }}
               >
                 24/7 Emergency Service
@@ -194,7 +197,7 @@ export default function Header() {
 
             <Link
               href="/contact"
-              className="cta-gold inline-flex shrink-0 items-center gap-2 whitespace-nowrap rounded-2xl px-4 py-2.5 text-[0.74rem] font-bold tracking-[0.1em] uppercase transition-transform duration-200 hover:-translate-y-0.5 xl:px-5 xl:py-3"
+              className="cta-gold inline-flex shrink-0 items-center gap-2 whitespace-nowrap rounded-full px-4 py-2.5 text-[0.74rem] font-bold tracking-[0.1em] uppercase transition-transform duration-200 hover:-translate-y-0.5 xl:px-5 xl:py-3"
               style={{ color: colors.navy }}
             >
               <Zap size={14} strokeWidth={2.4} fill="currentColor" />
@@ -202,10 +205,10 @@ export default function Header() {
             </Link>
           </div>
 
-          <div className="flex items-center gap-1 xl:hidden">
+          <div className="relative z-10 flex items-center gap-1 xl:hidden">
             <a
               href={PHONE_HREF}
-              className="inline-flex h-10 w-10 items-center justify-center rounded-lg"
+              className="inline-flex h-10 w-10 items-center justify-center rounded-full"
               aria-label={`Call ${PHONE_DISPLAY}`}
               style={{ color: colors.gold }}
             >
@@ -213,7 +216,7 @@ export default function Header() {
             </a>
             <button
               type="button"
-              className="rounded-lg p-2"
+              className="rounded-full p-2"
               aria-label={mobileOpen ? "Close menu" : "Open menu"}
               style={{ color: colors.navy }}
               onClick={() => setMobileOpen((open) => !open)}
@@ -274,7 +277,7 @@ export default function Header() {
                 <li className="pt-4">
                   <a
                     href={PHONE_HREF}
-                    className="mb-3 flex items-center gap-3 rounded-lg px-4 py-3"
+                    className="mb-3 flex items-center gap-3 rounded-2xl px-4 py-3"
                     style={{ background: colors.softGrey }}
                   >
                     <Phone size={18} style={{ color: colors.gold }} />
@@ -295,7 +298,7 @@ export default function Header() {
                   </a>
                   <Link
                     href="/contact"
-                    className="cta-gold flex w-full items-center justify-center gap-2 rounded-2xl px-5 py-3.5 text-sm font-bold tracking-[0.12em] uppercase"
+                    className="cta-gold flex w-full items-center justify-center gap-2 rounded-full px-5 py-3.5 text-sm font-bold tracking-[0.12em] uppercase"
                     style={{ color: colors.navy }}
                     onClick={() => setMobileOpen(false)}
                   >
