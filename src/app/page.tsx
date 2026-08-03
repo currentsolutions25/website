@@ -125,12 +125,12 @@ export default function HomePage() {
         {/* Hero — full-bleed coastal artwork with left copy / right lighthouse */}
         <section
           id="home"
-          className="hero-premium relative -mt-[4.75rem] min-h-screen overflow-hidden pt-[4.75rem] sm:-mt-[5.25rem] sm:pt-[5.25rem]"
+          className="hero-premium relative -mt-[5.25rem] min-h-[115vh] overflow-hidden pt-[5.25rem] sm:-mt-[5.75rem] sm:min-h-[118vh] sm:pt-[5.75rem]"
         >
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 1.35, ease: [0.22, 1, 0.36, 1] }}
             className="pointer-events-none absolute inset-0 z-0"
             aria-hidden="true"
           >
@@ -140,7 +140,7 @@ export default function HomePage() {
               fill
               priority
               sizes="100vw"
-              className="hero-lighthouse-photo object-cover object-[72%_42%] sm:object-[68%_40%] lg:object-[62%_38%]"
+              className="hero-lighthouse-photo object-cover object-[78%_48%] sm:object-[74%_46%] lg:object-[70%_44%]"
             />
             <div className="hero-atmosphere" />
             <div className="hero-sky-wash" />
@@ -148,32 +148,39 @@ export default function HomePage() {
             <div className="hero-text-veil" />
           </motion.div>
 
-          <div className="relative z-10 mx-auto grid min-h-[calc(100vh-4.75rem)] max-w-7xl grid-cols-1 items-center px-5 pb-28 pt-10 sm:min-h-[calc(100vh-5.25rem)] sm:px-8 sm:pb-32 sm:pt-12 lg:grid-cols-2 lg:px-10 lg:pb-36">
-            <div className="relative w-full max-w-xl lg:max-w-[34rem]">
+          <div className="relative z-10 mx-auto grid min-h-[calc(115vh-5.25rem)] max-w-7xl grid-cols-1 items-center px-5 pb-36 pt-16 sm:min-h-[calc(118vh-5.75rem)] sm:px-8 sm:pb-40 sm:pt-20 lg:grid-cols-2 lg:items-center lg:px-10 lg:pb-44 lg:pt-24">
+            <div className="relative w-full max-w-xl lg:max-w-[36rem]">
               <motion.div
                 initial={{ opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-                className="flex items-center gap-3.5"
+                transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
               >
-                <LighthouseMark size={64} className="hero-logo-mark" />
-                <p
-                  className="text-[0.72rem] font-semibold tracking-[0.22em] uppercase"
-                  style={{ color: colors.gold }}
-                >
-                  Electrical Services
-                </p>
+                <LighthouseMark size={72} className="hero-logo-mark" />
               </motion.div>
 
-              <motion.h1
-                initial={{ opacity: 0, y: 20 }}
+              <motion.p
+                initial={{ opacity: 0, y: 14 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{
-                  duration: 0.8,
-                  delay: 0.08,
+                  duration: 0.7,
+                  delay: 0.06,
                   ease: [0.22, 1, 0.36, 1],
                 }}
-                className="font-display mt-8 text-[clamp(2.9rem,6.6vw,5.1rem)] font-bold leading-[0.95] tracking-[-0.02em]"
+                className="mt-8 text-[0.74rem] font-semibold tracking-[0.28em] uppercase"
+                style={{ color: colors.gold }}
+              >
+                Electrical Services
+              </motion.p>
+
+              <motion.h1
+                initial={{ opacity: 0, y: 22 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{
+                  duration: 0.85,
+                  delay: 0.12,
+                  ease: [0.22, 1, 0.36, 1],
+                }}
+                className="font-display mt-7 text-[clamp(3.35rem,7.4vw,5.85rem)] font-bold leading-[0.94] tracking-[-0.025em]"
                 style={{ color: colors.navy }}
               >
                 {SITE_SHORT_NAME}
@@ -183,11 +190,11 @@ export default function HomePage() {
                 initial={{ opacity: 0, y: 18 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{
-                  duration: 0.75,
-                  delay: 0.16,
+                  duration: 0.8,
+                  delay: 0.2,
                   ease: [0.22, 1, 0.36, 1],
                 }}
-                className="font-display mt-5 text-[clamp(1.55rem,3.2vw,2.35rem)] font-medium leading-[1.15] tracking-[-0.015em]"
+                className="font-display mt-7 max-w-[18ch] text-[clamp(1.75rem,3.6vw,2.65rem)] font-medium leading-[1.18] tracking-[-0.018em]"
                 style={{ color: colors.navy }}
               >
                 Powering Florida&apos;s Nature Coast
@@ -196,8 +203,8 @@ export default function HomePage() {
               <motion.div
                 initial={{ opacity: 0, scaleX: 0.55 }}
                 animate={{ opacity: 1, scaleX: 1 }}
-                transition={{ duration: 0.55, delay: 0.22 }}
-                className="mt-7 h-px w-24 origin-left"
+                transition={{ duration: 0.55, delay: 0.28 }}
+                className="mt-9 h-px w-28 origin-left"
                 style={{
                   background: `linear-gradient(90deg, ${colors.gold}, rgba(212,175,55,0.15))`,
                 }}
@@ -207,11 +214,11 @@ export default function HomePage() {
                 initial={{ opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{
-                  duration: 0.7,
-                  delay: 0.28,
+                  duration: 0.75,
+                  delay: 0.34,
                   ease: [0.22, 1, 0.36, 1],
                 }}
-                className="mt-7 max-w-md text-base leading-[1.8] sm:text-lg"
+                className="mt-9 max-w-md text-base leading-[1.85] sm:text-lg"
                 style={{ color: "rgba(11,58,102,0.78)" }}
               >
                 Dependable electrical solutions for homes and businesses across
@@ -223,11 +230,11 @@ export default function HomePage() {
                 initial={{ opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{
-                  duration: 0.7,
-                  delay: 0.36,
+                  duration: 0.75,
+                  delay: 0.42,
                   ease: [0.22, 1, 0.36, 1],
                 }}
-                className="mt-11 flex flex-col gap-4 sm:flex-row sm:items-center"
+                className="mt-14 flex flex-col gap-4 sm:flex-row sm:items-center"
               >
                 <Link
                   href="/contact"
