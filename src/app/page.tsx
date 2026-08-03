@@ -192,49 +192,51 @@ function CoastalIllustration() {
       <svg
         className="absolute inset-0 h-full w-full"
         viewBox="0 0 1440 900"
-        preserveAspectRatio="xMidYMid slice"
+        preserveAspectRatio="xMaxYMid slice"
         xmlns="http://www.w3.org/2000/svg"
       >
         <defs>
-          <linearGradient id="sunriseSky" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stopColor="#F3C98A" />
-            <stop offset="12%" stopColor="#F6D4A0" />
-            <stop offset="28%" stopColor="#F0D8B4" />
-            <stop offset="48%" stopColor="#E4E8DC" />
-            <stop offset="68%" stopColor="#D5EAF4" />
-            <stop offset="88%" stopColor="#C2DDEA" />
-            <stop offset="100%" stopColor="#AECFDF" />
+          <linearGradient id="sunriseSky" x1="0" y1="0" x2="0.35" y2="1">
+            <stop offset="0%" stopColor="#E8B978" />
+            <stop offset="10%" stopColor="#F2C98A" />
+            <stop offset="24%" stopColor="#F0D2A8" />
+            <stop offset="42%" stopColor="#E6DFC8" />
+            <stop offset="60%" stopColor="#D4E8F2" />
+            <stop offset="80%" stopColor="#BDDCEB" />
+            <stop offset="100%" stopColor="#A5CBDF" />
           </linearGradient>
           <radialGradient id="sunCore" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stopColor="#FFF6D8" stopOpacity="1" />
-            <stop offset="35%" stopColor="#FFE29A" stopOpacity="0.9" />
-            <stop offset="70%" stopColor="#F0C56A" stopOpacity="0.35" />
+            <stop offset="0%" stopColor="#FFF8E0" stopOpacity="1" />
+            <stop offset="28%" stopColor="#FFE29A" stopOpacity="0.95" />
+            <stop offset="58%" stopColor="#F0C56A" stopOpacity="0.42" />
             <stop offset="100%" stopColor="#D4AF37" stopOpacity="0" />
           </radialGradient>
-          <radialGradient id="sunBloom" cx="78%" cy="26%" r="38%">
-            <stop offset="0%" stopColor="#FFE8B0" stopOpacity="0.55" />
-            <stop offset="35%" stopColor="#E8C878" stopOpacity="0.22" />
-            <stop offset="70%" stopColor="#D4AF37" stopOpacity="0.08" />
+          <radialGradient id="sunBloom" cx="80%" cy="24%" r="42%">
+            <stop offset="0%" stopColor="#FFE4A0" stopOpacity="0.7" />
+            <stop offset="30%" stopColor="#F0C878" stopOpacity="0.32" />
+            <stop offset="60%" stopColor="#E8B868" stopOpacity="0.12" />
             <stop offset="100%" stopColor="#D4AF37" stopOpacity="0" />
           </radialGradient>
-          <radialGradient id="horizonWarmth" cx="72%" cy="48%" r="42%">
-            <stop offset="0%" stopColor="#F5D9A8" stopOpacity="0.35" />
-            <stop offset="50%" stopColor="#E8C890" stopOpacity="0.12" />
+          <radialGradient id="horizonWarmth" cx="74%" cy="50%" r="45%">
+            <stop offset="0%" stopColor="#F8D9A0" stopOpacity="0.45" />
+            <stop offset="45%" stopColor="#EBC890" stopOpacity="0.16" />
             <stop offset="100%" stopColor="#DCEFF7" stopOpacity="0" />
           </radialGradient>
           <linearGradient id="oceanDeep" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stopColor="#1E628F" />
-            <stop offset="40%" stopColor="#0F456F" />
-            <stop offset="100%" stopColor="#062038" />
+            <stop offset="0%" stopColor="#246894" />
+            <stop offset="35%" stopColor="#114870" />
+            <stop offset="70%" stopColor="#0A355C" />
+            <stop offset="100%" stopColor="#051C30" />
           </linearGradient>
           <linearGradient id="oceanMid" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stopColor="#3A82AE" stopOpacity="0.5" />
-            <stop offset="100%" stopColor="#0B3A66" stopOpacity="0.28" />
+            <stop offset="0%" stopColor="#4A8FB8" stopOpacity="0.55" />
+            <stop offset="100%" stopColor="#0B3A66" stopOpacity="0.3" />
           </linearGradient>
           <linearGradient id="oceanShimmer" x1="0" y1="0" x2="1" y2="0">
             <stop offset="0%" stopColor="#DCEFF7" stopOpacity="0" />
-            <stop offset="40%" stopColor="#F5E6C0" stopOpacity="0.18" />
-            <stop offset="70%" stopColor="#DCEFF7" stopOpacity="0.12" />
+            <stop offset="35%" stopColor="#FFE9B0" stopOpacity="0.28" />
+            <stop offset="55%" stopColor="#FFF3C4" stopOpacity="0.22" />
+            <stop offset="80%" stopColor="#DCEFF7" stopOpacity="0.1" />
             <stop offset="100%" stopColor="#DCEFF7" stopOpacity="0" />
           </linearGradient>
           <linearGradient id="foamLine" x1="0" y1="0" x2="0" y2="1">
@@ -258,22 +260,23 @@ function CoastalIllustration() {
             <stop offset="100%" stopColor="#062440" />
           </linearGradient>
           <linearGradient id="beamGrad" x1="0" y1="0" x2="1" y2="0">
-            <stop offset="0%" stopColor="#FFF3C4" stopOpacity="0.65" />
-            <stop offset="18%" stopColor="#D4AF37" stopOpacity="0.38" />
-            <stop offset="55%" stopColor="#FFE9A3" stopOpacity="0.14" />
+            <stop offset="0%" stopColor="#FFF6D0" stopOpacity="0.78" />
+            <stop offset="12%" stopColor="#FFE49A" stopOpacity="0.48" />
+            <stop offset="35%" stopColor="#D4AF37" stopOpacity="0.28" />
+            <stop offset="65%" stopColor="#FFE9A3" stopOpacity="0.1" />
             <stop offset="100%" stopColor="#D4AF37" stopOpacity="0" />
           </linearGradient>
           <radialGradient id="lanternCore" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stopColor="#FFF8DC" stopOpacity="0.95" />
-            <stop offset="30%" stopColor="#FFE9A8" stopOpacity="0.55" />
-            <stop offset="60%" stopColor="#D4AF37" stopOpacity="0.22" />
+            <stop offset="0%" stopColor="#FFF8DC" stopOpacity="1" />
+            <stop offset="25%" stopColor="#FFE9A8" stopOpacity="0.65" />
+            <stop offset="55%" stopColor="#D4AF37" stopOpacity="0.28" />
             <stop offset="100%" stopColor="#D4AF37" stopOpacity="0" />
           </radialGradient>
           <linearGradient id="textVeil" x1="0" y1="0" x2="1" y2="0">
-            <stop offset="0%" stopColor="#F6F1E7" stopOpacity="0.78" />
-            <stop offset="28%" stopColor="#F6F1E7" stopOpacity="0.48" />
-            <stop offset="52%" stopColor="#F6F1E7" stopOpacity="0.14" />
-            <stop offset="72%" stopColor="#F6F1E7" stopOpacity="0" />
+            <stop offset="0%" stopColor="#F6F1E7" stopOpacity="0.82" />
+            <stop offset="24%" stopColor="#F6F1E7" stopOpacity="0.52" />
+            <stop offset="46%" stopColor="#F6F1E7" stopOpacity="0.16" />
+            <stop offset="62%" stopColor="#F6F1E7" stopOpacity="0" />
             <stop offset="100%" stopColor="#F6F1E7" stopOpacity="0" />
           </linearGradient>
           <linearGradient id="mistBand" x1="0" y1="0" x2="0" y2="1">
@@ -288,14 +291,14 @@ function CoastalIllustration() {
 
         {/* Sunrise sky */}
         <rect width="1440" height="900" fill="url(#sunriseSky)" />
-        <ellipse cx="1120" cy="230" rx="420" ry="320" fill="url(#sunBloom)" />
-        <ellipse cx="1040" cy="430" rx="480" ry="120" fill="url(#horizonWarmth)" />
+        <ellipse cx="1140" cy="210" rx="460" ry="340" fill="url(#sunBloom)" />
+        <ellipse cx="1060" cy="420" rx="520" ry="140" fill="url(#horizonWarmth)" />
 
         {/* Sun disk with layered atmosphere */}
-        <circle cx="1185" cy="218" r="120" fill="url(#sunCore)" opacity="0.45" />
-        <circle cx="1185" cy="218" r="58" fill="#FFF0C4" opacity="0.55" />
-        <circle cx="1185" cy="218" r="36" fill="#FFE9A8" opacity="0.75" />
-        <circle cx="1185" cy="218" r="22" fill="#FFF8E0" opacity="0.9" />
+        <circle cx="1200" cy="205" r="150" fill="url(#sunCore)" opacity="0.5" />
+        <circle cx="1200" cy="205" r="72" fill="#FFF0C4" opacity="0.5" />
+        <circle cx="1200" cy="205" r="44" fill="#FFE9A8" opacity="0.72" />
+        <circle cx="1200" cy="205" r="26" fill="#FFF8E0" opacity="0.92" />
 
         {/* Soft floating clouds */}
         <motion.g
@@ -356,13 +359,21 @@ function CoastalIllustration() {
 
         {/* Sunrise shimmer across water */}
         <motion.ellipse
-          cx="1100"
-          cy="560"
-          rx="280"
-          ry="40"
+          cx="1120"
+          cy="555"
+          rx="320"
+          ry="48"
           fill="url(#oceanShimmer)"
-          animate={{ opacity: [0.35, 0.6, 0.35], rx: [260, 300, 260] }}
+          animate={{ opacity: [0.4, 0.75, 0.4], rx: [290, 340, 290] }}
           transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+        />
+        <ellipse
+          cx="1180"
+          cy="545"
+          rx="160"
+          ry="18"
+          fill="#FFF3C4"
+          opacity="0.12"
         />
 
         <path
