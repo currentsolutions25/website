@@ -1,11 +1,4 @@
-import {
-  Facebook,
-  Instagram,
-  Linkedin,
-  Mail,
-  MapPin,
-  Phone,
-} from "lucide-react";
+import { Facebook, Mail, Phone } from "lucide-react";
 import type { NavItem } from "@/types";
 
 const quickLinks: NavItem[] = [
@@ -16,12 +9,6 @@ const quickLinks: NavItem[] = [
   { label: "Contact", href: "#contact" },
 ];
 
-const socialLinks = [
-  { label: "Facebook", href: "#", icon: Facebook },
-  { label: "Instagram", href: "#", icon: Instagram },
-  { label: "LinkedIn", href: "#", icon: Linkedin },
-] as const;
-
 export default function Footer() {
   return (
     <footer
@@ -29,16 +16,16 @@ export default function Footer() {
       className="relative overflow-hidden bg-navy-deep text-warm-white"
     >
       <div
-        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(196,163,90,0.12),transparent_55%)]"
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(196,163,90,0.1),transparent_55%)]"
         aria-hidden="true"
       />
       <div
-        className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-gold/45 to-transparent"
+        className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-gold/40 to-transparent"
         aria-hidden="true"
       />
 
       <div className="relative mx-auto max-w-7xl px-6 py-20 sm:px-8 sm:py-24 lg:px-12">
-        <div className="grid gap-14 lg:grid-cols-[1.4fr_1fr_1fr] lg:gap-16">
+        <div className="grid gap-14 lg:grid-cols-[1.5fr_1fr_1fr] lg:gap-16">
           <div>
             <p className="font-display text-3xl font-semibold tracking-[0.03em] text-warm-white sm:text-4xl">
               Current Solutions
@@ -74,10 +61,6 @@ export default function Footer() {
                 <Mail className="h-4 w-4 text-gold" aria-hidden="true" />
                 currentsolutions25@yahoo.com
               </a>
-              <p className="flex items-start gap-3 pt-1 text-warm-white/65">
-                <MapPin className="mt-0.5 h-4 w-4 text-gold" aria-hidden="true" />
-                Florida&apos;s Nature Coast
-              </p>
             </div>
           </div>
 
@@ -104,21 +87,22 @@ export default function Footer() {
               Connect
             </h2>
             <p className="mt-6 text-sm leading-relaxed text-warm-white/65">
-              Follow along for updates, project highlights, and Nature Coast
-              community news.
+              Stay connected with Current Solutions across the Nature Coast.
             </p>
             <ul className="mt-6 flex items-center gap-3">
-              {socialLinks.map(({ label, href, icon: Icon }) => (
-                <li key={label}>
-                  <a
-                    href={href}
-                    aria-label={`${label} (placeholder)`}
-                    className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/15 text-warm-white/80 transition-all duration-300 hover:border-gold/45 hover:bg-gold/10 hover:text-gold-soft"
-                  >
-                    <Icon className="h-4 w-4" strokeWidth={1.5} aria-hidden="true" />
-                  </a>
-                </li>
-              ))}
+              <li>
+                <a
+                  href="#"
+                  aria-label="Facebook (placeholder)"
+                  className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/15 text-warm-white/80 transition-all duration-300 hover:border-gold/45 hover:bg-gold/10 hover:text-gold-soft"
+                >
+                  <Facebook
+                    className="h-4 w-4"
+                    strokeWidth={1.5}
+                    aria-hidden="true"
+                  />
+                </a>
+              </li>
             </ul>
           </div>
         </div>
@@ -127,7 +111,7 @@ export default function Footer() {
           <p>
             © {new Date().getFullYear()} Current Solutions Electrical Services
           </p>
-          <p className="tracking-wide">Timeless service. Trusted locally.</p>
+          <p className="tracking-wide">Family Owned & Operated</p>
         </div>
       </div>
     </footer>

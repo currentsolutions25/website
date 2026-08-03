@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import type { NavItem } from "@/types";
 
@@ -36,10 +35,10 @@ export default function Navbar() {
       <nav
         aria-label="Primary"
         className={cn(
-          "pointer-events-auto mx-auto flex max-w-6xl items-center justify-between rounded-2xl border px-5 py-3 transition-[background-color,border-color,box-shadow,backdrop-filter] duration-500 sm:px-7",
+          "pointer-events-auto mx-auto flex max-w-5xl items-center justify-between rounded-full border px-5 py-3 transition-[background-color,border-color,box-shadow,backdrop-filter] duration-500 sm:px-7",
           scrolled
-            ? "border-white/20 bg-navy-deep/75 shadow-[0_10px_40px_rgba(6,21,38,0.28)] backdrop-blur-xl"
-            : "border-white/12 bg-navy-deep/35 shadow-[0_8px_30px_rgba(6,21,38,0.12)] backdrop-blur-md",
+            ? "border-white/25 bg-navy-deep/80 shadow-[0_12px_40px_rgba(6,21,38,0.32)] backdrop-blur-2xl"
+            : "border-white/15 bg-navy-deep/40 shadow-[0_8px_28px_rgba(6,21,38,0.14)] backdrop-blur-xl",
         )}
       >
         <a
@@ -64,35 +63,50 @@ export default function Navbar() {
 
         <button
           type="button"
-          className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-white/15 text-warm-white transition-colors duration-300 hover:border-gold/40 hover:text-gold-soft md:hidden"
+          className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/15 text-warm-white transition-colors duration-300 hover:border-gold/40 hover:text-gold-soft md:hidden"
           aria-expanded={open}
           aria-controls="mobile-nav"
           onClick={() => setOpen((value) => !value)}
         >
           <span className="sr-only">{open ? "Close menu" : "Open menu"}</span>
-          {open ? (
-            <X className="h-5 w-5" aria-hidden="true" />
-          ) : (
-            <Menu className="h-5 w-5" aria-hidden="true" />
-          )}
+          <span className="relative block h-3.5 w-5" aria-hidden="true">
+            <span
+              className={cn(
+                "absolute left-0 block h-px w-full bg-current transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]",
+                open ? "top-1/2 -translate-y-1/2 rotate-45" : "top-0",
+              )}
+            />
+            <span
+              className={cn(
+                "absolute top-1/2 left-0 block h-px w-full -translate-y-1/2 bg-current transition-all duration-300",
+                open ? "scale-x-0 opacity-0" : "scale-x-100 opacity-100",
+              )}
+            />
+            <span
+              className={cn(
+                "absolute left-0 block h-px w-full bg-current transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]",
+                open ? "top-1/2 -translate-y-1/2 -rotate-45" : "bottom-0",
+              )}
+            />
+          </span>
         </button>
       </nav>
 
       <div
         id="mobile-nav"
         className={cn(
-          "pointer-events-auto mx-auto mt-3 max-w-6xl overflow-hidden rounded-2xl border border-white/15 bg-navy-deep/85 backdrop-blur-xl transition-all duration-500 md:hidden",
+          "pointer-events-auto mx-auto mt-3 max-w-5xl overflow-hidden rounded-[1.75rem] border border-white/15 bg-navy-deep/88 backdrop-blur-2xl transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] md:hidden",
           open
-            ? "max-h-96 opacity-100 shadow-[0_16px_40px_rgba(6,21,38,0.35)]"
-            : "max-h-0 border-transparent opacity-0",
+            ? "max-h-96 opacity-100 shadow-[0_18px_44px_rgba(6,21,38,0.38)]"
+            : "pointer-events-none max-h-0 border-transparent opacity-0",
         )}
       >
-        <ul className="flex flex-col gap-1 px-5 py-4">
+        <ul className="flex flex-col gap-1 px-5 py-5">
           {navItems.map((item) => (
             <li key={item.href}>
               <a
                 href={item.href}
-                className="block rounded-xl px-3 py-3 text-sm font-light tracking-[0.14em] text-warm-white/85 uppercase transition-colors duration-300 hover:bg-white/5 hover:text-gold-soft"
+                className="block rounded-full px-4 py-3 text-sm font-light tracking-[0.14em] text-warm-white/85 uppercase transition-colors duration-300 hover:bg-white/5 hover:text-gold-soft"
                 onClick={() => setOpen(false)}
               >
                 {item.label}

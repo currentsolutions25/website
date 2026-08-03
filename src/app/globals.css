@@ -46,13 +46,13 @@ body {
   color: var(--navy-deep);
 }
 
-/* Soft gold CTA — never bright yellow */
+/* Champagne gold CTA — never bright yellow */
 .btn-gold {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   border-radius: 9999px;
-  padding: 0.95rem 2.1rem;
+  padding: 1rem 2.25rem;
   font-size: 0.875rem;
   font-weight: 500;
   letter-spacing: 0.08em;
@@ -66,7 +66,8 @@ body {
   );
   box-shadow:
     0 0 0 1px color-mix(in srgb, var(--gold-deep) 25%, transparent),
-    0 8px 28px var(--gold-glow);
+    0 8px 28px var(--gold-glow),
+    0 0 36px rgba(196, 163, 90, 0.18);
   transition:
     transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
     box-shadow 0.45s ease,
@@ -74,11 +75,16 @@ body {
 }
 
 .btn-gold:hover {
-  transform: translateY(-2px);
+  transform: translateY(-3px) scale(1.03);
   filter: brightness(1.04);
   box-shadow:
     0 0 0 1px color-mix(in srgb, var(--gold) 35%, transparent),
-    0 14px 36px rgba(196, 163, 90, 0.42);
+    0 16px 40px rgba(196, 163, 90, 0.42),
+    0 0 48px rgba(196, 163, 90, 0.22);
+}
+
+.btn-gold:active {
+  transform: translateY(-1px) scale(1.01);
 }
 
 .btn-gold:focus-visible {
@@ -93,7 +99,7 @@ body {
   gap: 0.5rem;
   border-radius: 9999px;
   border: 1px solid color-mix(in srgb, var(--warm-white) 40%, transparent);
-  padding: 0.95rem 2.1rem;
+  padding: 1rem 2.25rem;
   font-size: 0.875rem;
   font-weight: 500;
   letter-spacing: 0.08em;
@@ -105,14 +111,20 @@ body {
     border-color 0.4s ease,
     color 0.4s ease,
     background-color 0.4s ease,
-    transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+    transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.45s ease;
 }
 
 .btn-ghost:hover {
-  transform: translateY(-2px);
+  transform: translateY(-3px) scale(1.03);
   border-color: color-mix(in srgb, var(--gold-soft) 70%, transparent);
   color: var(--gold-soft);
   background: color-mix(in srgb, var(--navy-deep) 28%, transparent);
+  box-shadow: 0 10px 28px rgba(6, 21, 38, 0.22);
+}
+
+.btn-ghost:active {
+  transform: translateY(-1px) scale(1.01);
 }
 
 .btn-ghost:focus-visible {
@@ -120,7 +132,7 @@ body {
   outline-offset: 3px;
 }
 
-/* Calming lighthouse beam — originates near the lantern (right side) */
+/* Calming lighthouse beam — soft white glow, slow 9s sweep */
 .lighthouse-beam {
   position: absolute;
   inset: 0;
@@ -131,45 +143,46 @@ body {
 
 .lighthouse-beam__cone {
   position: absolute;
-  top: 18%;
-  right: 22%;
-  width: 140%;
-  height: 140%;
+  top: 16%;
+  right: 20%;
+  width: 150%;
+  height: 150%;
   transform-origin: 78% 42%;
   background: conic-gradient(
     from 210deg at 78% 42%,
     transparent 0deg,
-    transparent 18deg,
-    color-mix(in srgb, var(--gold-soft) 10%, transparent) 28deg,
-    color-mix(in srgb, var(--warm-white) 14%, transparent) 34deg,
-    color-mix(in srgb, var(--gold-soft) 8%, transparent) 40deg,
+    transparent 20deg,
+    rgba(255, 255, 255, 0.04) 28deg,
+    rgba(255, 255, 255, 0.12) 34deg,
+    rgba(255, 252, 245, 0.08) 40deg,
     transparent 50deg,
     transparent 360deg
   );
-  opacity: 0.35;
+  opacity: 0.32;
   mix-blend-mode: soft-light;
-  animation: lighthouse-sweep 14s ease-in-out infinite;
+  filter: blur(0.5px);
+  animation: lighthouse-sweep 9s ease-in-out infinite;
   will-change: transform, opacity;
 }
 
 @keyframes lighthouse-sweep {
   0% {
-    transform: rotate(-18deg);
-    opacity: 0.18;
+    transform: rotate(-16deg);
+    opacity: 0.16;
   }
-  35% {
-    opacity: 0.38;
+  40% {
+    opacity: 0.34;
   }
   50% {
-    transform: rotate(22deg);
-    opacity: 0.28;
+    transform: rotate(18deg);
+    opacity: 0.26;
   }
-  65% {
-    opacity: 0.36;
+  60% {
+    opacity: 0.32;
   }
   100% {
-    transform: rotate(-18deg);
-    opacity: 0.18;
+    transform: rotate(-16deg);
+    opacity: 0.16;
   }
 }
 
@@ -180,7 +193,7 @@ body {
 
   .lighthouse-beam__cone {
     animation: none;
-    opacity: 0.22;
+    opacity: 0.2;
     transform: rotate(0deg);
   }
 
@@ -197,9 +210,10 @@ body {
 
 @media (max-width: 768px) {
   .lighthouse-beam__cone {
-    top: 12%;
-    right: 8%;
-    transform-origin: 82% 38%;
-    opacity: 0.28;
+    top: 10%;
+    right: 6%;
+    transform-origin: 84% 36%;
+    opacity: 0.26;
+    animation-duration: 10s;
   }
 }

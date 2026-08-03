@@ -73,11 +73,6 @@ export default function WhyChoose() {
       id="about"
       className="relative bg-warm-white py-28 sm:py-32 lg:py-40"
     >
-      <div
-        className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-gold/40 to-transparent"
-        aria-hidden="true"
-      />
-
       <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
         <motion.div
           className="mx-auto max-w-2xl text-center"
