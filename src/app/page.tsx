@@ -157,21 +157,13 @@ export default function HomePage() {
                 transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
                 className="flex items-center gap-3.5"
               >
-                <LighthouseMark size={58} className="hero-logo-mark" />
-                <div className="leading-tight">
-                  <p
-                    className="font-display text-[1.45rem] font-bold tracking-[0.04em] sm:text-[1.7rem]"
-                    style={{ color: colors.navy }}
-                  >
-                    {SITE_SHORT_NAME.toUpperCase()}
-                  </p>
-                  <p
-                    className="mt-0.5 text-[0.68rem] font-semibold tracking-[0.2em] uppercase"
-                    style={{ color: colors.gold }}
-                  >
-                    Electrical Services
-                  </p>
-                </div>
+                <LighthouseMark size={64} className="hero-logo-mark" />
+                <p
+                  className="text-[0.72rem] font-semibold tracking-[0.22em] uppercase"
+                  style={{ color: colors.gold }}
+                >
+                  Electrical Services
+                </p>
               </motion.div>
 
               <motion.h1
@@ -179,19 +171,33 @@ export default function HomePage() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{
                   duration: 0.8,
-                  delay: 0.1,
+                  delay: 0.08,
                   ease: [0.22, 1, 0.36, 1],
                 }}
-                className="font-display mt-10 text-[clamp(2.85rem,6.4vw,4.85rem)] font-bold leading-[0.98] tracking-[-0.02em]"
+                className="font-display mt-8 text-[clamp(2.9rem,6.6vw,5.1rem)] font-bold leading-[0.95] tracking-[-0.02em]"
+                style={{ color: colors.navy }}
+              >
+                {SITE_SHORT_NAME}
+              </motion.h1>
+
+              <motion.p
+                initial={{ opacity: 0, y: 18 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{
+                  duration: 0.75,
+                  delay: 0.16,
+                  ease: [0.22, 1, 0.36, 1],
+                }}
+                className="font-display mt-5 text-[clamp(1.55rem,3.2vw,2.35rem)] font-medium leading-[1.15] tracking-[-0.015em]"
                 style={{ color: colors.navy }}
               >
                 Powering Florida&apos;s Nature Coast
-              </motion.h1>
+              </motion.p>
 
               <motion.div
                 initial={{ opacity: 0, scaleX: 0.55 }}
                 animate={{ opacity: 1, scaleX: 1 }}
-                transition={{ duration: 0.55, delay: 0.2 }}
+                transition={{ duration: 0.55, delay: 0.22 }}
                 className="mt-7 h-px w-24 origin-left"
                 style={{
                   background: `linear-gradient(90deg, ${colors.gold}, rgba(212,175,55,0.15))`,
@@ -203,7 +209,7 @@ export default function HomePage() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{
                   duration: 0.7,
-                  delay: 0.26,
+                  delay: 0.28,
                   ease: [0.22, 1, 0.36, 1],
                 }}
                 className="mt-7 max-w-md text-base leading-[1.8] sm:text-lg"
@@ -219,7 +225,7 @@ export default function HomePage() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{
                   duration: 0.7,
-                  delay: 0.34,
+                  delay: 0.36,
                   ease: [0.22, 1, 0.36, 1],
                 }}
                 className="mt-11 flex flex-col gap-4 sm:flex-row sm:items-center"
