@@ -291,14 +291,14 @@ function CoastalIllustration() {
 
         {/* Sunrise sky */}
         <rect width="1440" height="900" fill="url(#sunriseSky)" />
-        <ellipse cx="1020" cy="210" rx="460" ry="340" fill="url(#sunBloom)" />
-        <ellipse cx="960" cy="420" rx="520" ry="140" fill="url(#horizonWarmth)" />
+        <ellipse cx="1080" cy="210" rx="460" ry="340" fill="url(#sunBloom)" />
+        <ellipse cx="1000" cy="420" rx="520" ry="140" fill="url(#horizonWarmth)" />
 
         {/* Sun disk with layered atmosphere */}
-        <circle cx="1080" cy="205" r="150" fill="url(#sunCore)" opacity="0.5" />
-        <circle cx="1080" cy="205" r="72" fill="#FFF0C4" opacity="0.5" />
-        <circle cx="1080" cy="205" r="44" fill="#FFE9A8" opacity="0.72" />
-        <circle cx="1080" cy="205" r="26" fill="#FFF8E0" opacity="0.92" />
+        <circle cx="1140" cy="205" r="150" fill="url(#sunCore)" opacity="0.5" />
+        <circle cx="1140" cy="205" r="72" fill="#FFF0C4" opacity="0.5" />
+        <circle cx="1140" cy="205" r="44" fill="#FFE9A8" opacity="0.72" />
+        <circle cx="1140" cy="205" r="26" fill="#FFF8E0" opacity="0.92" />
 
         {/* Soft floating clouds */}
         <motion.g
@@ -553,7 +553,7 @@ function CoastalIllustration() {
         </g>
 
         {/* Lighthouse group — right coastal overlook */}
-        <g transform="translate(760, 170)">
+        <g transform="translate(820, 165)">
           {/* Rock base with more depth */}
           <ellipse cx="160" cy="482" rx="140" ry="34" fill="#072844" opacity="0.2" />
           <path
@@ -830,6 +830,7 @@ export default function HomePage() {
           className="relative min-h-[100vh] overflow-hidden pt-28"
         >
           <CoastalIllustration />
+          <div className="hero-readability-veil" aria-hidden="true" />
 
           <div className="relative z-10 mx-auto flex min-h-[100vh] max-w-6xl items-center px-5 py-32 sm:px-8 sm:py-40 lg:py-44">
             <div className="max-w-xl lg:max-w-2xl">

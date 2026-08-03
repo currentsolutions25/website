@@ -128,16 +128,36 @@ body {
   height: 100%;
 }
 
-/* Right-weight the coastal artwork on phones so the lighthouse stays in frame */
+.hero-readability-veil {
+  display: none;
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+/* Keep the lighthouse in frame on the right while protecting copy contrast */
 @media (max-width: 768px) {
   .coastal-scene {
     left: auto;
-    width: 210%;
+    width: 158%;
+  }
+
+  .hero-readability-veil {
+    display: block;
+    background: linear-gradient(
+      100deg,
+      rgba(246, 241, 231, 0.94) 0%,
+      rgba(246, 241, 231, 0.88) 42%,
+      rgba(246, 241, 231, 0.45) 68%,
+      rgba(246, 241, 231, 0.08) 86%,
+      rgba(246, 241, 231, 0) 100%
+    );
   }
 }
 
 @media (max-width: 480px) {
   .coastal-scene {
-    width: 245%;
+    width: 175%;
   }
 }
