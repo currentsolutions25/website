@@ -194,7 +194,7 @@ export default function Header() {
 
             <Link
               href="/contact"
-              className="cta-gold inline-flex shrink-0 items-center gap-2 whitespace-nowrap rounded-md px-4 py-2.5 text-[0.74rem] font-bold tracking-[0.1em] uppercase transition-transform duration-200 hover:-translate-y-0.5 xl:px-5 xl:py-3"
+              className="cta-gold inline-flex shrink-0 items-center gap-2 whitespace-nowrap rounded-2xl px-4 py-2.5 text-[0.74rem] font-bold tracking-[0.1em] uppercase transition-transform duration-200 hover:-translate-y-0.5 xl:px-5 xl:py-3"
               style={{ color: colors.navy }}
             >
               <Zap size={14} strokeWidth={2.4} fill="currentColor" />
@@ -295,7 +295,7 @@ export default function Header() {
                   </a>
                   <Link
                     href="/contact"
-                    className="cta-gold flex w-full items-center justify-center gap-2 rounded-md px-5 py-3.5 text-sm font-bold tracking-[0.12em] uppercase"
+                    className="cta-gold flex w-full items-center justify-center gap-2 rounded-2xl px-5 py-3.5 text-sm font-bold tracking-[0.12em] uppercase"
                     style={{ color: colors.navy }}
                     onClick={() => setMobileOpen(false)}
                   >

@@ -17,6 +17,7 @@ import Image from "next/image";
 import Link from "next/link";
 import LighthouseMark from "@/components/LighthouseMark";
 import MediaPlaceholder from "@/components/MediaPlaceholder";
+import ScaleButton from "@/components/ScaleButton";
 import SiteShell from "@/components/SiteShell";
 import WaveDivider from "@/components/WaveDivider";
 import {
@@ -24,7 +25,7 @@ import {
   fadeUp,
   PHONE_DISPLAY,
   PHONE_HREF,
-  services,
+  SITE_SHORT_NAME,
   stagger,
 } from "@/lib/design";
 
@@ -92,11 +93,11 @@ const featuredServices = [
 ];
 
 const projectThumbs = [
-  "project-1",
-  "project-2",
-  "project-3",
-  "project-4",
-  "project-5",
+  { id: "project-1", label: "Panel upgrade", span: "lg:col-span-2 lg:row-span-2" },
+  { id: "project-2", label: "Exterior lighting", span: "" },
+  { id: "project-3", label: "Commercial fit-out", span: "" },
+  { id: "project-4", label: "Generator connection", span: "lg:col-span-2" },
+  { id: "project-5", label: "Residential refresh", span: "" },
 ] as const;
 
 const homeReviews = [
@@ -121,14 +122,13 @@ export default function HomePage() {
   return (
     <SiteShell>
       <main>
-        {/* Hero */}
+        {/* Hero — 100vh cinematic coastal split */}
         <section
           id="home"
           className="hero-premium relative -mt-[5.75rem] min-h-screen overflow-hidden pt-[5.75rem] sm:-mt-[6.25rem] sm:pt-[6.25rem]"
         >
           <div className="hero-atmosphere" aria-hidden="true" />
 
-          {/* Right — full-height lighthouse identity */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -150,7 +150,6 @@ export default function HomePage() {
           </motion.div>
 
           <div className="relative z-10 mx-auto flex min-h-[calc(100vh-5.75rem)] max-w-7xl items-center px-5 pb-28 pt-8 sm:min-h-[calc(100vh-6.25rem)] sm:px-8 sm:pb-32 sm:pt-10 lg:px-10 lg:pb-36">
-            {/* Left — brand story & CTAs */}
             <div className="relative w-full max-w-xl lg:max-w-[34rem]">
               <motion.div
                 initial={{ opacity: 0, y: 16 }}
@@ -164,7 +163,7 @@ export default function HomePage() {
                     className="font-display text-[1.45rem] font-bold tracking-[0.04em] sm:text-[1.7rem]"
                     style={{ color: colors.navy }}
                   >
-                    CURRENT SOLUTIONS
+                    {SITE_SHORT_NAME.toUpperCase()}
                   </p>
                   <p
                     className="mt-0.5 text-[0.68rem] font-semibold tracking-[0.2em] uppercase"
@@ -175,29 +174,15 @@ export default function HomePage() {
                 </div>
               </motion.div>
 
-              <motion.p
-                initial={{ opacity: 0, y: 14 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{
-                  duration: 0.65,
-                  delay: 0.08,
-                  ease: [0.22, 1, 0.36, 1],
-                }}
-                className="mt-8 text-[0.78rem] font-bold tracking-[0.28em] uppercase sm:text-[0.82rem]"
-                style={{ color: colors.gold }}
-              >
-                Nature Coast Electrical
-              </motion.p>
-
               <motion.h1
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{
                   duration: 0.8,
-                  delay: 0.14,
+                  delay: 0.1,
                   ease: [0.22, 1, 0.36, 1],
                 }}
-                className="font-display mt-4 text-[clamp(2.85rem,6.4vw,4.85rem)] font-bold leading-[0.98] tracking-[-0.02em]"
+                className="font-display mt-10 text-[clamp(2.85rem,6.4vw,4.85rem)] font-bold leading-[0.98] tracking-[-0.02em]"
                 style={{ color: colors.navy }}
               >
                 Powering Florida&apos;s Nature Coast
@@ -206,8 +191,8 @@ export default function HomePage() {
               <motion.div
                 initial={{ opacity: 0, scaleX: 0.55 }}
                 animate={{ opacity: 1, scaleX: 1 }}
-                transition={{ duration: 0.55, delay: 0.22 }}
-                className="mt-6 h-px w-24 origin-left"
+                transition={{ duration: 0.55, delay: 0.2 }}
+                className="mt-7 h-px w-24 origin-left"
                 style={{
                   background: `linear-gradient(90deg, ${colors.gold}, rgba(212,175,55,0.15))`,
                 }}
@@ -218,10 +203,10 @@ export default function HomePage() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{
                   duration: 0.7,
-                  delay: 0.28,
+                  delay: 0.26,
                   ease: [0.22, 1, 0.36, 1],
                 }}
-                className="mt-6 max-w-md text-base leading-[1.8] sm:text-lg"
+                className="mt-7 max-w-md text-base leading-[1.8] sm:text-lg"
                 style={{ color: "rgba(11,58,102,0.74)" }}
               >
                 Dependable electrical solutions for homes and businesses across
@@ -234,14 +219,14 @@ export default function HomePage() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{
                   duration: 0.7,
-                  delay: 0.36,
+                  delay: 0.34,
                   ease: [0.22, 1, 0.36, 1],
                 }}
-                className="mt-10 flex flex-col gap-3.5 sm:flex-row sm:items-center"
+                className="mt-11 flex flex-col gap-4 sm:flex-row sm:items-center"
               >
                 <Link
                   href="/contact"
-                  className="cta-gold hero-cta-primary inline-flex items-center justify-center gap-2.5 rounded-md px-8 py-4 text-[0.82rem] font-bold tracking-[0.12em] uppercase"
+                  className="cta-gold hero-cta-primary inline-flex items-center justify-center gap-2.5 rounded-2xl px-9 py-5 text-[0.84rem] font-bold tracking-[0.12em] uppercase"
                   style={{ color: colors.navy }}
                 >
                   <Zap size={16} strokeWidth={2.4} fill="currentColor" />
@@ -249,11 +234,8 @@ export default function HomePage() {
                 </Link>
                 <a
                   href={PHONE_HREF}
-                  className="hero-cta-secondary inline-flex items-center justify-center gap-2.5 rounded-md border-2 bg-white/90 px-8 py-4 text-[0.82rem] font-bold tracking-[0.12em] uppercase backdrop-blur-sm"
-                  style={{
-                    color: colors.navy,
-                    borderColor: "rgba(11,58,102,0.88)",
-                  }}
+                  className="hero-cta-secondary inline-flex items-center justify-center gap-2.5 rounded-2xl px-9 py-5 text-[0.84rem] font-bold tracking-[0.12em] uppercase"
+                  style={{ color: colors.navy }}
                 >
                   <Phone size={16} strokeWidth={2.4} />
                   Call Today
@@ -265,24 +247,24 @@ export default function HomePage() {
           <div className="absolute inset-x-0 bottom-0 z-20">
             <WaveDivider
               topColor="transparent"
-              bottomColor={colors.softGrey}
+              bottomColor={colors.warmSand}
               variant="hero"
             />
           </div>
         </section>
 
-        {/* Trust cards */}
+        {/* Trust bar — floating glass cards */}
         <section
           aria-label="Why trust Current Solutions"
-          className="relative z-10 px-5 py-14 sm:px-8 sm:py-16 lg:px-10"
-          style={{ background: colors.softGrey }}
+          className="relative z-10 -mt-6 px-5 pb-20 pt-4 sm:-mt-10 sm:px-8 sm:pb-24 lg:px-10"
+          style={{ background: colors.warmSand }}
         >
           <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.25 }}
             variants={stagger}
-            className="mx-auto grid max-w-7xl gap-4 sm:grid-cols-2 lg:grid-cols-5 lg:gap-5"
+            className="mx-auto grid max-w-7xl gap-5 sm:grid-cols-2 lg:grid-cols-5 lg:gap-6"
           >
             {trustCards.map((card) => {
               const Icon = card.icon;
@@ -291,26 +273,27 @@ export default function HomePage() {
                   key={card.title}
                   variants={fadeUp}
                   transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-                  whileHover={{ y: -4 }}
-                  className="trust-card px-5 py-8 text-center"
+                  whileHover={{ y: -5 }}
+                  className="trust-card px-5 py-9 text-center sm:px-6"
                 >
                   <div
-                    className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full"
+                    className="mx-auto mb-5 flex h-12 w-12 items-center justify-center rounded-2xl"
                     style={{
-                      background: "rgba(11,58,102,0.07)",
+                      background: `linear-gradient(145deg, ${colors.seaGlass}, rgba(220,239,247,0.35))`,
                       color: colors.navy,
+                      boxShadow: "inset 0 0 0 1px rgba(11,58,102,0.05)",
                     }}
                   >
-                    <Icon size={22} strokeWidth={1.7} />
+                    <Icon size={22} strokeWidth={1.5} />
                   </div>
                   <h3
-                    className="text-[0.78rem] font-bold tracking-[0.08em] uppercase"
+                    className="text-[0.78rem] font-semibold tracking-[0.1em] uppercase"
                     style={{ color: colors.navy }}
                   >
                     {card.title}
                   </h3>
                   <p
-                    className="mt-2.5 text-sm leading-relaxed"
+                    className="mt-3 text-sm leading-relaxed"
                     style={{ color: "rgba(11,58,102,0.62)" }}
                   >
                     {card.description}
@@ -321,138 +304,120 @@ export default function HomePage() {
           </motion.div>
         </section>
 
-        <WaveDivider topColor={colors.softGrey} bottomColor={colors.white} />
+        <WaveDivider topColor={colors.warmSand} bottomColor={colors.white} />
 
-        {/* Services */}
+        {/* Services — large image cards, architectural spacing */}
         <section
           id="services"
-          className="px-5 py-20 sm:px-8 sm:py-28 lg:px-10"
+          className="px-5 py-28 sm:px-8 sm:py-36 lg:px-10"
           style={{ background: colors.white }}
         >
-          <div className="mx-auto grid max-w-7xl items-start gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
-            <motion.div
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.4 }}
-              transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-              variants={fadeUp}
-              className="lg:pt-4"
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.4 }}
+            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+            variants={fadeUp}
+            className="mx-auto max-w-2xl text-center"
+          >
+            <p className="section-label mb-5">Our Services</p>
+            <h2
+              className="font-display text-[clamp(2.4rem,4.2vw,3.5rem)] font-semibold leading-[1.08] tracking-tight"
+              style={{ color: colors.navy }}
             >
-              <p className="section-label mb-4">Our Services</p>
-              <h2
-                className="font-display text-[clamp(2.2rem,4vw,3.35rem)] font-bold leading-[1.08] tracking-tight"
-                style={{ color: colors.navy }}
-              >
-                Complete Electrical Solutions
-              </h2>
-              <p
-                className="mt-6 max-w-md text-base leading-relaxed sm:text-lg"
-                style={{ color: "rgba(11,58,102,0.68)" }}
-              >
-                From residential repairs to commercial upgrades and storm-ready
-                generator connections, we deliver careful electrical work across
-                the Nature Coast.
-              </p>
-              <Link
-                href="/#services"
-                className="mt-8 inline-flex items-center gap-2.5 rounded-md px-6 py-3.5 text-[0.78rem] font-bold tracking-[0.12em] uppercase text-white transition-transform duration-200 hover:-translate-y-0.5"
-                style={{ background: colors.navy }}
-              >
-                View All Services
-                <ArrowRight size={16} strokeWidth={2.4} />
-              </Link>
-              <ul className="mt-8 space-y-2.5">
-                {services.map((service) => (
-                  <li key={service.slug}>
-                    <Link
-                      href={`/services/${service.slug}`}
-                      className="inline-flex items-center gap-2 text-sm font-medium transition-opacity hover:opacity-70"
-                      style={{ color: "rgba(11,58,102,0.72)" }}
-                    >
-                      <span
-                        className="h-1 w-1 rounded-full"
-                        style={{ background: colors.gold }}
-                      />
-                      {service.title}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </motion.div>
+              Complete Electrical Solutions
+            </h2>
+            <p
+              className="mt-7 text-base leading-relaxed sm:text-lg"
+              style={{ color: "rgba(11,58,102,0.68)" }}
+            >
+              From residential repairs to commercial upgrades and storm-ready
+              generator connections — careful electrical work across the Nature
+              Coast.
+            </p>
+          </motion.div>
 
-            <motion.div
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.15 }}
-              variants={stagger}
-              className="grid gap-5 sm:grid-cols-2"
-            >
-              {featuredServices.map((service) => {
-                const Icon = service.icon;
-                return (
-                  <motion.article
-                    key={service.slug}
-                    variants={fadeUp}
-                    transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-                    whileHover={{ y: -6 }}
-                    className="service-media-card group overflow-hidden bg-white"
-                  >
-                    <Link href={`/services/${service.slug}`} className="block">
-                      <div className="relative">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.12 }}
+            variants={stagger}
+            className="mx-auto mt-20 grid max-w-7xl gap-8 sm:grid-cols-2 lg:gap-10"
+          >
+            {featuredServices.map((service) => {
+              const Icon = service.icon;
+              return (
+                <motion.article
+                  key={service.slug}
+                  variants={fadeUp}
+                  transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+                  whileHover={{ y: -8 }}
+                  className="service-media-card group overflow-hidden"
+                >
+                  <Link href={`/services/${service.slug}`} className="block">
+                    <div className="relative overflow-hidden">
+                      <div className="media-zoom">
                         <MediaPlaceholder
                           variant={service.variant}
-                          className="aspect-[16/11] w-full"
+                          className="aspect-[16/10] w-full"
                           label={`${service.title} photography placeholder`}
                         />
-                        <span
-                          className="absolute -bottom-5 left-5 flex h-11 w-11 items-center justify-center rounded-full bg-white shadow-md"
-                          style={{ color: colors.navy }}
-                        >
-                          <Icon size={20} strokeWidth={1.7} />
-                        </span>
                       </div>
-                      <div className="px-5 pb-6 pt-9">
-                        <h3
-                          className="font-display text-[1.35rem] font-bold tracking-tight"
-                          style={{ color: colors.navy }}
-                        >
-                          {service.title}
-                        </h3>
-                        <p
-                          className="mt-2.5 text-sm leading-relaxed"
-                          style={{ color: "rgba(11,58,102,0.64)" }}
-                        >
-                          {service.description}
-                        </p>
-                      </div>
-                    </Link>
-                  </motion.article>
-                );
-              })}
-            </motion.div>
+                      <span
+                        className="absolute bottom-5 left-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-white/95 shadow-md backdrop-blur-sm"
+                        style={{ color: colors.navy }}
+                      >
+                        <Icon size={22} strokeWidth={1.5} />
+                      </span>
+                    </div>
+                    <div className="px-7 pb-8 pt-7 sm:px-8 sm:pb-9">
+                      <h3
+                        className="font-display text-[1.55rem] font-semibold tracking-tight sm:text-[1.7rem]"
+                        style={{ color: colors.navy }}
+                      >
+                        {service.title}
+                      </h3>
+                      <p
+                        className="mt-3 max-w-md text-sm leading-relaxed sm:text-base"
+                        style={{ color: "rgba(11,58,102,0.64)" }}
+                      >
+                        {service.description}
+                      </p>
+                      <p
+                        className="mt-5 inline-flex items-center gap-2 text-sm font-semibold tracking-wide"
+                        style={{ color: colors.navy }}
+                      >
+                        Learn more
+                        <ArrowRight
+                          size={16}
+                          strokeWidth={2.25}
+                          className="transition-transform duration-300 group-hover:translate-x-1"
+                        />
+                      </p>
+                    </div>
+                  </Link>
+                </motion.article>
+              );
+            })}
+          </motion.div>
+
+          <div className="mt-16 text-center">
+            <ScaleButton href="/#services" variant="secondary" className="px-8 py-4 text-base">
+              View All Services
+              <ArrowRight size={18} strokeWidth={2.25} />
+            </ScaleButton>
           </div>
         </section>
 
-        <WaveDivider topColor={colors.white} bottomColor={colors.white} />
+        <WaveDivider topColor={colors.white} bottomColor={colors.warmSand} />
 
-        {/* About */}
+        {/* About — warm, family owned */}
         <section
           id="about"
-          className="relative overflow-hidden px-5 py-20 sm:px-8 sm:py-28 lg:px-10"
-          style={{ background: colors.white }}
+          className="relative overflow-hidden px-5 py-28 sm:px-8 sm:py-36 lg:px-10"
+          style={{ background: colors.warmSand }}
         >
-          <div
-            className="pointer-events-none absolute -right-16 top-10 hidden opacity-[0.06] lg:block"
-            aria-hidden="true"
-          >
-            <svg width="340" height="420" viewBox="0 0 200 260" fill="none">
-              <path d="M100 20L130 50H70L100 20Z" fill={colors.navy} />
-              <path d="M78 55H122L135 220H65L78 55Z" fill={colors.navy} />
-              <rect x="92" y="220" width="16" height="28" fill={colors.navy} />
-            </svg>
-          </div>
-
-          <div className="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-2 lg:gap-16">
+          <div className="mx-auto grid max-w-7xl items-center gap-14 lg:grid-cols-2 lg:gap-20">
             <motion.div
               initial="hidden"
               whileInView="visible"
@@ -461,9 +426,7 @@ export default function HomePage() {
               variants={fadeUp}
               className="relative mx-auto w-full max-w-md lg:max-w-none"
             >
-              <div
-                className="about-photo-frame mx-auto aspect-[4/5] w-full max-w-[420px] overflow-hidden"
-              >
+              <div className="about-photo-frame mx-auto aspect-[4/5] w-full max-w-[440px] overflow-hidden">
                 <MediaPlaceholder
                   variant="about"
                   className="h-full w-full"
@@ -479,16 +442,16 @@ export default function HomePage() {
               transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
               variants={fadeUp}
             >
-              <p className="section-label mb-4">About Us</p>
+              <p className="section-label mb-5">About Us</p>
               <h2
-                className="font-display text-[clamp(2.1rem,3.8vw,3.15rem)] font-bold leading-[1.1] tracking-tight"
+                className="font-display text-[clamp(2.2rem,3.8vw,3.25rem)] font-semibold leading-[1.1] tracking-tight"
                 style={{ color: colors.navy }}
               >
-                Electrical Work Done Right— With Pride in Every Detail
+                Neighbors You Can Trust
               </h2>
               <p
-                className="mt-6 text-base leading-[1.85] sm:text-lg"
-                style={{ color: "rgba(11,58,102,0.72)" }}
+                className="mt-8 text-base leading-[1.9] sm:text-lg"
+                style={{ color: "rgba(11,58,102,0.74)" }}
               >
                 Current Solutions is a family-owned electrical company serving
                 Florida&apos;s Nature Coast with honesty, skill, and genuine care.
@@ -496,113 +459,117 @@ export default function HomePage() {
                 home and business with the same respect we give our own.
               </p>
               <p
-                className="mt-4 text-base leading-[1.85] sm:text-lg"
-                style={{ color: "rgba(11,58,102,0.72)" }}
+                className="mt-5 text-base leading-[1.9] sm:text-lg"
+                style={{ color: "rgba(11,58,102,0.74)" }}
               >
                 Whether you need a simple repair, a full panel upgrade, refined
                 lighting, or storm-ready generator connections — every project
                 is handled with quiet professionalism and pride.
               </p>
               <p
-                className="mt-6 text-base font-semibold sm:text-lg"
+                className="mt-8 text-base font-semibold sm:text-lg"
                 style={{ color: colors.navy }}
               >
                 Neighbors you can trust. Craftsmanship you can count on.
               </p>
-              <Link
-                href="/about"
-                className="cta-gold mt-8 inline-flex items-center gap-2.5 rounded-md px-7 py-3.5 text-[0.78rem] font-bold tracking-[0.12em] uppercase transition-transform duration-200 hover:-translate-y-0.5"
-                style={{ color: colors.navy }}
-              >
-                Learn More About Us
-                <ArrowRight size={16} strokeWidth={2.4} />
-              </Link>
+              <div className="mt-10">
+                <ScaleButton href="/about" variant="gold" className="px-8 py-4 text-base">
+                  Learn More About Us
+                  <ArrowRight size={18} strokeWidth={2.25} />
+                </ScaleButton>
+              </div>
             </motion.div>
           </div>
         </section>
 
-        {/* Recent Projects CTA */}
+        {/* Projects — luxury gallery */}
         <section
-          className="px-5 py-14 sm:px-8 sm:py-16 lg:px-10"
-          style={{ background: colors.navyDeep }}
+          className="px-5 py-28 sm:px-8 sm:py-36 lg:px-10"
+          style={{ background: colors.white }}
         >
-          <div className="mx-auto flex max-w-7xl flex-col items-center gap-8 lg:flex-row lg:gap-10">
-            <motion.div
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.4 }}
-              transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
-              variants={fadeUp}
-              className="shrink-0 text-center lg:max-w-[220px] lg:text-left"
-            >
-              <p
-                className="text-[0.68rem] font-bold tracking-[0.22em] uppercase"
-                style={{ color: colors.gold }}
-              >
-                Quality Work. Real Results.
-              </p>
-              <h2
-                className="font-display mt-3 text-[2rem] font-bold tracking-tight text-white sm:text-[2.25rem]"
-              >
-                Recent Projects
-              </h2>
-            </motion.div>
-
-            <motion.div
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.2 }}
-              variants={stagger}
-              className="grid w-full grid-cols-3 gap-3 sm:grid-cols-5 sm:gap-4"
-            >
-              {projectThumbs.map((thumb, index) => (
-                <motion.div
-                  key={thumb}
-                  variants={fadeUp}
-                  transition={{ duration: 0.45 }}
-                  className={index > 2 ? "hidden sm:block" : undefined}
-                >
-                  <Link
-                    href="/gallery"
-                    className="block overflow-hidden rounded-md transition-transform duration-300 hover:-translate-y-1"
-                  >
-                    <MediaPlaceholder
-                      variant={thumb}
-                      className="aspect-square w-full"
-                      label={`Recent project thumbnail ${index + 1}`}
-                    />
-                  </Link>
-                </motion.div>
-              ))}
-            </motion.div>
-
-            <div className="shrink-0">
-              <Link
-                href="/gallery"
-                className="inline-flex items-center gap-2.5 rounded-md border border-white/70 px-6 py-3.5 text-[0.78rem] font-bold tracking-[0.12em] uppercase text-white transition-all duration-200 hover:bg-white/10"
-              >
-                View Full Gallery
-                <ArrowRight size={16} strokeWidth={2.4} />
-              </Link>
-            </div>
-          </div>
-        </section>
-
-        {/* Reviews */}
-        <section
-          id="reviews"
-          className="px-5 py-20 sm:px-8 sm:py-28 lg:px-10"
-          style={{ background: colors.softGrey }}
-        >
-          <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.85fr_1.4fr_auto] lg:items-start lg:gap-12">
+          <div className="mx-auto max-w-7xl">
             <motion.div
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, amount: 0.4 }}
               transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
               variants={fadeUp}
+              className="flex flex-col items-start justify-between gap-8 lg:flex-row lg:items-end"
             >
-              <p className="section-label mb-4">What Our Clients Say</p>
+              <div className="max-w-xl">
+                <p className="section-label mb-5">Our Work</p>
+                <h2
+                  className="font-display text-[clamp(2.2rem,3.8vw,3.25rem)] font-semibold leading-[1.1] tracking-tight"
+                  style={{ color: colors.navy }}
+                >
+                  Recent Projects
+                </h2>
+                <p
+                  className="mt-6 text-base leading-relaxed sm:text-lg"
+                  style={{ color: "rgba(11,58,102,0.68)" }}
+                >
+                  Clean installations and thoughtful finishing across Nature
+                  Coast homes and businesses.
+                </p>
+              </div>
+              <ScaleButton href="/gallery" variant="secondary" className="px-8 py-4 text-base">
+                View Full Gallery
+                <ArrowRight size={18} strokeWidth={2.25} />
+              </ScaleButton>
+            </motion.div>
+
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.15 }}
+              variants={stagger}
+              className="mt-16 grid auto-rows-[180px] gap-5 sm:auto-rows-[220px] sm:grid-cols-2 lg:auto-rows-[240px] lg:grid-cols-4 lg:gap-6"
+            >
+              {projectThumbs.map((thumb, index) => (
+                <motion.div
+                  key={thumb.id}
+                  variants={fadeUp}
+                  transition={{ duration: 0.5 }}
+                  className={thumb.span}
+                >
+                  <Link
+                    href="/gallery"
+                    className="project-gallery-card group relative block h-full w-full"
+                  >
+                    <MediaPlaceholder
+                      variant={thumb.id}
+                      className="h-full w-full"
+                      label={`Recent project: ${thumb.label}`}
+                    />
+                    <span className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[rgba(7,31,58,0.6)] via-[rgba(7,31,58,0.2)] to-transparent px-5 pb-4 pt-14 text-sm font-medium tracking-wide text-white opacity-80 transition-opacity duration-300 group-hover:opacity-100">
+                      {thumb.label}
+                    </span>
+                    <span className="sr-only">Project {index + 1}</span>
+                  </Link>
+                </motion.div>
+              ))}
+            </motion.div>
+          </div>
+        </section>
+
+        <WaveDivider topColor={colors.white} bottomColor={colors.warmSand} />
+
+        {/* Reviews — magazine-style */}
+        <section
+          id="reviews"
+          className="px-5 py-28 sm:px-8 sm:py-36 lg:px-10"
+          style={{ background: colors.warmSand }}
+        >
+          <div className="mx-auto max-w-7xl">
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.4 }}
+              transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+              variants={fadeUp}
+              className="mx-auto max-w-2xl text-center"
+            >
+              <p className="section-label mb-5">What Our Clients Say</p>
               <p
                 className="font-display text-[5.5rem] leading-none"
                 style={{ color: colors.gold }}
@@ -611,10 +578,10 @@ export default function HomePage() {
                 “
               </p>
               <h2
-                className="font-display -mt-4 text-[clamp(1.9rem,3.2vw,2.65rem)] font-bold leading-[1.15] tracking-tight"
+                className="font-display -mt-6 text-[clamp(2rem,3.4vw,2.85rem)] font-semibold leading-[1.15] tracking-tight"
                 style={{ color: colors.navy }}
               >
-                Reviews from our amazing customers.
+                Reviews from homeowners who trust our work.
               </h2>
             </motion.div>
 
@@ -623,16 +590,16 @@ export default function HomePage() {
               whileInView="visible"
               viewport={{ once: true, amount: 0.2 }}
               variants={stagger}
-              className="grid gap-4 sm:grid-cols-3"
+              className="mt-20 grid gap-8 md:grid-cols-3 md:gap-10"
             >
               {homeReviews.map((review) => (
                 <motion.article
                   key={review.name}
                   variants={fadeUp}
-                  transition={{ duration: 0.5 }}
-                  className="review-card px-5 py-7"
+                  transition={{ duration: 0.55 }}
+                  className="review-card px-8 py-10 sm:px-9 sm:py-12"
                 >
-                  <div className="mb-4 flex gap-1" aria-label="5 star rating">
+                  <div className="mb-6 flex gap-1" aria-label="5 star rating">
                     {Array.from({ length: 5 }).map((_, i) => (
                       <span
                         key={i}
@@ -644,13 +611,13 @@ export default function HomePage() {
                     ))}
                   </div>
                   <p
-                    className="text-sm leading-relaxed"
-                    style={{ color: "rgba(11,58,102,0.7)" }}
+                    className="font-display text-xl leading-relaxed sm:text-[1.35rem]"
+                    style={{ color: "rgba(11,58,102,0.82)" }}
                   >
                     “{review.quote}”
                   </p>
                   <p
-                    className="mt-5 text-sm font-semibold"
+                    className="mt-8 text-sm font-semibold tracking-wide"
                     style={{ color: colors.gold }}
                   >
                     — {review.name}
@@ -659,27 +626,19 @@ export default function HomePage() {
               ))}
             </motion.div>
 
-            <div className="flex items-center lg:pt-10">
-              <Link
-                href="/reviews"
-                className="inline-flex items-center gap-2.5 rounded-md px-6 py-3.5 text-[0.78rem] font-bold tracking-[0.1em] uppercase transition-transform duration-200 hover:-translate-y-0.5"
-                style={{
-                  background: "#E4E8EC",
-                  color: colors.navy,
-                }}
-              >
+            <div className="mt-16 text-center">
+              <ScaleButton href="/reviews" variant="secondary" className="px-8 py-4 text-base">
                 View All Reviews
-                <ArrowRight size={16} strokeWidth={2.4} />
-              </Link>
+                <ArrowRight size={18} strokeWidth={2.25} />
+              </ScaleButton>
             </div>
           </div>
         </section>
 
-        {/* Contact CTA strip */}
+        {/* Contact CTA */}
         <section
           id="contact"
-          className="px-5 py-16 sm:px-8 sm:py-20 lg:px-10"
-          style={{ background: colors.white }}
+          className="cta-surface relative overflow-hidden px-5 py-28 sm:px-8 sm:py-36 lg:px-10"
         >
           <motion.div
             initial="hidden"
@@ -687,43 +646,34 @@ export default function HomePage() {
             viewport={{ once: true, amount: 0.4 }}
             transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
             variants={fadeUp}
-            className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-8 rounded-2xl px-8 py-10 sm:flex-row sm:items-center sm:px-12"
-            style={{
-              background: `linear-gradient(135deg, ${colors.navy} 0%, #124872 100%)`,
-            }}
+            className="relative mx-auto max-w-3xl text-center"
           >
-            <div>
-              <p
-                className="text-[0.68rem] font-bold tracking-[0.22em] uppercase"
-                style={{ color: colors.gold }}
-              >
-                Ready to Get Started?
-              </p>
-              <h2 className="font-display mt-3 text-[clamp(1.8rem,3vw,2.5rem)] font-bold text-white">
-                Request your free electrical quote today.
-              </h2>
-              <p
-                className="mt-3 max-w-xl text-sm leading-relaxed sm:text-base"
-                style={{ color: "rgba(246,241,231,0.78)" }}
-              >
-                Call {PHONE_DISPLAY} or send a project request — we&apos;ll
-                respond with clear recommendations and honest guidance.
-              </p>
-            </div>
-            <div className="flex flex-col gap-3 sm:flex-row">
-              <Link
-                href="/contact"
-                className="cta-gold inline-flex items-center justify-center gap-2 rounded-md px-7 py-3.5 text-[0.78rem] font-bold tracking-[0.12em] uppercase text-white"
-              >
+            <p
+              className="mb-6 text-[0.68rem] font-semibold tracking-[0.28em]"
+              style={{ color: "rgba(212,175,55,0.9)" }}
+            >
+              READY TO GET STARTED?
+            </p>
+            <h2
+              className="font-display text-[clamp(2.3rem,5vw,3.75rem)] font-semibold leading-[1.08] tracking-tight text-white"
+            >
+              Request your free electrical quote today.
+            </h2>
+            <p
+              className="mx-auto mt-8 max-w-xl text-base leading-relaxed sm:text-lg"
+              style={{ color: "rgba(246,241,231,0.78)" }}
+            >
+              Call {PHONE_DISPLAY} or send a project request — we&apos;ll respond
+              with clear recommendations and honest guidance.
+            </p>
+            <div className="mt-12 flex flex-col items-center justify-center gap-4 sm:flex-row">
+              <ScaleButton href="/contact" variant="gold" className="px-10 py-5 text-base">
                 Request a Quote
-              </Link>
-              <a
-                href={PHONE_HREF}
-                className="inline-flex items-center justify-center gap-2 rounded-md border border-white/70 px-7 py-3.5 text-[0.78rem] font-bold tracking-[0.12em] uppercase text-white"
-              >
-                <Phone size={15} strokeWidth={2.4} />
+              </ScaleButton>
+              <ScaleButton href={PHONE_HREF} variant="secondary" className="px-10 py-5 text-base">
+                <Phone size={16} strokeWidth={2.4} />
                 Call Now
-              </a>
+              </ScaleButton>
             </div>
           </motion.div>
         </section>

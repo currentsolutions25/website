@@ -7,7 +7,7 @@ export default function SiteShell({ children }: { children: ReactNode }) {
   return (
     <div
       className="min-h-screen overflow-x-hidden antialiased"
-      style={{ background: colors.white, color: colors.navy }}
+      style={{ background: colors.warmSand, color: colors.navy }}
     >
       <Header />
       {children}
