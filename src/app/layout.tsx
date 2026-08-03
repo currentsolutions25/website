@@ -1,15 +1,18 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Cormorant_Garamond, Outfit } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const outfit = Outfit({
+  variable: "--font-outfit",
   subsets: ["latin"],
+  display: "swap",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const cormorant = Cormorant_Garamond({
+  variable: "--font-cormorant",
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -18,7 +21,7 @@ export const metadata: Metadata = {
     template: "%s | Current Solutions Electrical Services",
   },
   description:
-    "Professional electrical services from Current Solutions Electrical Services.",
+    "Family owned & operated electrical services proudly serving Florida's Nature Coast. Licensed, insured, and committed to honest communication and quality workmanship.",
 };
 
 export default function RootLayout({
@@ -29,13 +32,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} min-h-screen antialiased`}
+        className={`${outfit.variable} ${cormorant.variable} min-h-screen antialiased`}
       >
-        <div className="flex min-h-screen flex-col">
-          <main className="mx-auto w-full max-w-7xl flex-1 px-4 sm:px-6 lg:px-8">
-            {children}
-          </main>
-        </div>
+        {children}
       </body>
     </html>
   );
