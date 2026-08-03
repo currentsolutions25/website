@@ -102,51 +102,96 @@ const features = [
 ];
 
 const fadeUp = {
-  hidden: { opacity: 0, y: 36 },
+  hidden: { opacity: 0, y: 40 },
   visible: { opacity: 1, y: 0 },
 };
 
 const stagger = {
   hidden: {},
   visible: {
-    transition: { staggerChildren: 0.08 },
+    transition: { staggerChildren: 0.09 },
   },
 };
 
-/** Full-bleed illustrated Nature Coast lighthouse overlooking the Gulf */
+function WaveDivider({
+  topColor,
+  bottomColor,
+  flip = false,
+  className = "",
+}: {
+  topColor: string;
+  bottomColor: string;
+  flip?: boolean;
+  className?: string;
+}) {
+  return (
+    <div
+      className={`relative -mb-px h-16 w-full overflow-hidden sm:h-20 md:h-28 ${className}`}
+      aria-hidden="true"
+      style={{
+        background: topColor,
+        transform: flip ? "scaleY(-1)" : undefined,
+      }}
+    >
+      <svg
+        className="absolute bottom-0 left-0 h-full w-full"
+        viewBox="0 0 1440 120"
+        preserveAspectRatio="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M0,64 C240,112 480,8 720,48 C960,88 1200,112 1440,40 L1440,120 L0,120 Z"
+          fill={bottomColor}
+          opacity="0.4"
+        />
+        <path
+          d="M0,80 C280,20 520,110 760,70 C1000,30 1240,10 1440,72 L1440,120 L0,120 Z"
+          fill={bottomColor}
+        />
+      </svg>
+    </div>
+  );
+}
+
+/** Full-bleed Nature Coast lighthouse with soft sunrise & Gulf tones */
 function CoastalLighthouseScene() {
   return (
-    <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
-      {/* Soft coastal sky wash */}
+    <div
+      className="pointer-events-none absolute inset-0 overflow-hidden"
+      aria-hidden="true"
+    >
+      {/* Soft sunrise → sea glass sky */}
       <div
         className="absolute inset-0"
         style={{
           background: `
             linear-gradient(180deg,
-              #B8D9EA 0%,
-              #DCEFF7 28%,
-              #EAF5F9 52%,
-              #F6F1E7 78%,
+              #F7D9A8 0%,
+              #F3C98A 12%,
+              #E8D5B0 26%,
+              #DCEFF7 48%,
+              #C5E0EF 68%,
+              #F6F1E7 88%,
               #EDE6D8 100%
             )
           `,
         }}
       />
 
-      {/* Warm dawn glow */}
+      {/* Warm sunrise glow — right horizon */}
       <motion.div
-        className="absolute -right-[8%] top-[6%] h-[42vmin] w-[42vmin] rounded-full"
+        className="absolute -right-[6%] top-[4%] h-[48vmin] w-[48vmin] rounded-full"
         style={{
           background:
-            "radial-gradient(circle, rgba(212,175,55,0.45) 0%, rgba(212,175,55,0.12) 42%, transparent 70%)",
+            "radial-gradient(circle, rgba(255,228,160,0.7) 0%, rgba(212,175,55,0.28) 38%, rgba(212,175,55,0.08) 58%, transparent 72%)",
         }}
-        animate={{ opacity: [0.7, 1, 0.7], scale: [1, 1.06, 1] }}
-        transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+        animate={{ opacity: [0.75, 1, 0.75], scale: [1, 1.05, 1] }}
+        transition={{ duration: 11, repeat: Infinity, ease: "easeInOut" }}
       />
 
       {/* Soft sea glass haze left */}
       <div
-        className="absolute -left-[10%] top-[18%] h-[50vmin] w-[50vmin] rounded-full opacity-70 blur-3xl"
+        className="absolute -left-[12%] top-[22%] h-[52vmin] w-[52vmin] rounded-full opacity-75 blur-3xl"
         style={{
           background:
             "radial-gradient(circle, rgba(220,239,247,0.95) 0%, transparent 68%)",
@@ -158,7 +203,7 @@ function CoastalLighthouseScene() {
         className="absolute inset-x-0 bottom-[28%] h-[18%]"
         style={{
           background:
-            "linear-gradient(180deg, transparent 0%, rgba(11,58,102,0.08) 40%, rgba(11,58,102,0.18) 100%)",
+            "linear-gradient(180deg, transparent 0%, rgba(11,58,102,0.08) 40%, rgba(11,58,102,0.2) 100%)",
         }}
       />
 
@@ -171,14 +216,14 @@ function CoastalLighthouseScene() {
         <defs>
           <linearGradient id="gulfDeep" x1="0" y1="0" x2="0" y2="1">
             <stop offset="0%" stopColor="#0B3A66" stopOpacity="0.55" />
-            <stop offset="100%" stopColor="#072844" stopOpacity="0.85" />
+            <stop offset="100%" stopColor="#072844" stopOpacity="0.88" />
           </linearGradient>
           <linearGradient id="gulfMid" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stopColor="#1A5A8A" stopOpacity="0.45" />
-            <stop offset="100%" stopColor="#0B3A66" stopOpacity="0.7" />
+            <stop offset="0%" stopColor="#1A5A8A" stopOpacity="0.48" />
+            <stop offset="100%" stopColor="#0B3A66" stopOpacity="0.72" />
           </linearGradient>
           <linearGradient id="gulfFoam" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stopColor="#DCEFF7" stopOpacity="0.55" />
+            <stop offset="0%" stopColor="#DCEFF7" stopOpacity="0.58" />
             <stop offset="100%" stopColor="#DCEFF7" stopOpacity="0.15" />
           </linearGradient>
         </defs>
@@ -210,7 +255,6 @@ function CoastalLighthouseScene() {
           d="M0,255 C300,235 480,280 720,255 C980,225 1180,285 1440,260 L1440,420 L0,420 Z"
           fill="url(#gulfFoam)"
         />
-        {/* Warm sand shoreline */}
         <path
           d="M0,340 C360,310 720,360 1080,325 C1260,308 1360,320 1440,315 L1440,420 L0,420 Z"
           fill="#F6F1E7"
@@ -222,8 +266,8 @@ function CoastalLighthouseScene() {
         />
       </svg>
 
-      {/* Lighthouse composition — right side, overlooking gulf */}
-      <div className="absolute bottom-[22%] right-[4%] w-[min(42vw,380px)] sm:right-[8%] lg:right-[10%]">
+      {/* Lighthouse — right side overlooking the Gulf */}
+      <div className="absolute bottom-[22%] right-[3%] w-[min(44vw,400px)] sm:right-[7%] lg:right-[9%]">
         <svg
           viewBox="0 0 320 420"
           className="h-auto w-full drop-shadow-[0_30px_60px_rgba(11,58,102,0.28)]"
@@ -254,6 +298,10 @@ function CoastalLighthouseScene() {
             </radialGradient>
           </defs>
 
+          {/* Soft clouds */}
+          <ellipse cx="40" cy="48" rx="36" ry="12" fill="#FFFFFF" opacity="0.28" />
+          <ellipse cx="62" cy="42" rx="22" ry="9" fill="#FFFFFF" opacity="0.22" />
+
           {/* Rock / island base */}
           <ellipse cx="160" cy="385" rx="118" ry="28" fill="#072844" opacity="0.25" />
           <path
@@ -268,7 +316,7 @@ function CoastalLighthouseScene() {
             strokeWidth="2"
           />
 
-          {/* Subtle coastal foliage */}
+          {/* Coastal foliage */}
           <ellipse cx="95" cy="355" rx="18" ry="10" fill="#0B3A66" opacity="0.55" />
           <ellipse cx="112" cy="350" rx="14" ry="9" fill="#145A82" opacity="0.5" />
           <ellipse cx="220" cy="358" rx="16" ry="9" fill="#0B3A66" opacity="0.45" />
@@ -278,7 +326,6 @@ function CoastalLighthouseScene() {
             d="M118,340 L132,120 L188,120 L202,340 Z"
             fill="url(#towerBody)"
           />
-          {/* Navy stripes */}
           <path d="M122,300 L136,255 L184,255 L198,300 Z" fill="url(#towerStripe)" />
           <path d="M128,210 L138,170 L182,170 L192,210 Z" fill="url(#towerStripe)" />
 
@@ -307,18 +354,11 @@ function CoastalLighthouseScene() {
           {/* Light beams sweeping Gulf */}
           <motion.g
             style={{ transformOrigin: "160px 90px" }}
-            animate={{ opacity: [0.35, 0.75, 0.35] }}
+            animate={{ opacity: [0.32, 0.78, 0.32] }}
             transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut" }}
           >
-            <path
-              d="M168,88 L310,55 L310,115 Z"
-              fill="url(#lanternGlow)"
-            />
-            <path
-              d="M168,92 L300,130 L285,165 Z"
-              fill="#D4AF37"
-              opacity="0.18"
-            />
+            <path d="M168,88 L310,55 L310,115 Z" fill="url(#lanternGlow)" />
+            <path d="M168,92 L300,130 L285,165 Z" fill="#D4AF37" opacity="0.18" />
           </motion.g>
 
           {/* Door */}
@@ -333,10 +373,10 @@ function CoastalLighthouseScene() {
         style={{
           background: `
             linear-gradient(90deg,
-              rgba(246,241,231,0.72) 0%,
-              rgba(246,241,231,0.45) 38%,
-              rgba(246,241,231,0.08) 62%,
-              transparent 78%
+              rgba(246,241,231,0.78) 0%,
+              rgba(246,241,231,0.48) 36%,
+              rgba(246,241,231,0.1) 58%,
+              transparent 74%
             )
           `,
         }}
@@ -357,16 +397,16 @@ function ScaleButton({
   className?: string;
 }) {
   const base =
-    "inline-flex items-center justify-center gap-2 rounded-2xl px-9 py-4 text-base font-semibold tracking-wide transition-[box-shadow,background-color,color] duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2";
+    "inline-flex items-center justify-center gap-2.5 rounded-2xl px-10 py-5 text-lg font-semibold tracking-wide transition-[box-shadow,background-color,color] duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2";
 
   const variants = {
     primary: {
       background: colors.navy,
       color: colors.white,
-      boxShadow: "0 16px 40px -14px rgba(11,58,102,0.55)",
+      boxShadow: "0 18px 44px -14px rgba(11,58,102,0.55)",
     },
     secondary: {
-      background: "rgba(255,255,255,0.55)",
+      background: "rgba(255,255,255,0.58)",
       color: colors.navy,
       boxShadow: "inset 0 0 0 1.5px rgba(11,58,102,0.22)",
       backdropFilter: "blur(10px)",
@@ -374,14 +414,14 @@ function ScaleButton({
     gold: {
       background: colors.champagne,
       color: colors.navy,
-      boxShadow: "0 18px 44px -14px rgba(212,175,55,0.65)",
+      boxShadow: "0 20px 48px -14px rgba(212,175,55,0.68)",
     },
   } as const;
 
   return (
     <motion.a
       href={href}
-      whileHover={{ scale: 1.045, y: -2 }}
+      whileHover={{ scale: 1.045, y: -3 }}
       whileTap={{ scale: 0.98 }}
       transition={{ type: "spring", stiffness: 420, damping: 28 }}
       className={`${base} ${className}`}
@@ -408,18 +448,13 @@ export default function HomePage() {
       className="min-h-screen overflow-x-hidden antialiased"
       style={{ background: colors.warmSand, color: colors.navy }}
     >
-      {/* SECTION 1 — Glassmorphism Navigation */}
-      <header
-        className={`glass-nav sticky top-0 z-50 transition-[background,box-shadow] duration-300 ${
-          scrolled ? "shadow-[0_12px_40px_-20px_rgba(11,58,102,0.35)]" : ""
-        }`}
-        style={
-          scrolled
-            ? { background: "rgba(246,241,231,0.78)" }
-            : undefined
-        }
-      >
-        <nav className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-5 py-4 sm:px-8 lg:py-5">
+      {/* SECTION 1 — Floating glassmorphism navigation */}
+      <header className="pointer-events-none fixed inset-x-0 top-0 z-50 px-4 pt-4 sm:px-6 sm:pt-5">
+        <nav
+          className={`pointer-events-auto glass-nav mx-auto flex max-w-6xl items-center justify-between gap-4 rounded-2xl px-4 py-3.5 transition-[background,box-shadow,border-color] duration-300 sm:px-6 sm:py-4 ${
+            scrolled ? "glass-nav-scrolled" : ""
+          }`}
+        >
           <a href="#home" className="shrink-0">
             <span className="font-display text-2xl font-semibold tracking-tight sm:text-[1.75rem]">
               Current Solutions
@@ -440,7 +475,11 @@ export default function HomePage() {
           </ul>
 
           <div className="hidden md:block">
-            <ScaleButton href="#contact" variant="primary" className="px-7 py-3.5 text-sm">
+            <ScaleButton
+              href="#contact"
+              variant="primary"
+              className="px-7 py-3.5 text-sm"
+            >
               Request a Quote
             </ScaleButton>
           </div>
@@ -458,14 +497,17 @@ export default function HomePage() {
         <AnimatePresence>
           {mobileOpen && (
             <motion.div
-              initial={{ height: 0, opacity: 0 }}
-              animate={{ height: "auto", opacity: 1 }}
-              exit={{ height: 0, opacity: 0 }}
+              initial={{ height: 0, opacity: 0, y: -8 }}
+              animate={{ height: "auto", opacity: 1, y: 0 }}
+              exit={{ height: 0, opacity: 0, y: -8 }}
               transition={{ duration: 0.28 }}
-              className="overflow-hidden border-t md:hidden"
+              className="pointer-events-auto mx-auto mt-3 max-w-6xl overflow-hidden rounded-2xl border md:hidden"
               style={{
-                borderColor: "rgba(11,58,102,0.08)",
-                background: "rgba(246,241,231,0.92)",
+                borderColor: "rgba(220,239,247,0.8)",
+                background: "rgba(255,255,255,0.78)",
+                backdropFilter: "blur(20px)",
+                WebkitBackdropFilter: "blur(20px)",
+                boxShadow: "0 18px 44px -22px rgba(11,58,102,0.4)",
               }}
             >
               <ul className="flex flex-col gap-1 px-5 py-5">
@@ -499,17 +541,17 @@ export default function HomePage() {
         {/* SECTION 2 — Dramatic Nature Coast Hero */}
         <section
           id="home"
-          className="relative min-h-[min(92vh,920px)] overflow-hidden"
+          className="relative min-h-[min(94vh,960px)] overflow-hidden pt-20"
         >
           <CoastalLighthouseScene />
 
-          <div className="relative z-10 mx-auto flex min-h-[min(92vh,920px)] max-w-6xl items-center px-5 py-20 sm:px-8 sm:py-28 lg:py-32">
+          <div className="relative z-10 mx-auto flex min-h-[min(94vh,960px)] max-w-6xl items-center px-5 py-28 sm:px-8 sm:py-36 lg:py-40">
             <div className="max-w-xl lg:max-w-2xl">
               <motion.h1
                 initial={{ opacity: 0, y: 28 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.85, ease: [0.22, 1, 0.36, 1] }}
-                className="font-display text-[clamp(2.75rem,7vw,5.25rem)] font-semibold leading-[0.98] tracking-tight"
+                className="font-display text-[clamp(3rem,7.5vw,5.75rem)] font-semibold leading-[0.96] tracking-tight"
                 style={{ color: colors.navy }}
               >
                 Current Solutions
@@ -523,7 +565,7 @@ export default function HomePage() {
                   delay: 0.12,
                   ease: [0.22, 1, 0.36, 1],
                 }}
-                className="mt-5 max-w-lg text-xl font-medium leading-snug tracking-tight sm:text-2xl"
+                className="mt-7 max-w-lg text-xl font-medium leading-snug tracking-tight sm:text-2xl lg:text-[1.65rem]"
                 style={{ color: colors.navy }}
               >
                 Reliable electrical craftsmanship for Florida&apos;s Nature
@@ -538,7 +580,7 @@ export default function HomePage() {
                   delay: 0.22,
                   ease: [0.22, 1, 0.36, 1],
                 }}
-                className="mt-5 max-w-md text-base leading-relaxed sm:text-lg"
+                className="mt-6 max-w-md text-base leading-relaxed sm:text-lg"
                 style={{ color: "rgba(11,58,102,0.72)" }}
               >
                 Family-owned service with honest workmanship—keeping homes and
@@ -553,11 +595,11 @@ export default function HomePage() {
                   delay: 0.34,
                   ease: [0.22, 1, 0.36, 1],
                 }}
-                className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center"
+                className="mt-12 flex flex-col gap-4 sm:flex-row sm:items-center"
               >
                 <ScaleButton href="#contact" variant="gold">
                   Request a Free Quote
-                  <ArrowRight size={18} strokeWidth={2.25} />
+                  <ArrowRight size={20} strokeWidth={2.25} />
                 </ScaleButton>
                 <ScaleButton href="tel:+10000000000" variant="secondary">
                   Call Now
@@ -565,20 +607,14 @@ export default function HomePage() {
               </motion.div>
             </div>
           </div>
-
-          {/* Soft bottom fade into page */}
-          <div
-            className="pointer-events-none absolute inset-x-0 bottom-0 h-24"
-            style={{
-              background: `linear-gradient(180deg, transparent, ${colors.warmSand})`,
-            }}
-          />
         </section>
+
+        <WaveDivider topColor={colors.warmSand} bottomColor={colors.warmSand} />
 
         {/* SECTION 3 — Services */}
         <section
           id="services"
-          className="mx-auto max-w-6xl px-5 py-24 sm:px-8 sm:py-32"
+          className="mx-auto max-w-6xl px-5 py-28 sm:px-8 sm:py-36"
         >
           <motion.div
             initial="hidden"
@@ -588,11 +624,11 @@ export default function HomePage() {
             variants={fadeUp}
             className="mx-auto max-w-2xl text-center"
           >
-            <h2 className="font-display text-4xl font-semibold tracking-tight sm:text-5xl">
+            <h2 className="font-display text-4xl font-semibold tracking-tight sm:text-5xl lg:text-[3.35rem]">
               Our Services
             </h2>
             <p
-              className="mt-5 text-base leading-relaxed sm:text-lg"
+              className="mt-6 text-base leading-relaxed sm:text-lg"
               style={{ color: "rgba(11,58,102,0.7)" }}
             >
               Comprehensive electrical solutions tailored for homes and
@@ -605,7 +641,7 @@ export default function HomePage() {
             whileInView="visible"
             viewport={{ once: true, amount: 0.15 }}
             variants={stagger}
-            className="mt-16 grid gap-7 sm:grid-cols-2 lg:grid-cols-3"
+            className="mt-20 grid gap-8 sm:grid-cols-2 lg:grid-cols-3"
           >
             {services.map((service) => {
               const Icon = service.icon;
@@ -614,11 +650,11 @@ export default function HomePage() {
                   key={service.title}
                   variants={fadeUp}
                   transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-                  whileHover={{ y: -10 }}
-                  className="premium-card group rounded-[1.75rem] p-8 sm:p-9"
+                  whileHover={{ y: -12 }}
+                  className="premium-card group p-8 sm:p-10"
                 >
                   <div
-                    className="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl transition-transform duration-300 group-hover:scale-105"
+                    className="mb-7 flex h-14 w-14 items-center justify-center rounded-2xl transition-transform duration-300 group-hover:scale-105"
                     style={{
                       background: `linear-gradient(145deg, ${colors.seaGlass}, rgba(220,239,247,0.4))`,
                       color: colors.navy,
@@ -631,7 +667,7 @@ export default function HomePage() {
                     {service.title}
                   </h3>
                   <p
-                    className="mt-3 text-[0.9375rem] leading-relaxed"
+                    className="mt-4 text-[0.9375rem] leading-relaxed"
                     style={{ color: "rgba(11,58,102,0.68)" }}
                   >
                     {service.description}
@@ -642,9 +678,14 @@ export default function HomePage() {
           </motion.div>
         </section>
 
+        <WaveDivider
+          topColor={colors.warmSand}
+          bottomColor="rgba(220,239,247,0.55)"
+        />
+
         {/* SECTION 4 — Why Choose Us */}
         <section
-          className="py-24 sm:py-32"
+          className="py-28 sm:py-36"
           style={{
             background: `linear-gradient(180deg, rgba(220,239,247,0.55) 0%, ${colors.warmSand} 100%)`,
           }}
@@ -658,7 +699,7 @@ export default function HomePage() {
               variants={fadeUp}
               className="mx-auto max-w-2xl text-center"
             >
-              <h2 className="font-display text-4xl font-semibold tracking-tight sm:text-5xl">
+              <h2 className="font-display text-4xl font-semibold tracking-tight sm:text-5xl lg:text-[3.35rem]">
                 Why Homeowners Choose Current Solutions
               </h2>
             </motion.div>
@@ -668,7 +709,7 @@ export default function HomePage() {
               whileInView="visible"
               viewport={{ once: true, amount: 0.15 }}
               variants={stagger}
-              className="mt-16 grid gap-7 sm:grid-cols-2 lg:grid-cols-4"
+              className="mt-20 grid gap-8 sm:grid-cols-2 lg:grid-cols-4"
             >
               {features.map((feature) => {
                 const Icon = feature.icon;
@@ -677,11 +718,11 @@ export default function HomePage() {
                     key={feature.title}
                     variants={fadeUp}
                     transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-                    whileHover={{ y: -10 }}
-                    className="premium-card rounded-[1.75rem] p-8 text-center"
+                    whileHover={{ y: -12 }}
+                    className="premium-card p-8 text-center sm:p-9"
                   >
                     <div
-                      className="mx-auto mb-5 flex h-14 w-14 items-center justify-center rounded-2xl"
+                      className="mx-auto mb-6 flex h-14 w-14 items-center justify-center rounded-2xl"
                       style={{
                         background: colors.navy,
                         color: colors.champagne,
@@ -690,11 +731,11 @@ export default function HomePage() {
                     >
                       <Icon size={24} strokeWidth={1.6} />
                     </div>
-                    <h3 className="font-display text-xl font-semibold">
+                    <h3 className="font-display text-xl font-semibold sm:text-[1.35rem]">
                       {feature.title}
                     </h3>
                     <p
-                      className="mt-3 text-sm leading-relaxed"
+                      className="mt-4 text-sm leading-relaxed"
                       style={{ color: "rgba(11,58,102,0.68)" }}
                     >
                       {feature.description}
@@ -706,10 +747,12 @@ export default function HomePage() {
           </div>
         </section>
 
+        <WaveDivider topColor={colors.warmSand} bottomColor={colors.warmSand} />
+
         {/* SECTION 5 — About */}
         <section
           id="about"
-          className="mx-auto max-w-6xl px-5 py-24 sm:px-8 sm:py-32"
+          className="mx-auto max-w-6xl px-5 py-28 sm:px-8 sm:py-36"
         >
           <motion.div
             initial="hidden"
@@ -719,11 +762,11 @@ export default function HomePage() {
             variants={fadeUp}
             className="mx-auto max-w-3xl text-center"
           >
-            <h2 className="font-display text-4xl font-semibold tracking-tight sm:text-5xl">
+            <h2 className="font-display text-4xl font-semibold tracking-tight sm:text-5xl lg:text-[3.35rem]">
               Powering Florida Homes with Pride
             </h2>
             <p
-              className="mt-8 text-base leading-relaxed sm:text-lg"
+              className="mt-10 text-base leading-relaxed sm:text-lg"
               style={{ color: "rgba(11,58,102,0.76)" }}
             >
               Current Solutions is a trusted family-owned electrical company
@@ -737,10 +780,12 @@ export default function HomePage() {
           </motion.div>
         </section>
 
+        <WaveDivider topColor={colors.warmSand} bottomColor={colors.navy} />
+
         {/* SECTION 6 — CTA */}
         <section
           id="contact"
-          className="relative overflow-hidden px-5 py-24 sm:px-8 sm:py-32"
+          className="relative overflow-hidden px-5 py-28 sm:px-8 sm:py-36"
           style={{
             background: `linear-gradient(145deg, ${colors.navy} 0%, #0c4a7a 48%, #156089 100%)`,
           }}
@@ -763,19 +808,19 @@ export default function HomePage() {
             className="relative mx-auto max-w-3xl text-center"
           >
             <h2
-              className="font-display text-4xl font-semibold tracking-tight sm:text-5xl"
+              className="font-display text-4xl font-semibold tracking-tight sm:text-5xl lg:text-[3.35rem]"
               style={{ color: colors.white }}
             >
               Ready for Your Next Electrical Project?
             </h2>
             <p
-              className="mx-auto mt-6 max-w-xl text-base leading-relaxed sm:text-lg"
+              className="mx-auto mt-8 max-w-xl text-base leading-relaxed sm:text-lg"
               style={{ color: "rgba(246,241,231,0.78)" }}
             >
               Tell us about your project and we&apos;ll provide a free,
               no-obligation quote with clear recommendations.
             </p>
-            <div className="mt-12">
+            <div className="mt-14">
               <ScaleButton
                 href="mailto:info@currentsolutions.example"
                 variant="gold"
@@ -797,13 +842,13 @@ export default function HomePage() {
           borderColor: "rgba(11,58,102,0.08)",
         }}
       >
-        <div className="mx-auto flex max-w-6xl flex-col gap-10 px-5 py-14 sm:px-8 md:flex-row md:items-start md:justify-between">
+        <div className="mx-auto flex max-w-6xl flex-col gap-12 px-5 py-16 sm:px-8 md:flex-row md:items-start md:justify-between">
           <div>
             <p className="font-display text-2xl font-semibold tracking-tight">
               Current Solutions Electrical Services
             </p>
             <p
-              className="mt-3 text-sm"
+              className="mt-4 text-sm"
               style={{ color: "rgba(11,58,102,0.68)" }}
             >
               Family Owned &amp; Operated
@@ -834,7 +879,7 @@ export default function HomePage() {
           </div>
         </div>
         <div
-          className="border-t py-6 text-center text-xs tracking-wide"
+          className="border-t py-7 text-center text-xs tracking-wide"
           style={{
             borderColor: "rgba(11,58,102,0.08)",
             color: "rgba(11,58,102,0.48)",
