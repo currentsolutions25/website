@@ -72,7 +72,7 @@ export default function Footer() {
             </div>
             <p
               className="mt-5 max-w-xs text-sm leading-relaxed"
-              style={{ color: "rgba(244,246,248,0.68)" }}
+              style={{ color: "rgba(246,241,231,0.68)" }}
             >
               Proudly serving Florida&apos;s Nature Coast with honest,
               professional, family-owned electrical service.
@@ -98,7 +98,7 @@ export default function Footer() {
 
             <p
               className="mt-8 text-xs tracking-wide"
-              style={{ color: "rgba(244,246,248,0.4)" }}
+              style={{ color: "rgba(246,241,231,0.4)" }}
             >
               © {new Date().getFullYear()} {SITE_NAME}
             </p>
@@ -118,7 +118,7 @@ export default function Footer() {
                   <Link
                     href={link.href}
                     className="transition-opacity duration-300 hover:opacity-70"
-                    style={{ color: "rgba(244,246,248,0.78)" }}
+                    style={{ color: "rgba(246,241,231,0.78)" }}
                   >
                     {link.label}
                   </Link>
@@ -141,7 +141,7 @@ export default function Footer() {
                   <Link
                     href={`/services/${service.slug}`}
                     className="transition-opacity duration-300 hover:opacity-70"
-                    style={{ color: "rgba(244,246,248,0.78)" }}
+                    style={{ color: "rgba(246,241,231,0.78)" }}
                   >
                     {service.shortTitle}
                   </Link>
@@ -164,7 +164,7 @@ export default function Footer() {
                   <Link
                     href={`/service-areas#${area.slug}`}
                     className="transition-opacity duration-300 hover:opacity-70"
-                    style={{ color: "rgba(244,246,248,0.78)" }}
+                    style={{ color: "rgba(246,241,231,0.78)" }}
                   >
                     {area.name}
                   </Link>
@@ -218,7 +218,7 @@ export default function Footer() {
                 <MapPin size={16} strokeWidth={1.6} style={{ color: colors.seaGlass, marginTop: 2 }} />
                 <span
                   className="text-sm leading-relaxed"
-                  style={{ color: "rgba(244,246,248,0.72)" }}
+                  style={{ color: "rgba(246,241,231,0.72)" }}
                 >
                   {ADDRESS_LINES.map((line) => (
                     <span key={line} className="block">
@@ -235,7 +235,7 @@ export default function Footer() {
                       <span className="font-medium text-white">{item.day}</span>
                       <span
                         className="ml-2"
-                        style={{ color: "rgba(244,246,248,0.6)" }}
+                        style={{ color: "rgba(246,241,231,0.6)" }}
                       >
                         {item.hours}
                       </span>
@@ -260,13 +260,14 @@ export default function Footer() {
               </div>
               <p
                 className="mt-2 text-sm leading-relaxed"
-                style={{ color: "rgba(244,246,248,0.72)" }}
+                style={{ color: "rgba(246,241,231,0.72)" }}
               >
                 Need urgent electrical help? We&apos;re ready day or night.
               </p>
               <a
                 href={PHONE_HREF}
-                className="cta-gold mt-4 inline-flex w-full items-center justify-center gap-2 rounded-md px-5 py-3 text-[0.75rem] font-bold tracking-[0.14em] uppercase text-white"
+                className="cta-gold mt-4 inline-flex w-full items-center justify-center gap-2 rounded-2xl px-5 py-3 text-[0.75rem] font-bold tracking-[0.14em] uppercase"
+                style={{ color: colors.navy }}
               >
                 Call Now
               </a>

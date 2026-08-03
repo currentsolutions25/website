@@ -22,9 +22,9 @@ export const colors = {
   navy: "#0B3A66",
   navyDeep: "#071F3A",
   seaGlass: "#DCEFF7",
-  warmSand: "#F4F6F8",
-  softGrey: "#EEF1F4",
-  champagne: "#C9A227",
+  warmSand: "#F6F1E7",
+  softGrey: "#F6F1E7",
+  champagne: "#D4AF37",
   gold: "#D4AF37",
   white: "#FFFFFF",
 } as const;
