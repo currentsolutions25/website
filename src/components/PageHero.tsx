@@ -18,15 +18,15 @@ export default function PageHero({
   actions,
 }: PageHeroProps) {
   return (
-    <section className="relative overflow-hidden pt-32 sm:pt-36">
+    <section className="relative overflow-hidden pt-16 sm:pt-20">
       <div
         className="pointer-events-none absolute inset-0"
         aria-hidden="true"
         style={{
           background: `
-            radial-gradient(ellipse 55% 60% at 92% 8%, rgba(212,175,55,0.16) 0%, transparent 55%),
+            radial-gradient(ellipse 55% 60% at 92% 8%, rgba(212,175,55,0.14) 0%, transparent 55%),
             radial-gradient(ellipse 50% 55% at 8% 90%, rgba(220,239,247,0.55) 0%, transparent 50%),
-            linear-gradient(165deg, ${colors.warmSand} 0%, #F3EEE4 48%, ${colors.seaGlass} 100%)
+            linear-gradient(165deg, ${colors.white} 0%, ${colors.warmSand} 48%, ${colors.seaGlass} 100%)
           `,
         }}
       />

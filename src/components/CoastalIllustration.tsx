@@ -103,11 +103,11 @@ export default function CoastalIllustration() {
             <stop offset="100%" stopColor="#D4AF37" stopOpacity="0" />
           </radialGradient>
           <linearGradient id="textVeil" x1="0" y1="0" x2="1" y2="0">
-            <stop offset="0%" stopColor="#F6F1E7" stopOpacity="0.88" />
-            <stop offset="22%" stopColor="#F6F1E7" stopOpacity="0.62" />
-            <stop offset="42%" stopColor="#F6F1E7" stopOpacity="0.22" />
-            <stop offset="58%" stopColor="#F6F1E7" stopOpacity="0" />
-            <stop offset="100%" stopColor="#F6F1E7" stopOpacity="0" />
+            <stop offset="0%" stopColor="#FFFFFF" stopOpacity="0.86" />
+            <stop offset="22%" stopColor="#FFFFFF" stopOpacity="0.58" />
+            <stop offset="42%" stopColor="#FFFFFF" stopOpacity="0.2" />
+            <stop offset="58%" stopColor="#FFFFFF" stopOpacity="0" />
+            <stop offset="100%" stopColor="#FFFFFF" stopOpacity="0" />
           </linearGradient>
           <linearGradient id="mistBand" x1="0" y1="0" x2="0" y2="1">
             <stop offset="0%" stopColor="#F6F1E7" stopOpacity="0" />
@@ -442,6 +442,16 @@ export default function CoastalIllustration() {
 
           <rect x="146" y="415" width="28" height="40" rx="2" fill="#072844" />
           <circle cx="168" cy="436" r="1.8" fill="#D4AF37" />
+
+          {/* Keeper's cottage beside lighthouse */}
+          <g transform="translate(230, 360)">
+            <path d="M8 52 L8 22 L40 8 L72 22 L72 52 Z" fill="#F4EFE4" />
+            <path d="M8 22 L40 8 L72 22 L40 30 Z" fill="#0B3A66" />
+            <rect x="30" y="34" width="16" height="18" rx="1" fill="#072844" />
+            <rect x="16" y="28" width="10" height="10" rx="1" fill="#DCEFF7" opacity="0.85" />
+            <rect x="54" y="28" width="10" height="10" rx="1" fill="#DCEFF7" opacity="0.85" />
+            <rect x="36" y="4" width="8" height="12" rx="1" fill="#0B3A66" />
+          </g>
         </g>
 
         <rect width="1440" height="900" fill="url(#textVeil)" />

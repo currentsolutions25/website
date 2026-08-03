@@ -1,29 +1,30 @@
 "use client";
 
 import { AnimatePresence, motion } from "framer-motion";
-import { Mail, Menu, Phone, X } from "lucide-react";
+import { ChevronDown, Menu, Phone, X, Zap } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
-import ScaleButton from "@/components/ScaleButton";
+import { useEffect, useRef, useState } from "react";
+import LighthouseMark from "@/components/LighthouseMark";
 import {
   colors,
-  EMAIL,
-  EMAIL_PLACEHOLDER_NOTE,
   navLinks,
   PHONE_DISPLAY,
   PHONE_HREF,
-  PHONE_PLACEHOLDER_NOTE,
-  SITE_SHORT_NAME,
+  services,
 } from "@/lib/design";
+
+const primaryNav = navLinks.filter((link) => link.label !== "Services");
 
 export default function Header() {
   const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [servicesOpen, setServicesOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const servicesRef = useRef<HTMLLIElement>(null);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 12);
+    const onScroll = () => setScrolled(window.scrollY > 8);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
@@ -31,187 +32,209 @@ export default function Header() {
 
   useEffect(() => {
     setMobileOpen(false);
+    setServicesOpen(false);
   }, [pathname]);
 
+  useEffect(() => {
+    const onPointerDown = (event: MouseEvent) => {
+      if (
+        servicesRef.current &&
+        !servicesRef.current.contains(event.target as Node)
+      ) {
+        setServicesOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", onPointerDown);
+    return () => document.removeEventListener("mousedown", onPointerDown);
+  }, []);
+
+  const servicesActive =
+    pathname.startsWith("/services") || pathname === "/";
+
   return (
-    <header className="pointer-events-none fixed inset-x-0 top-0 z-50 px-4 pt-4 sm:px-6 sm:pt-5">
-      <nav
-        className={`pointer-events-auto glass-nav mx-auto flex max-w-6xl items-center justify-between gap-3 rounded-2xl px-4 py-3.5 transition-[background,box-shadow,border-color] duration-300 sm:gap-4 sm:px-6 sm:py-4 ${
-          scrolled ? "glass-nav-scrolled" : ""
-        }`}
-      >
-        {/* Company logo placeholder — replace CS mark with brand artwork when ready */}
+    <header
+      className={`sticky top-0 z-50 border-b transition-[background,box-shadow] duration-300 ${
+        scrolled ? "header-scrolled" : ""
+      }`}
+      style={{
+        background: "rgba(255,255,255,0.96)",
+        borderColor: "rgba(11,58,102,0.08)",
+        backdropFilter: "blur(16px)",
+        WebkitBackdropFilter: "blur(16px)",
+      }}
+    >
+      <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3.5 sm:px-6 lg:px-8 lg:py-4">
         <Link href="/" className="group flex min-w-0 shrink-0 items-center gap-3">
-          <span
-            className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl sm:h-12 sm:w-12"
-            style={{
-              background: `linear-gradient(145deg, ${colors.seaGlass}, rgba(220,239,247,0.4))`,
-              boxShadow: "inset 0 0 0 1px rgba(11,58,102,0.08)",
-            }}
-            aria-hidden="true"
-            title="[Replace with company logo]"
-          >
+          <LighthouseMark size={46} />
+          <span className="min-w-0 leading-tight">
             <span
-              className="font-display text-lg font-semibold tracking-tight sm:text-xl"
+              className="block font-display text-[1.15rem] font-bold tracking-[0.02em] sm:text-[1.35rem]"
               style={{ color: colors.navy }}
             >
-              CS
-            </span>
-          </span>
-          <span className="min-w-0">
-            <span className="block font-display text-xl font-semibold tracking-tight transition-opacity duration-300 group-hover:opacity-75 sm:text-[1.65rem]">
-              {SITE_SHORT_NAME}
+              CURRENT SOLUTIONS
             </span>
             <span
-              className="hidden text-[0.65rem] font-medium tracking-[0.14em] uppercase sm:block"
-              style={{ color: "rgba(11,58,102,0.5)" }}
+              className="block text-[0.62rem] font-semibold tracking-[0.18em] uppercase sm:text-[0.68rem]"
+              style={{ color: colors.gold }}
             >
               Electrical Services
             </span>
           </span>
         </Link>
 
-        <ul className="hidden items-center gap-5 xl:flex xl:gap-7">
-          {navLinks.map((link) => {
-            const isActive =
-              link.href === "/"
-                ? pathname === "/"
-                : link.href.startsWith("/#")
-                  ? pathname === "/"
-                  : pathname === link.href ||
-                    pathname.startsWith(`${link.href}/`);
+        <nav className="hidden items-center xl:flex" aria-label="Primary">
+          <ul className="flex items-center gap-1">
+            {primaryNav
+              .filter((link) => link.href === "/")
+              .map((link) => (
+                <li key={link.href}>
+                  <NavItem
+                    href={link.href}
+                    label={link.label}
+                    active={pathname === "/"}
+                  />
+                </li>
+              ))}
 
-            return (
-              <li key={link.href}>
-                <Link
-                  href={link.href}
-                  className={`relative whitespace-nowrap text-[0.8125rem] font-medium tracking-[0.04em] transition-opacity duration-300 hover:opacity-65 after:absolute after:-bottom-1 after:left-0 after:h-px after:w-full after:origin-left after:bg-[var(--champagne)] after:transition-transform after:duration-300 ${
-                    isActive
-                      ? "after:scale-x-100"
-                      : "after:scale-x-0 hover:after:scale-x-100"
+            <li ref={servicesRef} className="relative">
+              <button
+                type="button"
+                className={`nav-link inline-flex items-center gap-1.5 px-3 py-2 text-[0.78rem] font-semibold tracking-[0.12em] uppercase transition-colors duration-200 ${
+                  servicesActive ? "nav-link-active" : ""
+                }`}
+                style={{ color: colors.navy }}
+                aria-expanded={servicesOpen}
+                aria-haspopup="true"
+                onClick={() => setServicesOpen((open) => !open)}
+              >
+                Services
+                <ChevronDown
+                  size={14}
+                  strokeWidth={2.4}
+                  className={`transition-transform duration-200 ${
+                    servicesOpen ? "rotate-180" : ""
                   }`}
-                >
-                  {link.label}
-                </Link>
-              </li>
-            );
-          })}
-        </ul>
+                />
+              </button>
+              <AnimatePresence>
+                {servicesOpen && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 8 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: 8 }}
+                    transition={{ duration: 0.18 }}
+                    className="absolute left-1/2 top-full z-50 mt-3 w-64 -translate-x-1/2 overflow-hidden rounded-xl border bg-white py-2 shadow-xl"
+                    style={{ borderColor: "rgba(11,58,102,0.1)" }}
+                  >
+                    <Link
+                      href="/#services"
+                      className="block px-4 py-2.5 text-sm font-medium transition-colors hover:bg-[rgba(11,58,102,0.04)]"
+                      style={{ color: colors.navy }}
+                      onClick={() => setServicesOpen(false)}
+                    >
+                      All Services
+                    </Link>
+                    <div
+                      className="my-1 h-px"
+                      style={{ background: "rgba(11,58,102,0.08)" }}
+                    />
+                    {services.map((service) => (
+                      <Link
+                        key={service.slug}
+                        href={`/services/${service.slug}`}
+                        className="block px-4 py-2.5 text-sm transition-colors hover:bg-[rgba(11,58,102,0.04)]"
+                        style={{ color: "rgba(11,58,102,0.82)" }}
+                        onClick={() => setServicesOpen(false)}
+                      >
+                        {service.title}
+                      </Link>
+                    ))}
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </li>
 
-        <div className="hidden items-center gap-2.5 lg:flex xl:gap-3.5">
+            {primaryNav
+              .filter((link) => link.href !== "/")
+              .map((link) => {
+                const isActive =
+                  pathname === link.href ||
+                  pathname.startsWith(`${link.href}/`);
+                return (
+                  <li key={link.href}>
+                    <NavItem
+                      href={link.href}
+                      label={link.label}
+                      active={isActive}
+                    />
+                  </li>
+                );
+              })}
+          </ul>
+        </nav>
+
+        <div className="hidden items-center gap-4 lg:flex xl:gap-5">
           <a
             href={PHONE_HREF}
-            className="group inline-flex items-center gap-2.5 rounded-2xl px-3 py-2 transition-all duration-300 hover:bg-white/55"
-            style={{ color: colors.navy }}
+            className="group text-right leading-tight"
             aria-label={`Call ${PHONE_DISPLAY}`}
-            title={PHONE_PLACEHOLDER_NOTE}
           >
             <span
-              className="flex h-10 w-10 items-center justify-center rounded-xl transition-transform duration-300 group-hover:scale-105"
-              style={{
-                background:
-                  "linear-gradient(145deg, rgba(212,175,55,0.28), rgba(212,175,55,0.1))",
-                color: colors.champagne,
-                boxShadow: "inset 0 0 0 1px rgba(212,175,55,0.22)",
-              }}
+              className="flex items-center justify-end gap-2 text-[1.05rem] font-bold tracking-wide"
+              style={{ color: colors.gold }}
             >
-              <Phone size={18} strokeWidth={2.1} />
+              <Phone size={16} strokeWidth={2.4} />
+              {PHONE_DISPLAY}
             </span>
-            <span className="flex flex-col leading-tight">
-              <span
-                className="text-[0.62rem] font-semibold tracking-[0.16em] uppercase"
-                style={{ color: "rgba(11,58,102,0.5)" }}
-              >
-                Call Now
-              </span>
-              <span className="text-[0.98rem] font-semibold tracking-wide">
-                {PHONE_DISPLAY}
-              </span>
+            <span
+              className="mt-0.5 block text-[0.62rem] font-semibold tracking-[0.16em] uppercase"
+              style={{ color: colors.navy }}
+            >
+              24/7 Emergency Service
             </span>
           </a>
 
-          <a
-            href={`mailto:${EMAIL}`}
-            className="group inline-flex items-center gap-2 rounded-2xl px-2.5 py-2 transition-all duration-300 hover:bg-white/55 xl:gap-2.5 xl:px-3"
-            style={{ color: colors.navy }}
-            aria-label={`Email ${EMAIL}`}
-            title={EMAIL_PLACEHOLDER_NOTE}
-          >
-            <span
-              className="flex h-9 w-9 items-center justify-center rounded-xl transition-transform duration-300 group-hover:scale-105"
-              style={{
-                background: `linear-gradient(145deg, ${colors.seaGlass}, rgba(220,239,247,0.4))`,
-                color: colors.navy,
-              }}
-            >
-              <Mail size={16} strokeWidth={1.9} />
-            </span>
-            <span className="hidden flex-col leading-tight min-[1180px]:flex">
-              <span
-                className="text-[0.62rem] font-semibold tracking-[0.16em] uppercase"
-                style={{ color: "rgba(11,58,102,0.5)" }}
-              >
-                Email
-              </span>
-              <span className="max-w-[11rem] truncate text-[0.8rem] font-semibold tracking-wide">
-                {EMAIL}
-              </span>
-            </span>
-          </a>
-
-          <ScaleButton
+          <Link
             href="/contact"
-            variant="gold"
-            className="px-6 py-3.5 text-sm xl:px-7"
+            className="cta-gold inline-flex items-center gap-2 rounded-md px-5 py-3 text-[0.78rem] font-bold tracking-[0.12em] uppercase text-white transition-transform duration-200 hover:-translate-y-0.5"
           >
+            <Zap size={14} strokeWidth={2.4} fill="currentColor" />
             Request a Quote
-          </ScaleButton>
+          </Link>
         </div>
 
-        <div className="flex items-center gap-1.5 xl:hidden">
+        <div className="flex items-center gap-1 xl:hidden">
           <a
             href={PHONE_HREF}
-            className="inline-flex h-10 w-10 items-center justify-center rounded-xl transition-colors duration-300 hover:bg-white/40 lg:hidden"
+            className="inline-flex h-10 w-10 items-center justify-center rounded-lg"
             aria-label={`Call ${PHONE_DISPLAY}`}
-            title={PHONE_PLACEHOLDER_NOTE}
-            style={{ color: colors.champagne }}
+            style={{ color: colors.gold }}
           >
-            <Phone size={20} strokeWidth={2.1} />
-          </a>
-          <a
-            href={`mailto:${EMAIL}`}
-            className="inline-flex h-10 w-10 items-center justify-center rounded-xl transition-colors duration-300 hover:bg-white/40 lg:hidden"
-            aria-label={`Email ${EMAIL}`}
-            title={EMAIL_PLACEHOLDER_NOTE}
-            style={{ color: colors.navy }}
-          >
-            <Mail size={19} strokeWidth={1.9} />
+            <Phone size={20} strokeWidth={2.2} />
           </a>
           <button
             type="button"
-            className="rounded-xl p-2 transition-colors duration-300 hover:bg-white/40"
+            className="rounded-lg p-2"
             aria-label={mobileOpen ? "Close menu" : "Open menu"}
-            onClick={() => setMobileOpen((v) => !v)}
+            style={{ color: colors.navy }}
+            onClick={() => setMobileOpen((open) => !open)}
           >
             {mobileOpen ? <X size={22} /> : <Menu size={22} />}
           </button>
         </div>
-      </nav>
+      </div>
 
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
-            initial={{ height: 0, opacity: 0, y: -8 }}
-            animate={{ height: "auto", opacity: 1, y: 0 }}
-            exit={{ height: 0, opacity: 0, y: -8 }}
-            transition={{ duration: 0.28 }}
-            className="pointer-events-auto mx-auto mt-3 max-w-6xl overflow-hidden rounded-2xl border xl:hidden"
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.25 }}
+            className="overflow-hidden border-t xl:hidden"
             style={{
-              borderColor: "rgba(11,58,102,0.1)",
-              background: "rgba(246,241,231,0.96)",
-              backdropFilter: "blur(24px) saturate(165%)",
-              WebkitBackdropFilter: "blur(24px) saturate(165%)",
-              boxShadow: "0 22px 48px -18px rgba(11,58,102,0.45)",
+              borderColor: "rgba(11,58,102,0.08)",
+              background: colors.white,
             }}
           >
             <ul className="flex flex-col gap-1 px-5 py-5">
@@ -219,80 +242,92 @@ export default function Header() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="block py-2.5 text-base font-medium transition-opacity hover:opacity-65"
+                    className="block py-2.5 text-base font-semibold tracking-wide"
+                    style={{ color: colors.navy }}
                     onClick={() => setMobileOpen(false)}
                   >
                     {link.label}
                   </Link>
                 </li>
               ))}
-              <li className="pt-3">
+              <li className="pt-2">
+                <p
+                  className="mb-2 text-[0.65rem] font-semibold tracking-[0.16em] uppercase"
+                  style={{ color: colors.gold }}
+                >
+                  Services
+                </p>
+                <ul className="space-y-1 pl-1">
+                  {services.map((service) => (
+                    <li key={service.slug}>
+                      <Link
+                        href={`/services/${service.slug}`}
+                        className="block py-1.5 text-sm"
+                        style={{ color: "rgba(11,58,102,0.78)" }}
+                        onClick={() => setMobileOpen(false)}
+                      >
+                        {service.title}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </li>
+              <li className="pt-4">
                 <a
                   href={PHONE_HREF}
-                  className="inline-flex w-full items-center gap-3 rounded-2xl px-4 py-3.5 transition-opacity hover:opacity-90"
-                  style={{
-                    background:
-                      "linear-gradient(145deg, rgba(212,175,55,0.2), rgba(220,239,247,0.45))",
-                    boxShadow: "inset 0 0 0 1px rgba(212,175,55,0.22)",
-                  }}
-                  onClick={() => setMobileOpen(false)}
-                  title={PHONE_PLACEHOLDER_NOTE}
+                  className="mb-3 flex items-center gap-3 rounded-lg px-4 py-3"
+                  style={{ background: colors.softGrey }}
                 >
-                  <Phone
-                    size={18}
-                    strokeWidth={2.1}
-                    style={{ color: colors.champagne }}
-                  />
+                  <Phone size={18} style={{ color: colors.gold }} />
                   <span>
                     <span
-                      className="block text-[0.65rem] font-semibold tracking-[0.16em] uppercase"
-                      style={{ color: "rgba(11,58,102,0.5)" }}
+                      className="block text-base font-bold"
+                      style={{ color: colors.navy }}
                     >
-                      Call Now
-                    </span>
-                    <span className="text-base font-semibold">
                       {PHONE_DISPLAY}
                     </span>
-                  </span>
-                </a>
-              </li>
-              <li className="pt-2">
-                <a
-                  href={`mailto:${EMAIL}`}
-                  className="inline-flex w-full items-center gap-3 rounded-2xl px-4 py-3.5 transition-opacity hover:opacity-90"
-                  style={{
-                    background: "rgba(220,239,247,0.55)",
-                  }}
-                  onClick={() => setMobileOpen(false)}
-                  title={EMAIL_PLACEHOLDER_NOTE}
-                >
-                  <Mail size={18} strokeWidth={1.9} style={{ color: colors.navy }} />
-                  <span>
                     <span
-                      className="block text-[0.65rem] font-semibold tracking-[0.16em] uppercase"
-                      style={{ color: "rgba(11,58,102,0.5)" }}
+                      className="text-xs font-semibold tracking-wide uppercase"
+                      style={{ color: "rgba(11,58,102,0.65)" }}
                     >
-                      Email
-                    </span>
-                    <span className="text-sm font-semibold break-all">
-                      {EMAIL}
+                      24/7 Emergency Service
                     </span>
                   </span>
                 </a>
-              </li>
-              <li className="pt-3">
-                <ScaleButton
+                <Link
                   href="/contact"
-                  variant="gold"
-                  className="w-full"
+                  className="cta-gold flex w-full items-center justify-center gap-2 rounded-md px-5 py-3.5 text-sm font-bold tracking-[0.12em] uppercase text-white"
+                  onClick={() => setMobileOpen(false)}
                 >
                   Request a Quote
-                </ScaleButton>
+                </Link>
               </li>
             </ul>
           </motion.div>
         )}
       </AnimatePresence>
     </header>
+  );
+}
+
+function NavItem({
+  href,
+  label,
+  active,
+}: {
+  href: string;
+  label: string;
+  active: boolean;
+}) {
+  return (
+    <Link
+      href={href}
+      className={`nav-link block px-3 py-2 text-[0.78rem] font-semibold tracking-[0.12em] uppercase transition-colors duration-200 ${
+        active ? "nav-link-active" : ""
+      }`}
+      style={{ color: colors.navy }}
+    >
+      {label}
+    </Link>
   );
 }

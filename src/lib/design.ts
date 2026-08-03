@@ -20,35 +20,42 @@ import {
 
 export const colors = {
   navy: "#0B3A66",
+  navyDeep: "#071F3A",
   seaGlass: "#DCEFF7",
-  warmSand: "#F6F1E7",
-  champagne: "#D4AF37",
+  warmSand: "#F4F6F8",
+  softGrey: "#EEF1F4",
+  champagne: "#C9A227",
+  gold: "#D4AF37",
   white: "#FFFFFF",
 } as const;
 
 export const SITE_NAME = "Current Solutions Electrical Services";
 export const SITE_SHORT_NAME = "Current Solutions";
-export const SITE_TAGLINE = "Premium Electrical Services on Florida's Nature Coast";
+export const SITE_TAGLINE = "Honest. Professional. Family Owned.";
 export const SITE_URL = "https://currentsolutions.example";
 
-/** Replace with the real business phone when available. */
-export const PHONE_DISPLAY = "(352) XXX-XXXX";
-export const PHONE_HREF = "tel:+13520000000";
-export const PHONE_PLACEHOLDER_NOTE = "[Replace with real phone number]";
+export const PHONE_DISPLAY = "(352) 397-6871";
+export const PHONE_HREF = "tel:+13523976871";
+export const PHONE_PLACEHOLDER_NOTE = "24/7 Emergency Service";
 
 /** Replace with the real business email when available. */
 export const EMAIL = "info@currentsolutions.example";
 export const EMAIL_PLACEHOLDER_NOTE = "[Replace with real email address]";
 
-/** Replace with real business hours when available. */
-export const BUSINESS_HOURS = [
-  { day: "Monday – Friday", hours: "[Replace with hours]" },
-  { day: "Saturday", hours: "[Replace with hours]" },
-  { day: "Sunday", hours: "[Replace with hours]" },
+/** Replace with real business address when available. */
+export const ADDRESS_LINES = [
+  "[Street Address]",
+  "Nature Coast, FL",
 ] as const;
 
-export const EMERGENCY_HOURS_NOTE =
-  "Emergency electrical support available — [Replace with emergency availability details]";
+/** Replace with real business hours when available. */
+export const BUSINESS_HOURS = [
+  { day: "Monday – Friday", hours: "7:00 AM – 6:00 PM" },
+  { day: "Saturday", hours: "8:00 AM – 2:00 PM" },
+  { day: "Sunday", hours: "Emergency Only" },
+] as const;
+
+export const EMERGENCY_HOURS_NOTE = "24/7 Emergency Electrical Service";
 
 /** Replace with real social profile URLs when available. */
 export const socialLinks = [
