@@ -1,7 +1,11 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import ServicePage from "@/components/ServicePage";
-import { services, type ServiceSlug } from "@/lib/design";
+import {
+  buildPageMetadata,
+  services,
+  type ServiceSlug,
+} from "@/lib/design";
 
 const serviceSlugs = new Set(services.map((service) => service.slug));
 
@@ -20,13 +24,14 @@ export async function generateMetadata({
   const service = services.find((item) => item.slug === slug);
 
   if (!service) {
-    return { title: "Service Not Found | Current Solutions" };
+    return { title: "Service Not Found" };
   }
 
-  return {
-    title: `${service.title} | Current Solutions`,
-    description: service.description,
-  };
+  return buildPageMetadata({
+    title: service.title,
+    description: service.metaDescription,
+    path: `/services/${service.slug}`,
+  });
 }
 
 export default async function ServiceDetailPage({ params }: PageProps) {

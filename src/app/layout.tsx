@@ -1,5 +1,11 @@
 import type { Metadata } from "next";
 import { Cormorant_Garamond, Outfit } from "next/font/google";
+import {
+  SITE_NAME,
+  SITE_TAGLINE,
+  SITE_URL,
+  buildPageMetadata,
+} from "@/lib/design";
 import "./globals.css";
 
 const outfit = Outfit({
@@ -16,9 +22,17 @@ const cormorant = Cormorant_Garamond({
 });
 
 export const metadata: Metadata = {
-  title: "Current Solutions | Premium Electrical Services on Florida's Nature Coast",
-  description:
-    "Family-owned electrical company serving Florida's Nature Coast with residential and commercial electrical services, panel upgrades, lighting, and emergency response.",
+  metadataBase: new URL(SITE_URL),
+  ...buildPageMetadata({
+    title: `${SITE_NAME} | ${SITE_TAGLINE}`,
+    description:
+      "Family-owned electrical company serving Florida's Nature Coast with residential and commercial electrical services, panel upgrades, lighting, generator connections, and emergency response.",
+    path: "/",
+  }),
+  title: {
+    default: `${SITE_NAME} | ${SITE_TAGLINE}`,
+    template: `%s | ${SITE_NAME}`,
+  },
 };
 
 export default function RootLayout({

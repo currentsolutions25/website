@@ -6,7 +6,13 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import ScaleButton from "@/components/ScaleButton";
-import { colors, navLinks, PHONE_DISPLAY, PHONE_HREF } from "@/lib/design";
+import {
+  colors,
+  navLinks,
+  PHONE_DISPLAY,
+  PHONE_HREF,
+  SITE_SHORT_NAME,
+} from "@/lib/design";
 
 export default function Header() {
   const pathname = usePathname();
@@ -31,24 +37,51 @@ export default function Header() {
           scrolled ? "glass-nav-scrolled" : ""
         }`}
       >
-        <Link href="/" className="group shrink-0">
-          <span className="font-display text-2xl font-semibold tracking-tight transition-opacity duration-300 group-hover:opacity-75 sm:text-[1.75rem]">
-            Current Solutions
+        {/* Logo mark reserved for brand artwork */}
+        <Link href="/" className="group flex min-w-0 shrink-0 items-center gap-3">
+          <span
+            className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl sm:h-12 sm:w-12"
+            style={{
+              background: `linear-gradient(145deg, ${colors.seaGlass}, rgba(220,239,247,0.4))`,
+              boxShadow: "inset 0 0 0 1px rgba(11,58,102,0.08)",
+            }}
+            aria-hidden="true"
+          >
+            <span
+              className="font-display text-lg font-semibold tracking-tight sm:text-xl"
+              style={{ color: colors.navy }}
+            >
+              CS
+            </span>
+          </span>
+          <span className="min-w-0">
+            <span className="block font-display text-xl font-semibold tracking-tight transition-opacity duration-300 group-hover:opacity-75 sm:text-[1.65rem]">
+              {SITE_SHORT_NAME}
+            </span>
+            <span
+              className="hidden text-[0.65rem] font-medium tracking-[0.14em] uppercase sm:block"
+              style={{ color: "rgba(11,58,102,0.5)" }}
+            >
+              Electrical Services
+            </span>
           </span>
         </Link>
 
-        <ul className="hidden items-center gap-7 lg:flex xl:gap-9">
+        <ul className="hidden items-center gap-5 xl:flex xl:gap-7">
           {navLinks.map((link) => {
             const isActive =
               link.href === "/"
                 ? pathname === "/"
-                : pathname === link.href || pathname.startsWith(`${link.href}/`);
+                : link.href.startsWith("/#")
+                  ? pathname === "/"
+                  : pathname === link.href ||
+                    pathname.startsWith(`${link.href}/`);
 
             return (
               <li key={link.href}>
                 <Link
                   href={link.href}
-                  className={`relative text-[0.875rem] font-medium tracking-[0.04em] transition-opacity duration-300 hover:opacity-65 after:absolute after:-bottom-1 after:left-0 after:h-px after:w-full after:origin-left after:bg-[var(--champagne)] after:transition-transform after:duration-300 ${
+                  className={`relative whitespace-nowrap text-[0.8125rem] font-medium tracking-[0.04em] transition-opacity duration-300 hover:opacity-65 after:absolute after:-bottom-1 after:left-0 after:h-px after:w-full after:origin-left after:bg-[var(--champagne)] after:transition-transform after:duration-300 ${
                     isActive
                       ? "after:scale-x-100"
                       : "after:scale-x-0 hover:after:scale-x-100"
@@ -61,32 +94,61 @@ export default function Header() {
           })}
         </ul>
 
-        <div className="hidden items-center gap-4 md:flex">
+        <div className="hidden items-center gap-3 lg:flex xl:gap-4">
           <a
             href={PHONE_HREF}
-            className="inline-flex items-center gap-2 text-sm font-medium tracking-wide transition-opacity hover:opacity-70"
+            className="group inline-flex items-center gap-2.5 rounded-2xl px-3.5 py-2.5 transition-all duration-300 hover:bg-white/55"
             style={{ color: colors.navy }}
+            aria-label={`Call ${PHONE_DISPLAY}`}
           >
-            <Phone size={16} strokeWidth={1.75} />
-            <span>{PHONE_DISPLAY}</span>
+            <span
+              className="flex h-9 w-9 items-center justify-center rounded-xl transition-transform duration-300 group-hover:scale-105"
+              style={{
+                background: `linear-gradient(145deg, rgba(212,175,55,0.22), rgba(212,175,55,0.08))`,
+                color: colors.champagne,
+              }}
+            >
+              <Phone size={17} strokeWidth={2} />
+            </span>
+            <span className="flex flex-col leading-tight">
+              <span
+                className="text-[0.62rem] font-semibold tracking-[0.16em] uppercase"
+                style={{ color: "rgba(11,58,102,0.5)" }}
+              >
+                Call Now
+              </span>
+              <span className="text-[0.95rem] font-semibold tracking-wide">
+                {PHONE_DISPLAY}
+              </span>
+            </span>
           </a>
           <ScaleButton
             href="/contact"
             variant="gold"
-            className="px-7 py-3.5 text-sm"
+            className="px-6 py-3.5 text-sm xl:px-7"
           >
             Request a Quote
           </ScaleButton>
         </div>
 
-        <button
-          type="button"
-          className="rounded-xl p-2 transition-colors duration-300 hover:bg-white/40 lg:hidden"
-          aria-label={mobileOpen ? "Close menu" : "Open menu"}
-          onClick={() => setMobileOpen((v) => !v)}
-        >
-          {mobileOpen ? <X size={22} /> : <Menu size={22} />}
-        </button>
+        <div className="flex items-center gap-2 xl:hidden">
+          <a
+            href={PHONE_HREF}
+            className="inline-flex h-10 w-10 items-center justify-center rounded-xl transition-colors duration-300 hover:bg-white/40 lg:hidden"
+            aria-label={`Call ${PHONE_DISPLAY}`}
+            style={{ color: colors.champagne }}
+          >
+            <Phone size={20} strokeWidth={2} />
+          </a>
+          <button
+            type="button"
+            className="rounded-xl p-2 transition-colors duration-300 hover:bg-white/40"
+            aria-label={mobileOpen ? "Close menu" : "Open menu"}
+            onClick={() => setMobileOpen((v) => !v)}
+          >
+            {mobileOpen ? <X size={22} /> : <Menu size={22} />}
+          </button>
+        </div>
       </nav>
 
       <AnimatePresence>
@@ -96,7 +158,7 @@ export default function Header() {
             animate={{ height: "auto", opacity: 1, y: 0 }}
             exit={{ height: 0, opacity: 0, y: -8 }}
             transition={{ duration: 0.28 }}
-            className="pointer-events-auto mx-auto mt-3 max-w-6xl overflow-hidden rounded-2xl border lg:hidden"
+            className="pointer-events-auto mx-auto mt-3 max-w-6xl overflow-hidden rounded-2xl border xl:hidden"
             style={{
               borderColor: "rgba(11,58,102,0.1)",
               background: "rgba(246,241,231,0.96)",
@@ -117,14 +179,26 @@ export default function Header() {
                   </Link>
                 </li>
               ))}
-              <li className="pt-2">
+              <li className="pt-3">
                 <a
                   href={PHONE_HREF}
-                  className="inline-flex items-center gap-2.5 py-2.5 text-base font-medium transition-opacity hover:opacity-65"
+                  className="inline-flex w-full items-center gap-3 rounded-2xl px-4 py-3.5 transition-opacity hover:opacity-90"
+                  style={{
+                    background:
+                      "linear-gradient(145deg, rgba(212,175,55,0.16), rgba(220,239,247,0.45))",
+                  }}
                   onClick={() => setMobileOpen(false)}
                 >
-                  <Phone size={18} strokeWidth={1.75} />
-                  {PHONE_DISPLAY}
+                  <Phone size={18} strokeWidth={2} style={{ color: colors.champagne }} />
+                  <span>
+                    <span
+                      className="block text-[0.65rem] font-semibold tracking-[0.16em] uppercase"
+                      style={{ color: "rgba(11,58,102,0.5)" }}
+                    >
+                      Call Now
+                    </span>
+                    <span className="text-base font-semibold">{PHONE_DISPLAY}</span>
+                  </span>
                 </a>
               </li>
               <li className="pt-3">

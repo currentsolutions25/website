@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
 import GalleryClient from "@/components/GalleryClient";
+import { buildPageMetadata } from "@/lib/design";
 
-export const metadata: Metadata = {
-  title: "Gallery | Current Solutions",
+export const metadata: Metadata = buildPageMetadata({
+  title: "Gallery",
   description:
-    "Browse placeholder project highlights from Current Solutions Electrical Services across Florida's Nature Coast.",
-};
+    "Browse the Current Solutions project portfolio — premium placeholder cards ready for residential, commercial, lighting, panel, and generator photography across Florida's Nature Coast.",
+  path: "/gallery",
+});
 
 export default function GalleryPage() {
   return <GalleryClient />;
