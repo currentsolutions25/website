@@ -225,18 +225,18 @@ function CoastalIllustration() {
             <stop offset="100%" stopColor="#D4AF37" stopOpacity="0" />
           </radialGradient>
           <linearGradient id="textVeil" x1="0" y1="0" x2="1" y2="0">
-            <stop offset="0%" stopColor="#F6F1E7" stopOpacity="0.82" />
-            <stop offset="42%" stopColor="#F6F1E7" stopOpacity="0.45" />
-            <stop offset="68%" stopColor="#F6F1E7" stopOpacity="0.08" />
+            <stop offset="0%" stopColor="#F6F1E7" stopOpacity="0.72" />
+            <stop offset="36%" stopColor="#F6F1E7" stopOpacity="0.38" />
+            <stop offset="58%" stopColor="#F6F1E7" stopOpacity="0.08" />
             <stop offset="100%" stopColor="#F6F1E7" stopOpacity="0" />
           </linearGradient>
         </defs>
 
         {/* Sunrise sky */}
         <rect width="1440" height="900" fill="url(#sunriseSky)" />
-        <ellipse cx="1120" cy="240" rx="320" ry="260" fill="url(#sunGlow)" />
-        <circle cx="1180" cy="220" r="54" fill="#FFE9A8" opacity="0.9" />
-        <circle cx="1180" cy="220" r="72" fill="#D4AF37" opacity="0.12" />
+        <ellipse cx="1120" cy="250" rx="360" ry="300" fill="url(#sunGlow)" />
+        <circle cx="1185" cy="230" r="48" fill="#FFE9A8" opacity="0.55" />
+        <circle cx="1185" cy="230" r="90" fill="#D4AF37" opacity="0.08" />
 
         {/* Soft floating clouds */}
         <motion.g
@@ -596,11 +596,11 @@ export default function HomePage() {
               transition={{ duration: 0.28 }}
               className="pointer-events-auto mx-auto mt-3 max-w-6xl overflow-hidden rounded-2xl border md:hidden"
               style={{
-                borderColor: "rgba(220,239,247,0.8)",
-                background: "rgba(255,255,255,0.78)",
-                backdropFilter: "blur(20px)",
-                WebkitBackdropFilter: "blur(20px)",
-                boxShadow: "0 18px 44px -22px rgba(11,58,102,0.4)",
+                borderColor: "rgba(11,58,102,0.1)",
+                background: "rgba(246,241,231,0.96)",
+                backdropFilter: "blur(24px) saturate(165%)",
+                WebkitBackdropFilter: "blur(24px) saturate(165%)",
+                boxShadow: "0 22px 48px -18px rgba(11,58,102,0.45)",
               }}
             >
               <ul className="flex flex-col gap-1 px-5 py-5">
