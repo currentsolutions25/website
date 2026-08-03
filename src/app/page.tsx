@@ -17,6 +17,7 @@ import {
   Menu,
   X,
   ArrowRight,
+  Check,
 } from "lucide-react";
 import { useEffect, useState, type ReactNode } from "react";
 
@@ -33,6 +34,13 @@ const navLinks = [
   { label: "Services", href: "#services" },
   { label: "About", href: "#about" },
   { label: "Contact", href: "#contact" },
+];
+
+const trustBadges = [
+  "Family Owned",
+  "Licensed & Insured",
+  "Residential & Commercial",
+  "Emergency Service",
 ];
 
 const services = [
@@ -153,234 +161,319 @@ function WaveDivider({
   );
 }
 
-/** Full-bleed Nature Coast lighthouse with soft sunrise & Gulf tones */
-function CoastalLighthouseScene() {
+/** Full-bleed Nature Coast SVG — lighthouse, ocean, sunrise, sea oats, clouds */
+function CoastalIllustration() {
   return (
     <div
       className="pointer-events-none absolute inset-0 overflow-hidden"
       aria-hidden="true"
     >
-      {/* Soft sunrise → sea glass sky */}
-      <div
-        className="absolute inset-0"
-        style={{
-          background: `
-            linear-gradient(180deg,
-              #F7D9A8 0%,
-              #F3C98A 12%,
-              #E8D5B0 26%,
-              #DCEFF7 48%,
-              #C5E0EF 68%,
-              #F6F1E7 88%,
-              #EDE6D8 100%
-            )
-          `,
-        }}
-      />
-
-      {/* Warm sunrise glow — right horizon */}
-      <motion.div
-        className="absolute -right-[6%] top-[4%] h-[48vmin] w-[48vmin] rounded-full"
-        style={{
-          background:
-            "radial-gradient(circle, rgba(255,228,160,0.7) 0%, rgba(212,175,55,0.28) 38%, rgba(212,175,55,0.08) 58%, transparent 72%)",
-        }}
-        animate={{ opacity: [0.75, 1, 0.75], scale: [1, 1.05, 1] }}
-        transition={{ duration: 11, repeat: Infinity, ease: "easeInOut" }}
-      />
-
-      {/* Soft sea glass haze left */}
-      <div
-        className="absolute -left-[12%] top-[22%] h-[52vmin] w-[52vmin] rounded-full opacity-75 blur-3xl"
-        style={{
-          background:
-            "radial-gradient(circle, rgba(220,239,247,0.95) 0%, transparent 68%)",
-        }}
-      />
-
-      {/* Distant gulf horizon band */}
-      <div
-        className="absolute inset-x-0 bottom-[28%] h-[18%]"
-        style={{
-          background:
-            "linear-gradient(180deg, transparent 0%, rgba(11,58,102,0.08) 40%, rgba(11,58,102,0.2) 100%)",
-        }}
-      />
-
-      {/* Animated gentle waves */}
       <svg
-        className="absolute inset-x-0 bottom-0 h-[38%] w-full"
-        viewBox="0 0 1440 420"
-        preserveAspectRatio="none"
+        className="absolute inset-0 h-full w-full"
+        viewBox="0 0 1440 900"
+        preserveAspectRatio="xMidYMid slice"
+        xmlns="http://www.w3.org/2000/svg"
       >
         <defs>
-          <linearGradient id="gulfDeep" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stopColor="#0B3A66" stopOpacity="0.55" />
-            <stop offset="100%" stopColor="#072844" stopOpacity="0.88" />
+          <linearGradient id="sunriseSky" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stopColor="#F7D9A8" />
+            <stop offset="18%" stopColor="#F0C98A" />
+            <stop offset="38%" stopColor="#E8D5B8" />
+            <stop offset="58%" stopColor="#DCEFF7" />
+            <stop offset="78%" stopColor="#C8E4F2" />
+            <stop offset="100%" stopColor="#B5D6E8" />
           </linearGradient>
-          <linearGradient id="gulfMid" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stopColor="#1A5A8A" stopOpacity="0.48" />
-            <stop offset="100%" stopColor="#0B3A66" stopOpacity="0.72" />
+          <radialGradient id="sunGlow" cx="78%" cy="28%" r="32%">
+            <stop offset="0%" stopColor="#FFE4A8" stopOpacity="0.85" />
+            <stop offset="40%" stopColor="#D4AF37" stopOpacity="0.28" />
+            <stop offset="100%" stopColor="#D4AF37" stopOpacity="0" />
+          </radialGradient>
+          <linearGradient id="oceanDeep" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stopColor="#1A5A8A" />
+            <stop offset="55%" stopColor="#0B3A66" />
+            <stop offset="100%" stopColor="#072844" />
           </linearGradient>
-          <linearGradient id="gulfFoam" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stopColor="#DCEFF7" stopOpacity="0.58" />
-            <stop offset="100%" stopColor="#DCEFF7" stopOpacity="0.15" />
+          <linearGradient id="oceanMid" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stopColor="#2A6F9E" stopOpacity="0.55" />
+            <stop offset="100%" stopColor="#0B3A66" stopOpacity="0.35" />
+          </linearGradient>
+          <linearGradient id="foamLine" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stopColor="#DCEFF7" stopOpacity="0.55" />
+            <stop offset="100%" stopColor="#DCEFF7" stopOpacity="0" />
+          </linearGradient>
+          <linearGradient id="sandBank" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stopColor="#F6F1E7" />
+            <stop offset="100%" stopColor="#E8DFC8" />
+          </linearGradient>
+          <linearGradient id="towerBody" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stopColor="#EDE6D8" />
+            <stop offset="45%" stopColor="#FFFFFF" />
+            <stop offset="100%" stopColor="#D9D0C0" />
+          </linearGradient>
+          <linearGradient id="towerStripe" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stopColor="#0B3A66" />
+            <stop offset="100%" stopColor="#072844" />
+          </linearGradient>
+          <linearGradient id="beamGrad" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stopColor="#D4AF37" stopOpacity="0.55" />
+            <stop offset="55%" stopColor="#FFE9A3" stopOpacity="0.22" />
+            <stop offset="100%" stopColor="#D4AF37" stopOpacity="0" />
+          </linearGradient>
+          <radialGradient id="lanternCore" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stopColor="#FFF3C4" stopOpacity="0.95" />
+            <stop offset="45%" stopColor="#D4AF37" stopOpacity="0.4" />
+            <stop offset="100%" stopColor="#D4AF37" stopOpacity="0" />
+          </radialGradient>
+          <linearGradient id="textVeil" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stopColor="#F6F1E7" stopOpacity="0.82" />
+            <stop offset="42%" stopColor="#F6F1E7" stopOpacity="0.45" />
+            <stop offset="68%" stopColor="#F6F1E7" stopOpacity="0.08" />
+            <stop offset="100%" stopColor="#F6F1E7" stopOpacity="0" />
           </linearGradient>
         </defs>
-        <motion.path
-          d="M0,160 C240,120 360,210 560,170 C780,120 980,210 1200,165 C1320,140 1380,150 1440,145 L1440,420 L0,420 Z"
-          fill="url(#gulfDeep)"
-          animate={{
-            d: [
-              "M0,160 C240,120 360,210 560,170 C780,120 980,210 1200,165 C1320,140 1380,150 1440,145 L1440,420 L0,420 Z",
-              "M0,170 C220,210 380,130 580,175 C800,230 960,130 1180,175 C1320,200 1380,170 1440,165 L1440,420 L0,420 Z",
-              "M0,160 C240,120 360,210 560,170 C780,120 980,210 1200,165 C1320,140 1380,150 1440,145 L1440,420 L0,420 Z",
-            ],
-          }}
-          transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
-        />
-        <motion.path
-          d="M0,200 C260,170 400,240 620,205 C860,165 1040,245 1260,210 C1350,195 1400,205 1440,200 L1440,420 L0,420 Z"
-          fill="url(#gulfMid)"
-          animate={{
-            d: [
-              "M0,200 C260,170 400,240 620,205 C860,165 1040,245 1260,210 C1350,195 1400,205 1440,200 L1440,420 L0,420 Z",
-              "M0,210 C240,250 420,180 640,215 C880,255 1020,175 1240,220 C1350,240 1400,215 1440,210 L1440,420 L0,420 Z",
-              "M0,200 C260,170 400,240 620,205 C860,165 1040,245 1260,210 C1350,195 1400,205 1440,200 L1440,420 L0,420 Z",
-            ],
-          }}
-          transition={{ duration: 9, repeat: Infinity, ease: "easeInOut" }}
-        />
-        <path
-          d="M0,255 C300,235 480,280 720,255 C980,225 1180,285 1440,260 L1440,420 L0,420 Z"
-          fill="url(#gulfFoam)"
-        />
-        <path
-          d="M0,340 C360,310 720,360 1080,325 C1260,308 1360,320 1440,315 L1440,420 L0,420 Z"
-          fill="#F6F1E7"
-          opacity="0.92"
-        />
-        <path
-          d="M0,365 C400,345 780,385 1100,360 C1280,345 1380,355 1440,352 L1440,420 L0,420 Z"
-          fill="#EDE6D8"
-        />
-      </svg>
 
-      {/* Lighthouse — right side overlooking the Gulf */}
-      <div className="absolute bottom-[22%] right-[3%] w-[min(44vw,400px)] sm:right-[7%] lg:right-[9%]">
-        <svg
-          viewBox="0 0 320 420"
-          className="h-auto w-full drop-shadow-[0_30px_60px_rgba(11,58,102,0.28)]"
+        {/* Sunrise sky */}
+        <rect width="1440" height="900" fill="url(#sunriseSky)" />
+        <ellipse cx="1120" cy="240" rx="320" ry="260" fill="url(#sunGlow)" />
+        <circle cx="1180" cy="220" r="54" fill="#FFE9A8" opacity="0.9" />
+        <circle cx="1180" cy="220" r="72" fill="#D4AF37" opacity="0.12" />
+
+        {/* Soft floating clouds */}
+        <motion.g
+          animate={{ x: [0, 28, 0] }}
+          transition={{ duration: 48, repeat: Infinity, ease: "easeInOut" }}
+          opacity="0.55"
         >
-          <defs>
-            <linearGradient id="towerBody" x1="0" y1="0" x2="1" y2="0">
-              <stop offset="0%" stopColor="#F6F1E7" />
-              <stop offset="45%" stopColor="#FFFFFF" />
-              <stop offset="100%" stopColor="#E8E0D4" />
-            </linearGradient>
-            <linearGradient id="towerStripe" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stopColor="#0B3A66" />
-              <stop offset="100%" stopColor="#072844" />
-            </linearGradient>
-            <linearGradient id="lanternGlow" x1="0" y1="0" x2="1" y2="0">
-              <stop offset="0%" stopColor="#D4AF37" stopOpacity="0" />
-              <stop offset="35%" stopColor="#D4AF37" stopOpacity="0.55" />
-              <stop offset="100%" stopColor="#D4AF37" stopOpacity="0" />
-            </linearGradient>
-            <linearGradient id="rockBase" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stopColor="#1A4F78" />
-              <stop offset="100%" stopColor="#0B3A66" />
-            </linearGradient>
-            <radialGradient id="beacon" cx="50%" cy="50%" r="50%">
-              <stop offset="0%" stopColor="#FFE9A3" stopOpacity="0.95" />
-              <stop offset="45%" stopColor="#D4AF37" stopOpacity="0.45" />
-              <stop offset="100%" stopColor="#D4AF37" stopOpacity="0" />
-            </radialGradient>
-          </defs>
+          <ellipse cx="220" cy="140" rx="90" ry="28" fill="#FFFFFF" />
+          <ellipse cx="270" cy="128" rx="58" ry="22" fill="#FFFFFF" />
+          <ellipse cx="175" cy="132" rx="48" ry="18" fill="#FFFFFF" opacity="0.85" />
+        </motion.g>
+        <motion.g
+          animate={{ x: [0, -22, 0] }}
+          transition={{ duration: 56, repeat: Infinity, ease: "easeInOut" }}
+          opacity="0.4"
+        >
+          <ellipse cx="620" cy="100" rx="70" ry="22" fill="#FFFFFF" />
+          <ellipse cx="660" cy="92" rx="42" ry="16" fill="#FFFFFF" />
+        </motion.g>
+        <motion.g
+          animate={{ x: [0, 18, 0] }}
+          transition={{ duration: 62, repeat: Infinity, ease: "easeInOut" }}
+          opacity="0.35"
+        >
+          <ellipse cx="980" cy="160" rx="80" ry="24" fill="#FFFFFF" />
+          <ellipse cx="1030" cy="150" rx="50" ry="18" fill="#FFFFFF" />
+        </motion.g>
 
-          {/* Soft clouds */}
-          <ellipse cx="40" cy="48" rx="36" ry="12" fill="#FFFFFF" opacity="0.28" />
-          <ellipse cx="62" cy="42" rx="22" ry="9" fill="#FFFFFF" opacity="0.22" />
+        {/* Distant horizon haze */}
+        <rect
+          y="420"
+          width="1440"
+          height="80"
+          fill="#0B3A66"
+          opacity="0.06"
+        />
 
-          {/* Rock / island base */}
-          <ellipse cx="160" cy="385" rx="118" ry="28" fill="#072844" opacity="0.25" />
+        {/* Ocean layers */}
+        <motion.path
+          d="M0,520 C180,490 340,560 520,525 C720,485 900,560 1100,520 C1240,492 1340,510 1440,500 L1440,900 L0,900 Z"
+          fill="url(#oceanDeep)"
+          animate={{
+            d: [
+              "M0,520 C180,490 340,560 520,525 C720,485 900,560 1100,520 C1240,492 1340,510 1440,500 L1440,900 L0,900 Z",
+              "M0,530 C200,560 360,490 540,530 C740,575 880,490 1080,535 C1240,560 1340,530 1440,520 L1440,900 L0,900 Z",
+              "M0,520 C180,490 340,560 520,525 C720,485 900,560 1100,520 C1240,492 1340,510 1440,500 L1440,900 L0,900 Z",
+            ],
+          }}
+          transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }}
+        />
+        <motion.path
+          d="M0,560 C220,535 400,600 620,565 C860,525 1040,605 1260,570 C1350,555 1400,565 1440,560 L1440,900 L0,900 Z"
+          fill="url(#oceanMid)"
+          animate={{
+            d: [
+              "M0,560 C220,535 400,600 620,565 C860,525 1040,605 1260,570 C1350,555 1400,565 1440,560 L1440,900 L0,900 Z",
+              "M0,570 C200,605 420,540 640,575 C880,615 1020,540 1240,580 C1350,600 1400,575 1440,570 L1440,900 L0,900 Z",
+              "M0,560 C220,535 400,600 620,565 C860,525 1040,605 1260,570 C1350,555 1400,565 1440,560 L1440,900 L0,900 Z",
+            ],
+          }}
+          transition={{ duration: 11, repeat: Infinity, ease: "easeInOut" }}
+        />
+        <path
+          d="M0,620 C300,595 520,650 760,620 C1020,585 1220,650 1440,625 L1440,900 L0,900 Z"
+          fill="url(#foamLine)"
+        />
+
+        {/* Shore / sand */}
+        <path
+          d="M0,720 C280,680 480,760 760,720 C1040,680 1240,760 1440,730 L1440,900 L0,900 Z"
+          fill="url(#sandBank)"
+        />
+        <path
+          d="M0,780 C320,755 560,810 860,775 C1120,745 1300,790 1440,775 L1440,900 L0,900 Z"
+          fill="#EDE6D8"
+          opacity="0.85"
+        />
+
+        {/* Sea oats — left foreground */}
+        <g opacity="0.85">
           <path
-            d="M48,370 C70,330 100,312 145,308 C175,305 210,318 245,340 C270,358 285,372 292,385 L48,385 Z"
-            fill="url(#rockBase)"
+            d="M120,780 C118,720 110,660 105,610"
+            fill="none"
+            stroke="#5A6B3A"
+            strokeWidth="2"
+            strokeLinecap="round"
           />
           <path
-            d="M70,372 C95,348 125,335 155,332 C190,328 225,345 255,368"
+            d="M105,610 C95,595 88,590 78,588"
+            fill="none"
+            stroke="#6B7D45"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+          />
+          <ellipse cx="72" cy="586" rx="10" ry="4" fill="#8A9A55" transform="rotate(-25 72 586)" />
+          <path
+            d="M108,640 C120,625 128,620 140,618"
+            fill="none"
+            stroke="#6B7D45"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+          />
+          <ellipse cx="148" cy="616" rx="11" ry="4" fill="#8A9A55" transform="rotate(20 148 616)" />
+          <path
+            d="M112,690 C100,680 92,678 80,678"
+            fill="none"
+            stroke="#6B7D45"
+            strokeWidth="1.4"
+            strokeLinecap="round"
+          />
+          <ellipse cx="74" cy="677" rx="9" ry="3.5" fill="#7A8B4A" transform="rotate(-18 74 677)" />
+
+          <path
+            d="M168,790 C170,730 178,670 185,625"
+            fill="none"
+            stroke="#5A6B3A"
+            strokeWidth="2"
+            strokeLinecap="round"
+          />
+          <path
+            d="M185,625 C198,612 208,608 220,608"
+            fill="none"
+            stroke="#6B7D45"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+          />
+          <ellipse cx="228" cy="607" rx="11" ry="4" fill="#8A9A55" transform="rotate(18 228 607)" />
+          <path
+            d="M180,670 C168,658 158,654 145,654"
+            fill="none"
+            stroke="#6B7D45"
+            strokeWidth="1.4"
+            strokeLinecap="round"
+          />
+          <ellipse cx="138" cy="653" rx="10" ry="3.5" fill="#7A8B4A" transform="rotate(-22 138 653)" />
+
+          <path
+            d="M210,800 C208,750 202,700 198,660"
+            fill="none"
+            stroke="#5A6B3A"
+            strokeWidth="1.8"
+            strokeLinecap="round"
+          />
+          <ellipse cx="188" cy="652" rx="9" ry="3.5" fill="#8A9A55" transform="rotate(-30 188 652)" />
+          <ellipse cx="212" cy="658" rx="9" ry="3.5" fill="#7A8B4A" transform="rotate(25 212 658)" />
+        </g>
+
+        {/* Sea oats — right mid */}
+        <g opacity="0.7">
+          <path
+            d="M1280,760 C1282,710 1290,660 1295,620"
+            fill="none"
+            stroke="#5A6B3A"
+            strokeWidth="1.8"
+            strokeLinecap="round"
+          />
+          <ellipse cx="1282" cy="612" rx="9" ry="3.5" fill="#8A9A55" transform="rotate(-28 1282 612)" />
+          <ellipse cx="1310" cy="618" rx="9" ry="3.5" fill="#7A8B4A" transform="rotate(22 1310 618)" />
+          <path
+            d="M1325,770 C1328,720 1335,675 1340,640"
+            fill="none"
+            stroke="#5A6B3A"
+            strokeWidth="1.6"
+            strokeLinecap="round"
+          />
+          <ellipse cx="1352" cy="634" rx="9" ry="3.5" fill="#8A9A55" transform="rotate(20 1352 634)" />
+        </g>
+
+        {/* Lighthouse group — right coastal overlook */}
+        <g transform="translate(980, 180)">
+          {/* Rock base */}
+          <ellipse cx="160" cy="480" rx="130" ry="32" fill="#072844" opacity="0.22" />
+          <path
+            d="M40,465 C65,420 100,398 150,392 C185,388 225,405 265,435 C290,455 305,470 312,482 L40,482 Z"
+            fill="#0B3A66"
+          />
+          <path
+            d="M55,468 C85,440 120,425 155,422 C195,418 235,438 270,465"
             fill="none"
             stroke="#DCEFF7"
-            strokeOpacity="0.25"
+            strokeOpacity="0.2"
             strokeWidth="2"
           />
+          <ellipse cx="95" cy="455" rx="20" ry="11" fill="#145A82" opacity="0.55" />
+          <ellipse cx="230" cy="460" rx="18" ry="10" fill="#0B3A66" opacity="0.5" />
 
-          {/* Coastal foliage */}
-          <ellipse cx="95" cy="355" rx="18" ry="10" fill="#0B3A66" opacity="0.55" />
-          <ellipse cx="112" cy="350" rx="14" ry="9" fill="#145A82" opacity="0.5" />
-          <ellipse cx="220" cy="358" rx="16" ry="9" fill="#0B3A66" opacity="0.45" />
-
-          {/* Tower shaft */}
-          <path
-            d="M118,340 L132,120 L188,120 L202,340 Z"
-            fill="url(#towerBody)"
-          />
-          <path d="M122,300 L136,255 L184,255 L198,300 Z" fill="url(#towerStripe)" />
-          <path d="M128,210 L138,170 L182,170 L192,210 Z" fill="url(#towerStripe)" />
-
-          {/* Gallery railing */}
-          <rect x="122" y="112" width="76" height="10" rx="2" fill="#0B3A66" />
-          <rect x="126" y="106" width="4" height="8" fill="#D4AF37" />
-          <rect x="142" y="106" width="4" height="8" fill="#D4AF37" />
-          <rect x="158" y="106" width="4" height="8" fill="#D4AF37" />
-          <rect x="174" y="106" width="4" height="8" fill="#D4AF37" />
-          <rect x="190" y="106" width="4" height="8" fill="#D4AF37" />
-
-          {/* Lantern room */}
-          <rect x="136" y="72" width="48" height="36" rx="3" fill="#F6F1E7" />
-          <rect x="140" y="76" width="12" height="28" rx="1" fill="#0B3A66" opacity="0.75" />
-          <rect x="156" y="76" width="12" height="28" rx="1" fill="#DCEFF7" />
-          <rect x="172" y="76" width="12" height="28" rx="1" fill="#0B3A66" opacity="0.75" />
-
-          {/* Cupola / roof */}
-          <path d="M128,74 L160,42 L192,74 Z" fill="#0B3A66" />
-          <circle cx="160" cy="40" r="5" fill="#D4AF37" />
-          <rect x="158" y="28" width="4" height="14" rx="1" fill="#D4AF37" />
-
-          {/* Beacon glow */}
-          <circle cx="160" cy="90" r="48" fill="url(#beacon)" opacity="0.85" />
-
-          {/* Light beams sweeping Gulf */}
+          {/* Light beam — sweeps every 12s */}
           <motion.g
-            style={{ transformOrigin: "160px 90px" }}
-            animate={{ opacity: [0.32, 0.78, 0.32] }}
-            transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut" }}
+            style={{ transformOrigin: "160px 118px" }}
+            animate={{ rotate: [-28, 32, -28] }}
+            transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
           >
-            <path d="M168,88 L310,55 L310,115 Z" fill="url(#lanternGlow)" />
-            <path d="M168,92 L300,130 L285,165 Z" fill="#D4AF37" opacity="0.18" />
+            <path
+              d="M168,118 L480,40 L500,200 Z"
+              fill="url(#beamGrad)"
+              opacity="0.85"
+            />
+            <path
+              d="M168,120 L460,160 L440,230 Z"
+              fill="#D4AF37"
+              opacity="0.12"
+            />
           </motion.g>
 
-          {/* Door */}
-          <rect x="148" y="308" width="24" height="32" rx="2" fill="#0B3A66" />
-          <circle cx="166" cy="324" r="1.5" fill="#D4AF37" />
-        </svg>
-      </div>
+          {/* Tower shaft */}
+          <path d="M112,455 L128,155 L192,155 L208,455 Z" fill="url(#towerBody)" />
+          <path d="M118,400 L134,345 L186,345 L202,400 Z" fill="url(#towerStripe)" />
+          <path d="M124,290 L136,240 L184,240 L196,290 Z" fill="url(#towerStripe)" />
 
-      {/* Soft vignette for text readability on left */}
-      <div
-        className="absolute inset-0"
-        style={{
-          background: `
-            linear-gradient(90deg,
-              rgba(246,241,231,0.78) 0%,
-              rgba(246,241,231,0.48) 36%,
-              rgba(246,241,231,0.1) 58%,
-              transparent 74%
-            )
-          `,
-        }}
-      />
+          {/* Gallery */}
+          <rect x="118" y="146" width="84" height="11" rx="2" fill="#0B3A66" />
+          {[124, 142, 160, 178, 196].map((x) => (
+            <rect key={x} x={x} y="138" width="4" height="10" fill="#D4AF37" />
+          ))}
+
+          {/* Lantern room */}
+          <rect x="134" y="98" width="52" height="40" rx="3" fill="#F6F1E7" />
+          <rect x="138" y="102" width="13" height="32" rx="1" fill="#0B3A66" opacity="0.75" />
+          <rect x="154" y="102" width="13" height="32" rx="1" fill="#DCEFF7" />
+          <rect x="170" y="102" width="13" height="32" rx="1" fill="#0B3A66" opacity="0.75" />
+
+          {/* Cupola */}
+          <path d="M126,100 L160,62 L194,100 Z" fill="#0B3A66" />
+          <circle cx="160" cy="60" r="5" fill="#D4AF37" />
+          <rect x="158" y="46" width="4" height="16" rx="1" fill="#D4AF37" />
+
+          {/* Beacon glow */}
+          <circle cx="160" cy="118" r="52" fill="url(#lanternCore)" />
+
+          {/* Door */}
+          <rect x="146" y="415" width="28" height="40" rx="2" fill="#0B3A66" />
+          <circle cx="168" cy="436" r="1.8" fill="#D4AF37" />
+        </g>
+
+        {/* Soft left veil for text legibility */}
+        <rect width="1440" height="900" fill="url(#textVeil)" />
+      </svg>
     </div>
   );
 }
@@ -448,15 +541,15 @@ export default function HomePage() {
       className="min-h-screen overflow-x-hidden antialiased"
       style={{ background: colors.warmSand, color: colors.navy }}
     >
-      {/* SECTION 1 — Floating glassmorphism navigation */}
+      {/* SECTION 1 — Floating glass navigation */}
       <header className="pointer-events-none fixed inset-x-0 top-0 z-50 px-4 pt-4 sm:px-6 sm:pt-5">
         <nav
           className={`pointer-events-auto glass-nav mx-auto flex max-w-6xl items-center justify-between gap-4 rounded-2xl px-4 py-3.5 transition-[background,box-shadow,border-color] duration-300 sm:px-6 sm:py-4 ${
             scrolled ? "glass-nav-scrolled" : ""
           }`}
         >
-          <a href="#home" className="shrink-0">
-            <span className="font-display text-2xl font-semibold tracking-tight sm:text-[1.75rem]">
+          <a href="#home" className="group shrink-0">
+            <span className="font-display text-2xl font-semibold tracking-tight transition-opacity duration-300 group-hover:opacity-75 sm:text-[1.75rem]">
               Current Solutions
             </span>
           </a>
@@ -466,7 +559,7 @@ export default function HomePage() {
               <li key={link.href}>
                 <a
                   href={link.href}
-                  className="text-[0.9375rem] font-medium tracking-[0.04em] transition-opacity hover:opacity-65"
+                  className="relative text-[0.9375rem] font-medium tracking-[0.04em] transition-opacity duration-300 hover:opacity-65 after:absolute after:-bottom-1 after:left-0 after:h-px after:w-full after:origin-left after:scale-x-0 after:bg-[var(--champagne)] after:transition-transform after:duration-300 hover:after:scale-x-100"
                 >
                   {link.label}
                 </a>
@@ -477,7 +570,7 @@ export default function HomePage() {
           <div className="hidden md:block">
             <ScaleButton
               href="#contact"
-              variant="primary"
+              variant="gold"
               className="px-7 py-3.5 text-sm"
             >
               Request a Quote
@@ -486,7 +579,7 @@ export default function HomePage() {
 
           <button
             type="button"
-            className="rounded-xl p-2 md:hidden"
+            className="rounded-xl p-2 transition-colors duration-300 hover:bg-white/40 md:hidden"
             aria-label={mobileOpen ? "Close menu" : "Open menu"}
             onClick={() => setMobileOpen((v) => !v)}
           >
@@ -515,7 +608,7 @@ export default function HomePage() {
                   <li key={link.href}>
                     <a
                       href={link.href}
-                      className="block py-2.5 text-base font-medium"
+                      className="block py-2.5 text-base font-medium transition-opacity hover:opacity-65"
                       onClick={() => setMobileOpen(false)}
                     >
                       {link.label}
@@ -525,7 +618,7 @@ export default function HomePage() {
                 <li className="pt-3">
                   <ScaleButton
                     href="#contact"
-                    variant="primary"
+                    variant="gold"
                     className="w-full"
                   >
                     Request a Quote
@@ -538,38 +631,51 @@ export default function HomePage() {
       </header>
 
       <main>
-        {/* SECTION 2 — Dramatic Nature Coast Hero */}
+        {/* SECTION 2 — Tall coastal hero */}
         <section
           id="home"
-          className="relative min-h-[min(94vh,960px)] overflow-hidden pt-20"
+          className="relative min-h-[90vh] overflow-hidden pt-24"
         >
-          <CoastalLighthouseScene />
+          <CoastalIllustration />
 
-          <div className="relative z-10 mx-auto flex min-h-[min(94vh,960px)] max-w-6xl items-center px-5 py-28 sm:px-8 sm:py-36 lg:py-40">
+          <div className="relative z-10 mx-auto flex min-h-[90vh] max-w-6xl items-center px-5 py-28 sm:px-8 sm:py-32 lg:py-36">
             <div className="max-w-xl lg:max-w-2xl">
+              <motion.p
+                initial={{ opacity: 0, y: 18 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+                className="text-[0.7rem] font-semibold tracking-[0.28em] sm:text-xs"
+                style={{ color: colors.champagne }}
+              >
+                SERVING FLORIDA&apos;S NATURE COAST
+              </motion.p>
+
               <motion.h1
                 initial={{ opacity: 0, y: 28 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.85, ease: [0.22, 1, 0.36, 1] }}
-                className="font-display text-[clamp(3rem,7.5vw,5.75rem)] font-semibold leading-[0.96] tracking-tight"
+                transition={{
+                  duration: 0.85,
+                  delay: 0.08,
+                  ease: [0.22, 1, 0.36, 1],
+                }}
+                className="font-display mt-5 text-[clamp(2.75rem,6.5vw,5.25rem)] font-semibold leading-[1.02] tracking-tight"
                 style={{ color: colors.navy }}
               >
-                Current Solutions
+                Powering Florida&apos;s Nature Coast
               </motion.h1>
 
               <motion.p
-                initial={{ opacity: 0, y: 24 }}
+                initial={{ opacity: 0, y: 22 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{
-                  duration: 0.8,
-                  delay: 0.12,
+                  duration: 0.75,
+                  delay: 0.18,
                   ease: [0.22, 1, 0.36, 1],
                 }}
-                className="mt-7 max-w-lg text-xl font-medium leading-snug tracking-tight sm:text-2xl lg:text-[1.65rem]"
+                className="mt-6 text-base font-medium tracking-wide sm:text-lg"
                 style={{ color: colors.navy }}
               >
-                Reliable electrical craftsmanship for Florida&apos;s Nature
-                Coast.
+                Residential • Commercial • Licensed &amp; Insured
               </motion.p>
 
               <motion.p
@@ -577,14 +683,15 @@ export default function HomePage() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{
                   duration: 0.75,
-                  delay: 0.22,
+                  delay: 0.28,
                   ease: [0.22, 1, 0.36, 1],
                 }}
                 className="mt-6 max-w-md text-base leading-relaxed sm:text-lg"
                 style={{ color: "rgba(11,58,102,0.72)" }}
               >
-                Family-owned service with honest workmanship—keeping homes and
-                businesses powered with quiet confidence.
+                Family-owned electrical professionals delivering dependable
+                service, honest workmanship, and quality craftsmanship
+                throughout Florida&apos;s Nature Coast.
               </motion.p>
 
               <motion.div
@@ -592,10 +699,10 @@ export default function HomePage() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{
                   duration: 0.7,
-                  delay: 0.34,
+                  delay: 0.38,
                   ease: [0.22, 1, 0.36, 1],
                 }}
-                className="mt-12 flex flex-col gap-4 sm:flex-row sm:items-center"
+                className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center"
               >
                 <ScaleButton href="#contact" variant="gold">
                   Request a Free Quote
@@ -605,6 +712,36 @@ export default function HomePage() {
                   Call Now
                 </ScaleButton>
               </motion.div>
+
+              <motion.ul
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{
+                  duration: 0.7,
+                  delay: 0.48,
+                  ease: [0.22, 1, 0.36, 1],
+                }}
+                className="mt-12 flex flex-wrap gap-x-8 gap-y-3"
+              >
+                {trustBadges.map((badge) => (
+                  <li
+                    key={badge}
+                    className="inline-flex items-center gap-2 text-sm font-medium tracking-wide"
+                    style={{ color: colors.navy }}
+                  >
+                    <span
+                      className="flex h-5 w-5 items-center justify-center rounded-full"
+                      style={{
+                        background: "rgba(212,175,55,0.18)",
+                        color: colors.champagne,
+                      }}
+                    >
+                      <Check size={12} strokeWidth={2.75} />
+                    </span>
+                    {badge}
+                  </li>
+                ))}
+              </motion.ul>
             </div>
           </div>
         </section>
