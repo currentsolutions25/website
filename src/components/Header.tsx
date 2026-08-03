@@ -58,15 +58,15 @@ export default function Header() {
           scrolled ? "glass-nav-scrolled" : ""
         }`}
       >
-        <div className="flex items-center justify-between gap-4 px-4 py-3 sm:px-5 lg:px-6 lg:py-3.5">
+        <div className="flex items-center justify-between gap-3 px-4 py-3 sm:gap-4 sm:px-5 lg:px-6 lg:py-3.5">
           <Link
             href="/"
-            className="group flex min-w-0 shrink-0 items-center gap-3"
+            className="group flex shrink-0 items-center gap-3"
           >
             <LighthouseMark size={46} />
-            <span className="min-w-0 leading-tight">
+            <span className="leading-tight">
               <span
-                className="block font-display text-[1.15rem] font-bold tracking-[0.02em] sm:text-[1.35rem]"
+                className="block font-display text-[1.15rem] font-bold tracking-[0.02em] sm:text-[1.3rem]"
                 style={{ color: colors.navy }}
               >
                 CURRENT SOLUTIONS
@@ -80,8 +80,8 @@ export default function Header() {
             </span>
           </Link>
 
-          <nav className="hidden items-center xl:flex" aria-label="Primary">
-            <ul className="flex items-center gap-1">
+          <nav className="hidden min-w-0 items-center xl:flex" aria-label="Primary">
+            <ul className="flex items-center gap-0.5">
               {primaryNav
                 .filter((link) => link.href === "/")
                 .map((link) => (
@@ -97,9 +97,9 @@ export default function Header() {
               <li ref={servicesRef} className="relative">
                 <button
                   type="button"
-                  className={`nav-link inline-flex items-center gap-1.5 px-3 py-2 text-[0.78rem] font-semibold tracking-[0.12em] uppercase transition-colors duration-200 ${
-                    servicesActive ? "nav-link-active" : ""
-                  }`}
+                  className={`nav-link inline-flex items-center gap-1.5 px-2.5 py-2 text-[0.74rem] font-semibold tracking-[0.1em] uppercase transition-colors duration-200 ${
+                  servicesActive ? "nav-link-active" : ""
+                }`}
                   style={{ color: colors.navy }}
                   aria-expanded={servicesOpen}
                   aria-haspopup="true"
@@ -171,10 +171,10 @@ export default function Header() {
             </ul>
           </nav>
 
-          <div className="hidden items-center gap-4 lg:flex xl:gap-5">
+          <div className="hidden shrink-0 items-center gap-3 lg:flex xl:gap-4">
             <a
               href={PHONE_HREF}
-              className="group text-right leading-tight"
+              className="group whitespace-nowrap text-right leading-tight"
               aria-label={`Call ${PHONE_DISPLAY}`}
             >
               <span
@@ -194,7 +194,7 @@ export default function Header() {
 
             <Link
               href="/contact"
-              className="cta-gold inline-flex items-center gap-2 rounded-md px-5 py-3 text-[0.78rem] font-bold tracking-[0.12em] uppercase transition-transform duration-200 hover:-translate-y-0.5"
+              className="cta-gold inline-flex shrink-0 items-center gap-2 whitespace-nowrap rounded-md px-5 py-3 text-[0.78rem] font-bold tracking-[0.12em] uppercase transition-transform duration-200 hover:-translate-y-0.5"
               style={{ color: colors.navy }}
             >
               <Zap size={14} strokeWidth={2.4} fill="currentColor" />
@@ -323,7 +323,7 @@ function NavItem({
   return (
     <Link
       href={href}
-      className={`nav-link block px-3 py-2 text-[0.78rem] font-semibold tracking-[0.12em] uppercase transition-colors duration-200 ${
+      className={`nav-link block px-2.5 py-2 text-[0.74rem] font-semibold tracking-[0.1em] uppercase transition-colors duration-200 ${
         active ? "nav-link-active" : ""
       }`}
       style={{ color: colors.navy }}
