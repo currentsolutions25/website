@@ -18,6 +18,8 @@ import {
   X,
   ArrowRight,
   Check,
+  HeartHandshake,
+  MapPin,
 } from "lucide-react";
 import { useEffect, useState, type ReactNode } from "react";
 
@@ -41,6 +43,25 @@ const trustBadges = [
   "Licensed & Insured",
   "Residential & Commercial",
   "Emergency Service",
+];
+
+const trustBarItems = [
+  {
+    title: "Family Owned & Operated",
+    icon: HeartHandshake,
+  },
+  {
+    title: "Licensed & Insured",
+    icon: ShieldCheck,
+  },
+  {
+    title: "Residential & Commercial",
+    icon: Building2,
+  },
+  {
+    title: "Proudly Serving Florida's Nature Coast",
+    icon: MapPin,
+  },
 ];
 
 const services = [
@@ -110,14 +131,14 @@ const features = [
 ];
 
 const fadeUp = {
-  hidden: { opacity: 0, y: 40 },
+  hidden: { opacity: 0, y: 32 },
   visible: { opacity: 1, y: 0 },
 };
 
 const stagger = {
   hidden: {},
   visible: {
-    transition: { staggerChildren: 0.09 },
+    transition: { staggerChildren: 0.1 },
   },
 };
 
@@ -161,7 +182,7 @@ function WaveDivider({
   );
 }
 
-/** Full-bleed Nature Coast SVG — lighthouse, ocean, sunrise, sea oats, clouds */
+/** Full-bleed Nature Coast SVG — lighthouse, ocean, sunrise, sea oats, atmosphere */
 function CoastalIllustration() {
   return (
     <div
@@ -176,147 +197,217 @@ function CoastalIllustration() {
       >
         <defs>
           <linearGradient id="sunriseSky" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stopColor="#F7D9A8" />
-            <stop offset="18%" stopColor="#F0C98A" />
-            <stop offset="38%" stopColor="#E8D5B8" />
-            <stop offset="58%" stopColor="#DCEFF7" />
-            <stop offset="78%" stopColor="#C8E4F2" />
-            <stop offset="100%" stopColor="#B5D6E8" />
+            <stop offset="0%" stopColor="#F8C98A" />
+            <stop offset="12%" stopColor="#F5D4A0" />
+            <stop offset="28%" stopColor="#F0DFC0" />
+            <stop offset="48%" stopColor="#E8ECF0" />
+            <stop offset="68%" stopColor="#DCEFF7" />
+            <stop offset="86%" stopColor="#C5E2F0" />
+            <stop offset="100%" stopColor="#A8D0E4" />
           </linearGradient>
-          <radialGradient id="sunGlow" cx="78%" cy="28%" r="32%">
-            <stop offset="0%" stopColor="#FFE4A8" stopOpacity="0.85" />
-            <stop offset="40%" stopColor="#D4AF37" stopOpacity="0.28" />
+          <radialGradient id="sunCore" cx="76%" cy="32%" r="8%">
+            <stop offset="0%" stopColor="#FFF6D8" stopOpacity="1" />
+            <stop offset="45%" stopColor="#FFE29A" stopOpacity="0.95" />
+            <stop offset="100%" stopColor="#F0C060" stopOpacity="0.35" />
+          </radialGradient>
+          <radialGradient id="sunBloom" cx="76%" cy="32%" r="38%">
+            <stop offset="0%" stopColor="#FFE8B0" stopOpacity="0.72" />
+            <stop offset="28%" stopColor="#F0C878" stopOpacity="0.32" />
+            <stop offset="55%" stopColor="#D4AF37" stopOpacity="0.12" />
             <stop offset="100%" stopColor="#D4AF37" stopOpacity="0" />
           </radialGradient>
+          <linearGradient id="horizonWarmth" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stopColor="#F5C98A" stopOpacity="0" />
+            <stop offset="40%" stopColor="#F0B86A" stopOpacity="0.22" />
+            <stop offset="70%" stopColor="#E8A858" stopOpacity="0.14" />
+            <stop offset="100%" stopColor="#DCEFF7" stopOpacity="0" />
+          </linearGradient>
           <linearGradient id="oceanDeep" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stopColor="#1A5A8A" />
-            <stop offset="55%" stopColor="#0B3A66" />
-            <stop offset="100%" stopColor="#072844" />
+            <stop offset="0%" stopColor="#2A6F9E" />
+            <stop offset="35%" stopColor="#1A5A8A" />
+            <stop offset="70%" stopColor="#0B3A66" />
+            <stop offset="100%" stopColor="#061F36" />
           </linearGradient>
           <linearGradient id="oceanMid" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stopColor="#2A6F9E" stopOpacity="0.55" />
-            <stop offset="100%" stopColor="#0B3A66" stopOpacity="0.35" />
+            <stop offset="0%" stopColor="#3A85B0" stopOpacity="0.45" />
+            <stop offset="50%" stopColor="#1A5A8A" stopOpacity="0.35" />
+            <stop offset="100%" stopColor="#0B3A66" stopOpacity="0.2" />
+          </linearGradient>
+          <linearGradient id="oceanShimmer" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stopColor="#FFE9A8" stopOpacity="0" />
+            <stop offset="45%" stopColor="#FFE9A8" stopOpacity="0.18" />
+            <stop offset="70%" stopColor="#DCEFF7" stopOpacity="0.12" />
+            <stop offset="100%" stopColor="#DCEFF7" stopOpacity="0" />
           </linearGradient>
           <linearGradient id="foamLine" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stopColor="#DCEFF7" stopOpacity="0.55" />
+            <stop offset="0%" stopColor="#DCEFF7" stopOpacity="0.65" />
             <stop offset="100%" stopColor="#DCEFF7" stopOpacity="0" />
           </linearGradient>
           <linearGradient id="sandBank" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stopColor="#F6F1E7" />
-            <stop offset="100%" stopColor="#E8DFC8" />
+            <stop offset="0%" stopColor="#F8F3E9" />
+            <stop offset="55%" stopColor="#F0E6D2" />
+            <stop offset="100%" stopColor="#E4D8C0" />
           </linearGradient>
           <linearGradient id="towerBody" x1="0" y1="0" x2="1" y2="0">
-            <stop offset="0%" stopColor="#EDE6D8" />
-            <stop offset="45%" stopColor="#FFFFFF" />
-            <stop offset="100%" stopColor="#D9D0C0" />
+            <stop offset="0%" stopColor="#E4DCCE" />
+            <stop offset="35%" stopColor="#FFFEFA" />
+            <stop offset="70%" stopColor="#F2EBE0" />
+            <stop offset="100%" stopColor="#CFC5B4" />
           </linearGradient>
           <linearGradient id="towerStripe" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stopColor="#0B3A66" />
-            <stop offset="100%" stopColor="#072844" />
+            <stop offset="0%" stopColor="#0E4575" />
+            <stop offset="100%" stopColor="#061F36" />
           </linearGradient>
           <linearGradient id="beamGrad" x1="0" y1="0" x2="1" y2="0">
-            <stop offset="0%" stopColor="#D4AF37" stopOpacity="0.55" />
-            <stop offset="55%" stopColor="#FFE9A3" stopOpacity="0.22" />
+            <stop offset="0%" stopColor="#FFF3C4" stopOpacity="0.7" />
+            <stop offset="18%" stopColor="#D4AF37" stopOpacity="0.42" />
+            <stop offset="55%" stopColor="#FFE9A3" stopOpacity="0.14" />
             <stop offset="100%" stopColor="#D4AF37" stopOpacity="0" />
           </linearGradient>
           <radialGradient id="lanternCore" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stopColor="#FFF3C4" stopOpacity="0.95" />
-            <stop offset="45%" stopColor="#D4AF37" stopOpacity="0.4" />
+            <stop offset="0%" stopColor="#FFF8DC" stopOpacity="0.98" />
+            <stop offset="30%" stopColor="#FFE9A3" stopOpacity="0.55" />
+            <stop offset="60%" stopColor="#D4AF37" stopOpacity="0.22" />
             <stop offset="100%" stopColor="#D4AF37" stopOpacity="0" />
           </radialGradient>
+          <linearGradient id="atmosphereHaze" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stopColor="#F6F1E7" stopOpacity="0" />
+            <stop offset="50%" stopColor="#F0E6D2" stopOpacity="0.12" />
+            <stop offset="100%" stopColor="#DCEFF7" stopOpacity="0.2" />
+          </linearGradient>
           <linearGradient id="textVeil" x1="0" y1="0" x2="1" y2="0">
-            <stop offset="0%" stopColor="#F6F1E7" stopOpacity="0.72" />
-            <stop offset="36%" stopColor="#F6F1E7" stopOpacity="0.38" />
-            <stop offset="58%" stopColor="#F6F1E7" stopOpacity="0.08" />
+            <stop offset="0%" stopColor="#F6F1E7" stopOpacity="0.78" />
+            <stop offset="30%" stopColor="#F6F1E7" stopOpacity="0.42" />
+            <stop offset="52%" stopColor="#F6F1E7" stopOpacity="0.1" />
             <stop offset="100%" stopColor="#F6F1E7" stopOpacity="0" />
           </linearGradient>
+          <filter id="softBlur" x="-20%" y="-20%" width="140%" height="140%">
+            <feGaussianBlur stdDeviation="8" />
+          </filter>
+          <filter id="beamBlur" x="-10%" y="-30%" width="140%" height="160%">
+            <feGaussianBlur stdDeviation="4" />
+          </filter>
         </defs>
 
         {/* Sunrise sky */}
         <rect width="1440" height="900" fill="url(#sunriseSky)" />
-        <ellipse cx="1120" cy="250" rx="360" ry="300" fill="url(#sunGlow)" />
-        <circle cx="1185" cy="230" r="48" fill="#FFE9A8" opacity="0.55" />
-        <circle cx="1185" cy="230" r="90" fill="#D4AF37" opacity="0.08" />
+        <ellipse cx="1100" cy="290" rx="520" ry="280" fill="url(#sunBloom)" />
+        <ellipse
+          cx="1095"
+          cy="300"
+          rx="280"
+          ry="120"
+          fill="#F5C070"
+          opacity="0.18"
+          filter="url(#softBlur)"
+        />
+        <circle cx="1095" cy="285" r="56" fill="url(#sunCore)" />
+        <circle cx="1095" cy="285" r="92" fill="#FFE9A8" opacity="0.12" />
+
+        {/* Warm horizon band */}
+        <rect y="380" width="1440" height="140" fill="url(#horizonWarmth)" />
 
         {/* Soft floating clouds */}
         <motion.g
-          animate={{ x: [0, 28, 0] }}
-          transition={{ duration: 48, repeat: Infinity, ease: "easeInOut" }}
-          opacity="0.55"
+          animate={{ x: [0, 32, 0] }}
+          transition={{ duration: 52, repeat: Infinity, ease: "easeInOut" }}
+          opacity="0.42"
         >
-          <ellipse cx="220" cy="140" rx="90" ry="28" fill="#FFFFFF" />
-          <ellipse cx="270" cy="128" rx="58" ry="22" fill="#FFFFFF" />
-          <ellipse cx="175" cy="132" rx="48" ry="18" fill="#FFFFFF" opacity="0.85" />
+          <ellipse cx="200" cy="130" rx="100" ry="26" fill="#FFFFFF" />
+          <ellipse cx="255" cy="118" rx="62" ry="20" fill="#FFFFFF" />
+          <ellipse cx="155" cy="124" rx="52" ry="16" fill="#FFFFFF" opacity="0.8" />
         </motion.g>
         <motion.g
-          animate={{ x: [0, -22, 0] }}
-          transition={{ duration: 56, repeat: Infinity, ease: "easeInOut" }}
-          opacity="0.4"
+          animate={{ x: [0, -26, 0] }}
+          transition={{ duration: 60, repeat: Infinity, ease: "easeInOut" }}
+          opacity="0.32"
         >
-          <ellipse cx="620" cy="100" rx="70" ry="22" fill="#FFFFFF" />
-          <ellipse cx="660" cy="92" rx="42" ry="16" fill="#FFFFFF" />
+          <ellipse cx="580" cy="95" rx="78" ry="20" fill="#FFFFFF" />
+          <ellipse cx="625" cy="86" rx="46" ry="15" fill="#FFFFFF" />
         </motion.g>
         <motion.g
-          animate={{ x: [0, 18, 0] }}
-          transition={{ duration: 62, repeat: Infinity, ease: "easeInOut" }}
-          opacity="0.35"
+          animate={{ x: [0, 20, 0] }}
+          transition={{ duration: 68, repeat: Infinity, ease: "easeInOut" }}
+          opacity="0.28"
         >
-          <ellipse cx="980" cy="160" rx="80" ry="24" fill="#FFFFFF" />
-          <ellipse cx="1030" cy="150" rx="50" ry="18" fill="#FFFFFF" />
+          <ellipse cx="920" cy="155" rx="86" ry="22" fill="#FFFFFF" />
+          <ellipse cx="970" cy="145" rx="52" ry="16" fill="#FFFFFF" />
         </motion.g>
 
-        {/* Distant horizon haze */}
-        <rect
-          y="420"
-          width="1440"
-          height="80"
-          fill="#0B3A66"
-          opacity="0.06"
+        {/* Atmospheric haze near horizon */}
+        <rect y="400" width="1440" height="130" fill="url(#atmosphereHaze)" />
+        <ellipse
+          cx="720"
+          cy="470"
+          rx="680"
+          ry="48"
+          fill="#FFFFFF"
+          opacity="0.08"
+          filter="url(#softBlur)"
         />
 
         {/* Ocean layers */}
         <motion.path
-          d="M0,520 C180,490 340,560 520,525 C720,485 900,560 1100,520 C1240,492 1340,510 1440,500 L1440,900 L0,900 Z"
+          d="M0,510 C200,478 360,555 540,515 C740,470 920,555 1120,508 C1260,475 1350,500 1440,488 L1440,900 L0,900 Z"
           fill="url(#oceanDeep)"
           animate={{
             d: [
-              "M0,520 C180,490 340,560 520,525 C720,485 900,560 1100,520 C1240,492 1340,510 1440,500 L1440,900 L0,900 Z",
-              "M0,530 C200,560 360,490 540,530 C740,575 880,490 1080,535 C1240,560 1340,530 1440,520 L1440,900 L0,900 Z",
-              "M0,520 C180,490 340,560 520,525 C720,485 900,560 1100,520 C1240,492 1340,510 1440,500 L1440,900 L0,900 Z",
+              "M0,510 C200,478 360,555 540,515 C740,470 920,555 1120,508 C1260,475 1350,500 1440,488 L1440,900 L0,900 Z",
+              "M0,522 C220,555 380,480 560,520 C760,565 900,480 1100,528 C1260,555 1350,518 1440,508 L1440,900 L0,900 Z",
+              "M0,510 C200,478 360,555 540,515 C740,470 920,555 1120,508 C1260,475 1350,500 1440,488 L1440,900 L0,900 Z",
             ],
           }}
-          transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }}
+          transition={{ duration: 16, repeat: Infinity, ease: "easeInOut" }}
         />
         <motion.path
-          d="M0,560 C220,535 400,600 620,565 C860,525 1040,605 1260,570 C1350,555 1400,565 1440,560 L1440,900 L0,900 Z"
+          d="M0,555 C240,528 420,598 640,560 C880,518 1040,600 1280,565 C1360,550 1405,560 1440,555 L1440,900 L0,900 Z"
           fill="url(#oceanMid)"
           animate={{
             d: [
-              "M0,560 C220,535 400,600 620,565 C860,525 1040,605 1260,570 C1350,555 1400,565 1440,560 L1440,900 L0,900 Z",
-              "M0,570 C200,605 420,540 640,575 C880,615 1020,540 1240,580 C1350,600 1400,575 1440,570 L1440,900 L0,900 Z",
-              "M0,560 C220,535 400,600 620,565 C860,525 1040,605 1260,570 C1350,555 1400,565 1440,560 L1440,900 L0,900 Z",
+              "M0,555 C240,528 420,598 640,560 C880,518 1040,600 1280,565 C1360,550 1405,560 1440,555 L1440,900 L0,900 Z",
+              "M0,568 C210,600 440,530 660,570 C900,615 1020,535 1260,575 C1360,595 1405,570 1440,565 L1440,900 L0,900 Z",
+              "M0,555 C240,528 420,598 640,560 C880,518 1040,600 1280,565 C1360,550 1405,560 1440,555 L1440,900 L0,900 Z",
             ],
           }}
-          transition={{ duration: 11, repeat: Infinity, ease: "easeInOut" }}
+          transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
         />
+
+        {/* Sunrise reflection on water */}
+        <ellipse
+          cx="1090"
+          cy="530"
+          rx="220"
+          ry="36"
+          fill="url(#oceanShimmer)"
+          opacity="0.85"
+        />
+        <ellipse
+          cx="1080"
+          cy="560"
+          rx="160"
+          ry="22"
+          fill="#FFE9A8"
+          opacity="0.08"
+        />
+
         <path
-          d="M0,620 C300,595 520,650 760,620 C1020,585 1220,650 1440,625 L1440,900 L0,900 Z"
+          d="M0,615 C300,588 520,648 760,615 C1020,578 1220,648 1440,620 L1440,900 L0,900 Z"
           fill="url(#foamLine)"
         />
 
         {/* Shore / sand */}
         <path
-          d="M0,720 C280,680 480,760 760,720 C1040,680 1240,760 1440,730 L1440,900 L0,900 Z"
+          d="M0,715 C280,675 480,755 760,715 C1040,675 1240,755 1440,725 L1440,900 L0,900 Z"
           fill="url(#sandBank)"
         />
         <path
-          d="M0,780 C320,755 560,810 860,775 C1120,745 1300,790 1440,775 L1440,900 L0,900 Z"
+          d="M0,775 C320,750 560,808 860,770 C1120,740 1300,785 1440,770 L1440,900 L0,900 Z"
           fill="#EDE6D8"
-          opacity="0.85"
+          opacity="0.88"
         />
 
         {/* Sea oats — left foreground */}
-        <g opacity="0.85">
+        <g opacity="0.88">
           <path
             d="M120,780 C118,720 110,660 105,610"
             fill="none"
@@ -331,7 +422,14 @@ function CoastalIllustration() {
             strokeWidth="1.5"
             strokeLinecap="round"
           />
-          <ellipse cx="72" cy="586" rx="10" ry="4" fill="#8A9A55" transform="rotate(-25 72 586)" />
+          <ellipse
+            cx="72"
+            cy="586"
+            rx="10"
+            ry="4"
+            fill="#8A9A55"
+            transform="rotate(-25 72 586)"
+          />
           <path
             d="M108,640 C120,625 128,620 140,618"
             fill="none"
@@ -339,7 +437,14 @@ function CoastalIllustration() {
             strokeWidth="1.5"
             strokeLinecap="round"
           />
-          <ellipse cx="148" cy="616" rx="11" ry="4" fill="#8A9A55" transform="rotate(20 148 616)" />
+          <ellipse
+            cx="148"
+            cy="616"
+            rx="11"
+            ry="4"
+            fill="#8A9A55"
+            transform="rotate(20 148 616)"
+          />
           <path
             d="M112,690 C100,680 92,678 80,678"
             fill="none"
@@ -347,7 +452,14 @@ function CoastalIllustration() {
             strokeWidth="1.4"
             strokeLinecap="round"
           />
-          <ellipse cx="74" cy="677" rx="9" ry="3.5" fill="#7A8B4A" transform="rotate(-18 74 677)" />
+          <ellipse
+            cx="74"
+            cy="677"
+            rx="9"
+            ry="3.5"
+            fill="#7A8B4A"
+            transform="rotate(-18 74 677)"
+          />
 
           <path
             d="M168,790 C170,730 178,670 185,625"
@@ -363,7 +475,14 @@ function CoastalIllustration() {
             strokeWidth="1.5"
             strokeLinecap="round"
           />
-          <ellipse cx="228" cy="607" rx="11" ry="4" fill="#8A9A55" transform="rotate(18 228 607)" />
+          <ellipse
+            cx="228"
+            cy="607"
+            rx="11"
+            ry="4"
+            fill="#8A9A55"
+            transform="rotate(18 228 607)"
+          />
           <path
             d="M180,670 C168,658 158,654 145,654"
             fill="none"
@@ -371,7 +490,14 @@ function CoastalIllustration() {
             strokeWidth="1.4"
             strokeLinecap="round"
           />
-          <ellipse cx="138" cy="653" rx="10" ry="3.5" fill="#7A8B4A" transform="rotate(-22 138 653)" />
+          <ellipse
+            cx="138"
+            cy="653"
+            rx="10"
+            ry="3.5"
+            fill="#7A8B4A"
+            transform="rotate(-22 138 653)"
+          />
 
           <path
             d="M210,800 C208,750 202,700 198,660"
@@ -380,12 +506,26 @@ function CoastalIllustration() {
             strokeWidth="1.8"
             strokeLinecap="round"
           />
-          <ellipse cx="188" cy="652" rx="9" ry="3.5" fill="#8A9A55" transform="rotate(-30 188 652)" />
-          <ellipse cx="212" cy="658" rx="9" ry="3.5" fill="#7A8B4A" transform="rotate(25 212 658)" />
+          <ellipse
+            cx="188"
+            cy="652"
+            rx="9"
+            ry="3.5"
+            fill="#8A9A55"
+            transform="rotate(-30 188 652)"
+          />
+          <ellipse
+            cx="212"
+            cy="658"
+            rx="9"
+            ry="3.5"
+            fill="#7A8B4A"
+            transform="rotate(25 212 658)"
+          />
         </g>
 
         {/* Sea oats — right mid */}
-        <g opacity="0.7">
+        <g opacity="0.72">
           <path
             d="M1280,760 C1282,710 1290,660 1295,620"
             fill="none"
@@ -393,8 +533,22 @@ function CoastalIllustration() {
             strokeWidth="1.8"
             strokeLinecap="round"
           />
-          <ellipse cx="1282" cy="612" rx="9" ry="3.5" fill="#8A9A55" transform="rotate(-28 1282 612)" />
-          <ellipse cx="1310" cy="618" rx="9" ry="3.5" fill="#7A8B4A" transform="rotate(22 1310 618)" />
+          <ellipse
+            cx="1282"
+            cy="612"
+            rx="9"
+            ry="3.5"
+            fill="#8A9A55"
+            transform="rotate(-28 1282 612)"
+          />
+          <ellipse
+            cx="1310"
+            cy="618"
+            rx="9"
+            ry="3.5"
+            fill="#7A8B4A"
+            transform="rotate(22 1310 618)"
+          />
           <path
             d="M1325,770 C1328,720 1335,675 1340,640"
             fill="none"
@@ -402,73 +556,121 @@ function CoastalIllustration() {
             strokeWidth="1.6"
             strokeLinecap="round"
           />
-          <ellipse cx="1352" cy="634" rx="9" ry="3.5" fill="#8A9A55" transform="rotate(20 1352 634)" />
+          <ellipse
+            cx="1352"
+            cy="634"
+            rx="9"
+            ry="3.5"
+            fill="#8A9A55"
+            transform="rotate(20 1352 634)"
+          />
         </g>
 
         {/* Lighthouse group — right coastal overlook */}
         <g transform="translate(980, 180)">
           {/* Rock base */}
-          <ellipse cx="160" cy="480" rx="130" ry="32" fill="#072844" opacity="0.22" />
+          <ellipse cx="160" cy="480" rx="138" ry="34" fill="#061F36" opacity="0.25" />
           <path
-            d="M40,465 C65,420 100,398 150,392 C185,388 225,405 265,435 C290,455 305,470 312,482 L40,482 Z"
+            d="M35,468 C60,418 98,392 150,386 C188,382 230,400 272,432 C298,454 312,470 318,484 L35,484 Z"
             fill="#0B3A66"
           />
           <path
-            d="M55,468 C85,440 120,425 155,422 C195,418 235,438 270,465"
+            d="M52,470 C82,438 120,420 156,416 C198,412 240,436 278,468"
             fill="none"
             stroke="#DCEFF7"
-            strokeOpacity="0.2"
+            strokeOpacity="0.22"
             strokeWidth="2"
           />
-          <ellipse cx="95" cy="455" rx="20" ry="11" fill="#145A82" opacity="0.55" />
-          <ellipse cx="230" cy="460" rx="18" ry="10" fill="#0B3A66" opacity="0.5" />
+          <ellipse cx="92" cy="452" rx="22" ry="12" fill="#145A82" opacity="0.55" />
+          <ellipse cx="235" cy="458" rx="20" ry="11" fill="#0B3A66" opacity="0.5" />
+          <ellipse cx="160" cy="470" rx="28" ry="10" fill="#072844" opacity="0.35" />
 
-          {/* Light beam — sweeps every 12s */}
+          {/* Light beam — soft volumetric sweep */}
           <motion.g
             style={{ transformOrigin: "160px 118px" }}
-            animate={{ rotate: [-28, 32, -28] }}
-            transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
+            animate={{ rotate: [-30, 34, -30], opacity: [0.75, 0.95, 0.75] }}
+            transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }}
           >
             <path
-              d="M168,118 L480,40 L500,200 Z"
+              d="M168,118 L520,20 L545,210 Z"
               fill="url(#beamGrad)"
-              opacity="0.85"
+              filter="url(#beamBlur)"
+              opacity="0.9"
             />
             <path
-              d="M168,120 L460,160 L440,230 Z"
+              d="M168,120 L480,90 L500,175 Z"
+              fill="#FFF3C4"
+              opacity="0.16"
+            />
+            <path
+              d="M168,122 L455,155 L440,225 Z"
               fill="#D4AF37"
-              opacity="0.12"
+              opacity="0.1"
             />
           </motion.g>
 
-          {/* Tower shaft */}
+          {/* Tower shaft with subtle depth */}
           <path d="M112,455 L128,155 L192,155 L208,455 Z" fill="url(#towerBody)" />
+          <path
+            d="M112,455 L128,155 L148,155 L140,455 Z"
+            fill="#FFFFFF"
+            opacity="0.18"
+          />
+          <path
+            d="M188,155 L192,155 L208,455 L198,455 Z"
+            fill="#0B3A66"
+            opacity="0.08"
+          />
           <path d="M118,400 L134,345 L186,345 L202,400 Z" fill="url(#towerStripe)" />
           <path d="M124,290 L136,240 L184,240 L196,290 Z" fill="url(#towerStripe)" />
 
+          {/* Window accents */}
+          <rect x="148" y="360" width="10" height="14" rx="1" fill="#0B3A66" opacity="0.35" />
+          <rect x="148" y="265" width="10" height="14" rx="1" fill="#0B3A66" opacity="0.35" />
+          <rect x="148" y="200" width="10" height="14" rx="1" fill="#0B3A66" opacity="0.3" />
+
           {/* Gallery */}
-          <rect x="118" y="146" width="84" height="11" rx="2" fill="#0B3A66" />
-          {[124, 142, 160, 178, 196].map((x) => (
-            <rect key={x} x={x} y="138" width="4" height="10" fill="#D4AF37" />
+          <rect x="116" y="146" width="88" height="12" rx="2" fill="#0B3A66" />
+          {[122, 140, 158, 176, 194].map((x) => (
+            <rect key={x} x={x} y="136" width="4" height="12" fill="#D4AF37" />
           ))}
+          <rect x="114" y="134" width="92" height="3" rx="1" fill="#D4AF37" opacity="0.7" />
 
           {/* Lantern room */}
-          <rect x="134" y="98" width="52" height="40" rx="3" fill="#F6F1E7" />
-          <rect x="138" y="102" width="13" height="32" rx="1" fill="#0B3A66" opacity="0.75" />
-          <rect x="154" y="102" width="13" height="32" rx="1" fill="#DCEFF7" />
-          <rect x="170" y="102" width="13" height="32" rx="1" fill="#0B3A66" opacity="0.75" />
+          <rect x="134" y="96" width="52" height="42" rx="3" fill="#F8F3E9" />
+          <rect
+            x="138"
+            y="100"
+            width="13"
+            height="34"
+            rx="1"
+            fill="#0B3A66"
+            opacity="0.78"
+          />
+          <rect x="154" y="100" width="13" height="34" rx="1" fill="#DCEFF7" />
+          <rect
+            x="170"
+            y="100"
+            width="13"
+            height="34"
+            rx="1"
+            fill="#0B3A66"
+            opacity="0.78"
+          />
 
           {/* Cupola */}
-          <path d="M126,100 L160,62 L194,100 Z" fill="#0B3A66" />
-          <circle cx="160" cy="60" r="5" fill="#D4AF37" />
-          <rect x="158" y="46" width="4" height="16" rx="1" fill="#D4AF37" />
+          <path d="M124,98 L160,58 L196,98 Z" fill="#0B3A66" />
+          <path d="M132,98 L160,66 L188,98 Z" fill="#145A82" opacity="0.45" />
+          <circle cx="160" cy="56" r="5.5" fill="#D4AF37" />
+          <rect x="158" y="42" width="4" height="16" rx="1" fill="#D4AF37" />
 
           {/* Beacon glow */}
-          <circle cx="160" cy="118" r="52" fill="url(#lanternCore)" />
+          <circle cx="160" cy="118" r="64" fill="url(#lanternCore)" />
+          <circle cx="160" cy="118" r="14" fill="#FFF8DC" opacity="0.55" />
 
           {/* Door */}
-          <rect x="146" y="415" width="28" height="40" rx="2" fill="#0B3A66" />
-          <circle cx="168" cy="436" r="1.8" fill="#D4AF37" />
+          <rect x="146" y="412" width="28" height="43" rx="2" fill="#0B3A66" />
+          <circle cx="168" cy="434" r="1.8" fill="#D4AF37" />
         </g>
 
         {/* Soft left veil for text legibility */}
@@ -505,17 +707,17 @@ function ScaleButton({
       backdropFilter: "blur(10px)",
     },
     gold: {
-      background: colors.champagne,
+      background: `linear-gradient(165deg, #E8D48A 0%, ${colors.champagne} 48%, #C49A2C 100%)`,
       color: colors.navy,
-      boxShadow: "0 20px 48px -14px rgba(212,175,55,0.68)",
+      boxShadow: "0 18px 42px -14px rgba(212,175,55,0.55)",
     },
   } as const;
 
   return (
     <motion.a
       href={href}
-      whileHover={{ scale: 1.045, y: -3 }}
-      whileTap={{ scale: 0.98 }}
+      whileHover={{ scale: 1.04, y: -2 }}
+      whileTap={{ scale: 0.985 }}
       transition={{ type: "spring", stiffness: 420, damping: 28 }}
       className={`${base} ${className}`}
       style={variants[variant]}
@@ -634,18 +836,17 @@ export default function HomePage() {
         {/* SECTION 2 — Tall coastal hero */}
         <section
           id="home"
-          className="relative min-h-[90vh] overflow-hidden pt-24"
+          className="relative min-h-[100svh] overflow-hidden pt-28"
         >
           <CoastalIllustration />
 
-          <div className="relative z-10 mx-auto flex min-h-[90vh] max-w-6xl items-center px-5 py-28 sm:px-8 sm:py-32 lg:py-36">
+          <div className="relative z-10 mx-auto flex min-h-[calc(100svh-7rem)] max-w-6xl items-center px-5 py-32 sm:px-8 sm:py-40 lg:py-44">
             <div className="max-w-xl lg:max-w-2xl">
               <motion.p
                 initial={{ opacity: 0, y: 18 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-                className="text-[0.7rem] font-semibold tracking-[0.28em] sm:text-xs"
-                style={{ color: colors.champagne }}
+                transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
+                className="section-eyebrow"
               >
                 SERVING FLORIDA&apos;S NATURE COAST
               </motion.p>
@@ -654,11 +855,11 @@ export default function HomePage() {
                 initial={{ opacity: 0, y: 28 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{
-                  duration: 0.85,
+                  duration: 0.9,
                   delay: 0.08,
                   ease: [0.22, 1, 0.36, 1],
                 }}
-                className="font-display mt-5 text-[clamp(2.75rem,6.5vw,5.25rem)] font-semibold leading-[1.02] tracking-tight"
+                className="font-display mt-7 text-[clamp(3rem,7vw,5.75rem)] font-semibold leading-[0.98] tracking-[-0.02em]"
                 style={{ color: colors.navy }}
               >
                 Powering Florida&apos;s Nature Coast
@@ -668,11 +869,11 @@ export default function HomePage() {
                 initial={{ opacity: 0, y: 22 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{
-                  duration: 0.75,
+                  duration: 0.8,
                   delay: 0.18,
                   ease: [0.22, 1, 0.36, 1],
                 }}
-                className="mt-6 text-base font-medium tracking-wide sm:text-lg"
+                className="mt-8 text-base font-medium tracking-[0.04em] sm:text-lg"
                 style={{ color: colors.navy }}
               >
                 Residential • Commercial • Licensed &amp; Insured
@@ -682,11 +883,11 @@ export default function HomePage() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{
-                  duration: 0.75,
+                  duration: 0.8,
                   delay: 0.28,
                   ease: [0.22, 1, 0.36, 1],
                 }}
-                className="mt-6 max-w-md text-base leading-relaxed sm:text-lg"
+                className="mt-8 max-w-md text-base leading-[1.75] sm:text-lg"
                 style={{ color: "rgba(11,58,102,0.72)" }}
               >
                 Family-owned electrical professionals delivering dependable
@@ -698,11 +899,11 @@ export default function HomePage() {
                 initial={{ opacity: 0, y: 18 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{
-                  duration: 0.7,
+                  duration: 0.75,
                   delay: 0.38,
                   ease: [0.22, 1, 0.36, 1],
                 }}
-                className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center"
+                className="mt-12 flex flex-col gap-4 sm:flex-row sm:items-center"
               >
                 <ScaleButton href="#contact" variant="gold">
                   Request a Free Quote
@@ -717,16 +918,16 @@ export default function HomePage() {
                 initial={{ opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{
-                  duration: 0.7,
+                  duration: 0.75,
                   delay: 0.48,
                   ease: [0.22, 1, 0.36, 1],
                 }}
-                className="mt-12 flex flex-wrap gap-x-8 gap-y-3"
+                className="mt-14 flex flex-wrap gap-x-8 gap-y-3.5"
               >
                 {trustBadges.map((badge) => (
                   <li
                     key={badge}
-                    className="inline-flex items-center gap-2 text-sm font-medium tracking-wide"
+                    className="inline-flex items-center gap-2.5 text-sm font-medium tracking-wide"
                     style={{ color: colors.navy }}
                   >
                     <span
@@ -746,12 +947,55 @@ export default function HomePage() {
           </div>
         </section>
 
+        {/* Trust bar — immediately below hero */}
+        <section
+          aria-label="Trust credentials"
+          className="relative z-20 -mt-6 px-5 pb-6 sm:-mt-10 sm:px-8 sm:pb-8"
+        >
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={stagger}
+            className="mx-auto grid max-w-6xl gap-4 sm:grid-cols-2 lg:grid-cols-4 lg:gap-5"
+          >
+            {trustBarItems.map((item) => {
+              const Icon = item.icon;
+              return (
+                <motion.article
+                  key={item.title}
+                  variants={fadeUp}
+                  transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+                  whileHover={{ y: -6 }}
+                  className="trust-card flex items-start gap-4 px-6 py-7 sm:px-7 sm:py-8"
+                >
+                  <div
+                    className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl"
+                    style={{
+                      background: `linear-gradient(145deg, ${colors.seaGlass}, rgba(220,239,247,0.35))`,
+                      color: colors.navy,
+                      boxShadow: "inset 0 0 0 1px rgba(11,58,102,0.05)",
+                    }}
+                  >
+                    <Icon size={22} strokeWidth={1.5} />
+                  </div>
+                  <div className="pt-1">
+                    <p className="font-display text-lg font-semibold leading-snug tracking-tight sm:text-[1.2rem]">
+                      {item.title}
+                    </p>
+                  </div>
+                </motion.article>
+              );
+            })}
+          </motion.div>
+        </section>
+
         <WaveDivider topColor={colors.warmSand} bottomColor={colors.warmSand} />
 
         {/* SECTION 3 — Services */}
         <section
           id="services"
-          className="mx-auto max-w-6xl px-5 py-28 sm:px-8 sm:py-36"
+          className="mx-auto max-w-6xl px-5 py-32 sm:px-8 sm:py-40"
         >
           <motion.div
             initial="hidden"
@@ -761,11 +1005,12 @@ export default function HomePage() {
             variants={fadeUp}
             className="mx-auto max-w-2xl text-center"
           >
-            <h2 className="font-display text-4xl font-semibold tracking-tight sm:text-5xl lg:text-[3.35rem]">
+            <p className="section-eyebrow mb-5">What We Offer</p>
+            <h2 className="font-display text-4xl font-semibold tracking-tight sm:text-5xl lg:text-[3.5rem]">
               Our Services
             </h2>
             <p
-              className="mt-6 text-base leading-relaxed sm:text-lg"
+              className="mt-7 text-base leading-relaxed sm:text-lg"
               style={{ color: "rgba(11,58,102,0.7)" }}
             >
               Comprehensive electrical solutions tailored for homes and
@@ -776,9 +1021,9 @@ export default function HomePage() {
           <motion.div
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, amount: 0.15 }}
+            viewport={{ once: true, amount: 0.12 }}
             variants={stagger}
-            className="mt-20 grid gap-8 sm:grid-cols-2 lg:grid-cols-3"
+            className="mt-24 grid gap-9 sm:grid-cols-2 lg:grid-cols-3"
           >
             {services.map((service) => {
               const Icon = service.icon;
@@ -787,24 +1032,24 @@ export default function HomePage() {
                   key={service.title}
                   variants={fadeUp}
                   transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-                  whileHover={{ y: -12 }}
-                  className="premium-card group p-8 sm:p-10"
+                  whileHover={{ y: -10 }}
+                  className="premium-card group p-9 sm:p-11"
                 >
                   <div
-                    className="mb-7 flex h-14 w-14 items-center justify-center rounded-2xl transition-transform duration-300 group-hover:scale-105"
+                    className="mb-8 flex h-16 w-16 items-center justify-center rounded-2xl transition-transform duration-400 group-hover:scale-105"
                     style={{
-                      background: `linear-gradient(145deg, ${colors.seaGlass}, rgba(220,239,247,0.4))`,
+                      background: `linear-gradient(145deg, ${colors.seaGlass}, rgba(220,239,247,0.35))`,
                       color: colors.navy,
                       boxShadow: "inset 0 0 0 1px rgba(11,58,102,0.05)",
                     }}
                   >
-                    <Icon size={24} strokeWidth={1.6} />
+                    <Icon size={28} strokeWidth={1.45} />
                   </div>
-                  <h3 className="font-display text-2xl font-semibold tracking-tight">
+                  <h3 className="font-display text-[1.65rem] font-semibold tracking-tight sm:text-[1.85rem]">
                     {service.title}
                   </h3>
                   <p
-                    className="mt-4 text-[0.9375rem] leading-relaxed"
+                    className="mt-5 text-base leading-relaxed"
                     style={{ color: "rgba(11,58,102,0.68)" }}
                   >
                     {service.description}
@@ -822,7 +1067,7 @@ export default function HomePage() {
 
         {/* SECTION 4 — Why Choose Us */}
         <section
-          className="py-28 sm:py-36"
+          className="py-32 sm:py-40"
           style={{
             background: `linear-gradient(180deg, rgba(220,239,247,0.55) 0%, ${colors.warmSand} 100%)`,
           }}
@@ -836,17 +1081,25 @@ export default function HomePage() {
               variants={fadeUp}
               className="mx-auto max-w-2xl text-center"
             >
-              <h2 className="font-display text-4xl font-semibold tracking-tight sm:text-5xl lg:text-[3.35rem]">
+              <p className="section-eyebrow mb-5">The Difference</p>
+              <h2 className="font-display text-4xl font-semibold tracking-tight sm:text-5xl lg:text-[3.5rem]">
                 Why Homeowners Choose Current Solutions
               </h2>
+              <p
+                className="mt-7 text-base leading-relaxed sm:text-lg"
+                style={{ color: "rgba(11,58,102,0.68)" }}
+              >
+                Trusted craftsmanship and honest service—built for the way
+                Florida homeowners live.
+              </p>
             </motion.div>
 
             <motion.div
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true, amount: 0.15 }}
+              viewport={{ once: true, amount: 0.12 }}
               variants={stagger}
-              className="mt-20 grid gap-8 sm:grid-cols-2 lg:grid-cols-4"
+              className="mt-24 grid gap-8 sm:grid-cols-2 lg:grid-cols-4 lg:gap-7"
             >
               {features.map((feature) => {
                 const Icon = feature.icon;
@@ -855,24 +1108,24 @@ export default function HomePage() {
                     key={feature.title}
                     variants={fadeUp}
                     transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-                    whileHover={{ y: -12 }}
-                    className="premium-card p-8 text-center sm:p-9"
+                    whileHover={{ y: -10 }}
+                    className="premium-card px-8 py-10 text-center sm:px-9 sm:py-11"
                   >
                     <div
-                      className="mx-auto mb-6 flex h-14 w-14 items-center justify-center rounded-2xl"
+                      className="mx-auto mb-7 flex h-16 w-16 items-center justify-center rounded-2xl"
                       style={{
                         background: colors.navy,
                         color: colors.champagne,
-                        boxShadow: "0 14px 32px -16px rgba(11,58,102,0.55)",
+                        boxShadow: "0 14px 32px -16px rgba(11,58,102,0.5)",
                       }}
                     >
-                      <Icon size={24} strokeWidth={1.6} />
+                      <Icon size={26} strokeWidth={1.5} />
                     </div>
-                    <h3 className="font-display text-xl font-semibold sm:text-[1.35rem]">
+                    <h3 className="font-display text-2xl font-semibold tracking-tight">
                       {feature.title}
                     </h3>
                     <p
-                      className="mt-4 text-sm leading-relaxed"
+                      className="mt-5 text-[0.9375rem] leading-relaxed"
                       style={{ color: "rgba(11,58,102,0.68)" }}
                     >
                       {feature.description}
@@ -889,7 +1142,7 @@ export default function HomePage() {
         {/* SECTION 5 — About */}
         <section
           id="about"
-          className="mx-auto max-w-6xl px-5 py-28 sm:px-8 sm:py-36"
+          className="mx-auto max-w-6xl px-5 py-32 sm:px-8 sm:py-40"
         >
           <motion.div
             initial="hidden"
@@ -899,20 +1152,20 @@ export default function HomePage() {
             variants={fadeUp}
             className="mx-auto max-w-3xl text-center"
           >
-            <h2 className="font-display text-4xl font-semibold tracking-tight sm:text-5xl lg:text-[3.35rem]">
+            <p className="section-eyebrow mb-5">Our Story</p>
+            <h2 className="font-display text-4xl font-semibold tracking-tight sm:text-5xl lg:text-[3.5rem]">
               Powering Florida Homes with Pride
             </h2>
             <p
-              className="mt-10 text-base leading-relaxed sm:text-lg"
+              className="mt-12 text-lg leading-[1.85] sm:text-xl"
               style={{ color: "rgba(11,58,102,0.76)" }}
             >
-              Current Solutions is a trusted family-owned electrical company
-              serving Florida&apos;s Nature Coast. We believe great electrical
-              work starts with honesty, careful craftsmanship, and dependable
-              service you can count on—whether it&apos;s a simple repair, a
-              full panel upgrade, or keeping your business running smoothly.
-              Every project is handled with the same care we&apos;d give our
-              own home.
+              At Current Solutions, we&apos;re a family-owned electrical company
+              rooted in Florida&apos;s Nature Coast. Honesty, careful
+              craftsmanship, and dependable service guide every job—from a
+              simple repair to a full panel upgrade or keeping your business
+              running smoothly. We treat each project with the same care
+              we&apos;d give our own home.
             </p>
           </motion.div>
         </section>
@@ -922,49 +1175,51 @@ export default function HomePage() {
         {/* SECTION 6 — CTA */}
         <section
           id="contact"
-          className="relative overflow-hidden px-5 py-28 sm:px-8 sm:py-36"
-          style={{
-            background: `linear-gradient(145deg, ${colors.navy} 0%, #0c4a7a 48%, #156089 100%)`,
-          }}
+          className="cta-surface relative overflow-hidden px-5 py-36 sm:px-8 sm:py-44"
         >
           <div
-            className="pointer-events-none absolute -right-20 top-0 h-72 w-72 rounded-full opacity-30 blur-3xl"
-            style={{ background: colors.champagne }}
-          />
-          <div
-            className="pointer-events-none absolute -left-16 bottom-0 h-64 w-64 rounded-full opacity-40 blur-3xl"
-            style={{ background: colors.seaGlass }}
+            className="pointer-events-none absolute inset-x-0 top-0 h-px opacity-40"
+            style={{
+              background:
+                "linear-gradient(90deg, transparent, rgba(212,175,55,0.7), transparent)",
+            }}
           />
 
           <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.4 }}
-            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
             variants={fadeUp}
             className="relative mx-auto max-w-3xl text-center"
           >
+            <p
+              className="mb-6 text-[0.7rem] font-semibold tracking-[0.28em]"
+              style={{ color: colors.champagne }}
+            >
+              LET&apos;S GET STARTED
+            </p>
             <h2
-              className="font-display text-4xl font-semibold tracking-tight sm:text-5xl lg:text-[3.35rem]"
+              className="font-display text-4xl font-semibold tracking-tight sm:text-5xl lg:text-[4rem] lg:leading-[1.05]"
               style={{ color: colors.white }}
             >
               Ready for Your Next Electrical Project?
             </h2>
             <p
-              className="mx-auto mt-8 max-w-xl text-base leading-relaxed sm:text-lg"
+              className="mx-auto mt-10 max-w-xl text-base leading-relaxed sm:text-lg"
               style={{ color: "rgba(246,241,231,0.78)" }}
             >
               Tell us about your project and we&apos;ll provide a free,
               no-obligation quote with clear recommendations.
             </p>
-            <div className="mt-14">
+            <div className="mt-16">
               <ScaleButton
                 href="mailto:info@currentsolutions.example"
                 variant="gold"
-                className="px-12 py-5 text-lg"
+                className="px-14 py-6 text-lg sm:text-xl"
               >
                 Request Your Free Quote
-                <ArrowRight size={20} strokeWidth={2.25} />
+                <ArrowRight size={22} strokeWidth={2.25} />
               </ScaleButton>
             </div>
           </motion.div>
@@ -979,44 +1234,50 @@ export default function HomePage() {
           borderColor: "rgba(11,58,102,0.08)",
         }}
       >
-        <div className="mx-auto flex max-w-6xl flex-col gap-12 px-5 py-16 sm:px-8 md:flex-row md:items-start md:justify-between">
-          <div>
-            <p className="font-display text-2xl font-semibold tracking-tight">
+        <div className="mx-auto flex max-w-6xl flex-col gap-14 px-5 py-20 sm:px-8 md:flex-row md:items-start md:justify-between">
+          <div className="max-w-md">
+            <p className="font-display text-[1.75rem] font-semibold tracking-tight sm:text-3xl">
               Current Solutions Electrical Services
             </p>
             <p
-              className="mt-4 text-sm"
+              className="mt-6 text-sm tracking-wide"
               style={{ color: "rgba(11,58,102,0.68)" }}
             >
               Family Owned &amp; Operated
             </p>
             <p
-              className="mt-1 text-sm"
+              className="mt-2 text-sm tracking-wide"
               style={{ color: "rgba(11,58,102,0.68)" }}
             >
               Serving Florida&apos;s Nature Coast
             </p>
           </div>
 
-          <div className="flex flex-col gap-4 text-sm">
+          <div className="flex flex-col gap-5 text-sm tracking-wide">
+            <p
+              className="text-[0.7rem] font-semibold tracking-[0.22em]"
+              style={{ color: colors.champagne }}
+            >
+              CONTACT
+            </p>
             <a
               href="tel:+10000000000"
-              className="inline-flex items-center gap-2.5 transition-opacity hover:opacity-70"
+              className="inline-flex items-center gap-3 transition-opacity hover:opacity-70"
             >
-              <Phone size={16} />
+              <Phone size={16} strokeWidth={1.75} />
               (000) 000-0000
             </a>
             <a
               href="mailto:info@currentsolutions.example"
-              className="inline-flex items-center gap-2.5 transition-opacity hover:opacity-70"
+              className="inline-flex items-center gap-3 transition-opacity hover:opacity-70"
             >
-              <Mail size={16} />
+              <Mail size={16} strokeWidth={1.75} />
               info@currentsolutions.example
             </a>
           </div>
         </div>
         <div
-          className="border-t py-7 text-center text-xs tracking-wide"
+          className="border-t py-8 text-center text-xs tracking-[0.08em]"
           style={{
             borderColor: "rgba(11,58,102,0.08)",
             color: "rgba(11,58,102,0.48)",
