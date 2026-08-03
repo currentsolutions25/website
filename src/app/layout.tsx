@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Montserrat, Playfair_Display } from "next/font/google";
 import {
   SITE_NAME,
-  SITE_TAGLINE,
   SITE_URL,
   buildPageMetadata,
 } from "@/lib/design";

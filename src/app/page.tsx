@@ -218,7 +218,8 @@ export default function HomePage() {
               >
                 <Link
                   href="/contact"
-                  className="cta-gold inline-flex items-center justify-center gap-2.5 rounded-md px-8 py-4 text-[0.82rem] font-bold tracking-[0.12em] uppercase text-white transition-transform duration-200 hover:-translate-y-0.5"
+                  className="cta-gold inline-flex items-center justify-center gap-2.5 rounded-md px-8 py-4 text-[0.82rem] font-bold tracking-[0.12em] uppercase transition-transform duration-200 hover:-translate-y-0.5"
+                  style={{ color: colors.navy }}
                 >
                   <Zap size={16} strokeWidth={2.4} fill="currentColor" />
                   Request a Quote
@@ -487,7 +488,8 @@ export default function HomePage() {
               </p>
               <Link
                 href="/about"
-                className="cta-gold mt-8 inline-flex items-center gap-2.5 rounded-md px-7 py-3.5 text-[0.78rem] font-bold tracking-[0.12em] uppercase text-white transition-transform duration-200 hover:-translate-y-0.5"
+                className="cta-gold mt-8 inline-flex items-center gap-2.5 rounded-md px-7 py-3.5 text-[0.78rem] font-bold tracking-[0.12em] uppercase transition-transform duration-200 hover:-translate-y-0.5"
+                style={{ color: colors.navy }}
               >
                 Learn More About Us
                 <ArrowRight size={16} strokeWidth={2.4} />
