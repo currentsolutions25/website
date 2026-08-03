@@ -273,10 +273,10 @@ function CoastalIllustration() {
             <stop offset="100%" stopColor="#D4AF37" stopOpacity="0" />
           </radialGradient>
           <linearGradient id="textVeil" x1="0" y1="0" x2="1" y2="0">
-            <stop offset="0%" stopColor="#F6F1E7" stopOpacity="0.82" />
-            <stop offset="24%" stopColor="#F6F1E7" stopOpacity="0.52" />
-            <stop offset="46%" stopColor="#F6F1E7" stopOpacity="0.16" />
-            <stop offset="62%" stopColor="#F6F1E7" stopOpacity="0" />
+            <stop offset="0%" stopColor="#F6F1E7" stopOpacity="0.84" />
+            <stop offset="22%" stopColor="#F6F1E7" stopOpacity="0.55" />
+            <stop offset="40%" stopColor="#F6F1E7" stopOpacity="0.18" />
+            <stop offset="54%" stopColor="#F6F1E7" stopOpacity="0" />
             <stop offset="100%" stopColor="#F6F1E7" stopOpacity="0" />
           </linearGradient>
           <linearGradient id="mistBand" x1="0" y1="0" x2="0" y2="1">
@@ -663,16 +663,8 @@ function CoastalIllustration() {
           <circle cx="168" cy="436" r="1.8" fill="#D4AF37" />
         </g>
 
-        {/* Soft left veil for text legibility — lighter on the right so the landmark reads */}
+        {/* Soft left veil for text legibility */}
         <rect width="1440" height="900" fill="url(#textVeil)" />
-        <rect
-          x="980"
-          y="0"
-          width="460"
-          height="900"
-          fill="#F6F1E7"
-          opacity="0"
-        />
       </svg>
     </div>
   );
