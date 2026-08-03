@@ -64,31 +64,34 @@ body {
 
 .premium-card {
   background: linear-gradient(168deg, #ffffff 0%, #fbf9f4 100%);
-  border: 1px solid rgba(11, 58, 102, 0.055);
+  border: 1px solid rgba(11, 58, 102, 0.05);
   border-radius: 1.5rem;
   box-shadow:
     0 2px 4px -2px rgba(11, 58, 102, 0.03),
-    0 16px 40px -20px rgba(11, 58, 102, 0.16);
+    0 16px 40px -20px rgba(11, 58, 102, 0.14);
   transition:
-    transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
-    box-shadow 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.45s cubic-bezier(0.22, 1, 0.36, 1),
     border-color 0.35s ease;
 }
 
 .premium-card:hover {
-  border-color: rgba(212, 175, 55, 0.34);
+  border-color: rgba(212, 175, 55, 0.28);
   box-shadow:
-    0 8px 16px -10px rgba(11, 58, 102, 0.08),
-    0 28px 56px -24px rgba(11, 58, 102, 0.24);
+    0 8px 16px -10px rgba(11, 58, 102, 0.07),
+    0 26px 52px -24px rgba(11, 58, 102, 0.2);
 }
 
 .trust-card {
-  background: linear-gradient(165deg, #ffffff 0%, #faf8f3 100%);
-  border: 1px solid rgba(11, 58, 102, 0.05);
+  background: rgba(255, 255, 255, 0.62);
+  backdrop-filter: blur(18px) saturate(160%);
+  -webkit-backdrop-filter: blur(18px) saturate(160%);
+  border: 1px solid rgba(255, 255, 255, 0.72);
   border-radius: 1.35rem;
   box-shadow:
     0 2px 3px -1px rgba(11, 58, 102, 0.03),
-    0 14px 36px -18px rgba(11, 58, 102, 0.14);
+    0 16px 40px -20px rgba(11, 58, 102, 0.16),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
   transition:
     transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
     box-shadow 0.4s cubic-bezier(0.22, 1, 0.36, 1),
@@ -96,17 +99,18 @@ body {
 }
 
 .trust-card:hover {
-  border-color: rgba(212, 175, 55, 0.3);
+  border-color: rgba(212, 175, 55, 0.28);
   box-shadow:
-    0 6px 14px -8px rgba(11, 58, 102, 0.08),
-    0 24px 48px -22px rgba(11, 58, 102, 0.2);
+    0 6px 14px -8px rgba(11, 58, 102, 0.07),
+    0 24px 48px -22px rgba(11, 58, 102, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.85);
 }
 
 .cta-surface {
   background:
-    radial-gradient(ellipse 70% 80% at 90% 10%, rgba(212, 175, 55, 0.18) 0%, transparent 55%),
-    radial-gradient(ellipse 60% 70% at 5% 90%, rgba(220, 239, 247, 0.14) 0%, transparent 50%),
-    radial-gradient(ellipse 50% 40% at 50% 0%, rgba(21, 96, 137, 0.55) 0%, transparent 60%),
+    radial-gradient(ellipse 70% 80% at 90% 10%, rgba(212, 175, 55, 0.16) 0%, transparent 55%),
+    radial-gradient(ellipse 60% 70% at 5% 90%, rgba(220, 239, 247, 0.12) 0%, transparent 50%),
+    radial-gradient(ellipse 50% 40% at 50% 0%, rgba(21, 96, 137, 0.5) 0%, transparent 60%),
     linear-gradient(155deg, #072844 0%, #0b3a66 42%, #114f7a 100%);
 }
 

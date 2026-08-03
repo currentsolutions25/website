@@ -1,11 +1,21 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
 
-/** Full-bleed Nature Coast SVG — lighthouse, ocean, sunrise, sea oats, atmosphere */
+/** Full-bleed Nature Coast SVG — lighthouse, Gulf water, sunrise, sea oats, soft beam */
 export default function CoastalIllustration() {
+  const ref = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start start", "end start"],
+  });
+  const y = useTransform(scrollYProgress, [0, 1], [0, 48]);
+
   return (
-    <div
+    <motion.div
+      ref={ref}
+      style={{ y }}
       className="pointer-events-none absolute inset-0 overflow-hidden"
       aria-hidden="true"
     >
@@ -93,10 +103,10 @@ export default function CoastalIllustration() {
             <stop offset="100%" stopColor="#D4AF37" stopOpacity="0" />
           </radialGradient>
           <linearGradient id="textVeil" x1="0" y1="0" x2="1" y2="0">
-            <stop offset="0%" stopColor="#F6F1E7" stopOpacity="0.84" />
-            <stop offset="22%" stopColor="#F6F1E7" stopOpacity="0.55" />
-            <stop offset="40%" stopColor="#F6F1E7" stopOpacity="0.18" />
-            <stop offset="54%" stopColor="#F6F1E7" stopOpacity="0" />
+            <stop offset="0%" stopColor="#F6F1E7" stopOpacity="0.88" />
+            <stop offset="22%" stopColor="#F6F1E7" stopOpacity="0.62" />
+            <stop offset="42%" stopColor="#F6F1E7" stopOpacity="0.22" />
+            <stop offset="58%" stopColor="#F6F1E7" stopOpacity="0" />
             <stop offset="100%" stopColor="#F6F1E7" stopOpacity="0" />
           </linearGradient>
           <linearGradient id="mistBand" x1="0" y1="0" x2="0" y2="1">
@@ -194,7 +204,6 @@ export default function CoastalIllustration() {
           d="M0,615 C300,590 520,645 760,615 C1020,580 1220,645 1440,620 L1440,900 L0,900 Z"
           fill="url(#foamLine)"
         />
-
         <path
           d="M0,715 C280,675 480,755 760,715 C1040,675 1240,755 1440,725 L1440,900 L0,900 Z"
           fill="url(#sandBank)"
@@ -205,6 +214,7 @@ export default function CoastalIllustration() {
           opacity="0.9"
         />
 
+        {/* Sea oats — left */}
         <g opacity="0.88">
           <path
             d="M120,780 C118,720 110,660 105,610"
@@ -244,22 +254,6 @@ export default function CoastalIllustration() {
             transform="rotate(20 148 616)"
           />
           <path
-            d="M112,690 C100,680 92,678 80,678"
-            fill="none"
-            stroke="#6B7D45"
-            strokeWidth="1.4"
-            strokeLinecap="round"
-          />
-          <ellipse
-            cx="74"
-            cy="677"
-            rx="9"
-            ry="3.5"
-            fill="#7A8B4A"
-            transform="rotate(-18 74 677)"
-          />
-
-          <path
             d="M168,790 C170,730 178,670 185,625"
             fill="none"
             stroke="#5A6B3A"
@@ -281,22 +275,6 @@ export default function CoastalIllustration() {
             fill="#8A9A55"
             transform="rotate(18 228 607)"
           />
-          <path
-            d="M180,670 C168,658 158,654 145,654"
-            fill="none"
-            stroke="#6B7D45"
-            strokeWidth="1.4"
-            strokeLinecap="round"
-          />
-          <ellipse
-            cx="138"
-            cy="653"
-            rx="10"
-            ry="3.5"
-            fill="#7A8B4A"
-            transform="rotate(-22 138 653)"
-          />
-
           <path
             d="M210,800 C208,750 202,700 198,660"
             fill="none"
@@ -322,6 +300,7 @@ export default function CoastalIllustration() {
           />
         </g>
 
+        {/* Sea oats — right */}
         <g opacity="0.72">
           <path
             d="M1280,760 C1282,710 1290,660 1295,620"
@@ -363,6 +342,7 @@ export default function CoastalIllustration() {
           />
         </g>
 
+        {/* Lighthouse — signature identity, composed on the right */}
         <g transform="translate(820, 165)">
           <ellipse cx="160" cy="482" rx="140" ry="34" fill="#072844" opacity="0.2" />
           <path
@@ -391,8 +371,8 @@ export default function CoastalIllustration() {
 
           <motion.g
             style={{ transformOrigin: "160px 118px" }}
-            animate={{ rotate: [-30, 34, -30] }}
-            transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }}
+            animate={{ rotate: [-30, 34, -30], opacity: [0.7, 0.95, 0.7] }}
+            transition={{ duration: 16, repeat: Infinity, ease: "easeInOut" }}
           >
             <path
               d="M168,118 L520,20 L545,210 Z"
@@ -466,6 +446,6 @@ export default function CoastalIllustration() {
 
         <rect width="1440" height="900" fill="url(#textVeil)" />
       </svg>
-    </div>
+    </motion.div>
   );
 }
