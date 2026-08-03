@@ -52,27 +52,27 @@ export default function Header() {
     pathname.startsWith("/services") || pathname === "/";
 
   return (
-    <header className="sticky top-0 z-50 px-3 pt-3 sm:px-5 sm:pt-4">
+    <header className="sticky top-0 z-50 px-3 pt-3 sm:px-4 sm:pt-4 lg:px-5">
       <div
-        className={`glass-nav mx-auto max-w-7xl rounded-2xl transition-[background,box-shadow,border-color] duration-300 ${
+        className={`glass-nav mx-auto w-full rounded-2xl transition-[background,box-shadow,border-color] duration-300 ${
           scrolled ? "glass-nav-scrolled" : ""
         }`}
       >
-        <div className="flex items-center justify-between gap-3 px-4 py-3 sm:gap-4 sm:px-5 lg:px-6 lg:py-3.5">
+        <div className="flex items-center justify-between gap-3 px-4 py-3 sm:gap-4 sm:px-5 lg:px-5 xl:px-6 lg:py-3.5">
           <Link
             href="/"
-            className="group flex shrink-0 items-center gap-3"
+            className="group flex shrink-0 items-center gap-2.5"
           >
-            <LighthouseMark size={46} />
+            <LighthouseMark size={44} />
             <span className="leading-tight">
               <span
-                className="block font-display text-[1.15rem] font-bold tracking-[0.02em] sm:text-[1.3rem]"
+                className="block font-display text-[1.1rem] font-bold tracking-[0.02em] sm:text-[1.22rem]"
                 style={{ color: colors.navy }}
               >
                 CURRENT SOLUTIONS
               </span>
               <span
-                className="block text-[0.62rem] font-semibold tracking-[0.18em] uppercase sm:text-[0.68rem]"
+                className="block text-[0.6rem] font-semibold tracking-[0.16em] uppercase sm:text-[0.64rem]"
                 style={{ color: colors.gold }}
               >
                 Electrical Services
@@ -171,21 +171,21 @@ export default function Header() {
             </ul>
           </nav>
 
-          <div className="hidden shrink-0 items-center gap-3 lg:flex xl:gap-4">
+          <div className="hidden shrink-0 items-center gap-3 lg:flex xl:gap-3.5">
             <a
               href={PHONE_HREF}
               className="group whitespace-nowrap text-right leading-tight"
               aria-label={`Call ${PHONE_DISPLAY}`}
             >
               <span
-                className="flex items-center justify-end gap-2 text-[1.05rem] font-bold tracking-wide"
+                className="flex items-center justify-end gap-1.5 text-[0.98rem] font-bold tracking-wide"
                 style={{ color: colors.gold }}
               >
-                <Phone size={16} strokeWidth={2.4} />
+                <Phone size={15} strokeWidth={2.4} />
                 {PHONE_DISPLAY}
               </span>
               <span
-                className="mt-0.5 block text-[0.62rem] font-semibold tracking-[0.16em] uppercase"
+                className="mt-0.5 block text-[0.58rem] font-semibold tracking-[0.14em] uppercase"
                 style={{ color: colors.navy }}
               >
                 24/7 Emergency Service
@@ -194,7 +194,7 @@ export default function Header() {
 
             <Link
               href="/contact"
-              className="cta-gold inline-flex shrink-0 items-center gap-2 whitespace-nowrap rounded-md px-5 py-3 text-[0.78rem] font-bold tracking-[0.12em] uppercase transition-transform duration-200 hover:-translate-y-0.5"
+              className="cta-gold inline-flex shrink-0 items-center gap-2 whitespace-nowrap rounded-md px-4 py-2.5 text-[0.74rem] font-bold tracking-[0.1em] uppercase transition-transform duration-200 hover:-translate-y-0.5 xl:px-5 xl:py-3"
               style={{ color: colors.navy }}
             >
               <Zap size={14} strokeWidth={2.4} fill="currentColor" />
