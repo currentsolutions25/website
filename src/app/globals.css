@@ -63,29 +63,57 @@ body {
 }
 
 .premium-card {
-  background: linear-gradient(165deg, #ffffff 0%, #fbf9f5 100%);
-  border: 1px solid rgba(11, 58, 102, 0.06);
-  border-radius: 1.75rem;
+  background: linear-gradient(168deg, #ffffff 0%, #fbf9f4 100%);
+  border: 1px solid rgba(11, 58, 102, 0.055);
+  border-radius: 1.5rem;
   box-shadow:
-    0 4px 6px -2px rgba(11, 58, 102, 0.04),
-    0 20px 52px -22px rgba(11, 58, 102, 0.2);
+    0 2px 4px -2px rgba(11, 58, 102, 0.03),
+    0 16px 40px -20px rgba(11, 58, 102, 0.16);
   transition:
-    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
-    box-shadow 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.4s cubic-bezier(0.22, 1, 0.36, 1),
     border-color 0.35s ease;
 }
 
 .premium-card:hover {
-  border-color: rgba(212, 175, 55, 0.38);
+  border-color: rgba(212, 175, 55, 0.32);
   box-shadow:
-    0 10px 20px -10px rgba(11, 58, 102, 0.1),
-    0 32px 72px -26px rgba(11, 58, 102, 0.3);
+    0 8px 16px -10px rgba(11, 58, 102, 0.08),
+    0 28px 56px -24px rgba(11, 58, 102, 0.24);
 }
 
-.coastal-mesh {
+.trust-card {
+  background: linear-gradient(165deg, #ffffff 0%, #faf8f3 100%);
+  border: 1px solid rgba(11, 58, 102, 0.05);
+  border-radius: 1.35rem;
+  box-shadow:
+    0 2px 3px -1px rgba(11, 58, 102, 0.03),
+    0 14px 36px -18px rgba(11, 58, 102, 0.14);
+  transition:
+    transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.35s ease;
+}
+
+.trust-card:hover {
+  border-color: rgba(212, 175, 55, 0.28);
+  box-shadow:
+    0 6px 14px -8px rgba(11, 58, 102, 0.08),
+    0 24px 48px -22px rgba(11, 58, 102, 0.2);
+}
+
+.cta-surface {
   background:
-    radial-gradient(ellipse 80% 60% at 15% 20%, rgba(220, 239, 247, 0.9) 0%, transparent 55%),
-    radial-gradient(ellipse 70% 50% at 85% 15%, rgba(212, 175, 55, 0.12) 0%, transparent 50%),
-    radial-gradient(ellipse 90% 70% at 50% 100%, rgba(11, 58, 102, 0.08) 0%, transparent 55%),
-    linear-gradient(165deg, #f6f1e7 0%, #e8f4f9 42%, #f6f1e7 100%);
+    radial-gradient(ellipse 70% 80% at 90% 10%, rgba(212, 175, 55, 0.18) 0%, transparent 55%),
+    radial-gradient(ellipse 60% 70% at 5% 90%, rgba(220, 239, 247, 0.14) 0%, transparent 50%),
+    radial-gradient(ellipse 50% 40% at 50% 0%, rgba(21, 96, 137, 0.55) 0%, transparent 60%),
+    linear-gradient(155deg, #072844 0%, #0b3a66 42%, #114f7a 100%);
+}
+
+.section-label {
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 0.68rem;
+  color: var(--champagne);
 }
