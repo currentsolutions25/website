@@ -25,7 +25,6 @@ import {
   fadeUp,
   PHONE_DISPLAY,
   PHONE_HREF,
-  SITE_SHORT_NAME,
   stagger,
 } from "@/lib/design";
 

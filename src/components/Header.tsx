@@ -200,7 +200,7 @@ export default function Header() {
               className="cta-gold inline-flex shrink-0 items-center gap-2 whitespace-nowrap rounded-full px-5 py-3 text-[0.76rem] font-bold tracking-[0.1em] uppercase transition-transform duration-200 hover:-translate-y-0.5 xl:px-6 xl:py-3.5"
               style={{ color: colors.navy }}
             >
-              <Zap size={14} strokeWidth={2.4} fill="currentColor" />
+              <Zap size={15} strokeWidth={2.4} fill="currentColor" />
               Request a Quote
             </Link>
           </div>
