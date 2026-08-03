@@ -122,34 +122,35 @@ export default function HomePage() {
   return (
     <SiteShell>
       <main>
-        {/* Hero — full-bleed coastal artwork with left copy / right lighthouse */}
+        {/* Hero — luxury coastal split: left copy / right lighthouse signature */}
         <section
           id="home"
-          className="hero-premium relative -mt-[5.25rem] min-h-[115vh] overflow-hidden pt-[5.25rem] sm:-mt-[5.75rem] sm:min-h-[118vh] sm:pt-[5.75rem]"
+          className="hero-premium relative -mt-[5.5rem] min-h-[118vh] overflow-hidden pt-[5.5rem] sm:-mt-[6rem] sm:min-h-[122vh] sm:pt-[6rem]"
         >
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 1.35, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 1.4, ease: [0.22, 1, 0.36, 1] }}
             className="pointer-events-none absolute inset-0 z-0"
             aria-hidden="true"
           >
             <Image
-              src="/images/florida-lighthouse-sunrise.png"
+              src="/images/florida-lighthouse-cinematic.png"
               alt=""
               fill
               priority
               sizes="100vw"
-              className="hero-lighthouse-photo object-cover object-[78%_48%] sm:object-[74%_46%] lg:object-[70%_44%]"
+              className="hero-lighthouse-photo object-cover object-[82%_50%] sm:object-[78%_48%] lg:object-[74%_46%]"
             />
             <div className="hero-atmosphere" />
             <div className="hero-sky-wash" />
             <div className="hero-ocean-depth" />
             <div className="hero-text-veil" />
+            <div className="hero-lighthouse-glow" />
           </motion.div>
 
-          <div className="relative z-10 mx-auto grid min-h-[calc(115vh-5.25rem)] max-w-7xl grid-cols-1 items-center px-5 pb-36 pt-16 sm:min-h-[calc(118vh-5.75rem)] sm:px-8 sm:pb-40 sm:pt-20 lg:grid-cols-2 lg:items-center lg:px-10 lg:pb-44 lg:pt-24">
-            <div className="relative w-full max-w-xl lg:max-w-[36rem]">
+          <div className="relative z-10 mx-auto grid min-h-[calc(118vh-5.5rem)] max-w-7xl grid-cols-1 items-center gap-12 px-5 pb-40 pt-16 sm:min-h-[calc(122vh-6rem)] sm:gap-14 sm:px-8 sm:pb-44 sm:pt-20 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] lg:gap-16 lg:px-10 lg:pb-48 lg:pt-24">
+            <div className="relative w-full max-w-xl lg:max-w-[38rem]">
               <motion.div
                 initial={{ opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -166,7 +167,7 @@ export default function HomePage() {
                   delay: 0.06,
                   ease: [0.22, 1, 0.36, 1],
                 }}
-                className="mt-8 text-[0.74rem] font-semibold tracking-[0.28em] uppercase"
+                className="mt-9 text-[0.74rem] font-semibold tracking-[0.28em] uppercase"
                 style={{ color: colors.gold }}
               >
                 Electrical Services
@@ -180,10 +181,12 @@ export default function HomePage() {
                   delay: 0.12,
                   ease: [0.22, 1, 0.36, 1],
                 }}
-                className="font-display mt-7 text-[clamp(3.15rem,6.8vw,5.25rem)] font-bold leading-[0.96] tracking-[-0.025em] lg:whitespace-nowrap"
+                className="font-display mt-8 text-[clamp(3.55rem,7.6vw,6.35rem)] font-bold leading-[0.92] tracking-[-0.03em]"
                 style={{ color: colors.navy }}
               >
-                {SITE_SHORT_NAME}
+                Current
+                <br />
+                Solutions
               </motion.h1>
 
               <motion.p
@@ -194,7 +197,7 @@ export default function HomePage() {
                   delay: 0.2,
                   ease: [0.22, 1, 0.36, 1],
                 }}
-                className="font-display mt-8 max-w-[14ch] text-[clamp(1.85rem,3.8vw,2.75rem)] font-medium leading-[1.16] tracking-[-0.018em]"
+                className="font-display mt-9 max-w-[16ch] text-[clamp(1.85rem,3.6vw,2.7rem)] font-medium leading-[1.14] tracking-[-0.018em]"
                 style={{ color: colors.navy }}
               >
                 Powering Florida&apos;s Nature Coast
@@ -204,9 +207,9 @@ export default function HomePage() {
                 initial={{ opacity: 0, scaleX: 0.55 }}
                 animate={{ opacity: 1, scaleX: 1 }}
                 transition={{ duration: 0.55, delay: 0.28 }}
-                className="mt-9 h-px w-28 origin-left"
+                className="mt-10 h-px w-28 origin-left"
                 style={{
-                  background: `linear-gradient(90deg, ${colors.gold}, rgba(212,175,55,0.15))`,
+                  background: `linear-gradient(90deg, ${colors.gold}, rgba(212,175,55,0.12))`,
                 }}
               />
 
@@ -218,8 +221,8 @@ export default function HomePage() {
                   delay: 0.34,
                   ease: [0.22, 1, 0.36, 1],
                 }}
-                className="mt-9 max-w-md text-base leading-[1.85] sm:text-lg"
-                style={{ color: "rgba(11,58,102,0.86)" }}
+                className="mt-10 max-w-md text-base leading-[1.9] sm:text-lg"
+                style={{ color: "rgba(11,58,102,0.84)" }}
               >
                 Dependable electrical solutions for homes and businesses across
                 Florida&apos;s Nature Coast — delivered with integrity, care, and
@@ -234,11 +237,11 @@ export default function HomePage() {
                   delay: 0.42,
                   ease: [0.22, 1, 0.36, 1],
                 }}
-                className="mt-14 flex flex-col gap-4 sm:flex-row sm:items-center"
+                className="mt-16 flex flex-col gap-4 sm:mt-[4.5rem] sm:flex-row sm:items-center sm:gap-5"
               >
                 <Link
                   href="/contact"
-                  className="cta-gold hero-cta-primary inline-flex items-center justify-center gap-2.5 rounded-full px-9 py-5 text-[0.84rem] font-bold tracking-[0.12em] uppercase"
+                  className="cta-gold hero-cta-primary inline-flex items-center justify-center gap-2.5 rounded-full px-10 py-5 text-[0.84rem] font-bold tracking-[0.12em] uppercase"
                   style={{ color: colors.navy }}
                 >
                   <Zap size={16} strokeWidth={2.4} fill="currentColor" />
@@ -246,7 +249,7 @@ export default function HomePage() {
                 </Link>
                 <a
                   href={PHONE_HREF}
-                  className="hero-cta-secondary inline-flex items-center justify-center gap-2.5 rounded-full px-9 py-5 text-[0.84rem] font-bold tracking-[0.12em] uppercase"
+                  className="hero-cta-secondary inline-flex items-center justify-center gap-2.5 rounded-full px-10 py-5 text-[0.84rem] font-bold tracking-[0.12em] uppercase"
                   style={{ color: colors.navy }}
                 >
                   <Phone size={16} strokeWidth={2.4} />
@@ -255,8 +258,10 @@ export default function HomePage() {
               </motion.div>
             </div>
 
-            {/* Right visual column — lighthouse artwork shows through */}
-            <div className="hidden lg:block" aria-hidden="true" />
+            {/* Right — dramatic lighthouse signature scene */}
+            <div className="relative hidden min-h-[32rem] lg:block" aria-hidden="true">
+              <div className="hero-right-focus absolute inset-0" />
+            </div>
           </div>
 
           <div className="absolute inset-x-0 bottom-0 z-20">
