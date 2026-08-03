@@ -190,7 +190,7 @@ function CoastalIllustration() {
       aria-hidden="true"
     >
       <svg
-        className="coastal-scene absolute inset-0 h-full w-full"
+        className="coastal-scene"
         viewBox="0 0 1440 900"
         preserveAspectRatio="xMidYMid slice"
         xmlns="http://www.w3.org/2000/svg"
@@ -291,14 +291,14 @@ function CoastalIllustration() {
 
         {/* Sunrise sky */}
         <rect width="1440" height="900" fill="url(#sunriseSky)" />
-        <ellipse cx="1140" cy="210" rx="460" ry="340" fill="url(#sunBloom)" />
-        <ellipse cx="1060" cy="420" rx="520" ry="140" fill="url(#horizonWarmth)" />
+        <ellipse cx="1020" cy="210" rx="460" ry="340" fill="url(#sunBloom)" />
+        <ellipse cx="960" cy="420" rx="520" ry="140" fill="url(#horizonWarmth)" />
 
         {/* Sun disk with layered atmosphere */}
-        <circle cx="1200" cy="205" r="150" fill="url(#sunCore)" opacity="0.5" />
-        <circle cx="1200" cy="205" r="72" fill="#FFF0C4" opacity="0.5" />
-        <circle cx="1200" cy="205" r="44" fill="#FFE9A8" opacity="0.72" />
-        <circle cx="1200" cy="205" r="26" fill="#FFF8E0" opacity="0.92" />
+        <circle cx="1080" cy="205" r="150" fill="url(#sunCore)" opacity="0.5" />
+        <circle cx="1080" cy="205" r="72" fill="#FFF0C4" opacity="0.5" />
+        <circle cx="1080" cy="205" r="44" fill="#FFE9A8" opacity="0.72" />
+        <circle cx="1080" cy="205" r="26" fill="#FFF8E0" opacity="0.92" />
 
         {/* Soft floating clouds */}
         <motion.g
@@ -359,7 +359,7 @@ function CoastalIllustration() {
 
         {/* Sunrise shimmer across water */}
         <motion.ellipse
-          cx="1120"
+          cx="980"
           cy="555"
           rx="320"
           ry="48"
@@ -368,7 +368,7 @@ function CoastalIllustration() {
           transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
         />
         <ellipse
-          cx="1180"
+          cx="1040"
           cy="545"
           rx="160"
           ry="18"
@@ -553,7 +553,7 @@ function CoastalIllustration() {
         </g>
 
         {/* Lighthouse group — right coastal overlook */}
-        <g transform="translate(900, 170)">
+        <g transform="translate(760, 170)">
           {/* Rock base with more depth */}
           <ellipse cx="160" cy="482" rx="140" ry="34" fill="#072844" opacity="0.2" />
           <path
