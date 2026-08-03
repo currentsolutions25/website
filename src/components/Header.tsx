@@ -1,16 +1,19 @@
 "use client";
 
 import { AnimatePresence, motion } from "framer-motion";
-import { Menu, Phone, X } from "lucide-react";
+import { Mail, Menu, Phone, X } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import ScaleButton from "@/components/ScaleButton";
 import {
   colors,
+  EMAIL,
+  EMAIL_PLACEHOLDER_NOTE,
   navLinks,
   PHONE_DISPLAY,
   PHONE_HREF,
+  PHONE_PLACEHOLDER_NOTE,
   SITE_SHORT_NAME,
 } from "@/lib/design";
 
@@ -37,7 +40,7 @@ export default function Header() {
           scrolled ? "glass-nav-scrolled" : ""
         }`}
       >
-        {/* Logo mark reserved for brand artwork */}
+        {/* Company logo placeholder — replace CS mark with brand artwork when ready */}
         <Link href="/" className="group flex min-w-0 shrink-0 items-center gap-3">
           <span
             className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl sm:h-12 sm:w-12"
@@ -46,6 +49,7 @@ export default function Header() {
               boxShadow: "inset 0 0 0 1px rgba(11,58,102,0.08)",
             }}
             aria-hidden="true"
+            title="[Replace with company logo]"
           >
             <span
               className="font-display text-lg font-semibold tracking-tight sm:text-xl"
@@ -94,21 +98,24 @@ export default function Header() {
           })}
         </ul>
 
-        <div className="hidden items-center gap-3 lg:flex xl:gap-4">
+        <div className="hidden items-center gap-2.5 lg:flex xl:gap-3.5">
           <a
             href={PHONE_HREF}
-            className="group inline-flex items-center gap-2.5 rounded-2xl px-3.5 py-2.5 transition-all duration-300 hover:bg-white/55"
+            className="group inline-flex items-center gap-2.5 rounded-2xl px-3 py-2 transition-all duration-300 hover:bg-white/55"
             style={{ color: colors.navy }}
             aria-label={`Call ${PHONE_DISPLAY}`}
+            title={PHONE_PLACEHOLDER_NOTE}
           >
             <span
-              className="flex h-9 w-9 items-center justify-center rounded-xl transition-transform duration-300 group-hover:scale-105"
+              className="flex h-10 w-10 items-center justify-center rounded-xl transition-transform duration-300 group-hover:scale-105"
               style={{
-                background: `linear-gradient(145deg, rgba(212,175,55,0.22), rgba(212,175,55,0.08))`,
+                background:
+                  "linear-gradient(145deg, rgba(212,175,55,0.28), rgba(212,175,55,0.1))",
                 color: colors.champagne,
+                boxShadow: "inset 0 0 0 1px rgba(212,175,55,0.22)",
               }}
             >
-              <Phone size={17} strokeWidth={2} />
+              <Phone size={18} strokeWidth={2.1} />
             </span>
             <span className="flex flex-col leading-tight">
               <span
@@ -117,11 +124,41 @@ export default function Header() {
               >
                 Call Now
               </span>
-              <span className="text-[0.95rem] font-semibold tracking-wide">
+              <span className="text-[0.98rem] font-semibold tracking-wide">
                 {PHONE_DISPLAY}
               </span>
             </span>
           </a>
+
+          <a
+            href={`mailto:${EMAIL}`}
+            className="group inline-flex items-center gap-2 rounded-2xl px-2.5 py-2 transition-all duration-300 hover:bg-white/55 xl:gap-2.5 xl:px-3"
+            style={{ color: colors.navy }}
+            aria-label={`Email ${EMAIL}`}
+            title={EMAIL_PLACEHOLDER_NOTE}
+          >
+            <span
+              className="flex h-9 w-9 items-center justify-center rounded-xl transition-transform duration-300 group-hover:scale-105"
+              style={{
+                background: `linear-gradient(145deg, ${colors.seaGlass}, rgba(220,239,247,0.4))`,
+                color: colors.navy,
+              }}
+            >
+              <Mail size={16} strokeWidth={1.9} />
+            </span>
+            <span className="hidden flex-col leading-tight min-[1180px]:flex">
+              <span
+                className="text-[0.62rem] font-semibold tracking-[0.16em] uppercase"
+                style={{ color: "rgba(11,58,102,0.5)" }}
+              >
+                Email
+              </span>
+              <span className="max-w-[11rem] truncate text-[0.8rem] font-semibold tracking-wide">
+                {EMAIL}
+              </span>
+            </span>
+          </a>
+
           <ScaleButton
             href="/contact"
             variant="gold"
@@ -131,14 +168,24 @@ export default function Header() {
           </ScaleButton>
         </div>
 
-        <div className="flex items-center gap-2 xl:hidden">
+        <div className="flex items-center gap-1.5 xl:hidden">
           <a
             href={PHONE_HREF}
             className="inline-flex h-10 w-10 items-center justify-center rounded-xl transition-colors duration-300 hover:bg-white/40 lg:hidden"
             aria-label={`Call ${PHONE_DISPLAY}`}
+            title={PHONE_PLACEHOLDER_NOTE}
             style={{ color: colors.champagne }}
           >
-            <Phone size={20} strokeWidth={2} />
+            <Phone size={20} strokeWidth={2.1} />
+          </a>
+          <a
+            href={`mailto:${EMAIL}`}
+            className="inline-flex h-10 w-10 items-center justify-center rounded-xl transition-colors duration-300 hover:bg-white/40 lg:hidden"
+            aria-label={`Email ${EMAIL}`}
+            title={EMAIL_PLACEHOLDER_NOTE}
+            style={{ color: colors.navy }}
+          >
+            <Mail size={19} strokeWidth={1.9} />
           </a>
           <button
             type="button"
@@ -185,11 +232,17 @@ export default function Header() {
                   className="inline-flex w-full items-center gap-3 rounded-2xl px-4 py-3.5 transition-opacity hover:opacity-90"
                   style={{
                     background:
-                      "linear-gradient(145deg, rgba(212,175,55,0.16), rgba(220,239,247,0.45))",
+                      "linear-gradient(145deg, rgba(212,175,55,0.2), rgba(220,239,247,0.45))",
+                    boxShadow: "inset 0 0 0 1px rgba(212,175,55,0.22)",
                   }}
                   onClick={() => setMobileOpen(false)}
+                  title={PHONE_PLACEHOLDER_NOTE}
                 >
-                  <Phone size={18} strokeWidth={2} style={{ color: colors.champagne }} />
+                  <Phone
+                    size={18}
+                    strokeWidth={2.1}
+                    style={{ color: colors.champagne }}
+                  />
                   <span>
                     <span
                       className="block text-[0.65rem] font-semibold tracking-[0.16em] uppercase"
@@ -197,7 +250,33 @@ export default function Header() {
                     >
                       Call Now
                     </span>
-                    <span className="text-base font-semibold">{PHONE_DISPLAY}</span>
+                    <span className="text-base font-semibold">
+                      {PHONE_DISPLAY}
+                    </span>
+                  </span>
+                </a>
+              </li>
+              <li className="pt-2">
+                <a
+                  href={`mailto:${EMAIL}`}
+                  className="inline-flex w-full items-center gap-3 rounded-2xl px-4 py-3.5 transition-opacity hover:opacity-90"
+                  style={{
+                    background: "rgba(220,239,247,0.55)",
+                  }}
+                  onClick={() => setMobileOpen(false)}
+                  title={EMAIL_PLACEHOLDER_NOTE}
+                >
+                  <Mail size={18} strokeWidth={1.9} style={{ color: colors.navy }} />
+                  <span>
+                    <span
+                      className="block text-[0.65rem] font-semibold tracking-[0.16em] uppercase"
+                      style={{ color: "rgba(11,58,102,0.5)" }}
+                    >
+                      Email
+                    </span>
+                    <span className="text-sm font-semibold break-all">
+                      {EMAIL}
+                    </span>
                   </span>
                 </a>
               </li>

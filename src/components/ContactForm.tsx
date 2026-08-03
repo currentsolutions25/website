@@ -18,11 +18,16 @@ export default function ContactForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="premium-card p-7 sm:p-10" noValidate>
+    <form
+      onSubmit={handleSubmit}
+      className="premium-card p-7 sm:p-10"
+      noValidate
+      aria-label="Request a quote contact form"
+    >
       <div className="grid gap-6 sm:grid-cols-2">
         <div className="sm:col-span-1">
           <label htmlFor="name" className={labelClass}>
-            Name
+            Full Name
           </label>
           <input
             id="name"
