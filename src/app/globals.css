@@ -2,15 +2,17 @@
 
 :root {
   --navy: #0b3a66;
-  --navy-deep: #072844;
+  --navy-deep: #071f3a;
   --sea-glass: #dceff7;
-  --warm-sand: #f6f1e7;
-  --champagne: #d4af37;
+  --warm-sand: #f4f6f8;
+  --soft-grey: #eef1f4;
+  --champagne: #c9a227;
+  --gold: #d4af37;
   --champagne-soft: #e8d48a;
   --white: #ffffff;
   --ink-muted: rgba(11, 58, 102, 0.72);
   --ink-soft: rgba(11, 58, 102, 0.55);
-  --background: var(--warm-sand);
+  --background: var(--white);
   --foreground: var(--navy);
 }
 
@@ -21,8 +23,8 @@
   --color-sea-glass: var(--sea-glass);
   --color-warm-sand: var(--warm-sand);
   --color-champagne: var(--champagne);
-  --font-sans: var(--font-outfit);
-  --font-display: var(--font-cormorant);
+  --font-sans: var(--font-montserrat);
+  --font-display: var(--font-playfair);
 }
 
 html {
@@ -32,7 +34,7 @@ html {
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-outfit), "Segoe UI", sans-serif;
+  font-family: var(--font-montserrat), "Segoe UI", sans-serif;
 }
 
 ::selection {
@@ -41,7 +43,28 @@ body {
 }
 
 .font-display {
-  font-family: var(--font-cormorant), Georgia, serif;
+  font-family: var(--font-playfair), Georgia, "Times New Roman", serif;
+}
+
+.header-scrolled {
+  box-shadow: 0 10px 30px -18px rgba(11, 58, 102, 0.35);
+}
+
+.nav-link:hover {
+  color: var(--gold) !important;
+}
+
+.nav-link-active {
+  color: var(--gold) !important;
+}
+
+.cta-gold {
+  background: linear-gradient(165deg, #e0c45a 0%, #d4af37 45%, #c9a227 100%);
+  box-shadow: 0 12px 28px -14px rgba(201, 162, 39, 0.7);
+}
+
+.cta-gold:hover {
+  box-shadow: 0 16px 34px -12px rgba(201, 162, 39, 0.8);
 }
 
 .glass-nav {
@@ -55,7 +78,7 @@ body {
 }
 
 .glass-nav-scrolled {
-  background: rgba(246, 241, 231, 0.78);
+  background: rgba(244, 246, 248, 0.88);
   border-color: rgba(11, 58, 102, 0.1);
   box-shadow:
     0 22px 56px -22px rgba(11, 58, 102, 0.48),
@@ -63,9 +86,9 @@ body {
 }
 
 .premium-card {
-  background: linear-gradient(168deg, #ffffff 0%, #fbf9f4 100%);
-  border: 1px solid rgba(11, 58, 102, 0.05);
-  border-radius: 1.5rem;
+  background: linear-gradient(168deg, #ffffff 0%, #f7f9fb 100%);
+  border: 1px solid rgba(11, 58, 102, 0.06);
+  border-radius: 1.25rem;
   box-shadow:
     0 2px 4px -2px rgba(11, 58, 102, 0.03),
     0 16px 40px -20px rgba(11, 58, 102, 0.14);
@@ -83,15 +106,10 @@ body {
 }
 
 .trust-card {
-  background: rgba(255, 255, 255, 0.62);
-  backdrop-filter: blur(18px) saturate(160%);
-  -webkit-backdrop-filter: blur(18px) saturate(160%);
-  border: 1px solid rgba(255, 255, 255, 0.72);
-  border-radius: 1.35rem;
-  box-shadow:
-    0 2px 3px -1px rgba(11, 58, 102, 0.03),
-    0 16px 40px -20px rgba(11, 58, 102, 0.16),
-    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  background: #ffffff;
+  border: 1px solid rgba(11, 58, 102, 0.06);
+  border-radius: 1rem;
+  box-shadow: 0 14px 36px -24px rgba(11, 58, 102, 0.28);
   transition:
     transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
     box-shadow 0.4s cubic-bezier(0.22, 1, 0.36, 1),
@@ -99,11 +117,35 @@ body {
 }
 
 .trust-card:hover {
-  border-color: rgba(212, 175, 55, 0.28);
+  border-color: rgba(212, 175, 55, 0.3);
+  box-shadow: 0 20px 40px -22px rgba(11, 58, 102, 0.3);
+}
+
+.service-media-card {
+  border: 1px solid rgba(11, 58, 102, 0.06);
+  border-radius: 1rem;
+  box-shadow: 0 16px 40px -26px rgba(11, 58, 102, 0.28);
+  transition:
+    transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.service-media-card:hover {
+  box-shadow: 0 24px 48px -24px rgba(11, 58, 102, 0.32);
+}
+
+.about-photo-frame {
+  border-radius: 50% / 42%;
   box-shadow:
-    0 6px 14px -8px rgba(11, 58, 102, 0.07),
-    0 24px 48px -22px rgba(11, 58, 102, 0.18),
-    inset 0 1px 0 rgba(255, 255, 255, 0.85);
+    0 28px 60px -28px rgba(11, 58, 102, 0.45),
+    0 0 0 10px rgba(212, 175, 55, 0.12);
+}
+
+.review-card {
+  background: #ffffff;
+  border: 1px solid rgba(11, 58, 102, 0.06);
+  border-radius: 1rem;
+  box-shadow: 0 14px 34px -24px rgba(11, 58, 102, 0.28);
 }
 
 .cta-surface {
@@ -115,11 +157,11 @@ body {
 }
 
 .section-label {
-  letter-spacing: 0.26em;
+  letter-spacing: 0.24em;
   text-transform: uppercase;
-  font-weight: 600;
-  font-size: 0.68rem;
-  color: var(--champagne);
+  font-weight: 700;
+  font-size: 0.72rem;
+  color: var(--gold);
 }
 
 .coastal-scene {
@@ -140,7 +182,6 @@ body {
   z-index: 1;
 }
 
-/* Keep the lighthouse in frame on the right while protecting copy contrast */
 @media (max-width: 768px) {
   .coastal-scene {
     left: auto;
@@ -151,11 +192,11 @@ body {
     display: block;
     background: linear-gradient(
       100deg,
-      rgba(246, 241, 231, 0.94) 0%,
-      rgba(246, 241, 231, 0.88) 42%,
-      rgba(246, 241, 231, 0.45) 68%,
-      rgba(246, 241, 231, 0.08) 86%,
-      rgba(246, 241, 231, 0) 100%
+      rgba(255, 255, 255, 0.94) 0%,
+      rgba(255, 255, 255, 0.88) 42%,
+      rgba(255, 255, 255, 0.42) 68%,
+      rgba(255, 255, 255, 0.08) 86%,
+      rgba(255, 255, 255, 0) 100%
     );
   }
 }

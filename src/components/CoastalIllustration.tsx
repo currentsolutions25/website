@@ -103,11 +103,11 @@ export default function CoastalIllustration() {
             <stop offset="100%" stopColor="#D4AF37" stopOpacity="0" />
           </radialGradient>
           <linearGradient id="textVeil" x1="0" y1="0" x2="1" y2="0">
-            <stop offset="0%" stopColor="#F6F1E7" stopOpacity="0.88" />
-            <stop offset="22%" stopColor="#F6F1E7" stopOpacity="0.62" />
-            <stop offset="42%" stopColor="#F6F1E7" stopOpacity="0.22" />
-            <stop offset="58%" stopColor="#F6F1E7" stopOpacity="0" />
-            <stop offset="100%" stopColor="#F6F1E7" stopOpacity="0" />
+            <stop offset="0%" stopColor="#FFFFFF" stopOpacity="0.86" />
+            <stop offset="22%" stopColor="#FFFFFF" stopOpacity="0.58" />
+            <stop offset="42%" stopColor="#FFFFFF" stopOpacity="0.2" />
+            <stop offset="58%" stopColor="#FFFFFF" stopOpacity="0" />
+            <stop offset="100%" stopColor="#FFFFFF" stopOpacity="0" />
           </linearGradient>
           <linearGradient id="mistBand" x1="0" y1="0" x2="0" y2="1">
             <stop offset="0%" stopColor="#F6F1E7" stopOpacity="0" />
