@@ -52,27 +52,27 @@ export default function Header() {
     pathname.startsWith("/services") || pathname === "/";
 
   return (
-    <header className="sticky top-0 z-50 px-3 pt-3 sm:px-5 sm:pt-4 lg:px-6">
+    <header className="sticky top-0 z-50 px-3 pt-3.5 sm:px-5 sm:pt-4 lg:px-6 lg:pt-5">
       <div
         className={`glass-nav mx-auto w-full max-w-7xl transition-[background,box-shadow,border-radius,border-color] duration-300 ${
-          mobileOpen ? "rounded-[1.75rem]" : "rounded-full"
+          mobileOpen ? "rounded-[1.85rem]" : "rounded-full"
         } ${scrolled ? "glass-nav-scrolled" : ""}`}
       >
-        <div className="relative flex items-center justify-between gap-3 px-4 py-2.5 sm:gap-4 sm:px-5 sm:py-3 lg:px-6">
+        <div className="relative flex items-center justify-between gap-3 px-5 py-3 sm:gap-4 sm:px-6 sm:py-3.5 lg:px-7 lg:py-4">
           <Link
             href="/"
             className="group relative z-10 flex shrink-0 items-center gap-2.5"
           >
-            <LighthouseMark size={42} />
+            <LighthouseMark size={46} />
             <span className="leading-tight">
               <span
-                className="block font-display text-[1.05rem] font-bold tracking-[0.02em] sm:text-[1.18rem]"
+                className="block font-display text-[1.1rem] font-bold tracking-[0.02em] sm:text-[1.22rem]"
                 style={{ color: colors.navy }}
               >
                 CURRENT SOLUTIONS
               </span>
               <span
-                className="block text-[0.58rem] font-semibold tracking-[0.16em] uppercase sm:text-[0.62rem]"
+                className="block text-[0.6rem] font-semibold tracking-[0.16em] uppercase sm:text-[0.64rem]"
                 style={{ color: colors.gold }}
               >
                 Electrical Services

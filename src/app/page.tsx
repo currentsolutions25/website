@@ -122,43 +122,44 @@ export default function HomePage() {
   return (
     <SiteShell>
       <main>
-        {/* Hero — full-bleed coastal artwork with left copy / right lighthouse */}
+        {/* Hero — luxury coastal split: left copy / right lighthouse signature */}
         <section
           id="home"
-          className="hero-premium relative -mt-[4.75rem] min-h-screen overflow-hidden pt-[4.75rem] sm:-mt-[5.25rem] sm:pt-[5.25rem]"
+          className="hero-premium relative -mt-[5.5rem] min-h-[100svh] overflow-hidden pt-[5.5rem] sm:-mt-[6rem] sm:min-h-[108vh] sm:pt-[6rem] lg:min-h-[112vh]"
         >
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 1.35, ease: [0.22, 1, 0.36, 1] }}
             className="pointer-events-none absolute inset-0 z-0"
             aria-hidden="true"
           >
             <Image
-              src="/images/florida-lighthouse-sunrise.png"
+              src="/images/florida-lighthouse-cinematic.png"
               alt=""
               fill
               priority
               sizes="100vw"
-              className="hero-lighthouse-photo object-cover object-[72%_42%] sm:object-[68%_40%] lg:object-[62%_38%]"
+              className="hero-lighthouse-photo object-cover object-[78%_48%] sm:object-[74%_46%] lg:object-[70%_44%]"
             />
             <div className="hero-atmosphere" />
             <div className="hero-sky-wash" />
             <div className="hero-ocean-depth" />
             <div className="hero-text-veil" />
+            <div className="hero-lighthouse-glow" />
           </motion.div>
 
-          <div className="relative z-10 mx-auto grid min-h-[calc(100vh-4.75rem)] max-w-7xl grid-cols-1 items-center px-5 pb-28 pt-10 sm:min-h-[calc(100vh-5.25rem)] sm:px-8 sm:pb-32 sm:pt-12 lg:grid-cols-2 lg:px-10 lg:pb-36">
-            <div className="relative w-full max-w-xl lg:max-w-[34rem]">
+          <div className="relative z-10 mx-auto grid min-h-[calc(100svh-5.5rem)] max-w-7xl grid-cols-1 items-center gap-10 px-5 pb-32 pt-14 sm:min-h-[calc(108vh-6rem)] sm:gap-12 sm:px-8 sm:pb-36 sm:pt-16 lg:min-h-[calc(112vh-6rem)] lg:grid-cols-[minmax(0,1fr)_minmax(0,1.05fr)] lg:gap-16 lg:px-10 lg:pb-40 lg:pt-20">
+            <div className="relative w-full max-w-xl lg:max-w-[36rem]">
               <motion.div
                 initial={{ opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-                className="flex items-center gap-3.5"
+                className="flex items-center gap-4"
               >
-                <LighthouseMark size={64} className="hero-logo-mark" />
+                <LighthouseMark size={68} className="hero-logo-mark" />
                 <p
-                  className="text-[0.72rem] font-semibold tracking-[0.22em] uppercase"
+                  className="text-[0.74rem] font-semibold tracking-[0.26em] uppercase"
                   style={{ color: colors.gold }}
                 >
                   Electrical Services
@@ -166,28 +167,30 @@ export default function HomePage() {
               </motion.div>
 
               <motion.h1
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 22 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{
-                  duration: 0.8,
+                  duration: 0.85,
                   delay: 0.08,
                   ease: [0.22, 1, 0.36, 1],
                 }}
-                className="font-display mt-8 text-[clamp(2.9rem,6.6vw,5.1rem)] font-bold leading-[0.95] tracking-[-0.02em]"
+                className="font-display mt-12 text-[clamp(3.4rem,7.4vw,6.15rem)] font-bold leading-[0.92] tracking-[-0.03em] sm:mt-14"
                 style={{ color: colors.navy }}
               >
-                {SITE_SHORT_NAME}
+                Current
+                <br />
+                Solutions
               </motion.h1>
 
               <motion.p
                 initial={{ opacity: 0, y: 18 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{
-                  duration: 0.75,
+                  duration: 0.8,
                   delay: 0.16,
                   ease: [0.22, 1, 0.36, 1],
                 }}
-                className="font-display mt-5 text-[clamp(1.55rem,3.2vw,2.35rem)] font-medium leading-[1.15] tracking-[-0.015em]"
+                className="font-display mt-8 max-w-[18ch] text-[clamp(1.7rem,3.4vw,2.65rem)] font-medium leading-[1.12] tracking-[-0.02em]"
                 style={{ color: colors.navy }}
               >
                 Powering Florida&apos;s Nature Coast
@@ -196,10 +199,10 @@ export default function HomePage() {
               <motion.div
                 initial={{ opacity: 0, scaleX: 0.55 }}
                 animate={{ opacity: 1, scaleX: 1 }}
-                transition={{ duration: 0.55, delay: 0.22 }}
-                className="mt-7 h-px w-24 origin-left"
+                transition={{ duration: 0.55, delay: 0.24 }}
+                className="mt-10 h-px w-28 origin-left"
                 style={{
-                  background: `linear-gradient(90deg, ${colors.gold}, rgba(212,175,55,0.15))`,
+                  background: `linear-gradient(90deg, ${colors.gold}, rgba(212,175,55,0.12))`,
                 }}
               />
 
@@ -208,11 +211,11 @@ export default function HomePage() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{
                   duration: 0.7,
-                  delay: 0.28,
+                  delay: 0.3,
                   ease: [0.22, 1, 0.36, 1],
                 }}
-                className="mt-7 max-w-md text-base leading-[1.8] sm:text-lg"
-                style={{ color: "rgba(11,58,102,0.78)" }}
+                className="mt-10 max-w-md text-base leading-[1.85] sm:text-lg"
+                style={{ color: "rgba(11,58,102,0.76)" }}
               >
                 Dependable electrical solutions for homes and businesses across
                 Florida&apos;s Nature Coast — delivered with integrity, care, and
@@ -224,14 +227,14 @@ export default function HomePage() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{
                   duration: 0.7,
-                  delay: 0.36,
+                  delay: 0.38,
                   ease: [0.22, 1, 0.36, 1],
                 }}
-                className="mt-11 flex flex-col gap-4 sm:flex-row sm:items-center"
+                className="mt-14 flex flex-col gap-4 sm:mt-16 sm:flex-row sm:items-center sm:gap-5"
               >
                 <Link
                   href="/contact"
-                  className="cta-gold hero-cta-primary inline-flex items-center justify-center gap-2.5 rounded-full px-9 py-5 text-[0.84rem] font-bold tracking-[0.12em] uppercase"
+                  className="cta-gold hero-cta-primary inline-flex items-center justify-center gap-2.5 rounded-full px-10 py-5 text-[0.84rem] font-bold tracking-[0.12em] uppercase"
                   style={{ color: colors.navy }}
                 >
                   <Zap size={16} strokeWidth={2.4} fill="currentColor" />
@@ -239,7 +242,7 @@ export default function HomePage() {
                 </Link>
                 <a
                   href={PHONE_HREF}
-                  className="hero-cta-secondary inline-flex items-center justify-center gap-2.5 rounded-full px-9 py-5 text-[0.84rem] font-bold tracking-[0.12em] uppercase"
+                  className="hero-cta-secondary inline-flex items-center justify-center gap-2.5 rounded-full px-10 py-5 text-[0.84rem] font-bold tracking-[0.12em] uppercase"
                   style={{ color: colors.navy }}
                 >
                   <Phone size={16} strokeWidth={2.4} />
@@ -248,8 +251,13 @@ export default function HomePage() {
               </motion.div>
             </div>
 
-            {/* Right visual column — lighthouse artwork shows through */}
-            <div className="hidden lg:block" aria-hidden="true" />
+            {/* Right — dramatic lighthouse signature scene */}
+            <div
+              className="relative hidden min-h-[28rem] lg:block"
+              aria-hidden="true"
+            >
+              <div className="hero-right-focus absolute inset-0" />
+            </div>
           </div>
 
           <div className="absolute inset-x-0 bottom-0 z-20">
