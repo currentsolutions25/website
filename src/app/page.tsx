@@ -134,19 +134,18 @@ export default function HomePage() {
             animate={{ opacity: 1 }}
             transition={{ duration: 1.15, ease: [0.22, 1, 0.36, 1] }}
             className="hero-image-panel pointer-events-none absolute inset-x-0 top-[5.75rem] bottom-0 z-[1] sm:top-[6.25rem] lg:inset-y-0 lg:left-auto lg:right-0 lg:w-[52%]"
-            aria-hidden="true"
           >
             <div className="hero-image-frame relative h-full min-h-[48vh] w-full overflow-hidden lg:min-h-screen">
               <Image
                 src="/images/florida-lighthouse-sunrise.png"
-                alt=""
+                alt="Florida Nature Coast lighthouse at sunrise over calm Gulf water"
                 fill
                 priority
                 sizes="(max-width: 1024px) 100vw, 52vw"
                 className="hero-lighthouse-photo object-cover object-[58%_42%]"
               />
-              <div className="hero-image-glow" />
-              <div className="hero-image-mist" />
+              <div className="hero-image-glow" aria-hidden="true" />
+              <div className="hero-image-mist" aria-hidden="true" />
             </div>
           </motion.div>
 
@@ -262,11 +261,6 @@ export default function HomePage() {
               </motion.div>
             </div>
           </div>
-
-          {/* Accessible image description for screen readers */}
-          <span className="sr-only">
-            Florida Nature Coast lighthouse at sunrise over calm Gulf water
-          </span>
 
           <div className="absolute inset-x-0 bottom-0 z-20">
             <WaveDivider
