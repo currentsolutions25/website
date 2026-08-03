@@ -207,7 +207,7 @@ function CoastalLighthouseScene() {
 
       {/* Full-scene SVG: clouds, ocean, lighthouse, sea oats */}
       <svg
-        className="absolute inset-0 h-full w-full max-sm:scale-[1.15] max-sm:origin-[72%_60%] sm:origin-center"
+        className="absolute inset-0 h-full w-full"
         viewBox="0 0 1440 900"
         preserveAspectRatio="xMidYMid slice"
         xmlns="http://www.w3.org/2000/svg"
@@ -333,8 +333,8 @@ function CoastalLighthouseScene() {
           fill="#EDE6D8"
         />
 
-        {/* Elegant lighthouse group — right third, readable on mobile */}
-        <g transform="translate(900, 260)">
+        {/* Elegant lighthouse — center-right so it remains in mobile crop */}
+        <g transform="translate(640, 245)">
           {/* Soft ground shadow */}
           <ellipse cx="160" cy="470" rx="130" ry="28" fill="#072844" opacity="0.22" />
 
@@ -626,8 +626,8 @@ export default function HomePage() {
         >
           <CoastalLighthouseScene />
 
-          <div className="relative z-10 mx-auto flex min-h-[90vh] max-w-6xl items-center px-5 py-28 sm:px-8 sm:py-32 lg:py-36">
-            <div className="max-w-xl lg:max-w-2xl">
+          <div className="relative z-10 mx-auto flex min-h-[90vh] max-w-6xl items-center px-5 py-24 sm:px-8 sm:py-32 lg:py-36">
+            <div className="max-w-xl lg:max-w-[34rem]">
               <motion.p
                 initial={{ opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
