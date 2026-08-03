@@ -1,5 +1,18 @@
-import { Facebook, Mail, Phone } from "lucide-react";
+import { Mail, Phone } from "lucide-react";
 import type { NavItem } from "@/types";
+
+function FacebookIcon({ className }: { className?: string }) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      className={className}
+      aria-hidden="true"
+    >
+      <path d="M14 8.5h2.25V6.2c-.3-.04-1.35-.13-2.56-.13-2.53 0-4.26 1.5-4.26 4.26V12H7v2.7h2.43V21h2.95v-6.3H15l.5-2.7h-2.62v-1.8c0-.78.21-1.4 1.12-1.4Z" />
+    </svg>
+  );
+}
 
 const quickLinks: NavItem[] = [
   { label: "Home", href: "#home" },
@@ -96,11 +109,7 @@ export default function Footer() {
                   aria-label="Facebook (placeholder)"
                   className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/15 text-warm-white/80 transition-all duration-300 hover:border-gold/45 hover:bg-gold/10 hover:text-gold-soft"
                 >
-                  <Facebook
-                    className="h-4 w-4"
-                    strokeWidth={1.5}
-                    aria-hidden="true"
-                  />
+                  <FacebookIcon className="h-4 w-4" />
                 </a>
               </li>
             </ul>
