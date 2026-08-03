@@ -9,6 +9,7 @@
   --gold: #c4a35a;
   --gold-soft: #d4b87a;
   --gold-deep: #a8893f;
+  --gold-glow: rgba(196, 163, 90, 0.35);
   --foreground: #0b1f3a;
   --foreground-muted: #4a5d73;
   --background: #faf8f5;
@@ -30,6 +31,10 @@
   --font-display: var(--font-cormorant);
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background: var(--background);
   color: var(--foreground);
@@ -39,4 +44,162 @@ body {
 ::selection {
   background: color-mix(in srgb, var(--gold) 35%, transparent);
   color: var(--navy-deep);
+}
+
+/* Soft gold CTA — never bright yellow */
+.btn-gold {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  padding: 0.95rem 2.1rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--navy-deep);
+  background: linear-gradient(
+    165deg,
+    var(--gold-soft) 0%,
+    var(--gold) 48%,
+    var(--gold-deep) 100%
+  );
+  box-shadow:
+    0 0 0 1px color-mix(in srgb, var(--gold-deep) 25%, transparent),
+    0 8px 28px var(--gold-glow);
+  transition:
+    transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.45s ease,
+    filter 0.45s ease;
+}
+
+.btn-gold:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.04);
+  box-shadow:
+    0 0 0 1px color-mix(in srgb, var(--gold) 35%, transparent),
+    0 14px 36px rgba(196, 163, 90, 0.42);
+}
+
+.btn-gold:focus-visible {
+  outline: 2px solid var(--gold-soft);
+  outline-offset: 3px;
+}
+
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 9999px;
+  border: 1px solid color-mix(in srgb, var(--warm-white) 40%, transparent);
+  padding: 0.95rem 2.1rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--warm-white);
+  background: color-mix(in srgb, var(--navy-deep) 18%, transparent);
+  backdrop-filter: blur(8px);
+  transition:
+    border-color 0.4s ease,
+    color 0.4s ease,
+    background-color 0.4s ease,
+    transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.btn-ghost:hover {
+  transform: translateY(-2px);
+  border-color: color-mix(in srgb, var(--gold-soft) 70%, transparent);
+  color: var(--gold-soft);
+  background: color-mix(in srgb, var(--navy-deep) 28%, transparent);
+}
+
+.btn-ghost:focus-visible {
+  outline: 2px solid var(--gold-soft);
+  outline-offset: 3px;
+}
+
+/* Calming lighthouse beam — originates near the lantern (right side) */
+.lighthouse-beam {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.lighthouse-beam__cone {
+  position: absolute;
+  top: 18%;
+  right: 22%;
+  width: 140%;
+  height: 140%;
+  transform-origin: 78% 42%;
+  background: conic-gradient(
+    from 210deg at 78% 42%,
+    transparent 0deg,
+    transparent 18deg,
+    color-mix(in srgb, var(--gold-soft) 10%, transparent) 28deg,
+    color-mix(in srgb, var(--warm-white) 14%, transparent) 34deg,
+    color-mix(in srgb, var(--gold-soft) 8%, transparent) 40deg,
+    transparent 50deg,
+    transparent 360deg
+  );
+  opacity: 0.35;
+  mix-blend-mode: soft-light;
+  animation: lighthouse-sweep 14s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+
+@keyframes lighthouse-sweep {
+  0% {
+    transform: rotate(-18deg);
+    opacity: 0.18;
+  }
+  35% {
+    opacity: 0.38;
+  }
+  50% {
+    transform: rotate(22deg);
+    opacity: 0.28;
+  }
+  65% {
+    opacity: 0.36;
+  }
+  100% {
+    transform: rotate(-18deg);
+    opacity: 0.18;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .lighthouse-beam__cone {
+    animation: none;
+    opacity: 0.22;
+    transform: rotate(0deg);
+  }
+
+  .btn-gold,
+  .btn-ghost {
+    transition: none;
+  }
+
+  .btn-gold:hover,
+  .btn-ghost:hover {
+    transform: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .lighthouse-beam__cone {
+    top: 12%;
+    right: 8%;
+    transform-origin: 82% 38%;
+    opacity: 0.28;
+  }
 }

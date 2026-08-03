@@ -32,7 +32,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${outfit.variable} ${cormorant.variable} min-h-screen antialiased`}
+        className={`${outfit.variable} ${cormorant.variable} min-h-screen bg-warm-white antialiased`}
       >
         {children}
       </body>
