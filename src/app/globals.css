@@ -117,3 +117,17 @@ body {
   font-size: 0.68rem;
   color: var(--champagne);
 }
+
+/* Keep lighthouse in frame on narrow viewports without crowding hero copy */
+@media (max-width: 640px) {
+  .coastal-scene {
+    transform: scale(1.12) translateX(-6%);
+    transform-origin: center center;
+  }
+}
+
+@media (max-width: 400px) {
+  .coastal-scene {
+    transform: scale(1.18) translateX(-8%);
+  }
+}

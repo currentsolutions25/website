@@ -190,9 +190,9 @@ function CoastalIllustration() {
       aria-hidden="true"
     >
       <svg
-        className="absolute inset-0 h-full w-full"
+        className="coastal-scene absolute inset-0 h-full w-full"
         viewBox="0 0 1440 900"
-        preserveAspectRatio="xMaxYMid slice"
+        preserveAspectRatio="xMidYMid slice"
         xmlns="http://www.w3.org/2000/svg"
       >
         <defs>
@@ -553,7 +553,7 @@ function CoastalIllustration() {
         </g>
 
         {/* Lighthouse group — right coastal overlook */}
-        <g transform="translate(980, 180)">
+        <g transform="translate(900, 170)">
           {/* Rock base with more depth */}
           <ellipse cx="160" cy="482" rx="140" ry="34" fill="#072844" opacity="0.2" />
           <path
