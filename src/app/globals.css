@@ -144,18 +144,18 @@ body {
   background:
     linear-gradient(
       105deg,
-      rgba(246, 241, 231, 0.9) 0%,
-      rgba(246, 241, 231, 0.78) 20%,
-      rgba(246, 241, 231, 0.38) 40%,
-      rgba(246, 241, 231, 0.1) 56%,
-      transparent 70%
+      rgba(246, 241, 231, 0.94) 0%,
+      rgba(246, 241, 231, 0.84) 18%,
+      rgba(246, 241, 231, 0.42) 38%,
+      rgba(246, 241, 231, 0.12) 54%,
+      transparent 68%
     ),
     linear-gradient(
       180deg,
-      rgba(246, 241, 231, 0.22) 0%,
-      transparent 20%,
-      transparent 68%,
-      rgba(246, 241, 231, 0.42) 100%
+      rgba(246, 241, 231, 0.18) 0%,
+      transparent 18%,
+      transparent 70%,
+      rgba(246, 241, 231, 0.38) 100%
     );
 }
 
@@ -216,23 +216,23 @@ body {
     background:
       linear-gradient(
         180deg,
-        rgba(246, 241, 231, 0.82) 0%,
-        rgba(246, 241, 231, 0.62) 36%,
-        rgba(246, 241, 231, 0.48) 66%,
-        rgba(246, 241, 231, 0.68) 100%
+        rgba(246, 241, 231, 0.72) 0%,
+        rgba(246, 241, 231, 0.58) 34%,
+        rgba(246, 241, 231, 0.5) 62%,
+        rgba(246, 241, 231, 0.66) 100%
       ),
       linear-gradient(
         105deg,
-        rgba(246, 241, 231, 0.58) 0%,
-        rgba(246, 241, 231, 0.22) 55%,
-        transparent 80%
+        rgba(246, 241, 231, 0.5) 0%,
+        rgba(246, 241, 231, 0.16) 58%,
+        transparent 82%
       );
   }
 
   .hero-atmosphere {
     background:
-      radial-gradient(ellipse 58% 42% at 70% 40%, rgba(255, 178, 88, 0.2) 0%, transparent 55%),
-      radial-gradient(ellipse 48% 34% at 22% 12%, rgba(180, 150, 120, 0.08) 0%, transparent 55%);
+      radial-gradient(ellipse 58% 42% at 70% 40%, rgba(255, 178, 88, 0.22) 0%, transparent 55%),
+      radial-gradient(ellipse 48% 34% at 22% 12%, rgba(180, 150, 120, 0.06) 0%, transparent 55%);
   }
 }
 

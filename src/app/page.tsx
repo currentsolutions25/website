@@ -180,7 +180,7 @@ export default function HomePage() {
                   delay: 0.12,
                   ease: [0.22, 1, 0.36, 1],
                 }}
-                className="font-display mt-7 text-[clamp(3.35rem,7.4vw,5.85rem)] font-bold leading-[0.94] tracking-[-0.025em]"
+                className="font-display mt-7 text-[clamp(3.15rem,6.8vw,5.25rem)] font-bold leading-[0.96] tracking-[-0.025em] lg:whitespace-nowrap"
                 style={{ color: colors.navy }}
               >
                 {SITE_SHORT_NAME}
@@ -194,7 +194,7 @@ export default function HomePage() {
                   delay: 0.2,
                   ease: [0.22, 1, 0.36, 1],
                 }}
-                className="font-display mt-7 max-w-[18ch] text-[clamp(1.75rem,3.6vw,2.65rem)] font-medium leading-[1.18] tracking-[-0.018em]"
+                className="font-display mt-8 max-w-[14ch] text-[clamp(1.85rem,3.8vw,2.75rem)] font-medium leading-[1.16] tracking-[-0.018em]"
                 style={{ color: colors.navy }}
               >
                 Powering Florida&apos;s Nature Coast
@@ -219,7 +219,7 @@ export default function HomePage() {
                   ease: [0.22, 1, 0.36, 1],
                 }}
                 className="mt-9 max-w-md text-base leading-[1.85] sm:text-lg"
-                style={{ color: "rgba(11,58,102,0.78)" }}
+                style={{ color: "rgba(11,58,102,0.86)" }}
               >
                 Dependable electrical solutions for homes and businesses across
                 Florida&apos;s Nature Coast — delivered with integrity, care, and
