@@ -122,34 +122,33 @@ export default function HomePage() {
   return (
     <SiteShell>
       <main>
-        {/* Hero — 100vh cinematic coastal split */}
+        {/* Hero — full-bleed coastal artwork with left copy / right lighthouse */}
         <section
           id="home"
-          className="hero-premium relative -mt-[5.75rem] min-h-screen overflow-hidden pt-[5.75rem] sm:-mt-[6.25rem] sm:pt-[6.25rem]"
+          className="hero-premium relative -mt-[4.75rem] min-h-screen overflow-hidden pt-[4.75rem] sm:-mt-[5.25rem] sm:pt-[5.25rem]"
         >
-          <div className="hero-atmosphere" aria-hidden="true" />
-
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 1.15, ease: [0.22, 1, 0.36, 1] }}
-            className="hero-image-panel pointer-events-none absolute inset-x-0 top-[5.75rem] bottom-0 z-[1] sm:top-[6.25rem] lg:inset-y-0 lg:left-auto lg:right-0 lg:w-[52%]"
+            transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
+            className="pointer-events-none absolute inset-0 z-0"
+            aria-hidden="true"
           >
-            <div className="hero-image-frame relative h-full min-h-[48vh] w-full overflow-hidden lg:min-h-screen">
-              <Image
-                src="/images/florida-lighthouse-sunrise.png"
-                alt="Florida Nature Coast lighthouse at sunrise over calm Gulf water"
-                fill
-                priority
-                sizes="(max-width: 1024px) 100vw, 52vw"
-                className="hero-lighthouse-photo object-cover object-[58%_42%]"
-              />
-              <div className="hero-image-glow" aria-hidden="true" />
-              <div className="hero-image-mist" aria-hidden="true" />
-            </div>
+            <Image
+              src="/images/florida-lighthouse-sunrise.png"
+              alt=""
+              fill
+              priority
+              sizes="100vw"
+              className="hero-lighthouse-photo object-cover object-[72%_42%] sm:object-[68%_40%] lg:object-[62%_38%]"
+            />
+            <div className="hero-atmosphere" />
+            <div className="hero-sky-wash" />
+            <div className="hero-ocean-depth" />
+            <div className="hero-text-veil" />
           </motion.div>
 
-          <div className="relative z-10 mx-auto flex min-h-[calc(100vh-5.75rem)] max-w-7xl items-center px-5 pb-28 pt-8 sm:min-h-[calc(100vh-6.25rem)] sm:px-8 sm:pb-32 sm:pt-10 lg:px-10 lg:pb-36">
+          <div className="relative z-10 mx-auto grid min-h-[calc(100vh-4.75rem)] max-w-7xl grid-cols-1 items-center px-5 pb-28 pt-10 sm:min-h-[calc(100vh-5.25rem)] sm:px-8 sm:pb-32 sm:pt-12 lg:grid-cols-2 lg:px-10 lg:pb-36">
             <div className="relative w-full max-w-xl lg:max-w-[34rem]">
               <motion.div
                 initial={{ opacity: 0, y: 16 }}
@@ -213,7 +212,7 @@ export default function HomePage() {
                   ease: [0.22, 1, 0.36, 1],
                 }}
                 className="mt-7 max-w-md text-base leading-[1.8] sm:text-lg"
-                style={{ color: "rgba(11,58,102,0.74)" }}
+                style={{ color: "rgba(11,58,102,0.78)" }}
               >
                 Dependable electrical solutions for homes and businesses across
                 Florida&apos;s Nature Coast — delivered with integrity, care, and
@@ -232,7 +231,7 @@ export default function HomePage() {
               >
                 <Link
                   href="/contact"
-                  className="cta-gold hero-cta-primary inline-flex items-center justify-center gap-2.5 rounded-2xl px-9 py-5 text-[0.84rem] font-bold tracking-[0.12em] uppercase"
+                  className="cta-gold hero-cta-primary inline-flex items-center justify-center gap-2.5 rounded-full px-9 py-5 text-[0.84rem] font-bold tracking-[0.12em] uppercase"
                   style={{ color: colors.navy }}
                 >
                   <Zap size={16} strokeWidth={2.4} fill="currentColor" />
@@ -240,7 +239,7 @@ export default function HomePage() {
                 </Link>
                 <a
                   href={PHONE_HREF}
-                  className="hero-cta-secondary inline-flex items-center justify-center gap-2.5 rounded-2xl px-9 py-5 text-[0.84rem] font-bold tracking-[0.12em] uppercase"
+                  className="hero-cta-secondary inline-flex items-center justify-center gap-2.5 rounded-full px-9 py-5 text-[0.84rem] font-bold tracking-[0.12em] uppercase"
                   style={{ color: colors.navy }}
                 >
                   <Phone size={16} strokeWidth={2.4} />
@@ -248,6 +247,9 @@ export default function HomePage() {
                 </a>
               </motion.div>
             </div>
+
+            {/* Right visual column — lighthouse artwork shows through */}
+            <div className="hidden lg:block" aria-hidden="true" />
           </div>
 
           <div className="absolute inset-x-0 bottom-0 z-20">
