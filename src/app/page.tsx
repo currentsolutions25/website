@@ -8,7 +8,6 @@ import {
   Clock,
   BadgeCheck,
   ArrowRight,
-  Check,
   HeartHandshake,
   MapPin,
 } from "lucide-react";
@@ -23,15 +22,9 @@ import {
   fadeUp,
   PHONE_HREF,
   services,
+  SITE_SHORT_NAME,
   stagger,
 } from "@/lib/design";
-
-const trustBadges = [
-  "Family Owned",
-  "Licensed & Insured",
-  "Residential & Commercial",
-  "Emergency Service",
-];
 
 const trustBar = [
   {
@@ -83,7 +76,7 @@ export default function HomePage() {
   return (
     <SiteShell>
       <main>
-        {/* SECTION 2 — Tall coastal hero */}
+        {/* Hero — cinematic full-bleed coastal scene; left copy, artwork right */}
         <section
           id="home"
           className="relative min-h-[100vh] overflow-hidden pt-28"
@@ -93,42 +86,28 @@ export default function HomePage() {
 
           <div className="relative z-10 mx-auto flex min-h-[100vh] max-w-6xl items-center px-5 py-32 sm:px-8 sm:py-40 lg:py-44">
             <div className="max-w-xl lg:max-w-2xl">
-              <motion.p
+              <motion.h1
                 initial={{ opacity: 0, y: 18 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
-                className="text-[0.68rem] font-semibold tracking-[0.3em] sm:text-[0.72rem]"
-                style={{ color: colors.champagne }}
-              >
-                SERVING FLORIDA&apos;S NATURE COAST
-              </motion.p>
-
-              <motion.h1
-                initial={{ opacity: 0, y: 32 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{
-                  duration: 0.9,
-                  delay: 0.1,
-                  ease: [0.22, 1, 0.36, 1],
-                }}
-                className="font-display mt-7 text-[clamp(3rem,7vw,5.75rem)] font-semibold leading-[0.98] tracking-[-0.02em]"
+                className="font-display text-[clamp(2.85rem,6.8vw,5.25rem)] font-semibold leading-[0.95] tracking-[-0.02em]"
                 style={{ color: colors.navy }}
               >
-                Powering Florida&apos;s Nature Coast
+                {SITE_SHORT_NAME}
               </motion.h1>
 
               <motion.p
-                initial={{ opacity: 0, y: 22 }}
+                initial={{ opacity: 0, y: 28 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{
-                  duration: 0.8,
-                  delay: 0.2,
+                  duration: 0.85,
+                  delay: 0.08,
                   ease: [0.22, 1, 0.36, 1],
                 }}
-                className="mt-8 text-base font-medium tracking-[0.04em] sm:text-lg"
+                className="font-display mt-6 text-[clamp(1.75rem,3.8vw,2.65rem)] font-medium leading-[1.15] tracking-[-0.015em]"
                 style={{ color: colors.navy }}
               >
-                Residential • Commercial • Licensed &amp; Insured
+                Powering Florida&apos;s Nature Coast
               </motion.p>
 
               <motion.p
@@ -136,15 +115,14 @@ export default function HomePage() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{
                   duration: 0.8,
-                  delay: 0.3,
+                  delay: 0.18,
                   ease: [0.22, 1, 0.36, 1],
                 }}
                 className="mt-8 max-w-md text-base leading-[1.75] sm:text-lg"
-                style={{ color: "rgba(11,58,102,0.7)" }}
+                style={{ color: "rgba(11,58,102,0.72)" }}
               >
-                Family-owned electrical professionals delivering dependable
-                service, honest workmanship, and quality craftsmanship
-                throughout Florida&apos;s Nature Coast.
+                Family-owned electrical professionals delivering honest
+                workmanship and calm, dependable service.
               </motion.p>
 
               <motion.div
@@ -152,7 +130,7 @@ export default function HomePage() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{
                   duration: 0.75,
-                  delay: 0.4,
+                  delay: 0.28,
                   ease: [0.22, 1, 0.36, 1],
                 }}
                 className="mt-12 flex flex-col gap-4 sm:flex-row sm:items-center"
@@ -165,51 +143,22 @@ export default function HomePage() {
                   Call Now
                 </ScaleButton>
               </motion.div>
-
-              <motion.ul
-                initial={{ opacity: 0, y: 16 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{
-                  duration: 0.75,
-                  delay: 0.5,
-                  ease: [0.22, 1, 0.36, 1],
-                }}
-                className="mt-14 flex flex-wrap gap-x-9 gap-y-3.5"
-              >
-                {trustBadges.map((badge) => (
-                  <li
-                    key={badge}
-                    className="inline-flex items-center gap-2.5 text-sm font-medium tracking-wide"
-                    style={{ color: colors.navy }}
-                  >
-                    <span
-                      className="flex h-5 w-5 items-center justify-center rounded-full"
-                      style={{
-                        background: "rgba(212,175,55,0.18)",
-                        color: colors.champagne,
-                      }}
-                    >
-                      <Check size={12} strokeWidth={2.75} />
-                    </span>
-                    {badge}
-                  </li>
-                ))}
-              </motion.ul>
             </div>
           </div>
         </section>
 
-        {/* Trust Bar — premium credibility strip */}
+        {/* Trust Bar */}
         <section
           aria-label="Trust and credentials"
-          className="relative z-10 -mt-6 px-5 sm:-mt-10 sm:px-8"
+          className="relative z-10 -mt-8 px-5 sm:-mt-12 sm:px-8"
+          style={{ background: colors.warmSand }}
         >
           <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.3 }}
             variants={stagger}
-            className="mx-auto grid max-w-6xl gap-4 sm:grid-cols-2 lg:grid-cols-4 lg:gap-5"
+            className="mx-auto grid max-w-6xl gap-5 sm:grid-cols-2 lg:grid-cols-4 lg:gap-6"
           >
             {trustBar.map((item) => {
               const Icon = item.icon;
@@ -218,8 +167,8 @@ export default function HomePage() {
                   key={item.title}
                   variants={fadeUp}
                   transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-                  whileHover={{ y: -6 }}
-                  className="trust-card flex items-center gap-4 px-5 py-6 sm:px-6 sm:py-7"
+                  whileHover={{ y: -5 }}
+                  className="trust-card flex items-center gap-4 px-5 py-7 sm:px-6 sm:py-8"
                 >
                   <div
                     className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl"
@@ -242,7 +191,7 @@ export default function HomePage() {
 
         <WaveDivider topColor={colors.warmSand} bottomColor={colors.warmSand} />
 
-        {/* SECTION 3 — Services */}
+        {/* Services */}
         <section
           id="services"
           className="mx-auto max-w-6xl px-5 py-32 sm:px-8 sm:py-40"
@@ -282,7 +231,7 @@ export default function HomePage() {
                   key={service.slug}
                   variants={fadeUp}
                   transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-                  whileHover={{ y: -10 }}
+                  whileHover={{ y: -8 }}
                   className="premium-card group"
                 >
                   <Link
@@ -290,7 +239,7 @@ export default function HomePage() {
                     className="block p-9 sm:p-11"
                   >
                     <div
-                      className="mb-8 flex h-16 w-16 items-center justify-center rounded-2xl transition-transform duration-400 group-hover:scale-105"
+                      className="mb-8 flex h-16 w-16 items-center justify-center rounded-2xl transition-transform duration-500 group-hover:scale-105"
                       style={{
                         background: `linear-gradient(145deg, ${colors.seaGlass}, rgba(220,239,247,0.35))`,
                         color: colors.navy,
@@ -331,7 +280,7 @@ export default function HomePage() {
           bottomColor="rgba(220,239,247,0.5)"
         />
 
-        {/* SECTION 4 — Why Choose Us */}
+        {/* Why Choose Us */}
         <section
           className="py-32 sm:py-40"
           style={{
@@ -374,7 +323,7 @@ export default function HomePage() {
                     key={feature.title}
                     variants={fadeUp}
                     transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-                    whileHover={{ y: -10 }}
+                    whileHover={{ y: -8 }}
                     className="premium-card px-7 py-10 text-center sm:px-8 sm:py-11"
                   >
                     <div
@@ -403,12 +352,13 @@ export default function HomePage() {
           </div>
         </section>
 
-        <WaveDivider topColor={colors.warmSand} bottomColor={colors.warmSand} />
+        <WaveDivider topColor={colors.warmSand} bottomColor="#FFFFFF" />
 
-        {/* SECTION 5 — About */}
+        {/* About — emotional connection */}
         <section
           id="about"
-          className="mx-auto max-w-6xl px-5 py-32 sm:px-8 sm:py-40"
+          className="px-5 py-32 sm:px-8 sm:py-40"
+          style={{ background: colors.white }}
         >
           <motion.div
             initial="hidden"
@@ -420,22 +370,26 @@ export default function HomePage() {
           >
             <p className="section-label mb-5">About Us</p>
             <h2 className="font-display text-4xl font-semibold tracking-tight sm:text-5xl lg:text-[3.5rem]">
-              Powering Florida Homes with Pride
+              Neighbors You Can Trust
             </h2>
             <p
-              className="mt-12 text-base leading-[1.85] sm:text-lg"
+              className="mt-12 text-base leading-[1.9] sm:text-lg"
               style={{ color: "rgba(11,58,102,0.74)" }}
             >
               Current Solutions is a family-owned electrical company serving
-              Florida&apos;s Nature Coast with honesty and care. We believe
-              great work starts with craftsmanship you can trust, clear
-              communication, and service that shows up when it matters—whether
+              Florida&apos;s Nature Coast with honesty and care. We are the
+              electricians who show up on time, explain the work clearly, and
+              treat your home with the same respect we give our own. Whether
               it&apos;s a simple repair, a full panel upgrade, or keeping your
-              business running smoothly. Every project is handled with the same
-              pride we&apos;d give our own home.
+              business running smoothly — every project is handled with quiet
+              professionalism and pride.
             </p>
-            <div className="mt-10">
-              <ScaleButton href="/about" variant="secondary" className="px-8 py-4 text-base">
+            <div className="mt-12">
+              <ScaleButton
+                href="/about"
+                variant="secondary"
+                className="px-8 py-4 text-base"
+              >
                 Read Our Story
                 <ArrowRight size={18} strokeWidth={2.25} />
               </ScaleButton>
@@ -444,11 +398,11 @@ export default function HomePage() {
         </section>
 
         <WaveDivider
-          topColor={colors.warmSand}
+          topColor={colors.white}
           bottomColor="rgba(220,239,247,0.35)"
         />
 
-        {/* SECTION 6 — Service Areas */}
+        {/* Service Areas */}
         <div
           style={{
             background: `linear-gradient(180deg, rgba(220,239,247,0.35) 0%, ${colors.warmSand} 100%)`,
@@ -459,7 +413,7 @@ export default function HomePage() {
 
         <WaveDivider topColor={colors.warmSand} bottomColor={colors.navy} />
 
-        {/* SECTION 7 — CTA */}
+        {/* CTA */}
         <section
           id="contact"
           className="cta-surface relative overflow-hidden px-5 py-36 sm:px-8 sm:py-44"
