@@ -17,6 +17,7 @@ import {
   PHONE_DISPLAY,
   PHONE_HREF,
   PHONE_PLACEHOLDER_NOTE,
+  SERVICE_AREA_LINE,
   serviceAreas,
   stagger,
 } from "@/lib/design";
@@ -276,15 +277,14 @@ export default function ContactPage() {
             >
               <p className="section-label mb-5">Service Area</p>
               <h2 className="font-display text-3xl font-semibold tracking-tight sm:text-4xl lg:text-[2.75rem]">
-                Proudly Serving Florida&apos;s Nature Coast
+                {SERVICE_AREA_LINE}
               </h2>
               <p
                 className="mt-6 text-base leading-relaxed sm:text-lg"
                 style={{ color: "rgba(11,58,102,0.68)" }}
               >
                 Residential and commercial electrical service across the
-                communities below. Community notes are placeholders ready for
-                local details.
+                counties below.
               </p>
             </motion.div>
 

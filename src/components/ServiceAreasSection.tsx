@@ -7,6 +7,7 @@ import ScaleButton from "@/components/ScaleButton";
 import {
   colors,
   fadeUp,
+  SERVICE_AREA_LINE,
   serviceAreas,
   stagger,
 } from "@/lib/design";
@@ -36,15 +37,14 @@ export default function ServiceAreasSection({
       >
         <p className="section-label mb-5">Where We Work</p>
         <h2 className="font-display text-4xl font-semibold tracking-tight sm:text-5xl lg:text-[3.5rem]">
-          Proudly Serving Florida&apos;s Nature Coast
+          {SERVICE_AREA_LINE}
         </h2>
         <p
           className="mt-7 text-base leading-relaxed sm:text-lg"
           style={{ color: "rgba(11,58,102,0.68)" }}
         >
-          Professional electrical service across the communities we call home.
-          Local details below are clearly marked placeholders for live business
-          information.
+          Professional electrical service across the counties we proudly call
+          home.
         </p>
       </motion.div>
 

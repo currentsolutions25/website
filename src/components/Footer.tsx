@@ -10,6 +10,7 @@ import {
   navLinks,
   PHONE_DISPLAY,
   PHONE_HREF,
+  SERVICE_AREA_LINE,
   serviceAreas,
   services,
   SITE_NAME,
@@ -62,8 +63,8 @@ export default function Footer() {
               className="mt-5 max-w-xs text-sm leading-relaxed"
               style={{ color: "rgba(246,241,231,0.68)" }}
             >
-              Proudly serving Florida&apos;s Nature Coast with honest,
-              professional, family-owned electrical service.
+              {SERVICE_AREA_LINE} with honest, professional, family-owned
+              electrical service.
             </p>
 
             <div className="mt-6 flex items-center gap-3">

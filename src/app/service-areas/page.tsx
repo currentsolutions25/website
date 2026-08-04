@@ -10,6 +10,7 @@ import WaveDivider from "@/components/WaveDivider";
 import {
   colors,
   fadeUp,
+  SERVICE_AREA_LINE,
   serviceAreas,
   stagger,
 } from "@/lib/design";
@@ -20,8 +21,8 @@ export default function ServiceAreasPage() {
       <main>
         <PageHero
           eyebrow="Where We Serve"
-          title="Service Areas Across Florida's Nature Coast"
-          description="Current Solutions provides residential and commercial electrical services throughout the Nature Coast. Each community card below includes placeholder copy ready for local details."
+          title={SERVICE_AREA_LINE}
+          description="Current Solutions provides residential and commercial electrical services across Hernando, Pasco, Citrus, Pinellas, and Hillsborough counties."
           actions={
             <ScaleButton href="/contact" variant="gold">
               Request a Quote
