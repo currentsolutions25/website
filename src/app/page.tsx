@@ -216,7 +216,7 @@ export default function HomePage() {
                   ease: [0.22, 1, 0.36, 1],
                 }}
                 className="text-[0.72rem] font-semibold tracking-[0.22em] uppercase sm:text-[0.76rem]"
-                style={{ color: colors.gold }}
+                style={{ color: "#000000" }}
               >
                 Trusted Electrical Solutions Across Florida&apos;s Nature Coast
               </motion.p>
