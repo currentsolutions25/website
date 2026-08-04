@@ -133,7 +133,7 @@ export default function HomePage() {
               fill
               priority
               sizes="100vw"
-              className="hero-lighthouse-photo object-cover object-[82%_40%] sm:object-[76%_42%] lg:object-[70%_44%]"
+              className="hero-lighthouse-photo object-cover object-[68%_38%] sm:object-[62%_42%] lg:object-[58%_46%]"
             />
             <div className="hero-atmosphere" />
             <div className="hero-sky-wash" />
