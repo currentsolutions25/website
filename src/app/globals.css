@@ -173,14 +173,14 @@ body {
   z-index: 1;
   background:
     radial-gradient(
-      ellipse 42% 36% at 28% 18%,
-      rgba(28, 48, 78, 0.55) 0%,
-      rgba(22, 40, 68, 0.28) 42%,
+      ellipse 40% 34% at 26% 16%,
+      rgba(28, 48, 78, 0.42) 0%,
+      rgba(22, 40, 68, 0.2) 42%,
       transparent 72%
     ),
     radial-gradient(
-      ellipse 28% 22% at 18% 12%,
-      rgba(18, 34, 58, 0.42) 0%,
+      ellipse 26% 20% at 16% 11%,
+      rgba(18, 34, 58, 0.32) 0%,
       transparent 70%
     );
 }
@@ -350,12 +350,12 @@ body {
   pointer-events: none;
   position: absolute;
   z-index: 3;
-  left: 48%;
-  right: 1%;
-  bottom: 14%;
-  height: min(20vw, 168px);
+  left: 54%;
+  right: 6%;
+  bottom: 17%;
+  height: min(18vw, 150px);
   overflow: visible;
-  opacity: 0.72;
+  opacity: 0.78;
 }
 
 .hero-sea-oats-svg {
