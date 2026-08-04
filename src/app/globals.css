@@ -101,8 +101,8 @@ body {
 }
 
 .hero-lighthouse-photo {
-  transform: scale(1.07);
-  filter: saturate(1.06) contrast(1.03);
+  transform: scale(1.03);
+  filter: saturate(1.04) contrast(1.02);
   animation: hero-photo-settle 2.3s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
@@ -110,9 +110,9 @@ body {
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(ellipse 44% 46% at 78% 40%, rgba(255, 214, 150, 0.16) 0%, transparent 62%),
-    radial-gradient(ellipse 36% 30% at 22% 54%, rgba(255, 188, 110, 0.14) 0%, transparent 58%),
-    radial-gradient(ellipse 48% 34% at 48% 8%, rgba(255, 230, 190, 0.1) 0%, transparent 60%);
+    radial-gradient(ellipse 40% 42% at 78% 40%, rgba(255, 214, 150, 0.1) 0%, transparent 62%),
+    radial-gradient(ellipse 32% 28% at 22% 54%, rgba(255, 188, 110, 0.08) 0%, transparent 58%),
+    radial-gradient(ellipse 44% 30% at 48% 8%, rgba(255, 230, 190, 0.06) 0%, transparent 60%);
 }
 
 .hero-sky-wash {
@@ -120,44 +120,45 @@ body {
   inset: 0;
   background: linear-gradient(
     180deg,
-    rgba(255, 224, 180, 0.08) 0%,
+    rgba(255, 224, 180, 0.05) 0%,
     transparent 28%,
-    transparent 60%,
-    rgba(7, 31, 58, 0.1) 100%
+    transparent 62%,
+    rgba(7, 31, 58, 0.06) 100%
   );
 }
 
 .hero-ocean-depth {
   position: absolute;
   inset: auto 0 0 0;
-  height: 48%;
+  height: 42%;
   background: linear-gradient(
     180deg,
     transparent 0%,
-    rgba(11, 58, 102, 0.05) 40%,
-    rgba(7, 31, 58, 0.2) 100%
+    rgba(11, 58, 102, 0.03) 45%,
+    rgba(7, 31, 58, 0.12) 100%
   );
 }
 
+/* Subtle left-side wash so navy copy stays readable while the photo leads */
 .hero-text-veil {
   position: absolute;
   inset: 0;
   background:
     linear-gradient(
       102deg,
-      rgba(246, 241, 231, 0.92) 0%,
-      rgba(246, 241, 231, 0.8) 18%,
-      rgba(246, 241, 231, 0.4) 36%,
-      rgba(246, 241, 231, 0.1) 52%,
-      transparent 66%
+      rgba(246, 241, 231, 0.72) 0%,
+      rgba(246, 241, 231, 0.48) 16%,
+      rgba(246, 241, 231, 0.2) 34%,
+      rgba(246, 241, 231, 0.06) 48%,
+      transparent 62%
     ),
     linear-gradient(
       180deg,
-      rgba(246, 241, 231, 0.2) 0%,
-      transparent 20%,
-      transparent 62%,
-      rgba(246, 241, 231, 0.38) 82%,
-      rgba(246, 241, 231, 0.55) 100%
+      rgba(246, 241, 231, 0.12) 0%,
+      transparent 18%,
+      transparent 68%,
+      rgba(246, 241, 231, 0.22) 86%,
+      rgba(246, 241, 231, 0.4) 100%
     );
 }
 
@@ -165,8 +166,8 @@ body {
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(ellipse 26% 32% at 76% 42%, rgba(255, 220, 140, 0.14) 0%, transparent 70%),
-    radial-gradient(ellipse 16% 14% at 76% 30%, rgba(255, 236, 180, 0.16) 0%, transparent 65%);
+    radial-gradient(ellipse 24% 30% at 78% 42%, rgba(255, 220, 140, 0.1) 0%, transparent 70%),
+    radial-gradient(ellipse 14% 12% at 78% 30%, rgba(255, 236, 180, 0.12) 0%, transparent 65%);
   mix-blend-mode: soft-light;
 }
 
@@ -222,12 +223,12 @@ body {
 
 @keyframes hero-photo-settle {
   from {
-    transform: scale(1.14);
-    filter: saturate(0.96) brightness(1.05) contrast(1.01);
+    transform: scale(1.08);
+    filter: saturate(0.98) brightness(1.03) contrast(1.01);
   }
   to {
-    transform: scale(1.07);
-    filter: saturate(1.06) contrast(1.03);
+    transform: scale(1.03);
+    filter: saturate(1.04) contrast(1.02);
   }
 }
 
@@ -236,23 +237,29 @@ body {
     background:
       linear-gradient(
         180deg,
-        rgba(246, 241, 231, 0.82) 0%,
-        rgba(246, 241, 231, 0.62) 32%,
-        rgba(246, 241, 231, 0.5) 58%,
-        rgba(246, 241, 231, 0.68) 100%
+        rgba(246, 241, 231, 0.68) 0%,
+        rgba(246, 241, 231, 0.42) 30%,
+        rgba(246, 241, 231, 0.28) 58%,
+        rgba(246, 241, 231, 0.48) 100%
       ),
       linear-gradient(
         102deg,
-        rgba(246, 241, 231, 0.5) 0%,
-        rgba(246, 241, 231, 0.16) 58%,
-        transparent 82%
+        rgba(246, 241, 231, 0.36) 0%,
+        rgba(246, 241, 231, 0.1) 55%,
+        transparent 78%
       );
   }
 
   .hero-atmosphere {
     background:
-      radial-gradient(ellipse 58% 42% at 76% 40%, rgba(255, 200, 120, 0.18) 0%, transparent 55%),
-      radial-gradient(ellipse 48% 34% at 22% 12%, rgba(255, 230, 190, 0.08) 0%, transparent 55%);
+      radial-gradient(ellipse 58% 42% at 82% 38%, rgba(255, 200, 120, 0.12) 0%, transparent 55%),
+      radial-gradient(ellipse 48% 34% at 22% 12%, rgba(255, 230, 190, 0.05) 0%, transparent 55%);
+  }
+
+  .hero-lighthouse-glow {
+    background:
+      radial-gradient(ellipse 34% 36% at 84% 40%, rgba(255, 220, 140, 0.12) 0%, transparent 70%),
+      radial-gradient(ellipse 18% 14% at 84% 28%, rgba(255, 236, 180, 0.14) 0%, transparent 65%);
   }
 }
 
