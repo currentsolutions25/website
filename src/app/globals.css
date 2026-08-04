@@ -8,6 +8,8 @@
   --soft-grey: #f6f1e7;
   --champagne: #d4af37;
   --gold: #d4af37;
+  /* Deeper gold for nav text — higher contrast on light glass, still coastal */
+  --gold-nav: #b88916;
   --champagne-soft: #e8d48a;
   --white: #ffffff;
   --ink-muted: rgba(11, 58, 102, 0.72);
@@ -55,11 +57,11 @@ body {
 }
 
 .nav-link:hover {
-  color: var(--gold) !important;
+  color: var(--gold-nav) !important;
 }
 
 .nav-link-active {
-  color: var(--gold) !important;
+  color: var(--gold-nav) !important;
 }
 
 .cta-gold {

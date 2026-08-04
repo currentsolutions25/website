@@ -201,7 +201,7 @@ export default function Header() {
               href={PHONE_HREF}
               className="inline-flex h-10 w-10 items-center justify-center rounded-full"
               aria-label={`Call ${PHONE_DISPLAY}`}
-              style={{ color: colors.gold }}
+              style={{ color: colors.goldNav }}
             >
               <Phone size={20} strokeWidth={2.2} />
             </a>
@@ -246,7 +246,7 @@ export default function Header() {
                 <li className="pt-2">
                   <p
                     className="mb-2 text-[0.65rem] font-semibold tracking-[0.16em] uppercase"
-                    style={{ color: colors.gold }}
+                    style={{ color: colors.goldNav }}
                   >
                     Services
                   </p>
@@ -271,7 +271,7 @@ export default function Header() {
                     className="mb-3 flex items-center gap-3 rounded-2xl px-4 py-3"
                     style={{ background: colors.softGrey }}
                   >
-                    <Phone size={18} style={{ color: colors.gold }} />
+                    <Phone size={18} style={{ color: colors.goldNav }} />
                     <span>
                       <span
                         className="block text-base font-bold"

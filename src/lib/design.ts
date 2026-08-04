@@ -26,6 +26,8 @@ export const colors = {
   softGrey: "#F6F1E7",
   champagne: "#D4AF37",
   gold: "#D4AF37",
+  /** Higher-contrast gold for navigation text/icons on light surfaces */
+  goldNav: "#B88916",
   white: "#FFFFFF",
 } as const;
 
