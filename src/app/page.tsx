@@ -232,10 +232,12 @@ export default function HomePage() {
                   delay: 0.12,
                   ease: [0.22, 1, 0.36, 1],
                 }}
-                className="font-display mt-5 text-[clamp(3rem,7.4vw,5.5rem)] font-bold leading-[0.96] tracking-[-0.025em] sm:mt-6"
+                className="font-display mt-5 text-[clamp(2.4rem,5.8vw,4.25rem)] font-bold leading-[1.02] tracking-[-0.025em] sm:mt-6"
                 style={{ color: colors.navy }}
               >
                 Current Solutions
+                <br />
+                Electrical Services
               </motion.h1>
 
               <motion.div
