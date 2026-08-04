@@ -135,21 +135,77 @@ export default function HomePage() {
               sizes="100vw"
               className="hero-lighthouse-photo object-cover object-[88%_40%] sm:object-[82%_38%] lg:object-[74%_36%]"
             />
+
+            {/* Soften any baked-in bolt so the sky stays calm */}
+            <div className="hero-bolt-soften" />
+
             <div className="hero-atmosphere" />
             <div className="hero-sky-wash" />
             <div className="hero-ocean-depth" />
+            <div className="hero-clouds-drift" />
             <div className="hero-morning-haze" />
-            <div className="hero-water-shimmer" />
-            <div className="hero-text-veil" />
 
-            {/* Distant Gulf storm — soft cloud pulse only, far behind the scene */}
-            <div className="hero-distant-storm" aria-hidden="true">
-              <div className="hero-distant-storm-glow hero-distant-storm-glow-a" />
-              <div className="hero-distant-storm-glow hero-distant-storm-glow-b" />
+            {/* Barely-there Gulf shimmer */}
+            <div className="hero-water-shimmer" />
+            <div className="hero-water-shimmer hero-water-shimmer-b" />
+
+            {/* Heat lightning — soft cloud brightening only, never a bolt */}
+            <div className="hero-heat-lightning" aria-hidden="true">
+              <div className="hero-heat-lightning-glow hero-heat-lightning-glow-a" />
+              <div className="hero-heat-lightning-glow hero-heat-lightning-glow-b" />
             </div>
 
-            {/* Barely noticeable lantern warmth */}
-            <div className="hero-lantern-glow" aria-hidden="true" />
+            {/* Slow lighthouse beam across the water */}
+            <div className="hero-beam-rig" aria-hidden="true">
+              <div className="hero-beam" />
+            </div>
+            <div className="hero-lantern-glow" />
+
+            {/* Gentle sea-oat breeze in the foreground */}
+            <div className="hero-sea-oats" aria-hidden="true">
+              <svg
+                className="hero-sea-oats-svg"
+                viewBox="0 0 640 160"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g className="hero-oat hero-oat-1" stroke="rgba(28, 42, 28, 0.42)" strokeWidth="1.35" strokeLinecap="round">
+                  <path d="M48 158 C52 118, 40 78, 56 28" />
+                  <path d="M56 72 C68 64, 78 52, 86 38" />
+                  <path d="M54 96 C66 90, 74 80, 80 68" />
+                  <path d="M52 120 C62 116, 70 108, 76 98" />
+                </g>
+                <g className="hero-oat hero-oat-2" stroke="rgba(34, 48, 32, 0.38)" strokeWidth="1.25" strokeLinecap="round">
+                  <path d="M118 160 C114 122, 126 84, 112 34" />
+                  <path d="M114 70 C102 64, 92 54, 84 40" />
+                  <path d="M116 98 C104 94, 96 84, 90 72" />
+                  <path d="M116 124 C106 120, 98 112, 92 102" />
+                </g>
+                <g className="hero-oat hero-oat-3" stroke="rgba(30, 44, 30, 0.4)" strokeWidth="1.3" strokeLinecap="round">
+                  <path d="M176 158 C182 116, 168 76, 186 22" />
+                  <path d="M184 66 C196 58, 208 46, 216 32" />
+                  <path d="M182 94 C196 88, 206 76, 214 62" />
+                  <path d="M180 122 C192 116, 200 106, 206 96" />
+                </g>
+                <g className="hero-oat hero-oat-4" stroke="rgba(26, 40, 28, 0.36)" strokeWidth="1.2" strokeLinecap="round">
+                  <path d="M248 160 C244 124, 254 88, 240 40" />
+                  <path d="M242 76 C230 70, 220 60, 212 48" />
+                  <path d="M244 108 C232 104, 224 94, 218 84" />
+                </g>
+                <g className="hero-oat hero-oat-5" stroke="rgba(32, 46, 30, 0.34)" strokeWidth="1.15" strokeLinecap="round">
+                  <path d="M312 158 C318 120, 306 82, 322 36" />
+                  <path d="M320 74 C332 66, 342 54, 350 42" />
+                  <path d="M318 104 C330 98, 338 88, 344 78" />
+                </g>
+                <g className="hero-oat hero-oat-6" stroke="rgba(28, 42, 28, 0.32)" strokeWidth="1.1" strokeLinecap="round">
+                  <path d="M372 160 C368 126, 378 92, 364 48" />
+                  <path d="M366 84 C354 78, 346 68, 338 56" />
+                  <path d="M368 116 C356 112, 350 102, 344 92" />
+                </g>
+              </svg>
+            </div>
+
+            <div className="hero-text-veil" />
           </motion.div>
 
           <div className="relative z-10 mx-auto grid w-full max-w-7xl flex-1 grid-cols-1 content-center items-center px-5 pb-8 pt-14 sm:px-8 sm:pb-10 sm:pt-16 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] lg:gap-10 lg:px-10 lg:pb-12 lg:pt-20">

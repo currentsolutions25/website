@@ -163,42 +163,90 @@ body {
     );
 }
 
-/* —— Quiet cinematic atmosphere (luxury coastal — barely noticeable) —— */
+/* —— Living coastal atmosphere (cinematic, calm, GPU-friendly) —— */
+
+/* Mute the photo’s baked lightning so only soft heat glow remains */
+.hero-bolt-soften {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    radial-gradient(
+      ellipse 42% 36% at 28% 18%,
+      rgba(28, 48, 78, 0.55) 0%,
+      rgba(22, 40, 68, 0.28) 42%,
+      transparent 72%
+    ),
+    radial-gradient(
+      ellipse 28% 22% at 18% 12%,
+      rgba(18, 34, 58, 0.42) 0%,
+      transparent 70%
+    );
+}
+
+.hero-clouds-drift {
+  pointer-events: none;
+  position: absolute;
+  inset: -8% -12% 35% -12%;
+  z-index: 1;
+  background:
+    radial-gradient(ellipse 46% 38% at 22% 36%, rgba(255, 236, 210, 0.07) 0%, transparent 68%),
+    radial-gradient(ellipse 40% 34% at 68% 28%, rgba(170, 195, 225, 0.08) 0%, transparent 70%),
+    radial-gradient(ellipse 34% 28% at 86% 42%, rgba(120, 150, 190, 0.06) 0%, transparent 68%);
+  mix-blend-mode: soft-light;
+  opacity: 0.85;
+  will-change: transform;
+  animation: hero-clouds-drift 90s linear infinite alternate;
+}
+
 .hero-morning-haze {
   pointer-events: none;
   position: absolute;
   inset: 0;
   z-index: 1;
   background:
-    radial-gradient(ellipse 70% 40% at 55% 30%, rgba(255, 236, 210, 0.07) 0%, transparent 65%),
-    radial-gradient(ellipse 50% 30% at 20% 70%, rgba(255, 220, 170, 0.04) 0%, transparent 60%);
-  animation: hero-haze-drift 42s ease-in-out infinite alternate;
+    radial-gradient(ellipse 70% 40% at 55% 30%, rgba(255, 236, 210, 0.06) 0%, transparent 65%),
+    radial-gradient(ellipse 50% 30% at 20% 70%, rgba(255, 220, 170, 0.035) 0%, transparent 60%);
+  animation: hero-haze-drift 48s ease-in-out infinite alternate;
 }
 
 .hero-water-shimmer {
   pointer-events: none;
   position: absolute;
-  left: 0;
-  right: 35%;
-  bottom: 18%;
-  height: 34%;
+  left: 4%;
+  right: 30%;
+  bottom: 16%;
+  height: 36%;
   z-index: 1;
   background: linear-gradient(
-    105deg,
+    108deg,
     transparent 0%,
-    rgba(255, 236, 190, 0.03) 38%,
-    rgba(255, 250, 230, 0.055) 50%,
-    rgba(255, 236, 190, 0.025) 62%,
+    rgba(255, 236, 190, 0.028) 36%,
+    rgba(255, 250, 230, 0.06) 50%,
+    rgba(255, 236, 190, 0.022) 64%,
     transparent 100%
   );
-  background-size: 240% 100%;
+  background-size: 260% 100%;
   mix-blend-mode: soft-light;
-  opacity: 0.4;
-  animation: hero-water-shimmer 36s ease-in-out infinite;
+  opacity: 0.38;
+  will-change: background-position, opacity;
+  animation: hero-water-shimmer 32s ease-in-out infinite;
 }
 
-/* Soft light inside distant Gulf clouds — far behind lighthouse, rare, never a strike */
-.hero-distant-storm {
+.hero-water-shimmer-b {
+  left: 10%;
+  right: 38%;
+  bottom: 22%;
+  height: 26%;
+  opacity: 0.28;
+  animation-duration: 44s;
+  animation-delay: -12s;
+  animation-direction: reverse;
+}
+
+/* Soft Florida heat lightning — cloud brightens briefly, no bolt */
+.hero-heat-lightning {
   pointer-events: none;
   position: absolute;
   inset: 0;
@@ -206,44 +254,77 @@ body {
   overflow: hidden;
 }
 
-.hero-distant-storm-glow {
+.hero-heat-lightning-glow {
   position: absolute;
   border-radius: 50%;
-  filter: blur(40px);
+  filter: blur(48px);
   mix-blend-mode: soft-light;
   opacity: 0;
+  will-change: opacity;
 }
 
-/* Far out over the open Gulf, behind / beyond the lighthouse */
-.hero-distant-storm-glow-a {
-  top: 4%;
-  right: 10%;
-  width: min(38vw, 380px);
-  height: min(16vw, 140px);
+.hero-heat-lightning-glow-a {
+  top: 2%;
+  right: 8%;
+  width: min(42vw, 420px);
+  height: min(18vw, 160px);
   background: radial-gradient(
     ellipse at center,
-    rgba(185, 205, 230, 0.16) 0%,
-    rgba(155, 180, 215, 0.06) 48%,
+    rgba(210, 225, 245, 0.22) 0%,
+    rgba(170, 195, 225, 0.08) 48%,
     transparent 74%
   );
-  animation: hero-distant-cloud-pulse 30s ease-in-out infinite;
+  animation: hero-heat-lightning 26s ease-in-out infinite;
 }
 
-.hero-distant-storm-glow-b {
+.hero-heat-lightning-glow-b {
   top: 8%;
-  right: 22%;
-  width: min(24vw, 240px);
-  height: min(11vw, 100px);
+  right: 24%;
+  width: min(26vw, 260px);
+  height: min(12vw, 110px);
   background: radial-gradient(
     ellipse at center,
-    rgba(200, 218, 240, 0.1) 0%,
+    rgba(220, 232, 248, 0.14) 0%,
     transparent 72%
   );
-  animation: hero-distant-cloud-pulse 30s ease-in-out infinite;
-  animation-delay: 1.4s;
+  animation: hero-heat-lightning 26s ease-in-out infinite;
+  animation-delay: 13s;
 }
 
-/* Barely-there lantern warmth — peaceful, never blinking */
+/* Rotating lighthouse beam — soft wedge across the water */
+.hero-beam-rig {
+  pointer-events: none;
+  position: absolute;
+  z-index: 2;
+  top: 21%;
+  right: 13.5%;
+  width: 2px;
+  height: 2px;
+}
+
+.hero-beam {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: min(62vw, 680px);
+  height: min(22vw, 180px);
+  margin-top: calc(min(22vw, 180px) * -0.5);
+  transform-origin: 0% 50%;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 232, 170, 0.28) 0%,
+    rgba(255, 220, 150, 0.12) 28%,
+    rgba(255, 214, 140, 0.04) 55%,
+    transparent 78%
+  );
+  clip-path: polygon(0 42%, 100% 8%, 100% 92%, 0 58%);
+  filter: blur(10px);
+  mix-blend-mode: soft-light;
+  opacity: 0.42;
+  will-change: transform;
+  animation: hero-beam-rotate 14s linear infinite;
+}
+
 .hero-lantern-glow {
   pointer-events: none;
   position: absolute;
@@ -255,13 +336,50 @@ body {
   border-radius: 50%;
   background: radial-gradient(
     circle,
-    rgba(255, 224, 150, 0.18) 0%,
-    rgba(255, 190, 90, 0.07) 42%,
+    rgba(255, 224, 150, 0.22) 0%,
+    rgba(255, 190, 90, 0.08) 42%,
     transparent 72%
   );
   mix-blend-mode: soft-light;
   transform: translate(18%, -8%);
-  animation: hero-lantern-breathe 26s ease-in-out infinite;
+  animation: hero-lantern-breathe 22s ease-in-out infinite;
+}
+
+/* Foreground sea oats — slow breeze, transform-only */
+.hero-sea-oats {
+  pointer-events: none;
+  position: absolute;
+  z-index: 3;
+  left: 42%;
+  right: 2%;
+  bottom: 8%;
+  height: min(22vw, 180px);
+  overflow: visible;
+  opacity: 0.55;
+}
+
+.hero-sea-oats-svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.hero-oat {
+  transform-origin: 50% 100%;
+  transform-box: fill-box;
+  will-change: transform;
+}
+
+.hero-oat-1 { animation: hero-oat-sway 9.5s ease-in-out infinite; }
+.hero-oat-2 { animation: hero-oat-sway 11s ease-in-out infinite; animation-delay: -2.2s; }
+.hero-oat-3 { animation: hero-oat-sway 10.2s ease-in-out infinite; animation-delay: -4.1s; }
+.hero-oat-4 { animation: hero-oat-sway 12s ease-in-out infinite; animation-delay: -1.4s; }
+.hero-oat-5 { animation: hero-oat-sway 10.8s ease-in-out infinite; animation-delay: -5.5s; }
+.hero-oat-6 { animation: hero-oat-sway 11.6s ease-in-out infinite; animation-delay: -3.3s; }
+
+@keyframes hero-clouds-drift {
+  from { transform: translate3d(0, 0, 0); }
+  to { transform: translate3d(3.2%, -1.1%, 0); }
 }
 
 @keyframes hero-haze-drift {
@@ -271,15 +389,14 @@ body {
   }
   to {
     opacity: 1;
-    transform: translate3d(0.6%, -0.3%, 0) scale(1.01);
+    transform: translate3d(0.5%, -0.25%, 0) scale(1.008);
   }
 }
 
 @keyframes hero-water-shimmer {
-  0%,
-  100% {
+  0%, 100% {
     background-position: 0% 50%;
-    opacity: 0.28;
+    opacity: 0.26;
   }
   50% {
     background-position: 100% 50%;
@@ -287,36 +404,28 @@ body {
   }
 }
 
-/* ~once every 30s: soft cloud-light bloom, then gone — never a flash */
-@keyframes hero-distant-cloud-pulse {
-  0%,
-  82%,
-  100% {
-    opacity: 0;
-    transform: scale(0.98) translate3d(0, 0, 0);
-  }
-  88% {
-    opacity: 0.22;
-    transform: scale(1.015) translate3d(-0.6%, 0.3%, 0);
-  }
-  92% {
-    opacity: 0.3;
-    transform: scale(1.025) translate3d(-1%, 0.45%, 0);
-  }
-  96% {
-    opacity: 0.12;
-    transform: scale(1.01) translate3d(-0.4%, 0.2%, 0);
-  }
+/* Brief soft brightening ~every 26s — easy to miss */
+@keyframes hero-heat-lightning {
+  0%, 91%, 100% { opacity: 0; }
+  92.2% { opacity: 0.18; }
+  93% { opacity: 0.32; }
+  94% { opacity: 0.08; }
+  95% { opacity: 0; }
+}
+
+@keyframes hero-beam-rotate {
+  from { transform: rotate(-28deg); }
+  to { transform: rotate(332deg); }
 }
 
 @keyframes hero-lantern-breathe {
-  0%,
-  100% {
-    opacity: 0.42;
-  }
-  50% {
-    opacity: 0.52;
-  }
+  0%, 100% { opacity: 0.45; }
+  50% { opacity: 0.58; }
+}
+
+@keyframes hero-oat-sway {
+  0%, 100% { transform: rotate(-1.6deg) translate3d(0, 0, 0); }
+  50% { transform: rotate(2.1deg) translate3d(0.4%, 0, 0); }
 }
 
 @media (max-width: 1023px) {
@@ -327,39 +436,87 @@ body {
     height: min(24vw, 96px);
   }
 
-  .hero-distant-storm-glow-a {
-    right: 4%;
-    width: min(52vw, 280px);
+  .hero-beam-rig {
+    top: 26%;
+    right: 11%;
+  }
+
+  .hero-beam {
+    width: min(78vw, 420px);
+    height: min(28vw, 140px);
+    margin-top: calc(min(28vw, 140px) * -0.5);
+    opacity: 0.34;
+  }
+
+  .hero-heat-lightning-glow-a {
+    right: 2%;
+    width: min(56vw, 300px);
   }
 
   .hero-water-shimmer {
-    right: 20%;
+    right: 18%;
     bottom: 28%;
     height: 26%;
+  }
+
+  .hero-sea-oats {
+    left: 28%;
+    bottom: 18%;
+    height: min(28vw, 140px);
+    opacity: 0.42;
+  }
+
+  .hero-bolt-soften {
+    background:
+      radial-gradient(
+        ellipse 55% 32% at 30% 16%,
+        rgba(28, 48, 78, 0.5) 0%,
+        rgba(22, 40, 68, 0.24) 45%,
+        transparent 72%
+      );
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .hero-morning-haze,
   .hero-water-shimmer,
-  .hero-distant-storm-glow-a,
-  .hero-distant-storm-glow-b,
+  .hero-water-shimmer-b,
+  .hero-heat-lightning-glow-a,
+  .hero-heat-lightning-glow-b,
   .hero-lantern-glow,
-  .hero-lighthouse-photo {
+  .hero-lighthouse-photo,
+  .hero-clouds-drift,
+  .hero-beam,
+  .hero-oat-1,
+  .hero-oat-2,
+  .hero-oat-3,
+  .hero-oat-4,
+  .hero-oat-5,
+  .hero-oat-6 {
     animation: none !important;
   }
 
-  .hero-distant-storm-glow-a,
-  .hero-distant-storm-glow-b {
+  .hero-heat-lightning-glow-a,
+  .hero-heat-lightning-glow-b {
     opacity: 0;
   }
 
-  .hero-lantern-glow {
-    opacity: 0.4;
+  .hero-beam {
+    opacity: 0.18;
+    transform: rotate(18deg);
   }
 
-  .hero-water-shimmer {
-    opacity: 0.25;
+  .hero-lantern-glow {
+    opacity: 0.45;
+  }
+
+  .hero-water-shimmer,
+  .hero-water-shimmer-b {
+    opacity: 0.22;
+  }
+
+  .hero-clouds-drift {
+    opacity: 0.7;
   }
 }
 
