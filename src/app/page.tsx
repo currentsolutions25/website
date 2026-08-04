@@ -128,18 +128,17 @@ export default function HomePage() {
             aria-hidden="true"
           >
             <Image
-              src="/images/florida-nature-coast-soft-sunrise.png"
+              src="/images/florida-lighthouse-brand-hero.png"
               alt=""
               fill
               priority
               sizes="100vw"
-              className="hero-lighthouse-photo object-cover object-[78%_48%] sm:object-[74%_46%] lg:object-[70%_44%]"
+              className="hero-lighthouse-photo object-cover object-[86%_42%] sm:object-[80%_40%] lg:object-[72%_38%]"
             />
             <div className="hero-atmosphere" />
             <div className="hero-sky-wash" />
             <div className="hero-ocean-depth" />
             <div className="hero-text-veil" />
-            <div className="hero-lighthouse-glow" />
           </motion.div>
 
           <div className="relative z-10 mx-auto grid w-full max-w-7xl flex-1 grid-cols-1 content-center items-center px-5 pb-8 pt-14 sm:px-8 sm:pb-10 sm:pt-16 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] lg:gap-10 lg:px-10 lg:pb-12 lg:pt-20">
