@@ -1,6 +1,6 @@
 import { Clock, Mail, MapPin, Phone, Zap } from "lucide-react";
 import Link from "next/link";
-import LighthouseMark from "@/components/LighthouseMark";
+import BrandLogo from "@/components/BrandLogo";
 import {
   ADDRESS_LINES,
   BUSINESS_HOURS,
@@ -13,7 +13,6 @@ import {
   serviceAreas,
   services,
   SITE_NAME,
-  SITE_SHORT_NAME,
   socialLinks,
 } from "@/lib/design";
 
@@ -56,19 +55,8 @@ export default function Footer() {
         <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-12 lg:gap-8">
           {/* Brand */}
           <div className="sm:col-span-2 lg:col-span-3">
-            <div className="flex items-center gap-3">
-              <LighthouseMark size={44} />
-              <div>
-                <p className="font-display text-[1.35rem] font-bold tracking-tight leading-tight text-white">
-                  {SITE_SHORT_NAME}
-                </p>
-                <p
-                  className="text-[0.65rem] font-semibold tracking-[0.16em] uppercase"
-                  style={{ color: colors.gold }}
-                >
-                  Electrical Services
-                </p>
-              </div>
+            <div className="flex items-center">
+              <BrandLogo height={64} />
             </div>
             <p
               className="mt-5 max-w-xs text-sm leading-relaxed"

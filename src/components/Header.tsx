@@ -5,7 +5,7 @@ import { ChevronDown, Menu, Phone, X, Zap } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
-import LighthouseMark from "@/components/LighthouseMark";
+import BrandLogo from "@/components/BrandLogo";
 import {
   colors,
   navLinks,
@@ -61,23 +61,11 @@ export default function Header() {
         <div className="relative flex items-center justify-between gap-3 px-5 py-3.5 sm:gap-4 sm:px-6 sm:py-4 lg:px-7 lg:py-4">
           <Link
             href="/"
-            className="group relative z-10 flex shrink-0 items-center gap-2.5"
+            className="group relative z-10 flex shrink-0 items-center"
+            aria-label="Current Solutions Electrical Services home"
           >
-            <LighthouseMark size={48} />
-            <span className="leading-tight">
-              <span
-                className="block font-display text-[1.12rem] font-bold tracking-[0.02em] sm:text-[1.24rem]"
-                style={{ color: colors.navy }}
-              >
-                CURRENT SOLUTIONS
-              </span>
-              <span
-                className="block text-[0.6rem] font-semibold tracking-[0.16em] uppercase sm:text-[0.64rem]"
-                style={{ color: colors.navy }}
-              >
-                Electrical Services
-              </span>
-            </span>
+            <BrandLogo height={52} className="sm:hidden" />
+            <BrandLogo height={58} className="hidden sm:inline-flex" />
           </Link>
 
           <nav
