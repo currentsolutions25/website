@@ -107,7 +107,7 @@ body {
 .hero-lighthouse-photo {
   transform: scale(1.03);
   filter: saturate(1.03) contrast(1.01);
-  animation: hero-photo-drift 48s ease-in-out infinite alternate;
+  animation: hero-photo-drift 72s ease-in-out infinite alternate;
 }
 
 .hero-atmosphere {
@@ -163,16 +163,16 @@ body {
     );
 }
 
-/* —— Quiet cinematic atmosphere (luxury coastal, never flashy) —— */
+/* —— Quiet cinematic atmosphere (luxury coastal — barely noticeable) —— */
 .hero-morning-haze {
   pointer-events: none;
   position: absolute;
   inset: 0;
   z-index: 1;
   background:
-    radial-gradient(ellipse 70% 40% at 55% 30%, rgba(255, 236, 210, 0.1) 0%, transparent 65%),
-    radial-gradient(ellipse 50% 30% at 20% 70%, rgba(255, 220, 170, 0.06) 0%, transparent 60%);
-  animation: hero-haze-drift 28s ease-in-out infinite alternate;
+    radial-gradient(ellipse 70% 40% at 55% 30%, rgba(255, 236, 210, 0.07) 0%, transparent 65%),
+    radial-gradient(ellipse 50% 30% at 20% 70%, rgba(255, 220, 170, 0.04) 0%, transparent 60%);
+  animation: hero-haze-drift 42s ease-in-out infinite alternate;
 }
 
 .hero-water-shimmer {
@@ -186,18 +186,18 @@ body {
   background: linear-gradient(
     105deg,
     transparent 0%,
-    rgba(255, 236, 190, 0.05) 35%,
-    rgba(255, 250, 230, 0.09) 50%,
-    rgba(255, 236, 190, 0.04) 65%,
+    rgba(255, 236, 190, 0.03) 38%,
+    rgba(255, 250, 230, 0.055) 50%,
+    rgba(255, 236, 190, 0.025) 62%,
     transparent 100%
   );
-  background-size: 220% 100%;
+  background-size: 240% 100%;
   mix-blend-mode: soft-light;
-  opacity: 0.55;
-  animation: hero-water-shimmer 22s ease-in-out infinite;
+  opacity: 0.4;
+  animation: hero-water-shimmer 36s ease-in-out infinite;
 }
 
-/* Soft pulse of light inside distant Gulf clouds — far, rare, never a strike */
+/* Soft light inside distant Gulf clouds — far behind lighthouse, rare, never a strike */
 .hero-distant-storm {
   pointer-events: none;
   position: absolute;
@@ -209,38 +209,38 @@ body {
 .hero-distant-storm-glow {
   position: absolute;
   border-radius: 50%;
-  filter: blur(28px);
+  filter: blur(40px);
   mix-blend-mode: soft-light;
   opacity: 0;
 }
 
-/* Far behind / beyond the lighthouse toward the open Gulf */
+/* Far out over the open Gulf, behind / beyond the lighthouse */
 .hero-distant-storm-glow-a {
-  top: 6%;
-  right: 18%;
-  width: min(34vw, 340px);
-  height: min(18vw, 160px);
+  top: 4%;
+  right: 10%;
+  width: min(38vw, 380px);
+  height: min(16vw, 140px);
   background: radial-gradient(
     ellipse at center,
-    rgba(190, 215, 245, 0.28) 0%,
-    rgba(160, 195, 235, 0.1) 45%,
-    transparent 72%
+    rgba(185, 205, 230, 0.16) 0%,
+    rgba(155, 180, 215, 0.06) 48%,
+    transparent 74%
   );
-  animation: hero-distant-cloud-pulse 24s ease-in-out infinite;
+  animation: hero-distant-cloud-pulse 30s ease-in-out infinite;
 }
 
 .hero-distant-storm-glow-b {
-  top: 10%;
-  right: 28%;
-  width: min(22vw, 220px);
-  height: min(12vw, 110px);
+  top: 8%;
+  right: 22%;
+  width: min(24vw, 240px);
+  height: min(11vw, 100px);
   background: radial-gradient(
     ellipse at center,
-    rgba(210, 228, 250, 0.18) 0%,
-    transparent 70%
+    rgba(200, 218, 240, 0.1) 0%,
+    transparent 72%
   );
-  animation: hero-distant-cloud-pulse 24s ease-in-out infinite;
-  animation-delay: 0.9s;
+  animation: hero-distant-cloud-pulse 30s ease-in-out infinite;
+  animation-delay: 1.4s;
 }
 
 /* Barely-there lantern warmth — peaceful, never blinking */
@@ -250,28 +250,28 @@ body {
   z-index: 2;
   top: 19%;
   right: 12%;
-  width: min(16vw, 120px);
-  height: min(16vw, 120px);
+  width: min(14vw, 100px);
+  height: min(14vw, 100px);
   border-radius: 50%;
   background: radial-gradient(
     circle,
-    rgba(255, 224, 150, 0.28) 0%,
-    rgba(255, 190, 90, 0.12) 40%,
-    transparent 70%
+    rgba(255, 224, 150, 0.18) 0%,
+    rgba(255, 190, 90, 0.07) 42%,
+    transparent 72%
   );
   mix-blend-mode: soft-light;
   transform: translate(18%, -8%);
-  animation: hero-lantern-breathe 18s ease-in-out infinite;
+  animation: hero-lantern-breathe 26s ease-in-out infinite;
 }
 
 @keyframes hero-haze-drift {
   from {
-    opacity: 0.7;
+    opacity: 0.85;
     transform: translate3d(0, 0, 0) scale(1);
   }
   to {
     opacity: 1;
-    transform: translate3d(1.2%, -0.6%, 0) scale(1.02);
+    transform: translate3d(0.6%, -0.3%, 0) scale(1.01);
   }
 }
 
@@ -279,42 +279,43 @@ body {
   0%,
   100% {
     background-position: 0% 50%;
-    opacity: 0.35;
+    opacity: 0.28;
   }
   50% {
     background-position: 100% 50%;
-    opacity: 0.55;
+    opacity: 0.4;
   }
 }
 
+/* ~once every 30s: soft cloud-light bloom, then gone — never a flash */
 @keyframes hero-distant-cloud-pulse {
   0%,
-  78%,
+  82%,
   100% {
     opacity: 0;
-    transform: scale(0.96) translate3d(0, 0, 0);
+    transform: scale(0.98) translate3d(0, 0, 0);
   }
-  84% {
-    opacity: 0.35;
-    transform: scale(1.02) translate3d(-1%, 0.5%, 0);
+  88% {
+    opacity: 0.22;
+    transform: scale(1.015) translate3d(-0.6%, 0.3%, 0);
   }
-  90% {
-    opacity: 0.55;
-    transform: scale(1.04) translate3d(-1.5%, 0.8%, 0);
+  92% {
+    opacity: 0.3;
+    transform: scale(1.025) translate3d(-1%, 0.45%, 0);
   }
-  95% {
-    opacity: 0.2;
-    transform: scale(1.01) translate3d(-0.5%, 0.3%, 0);
+  96% {
+    opacity: 0.12;
+    transform: scale(1.01) translate3d(-0.4%, 0.2%, 0);
   }
 }
 
 @keyframes hero-lantern-breathe {
   0%,
   100% {
-    opacity: 0.35;
+    opacity: 0.42;
   }
   50% {
-    opacity: 0.55;
+    opacity: 0.52;
   }
 }
 
@@ -322,13 +323,13 @@ body {
   .hero-lantern-glow {
     top: 24%;
     right: 10%;
-    width: min(28vw, 110px);
-    height: min(28vw, 110px);
+    width: min(24vw, 96px);
+    height: min(24vw, 96px);
   }
 
   .hero-distant-storm-glow-a {
-    right: 8%;
-    width: min(48vw, 260px);
+    right: 4%;
+    width: min(52vw, 280px);
   }
 
   .hero-water-shimmer {
@@ -414,10 +415,10 @@ body {
 
 @keyframes hero-photo-drift {
   from {
-    transform: scale(1.03) translate3d(0, 0, 0);
+    transform: scale(1.025) translate3d(0, 0, 0);
   }
   to {
-    transform: scale(1.055) translate3d(-0.8%, 0.4%, 0);
+    transform: scale(1.04) translate3d(-0.45%, 0.2%, 0);
   }
 }
 
