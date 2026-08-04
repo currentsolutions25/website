@@ -46,13 +46,13 @@ export default function BrandLogo({
       {showName && (
         <span className="flex min-w-0 flex-col justify-center leading-[1.15]">
           <span
-            className="font-display text-[0.95rem] font-bold tracking-[-0.02em] sm:text-[1.05rem]"
+            className="font-display text-[1.05rem] font-bold tracking-[-0.02em] sm:text-[1.15rem]"
             style={{ color: "var(--navy)" }}
           >
             Current Solutions
           </span>
           <span
-            className="mt-0.5 text-[0.62rem] font-semibold tracking-[0.04em] sm:text-[0.7rem]"
+            className="mt-0.5 text-[0.68rem] font-semibold tracking-[0.04em] sm:text-[0.76rem]"
             style={{ color: "rgba(11, 58, 102, 0.78)" }}
           >
             Electrical Services
