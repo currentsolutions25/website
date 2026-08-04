@@ -169,35 +169,35 @@ export default function HomePage() {
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
               >
-                <g className="hero-oat hero-oat-1" stroke="rgba(28, 42, 28, 0.42)" strokeWidth="1.35" strokeLinecap="round">
+                <g className="hero-oat hero-oat-1" stroke="rgba(92, 78, 42, 0.55)" strokeWidth="1.4" strokeLinecap="round">
                   <path d="M48 158 C52 118, 40 78, 56 28" />
                   <path d="M56 72 C68 64, 78 52, 86 38" />
                   <path d="M54 96 C66 90, 74 80, 80 68" />
                   <path d="M52 120 C62 116, 70 108, 76 98" />
                 </g>
-                <g className="hero-oat hero-oat-2" stroke="rgba(34, 48, 32, 0.38)" strokeWidth="1.25" strokeLinecap="round">
+                <g className="hero-oat hero-oat-2" stroke="rgba(78, 68, 38, 0.5)" strokeWidth="1.3" strokeLinecap="round">
                   <path d="M118 160 C114 122, 126 84, 112 34" />
                   <path d="M114 70 C102 64, 92 54, 84 40" />
                   <path d="M116 98 C104 94, 96 84, 90 72" />
                   <path d="M116 124 C106 120, 98 112, 92 102" />
                 </g>
-                <g className="hero-oat hero-oat-3" stroke="rgba(30, 44, 30, 0.4)" strokeWidth="1.3" strokeLinecap="round">
+                <g className="hero-oat hero-oat-3" stroke="rgba(88, 74, 40, 0.52)" strokeWidth="1.35" strokeLinecap="round">
                   <path d="M176 158 C182 116, 168 76, 186 22" />
                   <path d="M184 66 C196 58, 208 46, 216 32" />
                   <path d="M182 94 C196 88, 206 76, 214 62" />
                   <path d="M180 122 C192 116, 200 106, 206 96" />
                 </g>
-                <g className="hero-oat hero-oat-4" stroke="rgba(26, 40, 28, 0.36)" strokeWidth="1.2" strokeLinecap="round">
+                <g className="hero-oat hero-oat-4" stroke="rgba(70, 62, 36, 0.48)" strokeWidth="1.25" strokeLinecap="round">
                   <path d="M248 160 C244 124, 254 88, 240 40" />
                   <path d="M242 76 C230 70, 220 60, 212 48" />
                   <path d="M244 108 C232 104, 224 94, 218 84" />
                 </g>
-                <g className="hero-oat hero-oat-5" stroke="rgba(32, 46, 30, 0.34)" strokeWidth="1.15" strokeLinecap="round">
+                <g className="hero-oat hero-oat-5" stroke="rgba(96, 80, 44, 0.46)" strokeWidth="1.2" strokeLinecap="round">
                   <path d="M312 158 C318 120, 306 82, 322 36" />
                   <path d="M320 74 C332 66, 342 54, 350 42" />
                   <path d="M318 104 C330 98, 338 88, 344 78" />
                 </g>
-                <g className="hero-oat hero-oat-6" stroke="rgba(28, 42, 28, 0.32)" strokeWidth="1.1" strokeLinecap="round">
+                <g className="hero-oat hero-oat-6" stroke="rgba(74, 64, 38, 0.44)" strokeWidth="1.15" strokeLinecap="round">
                   <path d="M372 160 C368 126, 378 92, 364 48" />
                   <path d="M366 84 C354 78, 346 68, 338 56" />
                   <path d="M368 116 C356 112, 350 102, 344 92" />
