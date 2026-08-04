@@ -106,6 +106,28 @@ body {
   animation: hero-photo-settle 2.3s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
+@keyframes hero-photo-settle {
+  from {
+    transform: scale(1.08);
+    filter: saturate(0.98) brightness(1.03) contrast(1.01);
+  }
+  to {
+    transform: scale(1.03);
+    filter: saturate(1.04) contrast(1.02);
+  }
+}
+
+@keyframes hero-photo-settle-mobile {
+  from {
+    transform: scale(1.04);
+    filter: saturate(0.98) brightness(1.03) contrast(1.01);
+  }
+  to {
+    transform: scale(1);
+    filter: saturate(1.04) contrast(1.02);
+  }
+}
+
 .hero-atmosphere {
   position: absolute;
   inset: 0;
@@ -232,9 +254,21 @@ body {
   }
 }
 
+@keyframes hero-photo-settle-mobile {
+  from {
+    transform: scale(1.035);
+    filter: saturate(0.98) brightness(1.03) contrast(1.01);
+  }
+  to {
+    transform: scale(1);
+    filter: saturate(1.04) contrast(1.02);
+  }
+}
+
 @media (max-width: 1023px) {
   .hero-lighthouse-photo {
-    transform: scale(1.01);
+    transform: scale(1);
+    animation-name: hero-photo-settle-mobile;
   }
 
   .hero-text-veil {
@@ -256,14 +290,14 @@ body {
 
   .hero-atmosphere {
     background:
-      radial-gradient(ellipse 58% 42% at 70% 38%, rgba(255, 200, 120, 0.12) 0%, transparent 55%),
+      radial-gradient(ellipse 58% 42% at 72% 38%, rgba(255, 200, 120, 0.12) 0%, transparent 55%),
       radial-gradient(ellipse 48% 34% at 22% 12%, rgba(255, 230, 190, 0.05) 0%, transparent 55%);
   }
 
   .hero-lighthouse-glow {
     background:
-      radial-gradient(ellipse 34% 36% at 70% 40%, rgba(255, 220, 140, 0.12) 0%, transparent 70%),
-      radial-gradient(ellipse 18% 14% at 70% 28%, rgba(255, 236, 180, 0.14) 0%, transparent 65%);
+      radial-gradient(ellipse 34% 36% at 72% 40%, rgba(255, 220, 140, 0.12) 0%, transparent 70%),
+      radial-gradient(ellipse 18% 14% at 72% 28%, rgba(255, 236, 180, 0.14) 0%, transparent 65%);
   }
 }
 
