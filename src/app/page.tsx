@@ -128,12 +128,12 @@ export default function HomePage() {
             aria-hidden="true"
           >
             <Image
-              src="/images/florida-lighthouse-cinematic.png"
+              src="/images/florida-nature-coast-soft-sunrise.png"
               alt=""
               fill
               priority
               sizes="100vw"
-              className="hero-lighthouse-photo object-cover object-[82%_48%] sm:object-[78%_46%] lg:object-[74%_44%]"
+              className="hero-lighthouse-photo object-cover object-[78%_48%] sm:object-[74%_46%] lg:object-[70%_44%]"
             />
             <div className="hero-atmosphere" />
             <div className="hero-sky-wash" />
@@ -282,20 +282,21 @@ export default function HomePage() {
                     variants={fadeUp}
                     transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
                     whileHover={{ y: -5 }}
-                    className="trust-card px-3.5 py-5 text-center sm:px-5 sm:py-7 lg:px-6 lg:py-8"
+                    className="trust-card flex flex-col items-center px-3.5 py-5 text-center sm:px-5 sm:py-7 lg:px-6 lg:py-8"
                   >
                     <div
-                      className="mx-auto mb-3 flex h-10 w-10 items-center justify-center rounded-2xl sm:mb-4 sm:h-11 sm:w-11"
+                      className="trust-card-icon mx-auto flex h-11 w-11 shrink-0 items-center justify-center overflow-hidden rounded-2xl sm:h-12 sm:w-12"
                       style={{
                         background: `linear-gradient(145deg, ${colors.seaGlass}, rgba(220,239,247,0.35))`,
                         color: colors.navy,
                         boxShadow: "inset 0 0 0 1px rgba(11,58,102,0.05)",
                       }}
+                      aria-hidden="true"
                     >
-                      <Icon size={20} strokeWidth={1.5} />
+                      <Icon size={20} strokeWidth={1.6} className="block" />
                     </div>
                     <h3
-                      className="text-[0.65rem] font-semibold tracking-[0.08em] uppercase sm:text-[0.76rem] sm:tracking-[0.1em]"
+                      className="mt-4 text-[0.65rem] font-semibold tracking-[0.08em] uppercase sm:mt-5 sm:text-[0.76rem] sm:tracking-[0.1em]"
                       style={{ color: colors.navy }}
                     >
                       {card.title}
