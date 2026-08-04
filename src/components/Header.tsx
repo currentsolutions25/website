@@ -73,7 +73,7 @@ export default function Header() {
               </span>
               <span
                 className="block text-[0.6rem] font-semibold tracking-[0.16em] uppercase sm:text-[0.64rem]"
-                style={{ color: colors.gold }}
+                style={{ color: colors.navy }}
               >
                 Electrical Services
               </span>
@@ -182,23 +182,16 @@ export default function Header() {
             >
               <span
                 className="flex items-center justify-end gap-1.5 text-[0.95rem] font-bold tracking-wide"
-                style={{ color: colors.gold }}
+                style={{ color: colors.navy }}
               >
                 <Phone size={15} strokeWidth={2.4} />
                 {PHONE_DISPLAY}
-              </span>
-              <span
-                className="mt-0.5 block text-[0.56rem] font-semibold tracking-[0.14em] uppercase"
-                style={{ color: colors.navy }}
-              >
-                24/7 Emergency Service
               </span>
             </a>
 
             <Link
               href="/contact"
-              className="cta-gold inline-flex shrink-0 items-center gap-2 whitespace-nowrap rounded-full px-5 py-3 text-[0.76rem] font-bold tracking-[0.1em] uppercase transition-transform duration-200 hover:-translate-y-0.5 xl:px-6 xl:py-3.5"
-              style={{ color: colors.navy }}
+              className="cta-gold inline-flex shrink-0 items-center gap-2 whitespace-nowrap rounded-[0.65rem] px-5 py-3 text-[0.76rem] font-bold tracking-[0.1em] uppercase text-white transition-transform duration-200 hover:-translate-y-0.5 xl:px-6 xl:py-3.5"
             >
               <Zap size={15} strokeWidth={2.4} fill="currentColor" />
               Request a Quote
@@ -298,8 +291,7 @@ export default function Header() {
                   </a>
                   <Link
                     href="/contact"
-                    className="cta-gold flex w-full items-center justify-center gap-2 rounded-full px-5 py-3.5 text-sm font-bold tracking-[0.12em] uppercase"
-                    style={{ color: colors.navy }}
+                    className="cta-gold flex w-full items-center justify-center gap-2 rounded-[0.65rem] px-5 py-3.5 text-sm font-bold tracking-[0.12em] uppercase text-white"
                     onClick={() => setMobileOpen(false)}
                   >
                     Request a Quote
