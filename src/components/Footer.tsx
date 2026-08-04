@@ -56,7 +56,7 @@ export default function Footer() {
           {/* Brand */}
           <div className="sm:col-span-2 lg:col-span-3">
             <div className="flex items-center">
-              <BrandLogo height={64} />
+              <BrandLogo height={80} />
             </div>
             <p
               className="mt-5 max-w-xs text-sm leading-relaxed"

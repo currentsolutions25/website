@@ -65,15 +65,13 @@ export default function Header() {
             aria-label="Current Solutions Electrical Services home"
           >
             <BrandLogo
-              height={64}
-              showName
-              imageScale={1.2}
+              height={78}
+              imageScale={1.15}
               className="sm:hidden"
             />
             <BrandLogo
-              height={72}
-              showName
-              imageScale={1.2}
+              height={92}
+              imageScale={1.15}
               className="hidden sm:inline-flex"
             />
           </Link>

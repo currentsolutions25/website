@@ -11,6 +11,9 @@ type BrandLogoProps = {
   imageScale?: number;
 };
 
+/** Matches current-solutions-logo.png (1536×1024) */
+const LOGO_ASPECT = 1536 / 1024;
+
 /**
  * Current Solutions brand lockup (static).
  */
@@ -20,7 +23,7 @@ export default function BrandLogo({
   showName = false,
   imageScale = 1,
 }: BrandLogoProps) {
-  const width = Math.round(height * 2.45);
+  const width = Math.round(height * LOGO_ASPECT);
 
   return (
     <span className={`inline-flex items-center gap-2.5 sm:gap-3 ${className}`}>
