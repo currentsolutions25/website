@@ -7,6 +7,8 @@ type BrandLogoProps = {
   className?: string;
   /** Show the full company name beside the logo mark */
   showName?: boolean;
+  /** Scale the logo artwork inside the black container (container size unchanged) */
+  imageScale?: number;
 };
 
 /**
@@ -16,6 +18,7 @@ export default function BrandLogo({
   height = 52,
   className = "",
   showName = false,
+  imageScale = 1,
 }: BrandLogoProps) {
   const width = Math.round(height * 2.45);
 
@@ -31,6 +34,11 @@ export default function BrandLogo({
           width={width}
           height={height}
           className="h-full w-full object-contain"
+          style={
+            imageScale !== 1
+              ? { transform: `scale(${imageScale})`, transformOrigin: "center" }
+              : undefined
+          }
           priority
         />
       </span>

@@ -67,11 +67,13 @@ export default function Header() {
             <BrandLogo
               height={51}
               showName
+              imageScale={1.2}
               className="sm:hidden"
             />
             <BrandLogo
               height={58}
               showName
+              imageScale={1.2}
               className="hidden sm:inline-flex"
             />
           </Link>
