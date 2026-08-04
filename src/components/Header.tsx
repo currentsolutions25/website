@@ -84,7 +84,7 @@ export default function Header() {
             className="pointer-events-none absolute inset-y-0 left-1/2 hidden -translate-x-1/2 items-center xl:flex"
             aria-label="Primary"
           >
-            <ul className="pointer-events-auto flex items-center gap-0.5">
+            <ul className="pointer-events-auto flex items-center gap-0">
               {primaryNav
                 .filter((link) => link.href === "/")
                 .map((link) => (
@@ -100,7 +100,7 @@ export default function Header() {
               <li ref={servicesRef} className="relative">
                 <button
                   type="button"
-                  className={`nav-link inline-flex items-center gap-1.5 px-2.5 py-2 text-[0.74rem] font-semibold tracking-[0.1em] uppercase transition-colors duration-200 ${
+                  className={`nav-link inline-flex items-center gap-1 px-2 py-2 text-[0.7rem] font-semibold tracking-[0.08em] uppercase transition-colors duration-200 ${
                     servicesActive ? "nav-link-active" : ""
                   }`}
                   style={{ color: colors.navy }}
@@ -110,7 +110,7 @@ export default function Header() {
                 >
                   Services
                   <ChevronDown
-                    size={14}
+                    size={13}
                     strokeWidth={2.4}
                     className={`transition-transform duration-200 ${
                       servicesOpen ? "rotate-180" : ""
@@ -174,14 +174,14 @@ export default function Header() {
             </ul>
           </nav>
 
-          <div className="relative z-10 hidden shrink-0 items-center gap-3 lg:flex xl:gap-3.5">
+          <div className="relative z-10 hidden shrink-0 items-center gap-3 bg-gradient-to-l from-white/40 via-white/20 to-transparent pl-6 lg:flex xl:gap-3.5">
             <a
               href={PHONE_HREF}
               className="group whitespace-nowrap text-right leading-tight"
               aria-label={`Call ${PHONE_DISPLAY}`}
             >
               <span
-                className="flex items-center justify-end gap-1.5 text-[0.95rem] font-bold tracking-wide"
+                className="flex items-center justify-end gap-1.5 text-[0.9rem] font-bold tracking-wide"
                 style={{ color: colors.navy }}
               >
                 <Phone size={15} strokeWidth={2.4} />
@@ -191,9 +191,9 @@ export default function Header() {
 
             <Link
               href="/contact"
-              className="cta-gold inline-flex shrink-0 items-center gap-2 whitespace-nowrap rounded-[0.65rem] px-5 py-3 text-[0.76rem] font-bold tracking-[0.1em] uppercase text-white transition-transform duration-200 hover:-translate-y-0.5 xl:px-6 xl:py-3.5"
+              className="cta-gold inline-flex shrink-0 items-center gap-2 whitespace-nowrap rounded-[0.65rem] px-4 py-2.5 text-[0.72rem] font-bold tracking-[0.1em] uppercase text-white transition-transform duration-200 hover:-translate-y-0.5 xl:px-5 xl:py-3"
             >
-              <Zap size={15} strokeWidth={2.4} fill="currentColor" />
+              <Zap size={14} strokeWidth={2.4} fill="currentColor" />
               Request a Quote
             </Link>
           </div>
@@ -318,7 +318,7 @@ function NavItem({
   return (
     <Link
       href={href}
-      className={`nav-link block px-2.5 py-2 text-[0.74rem] font-semibold tracking-[0.1em] uppercase transition-colors duration-200 ${
+      className={`nav-link block px-2 py-2 text-[0.7rem] font-semibold tracking-[0.08em] uppercase transition-colors duration-200 ${
         active ? "nav-link-active" : ""
       }`}
       style={{ color: colors.navy }}
