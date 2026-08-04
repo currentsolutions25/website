@@ -34,13 +34,12 @@ export const SITE_SHORT_NAME = "Current Solutions";
 export const SITE_TAGLINE = "Honest. Professional. Family Owned.";
 export const SITE_URL = "https://currentsolutions.example";
 
-export const PHONE_DISPLAY = "(352) 397-6871";
-export const PHONE_HREF = "tel:+13523976871";
+export const PHONE_DISPLAY = "813-377-5735";
+export const PHONE_HREF = "tel:+18133775735";
 export const PHONE_PLACEHOLDER_NOTE = "24/7 Emergency Service";
 
-/** Replace with the real business email when available. */
-export const EMAIL = "info@currentsolutions.example";
-export const EMAIL_PLACEHOLDER_NOTE = "[Replace with real email address]";
+export const EMAIL = "currentsolutions25@yahoo.com";
+export const EMAIL_PLACEHOLDER_NOTE = "Project inquiries welcome";
 
 /** Replace with real business address when available. */
 export const ADDRESS_LINES = [

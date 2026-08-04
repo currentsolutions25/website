@@ -50,7 +50,7 @@ export default function ContactForm() {
             name="phone"
             type="tel"
             autoComplete="tel"
-            placeholder="(352) XXX-XXXX"
+            placeholder="813-377-5735"
             className={fieldClass}
             style={{ borderColor: "rgba(11,58,102,0.12)", color: colors.navy }}
             required
@@ -66,7 +66,7 @@ export default function ContactForm() {
             name="email"
             type="email"
             autoComplete="email"
-            placeholder="you@example.com"
+            placeholder="you@email.com"
             className={fieldClass}
             style={{ borderColor: "rgba(11,58,102,0.12)", color: colors.navy }}
             required

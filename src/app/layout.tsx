@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   ...buildPageMetadata({
     title: `${SITE_NAME} | Powering Florida's Nature Coast`,
     description:
-      "Family-owned electrical company serving Florida's Nature Coast with residential and commercial electrical services, panel upgrades, lighting, generator connections, and 24/7 emergency response. Call (352) 397-6871.",
+      "Family-owned electrical company serving Florida's Nature Coast with residential and commercial electrical services, panel upgrades, lighting, generator connections, and 24/7 emergency response. Call 813-377-5735.",
     path: "/",
   }),
   title: {

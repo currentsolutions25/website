@@ -10,11 +10,11 @@ import {
   Phone,
   ShieldCheck,
   Users,
+  Wrench,
   Zap,
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import LighthouseMark from "@/components/LighthouseMark";
 import MediaPlaceholder from "@/components/MediaPlaceholder";
 import ScaleButton from "@/components/ScaleButton";
 import SiteShell from "@/components/SiteShell";
@@ -24,7 +24,6 @@ import {
   fadeUp,
   PHONE_DISPLAY,
   PHONE_HREF,
-  SITE_SHORT_NAME,
   stagger,
 } from "@/lib/design";
 
@@ -42,7 +41,7 @@ const trustCards = [
   {
     title: "Quality Workmanship",
     description: "Clean, code-conscious craftsmanship that lasts.",
-    icon: Zap,
+    icon: Wrench,
   },
   {
     title: "On Time & Reliable",
@@ -116,20 +115,20 @@ export default function HomePage() {
   return (
     <SiteShell>
       <main>
-        {/* 1–3. Full-screen cinematic hero + floating trust bar */}
+        {/* 1–3. Full-screen hero + floating trust bar — matches approved mockup */}
         <section
           id="home"
-          className="hero-premium relative -mt-[5.25rem] flex min-h-[100svh] flex-col overflow-hidden pt-[5.25rem] sm:-mt-[5.75rem] sm:pt-[5.75rem]"
+          className="hero-premium relative -mt-[5.5rem] flex min-h-[100svh] flex-col overflow-hidden pt-[5.5rem] sm:-mt-[6rem] sm:pt-[6rem]"
         >
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 1.35, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 1.4, ease: [0.22, 1, 0.36, 1] }}
             className="pointer-events-none absolute inset-0 z-0"
             aria-hidden="true"
           >
             <Image
-              src="/images/florida-lighthouse-sunrise.png"
+              src="/images/florida-nature-coast-soft-sunrise.png"
               alt=""
               fill
               priority
@@ -140,18 +139,11 @@ export default function HomePage() {
             <div className="hero-sky-wash" />
             <div className="hero-ocean-depth" />
             <div className="hero-text-veil" />
+            <div className="hero-lighthouse-glow" />
           </motion.div>
 
-          <div className="relative z-10 mx-auto grid w-full max-w-7xl flex-1 grid-cols-1 items-center px-5 pb-48 pt-14 sm:px-8 sm:pb-52 sm:pt-16 lg:grid-cols-2 lg:items-center lg:px-10 lg:pb-56 lg:pt-20">
+          <div className="relative z-10 mx-auto grid w-full max-w-7xl flex-1 grid-cols-1 content-center items-center px-5 pb-8 pt-14 sm:px-8 sm:pb-10 sm:pt-16 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] lg:gap-10 lg:px-10 lg:pb-12 lg:pt-20">
             <div className="relative w-full max-w-xl lg:max-w-[36rem]">
-              <motion.div
-                initial={{ opacity: 0, y: 16 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
-              >
-                <LighthouseMark size={72} className="hero-logo-mark" />
-              </motion.div>
-
               <motion.p
                 initial={{ opacity: 0, y: 14 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -160,10 +152,10 @@ export default function HomePage() {
                   delay: 0.06,
                   ease: [0.22, 1, 0.36, 1],
                 }}
-                className="mt-8 text-[0.74rem] font-semibold tracking-[0.28em] uppercase"
+                className="text-[0.72rem] font-semibold tracking-[0.22em] uppercase sm:text-[0.76rem]"
                 style={{ color: colors.gold }}
               >
-                Electrical Services
+                Electrical Solutions You Can Count On
               </motion.p>
 
               <motion.h1
@@ -174,73 +166,58 @@ export default function HomePage() {
                   delay: 0.12,
                   ease: [0.22, 1, 0.36, 1],
                 }}
-                className="font-display mt-7 text-[clamp(3.15rem,6.8vw,5.25rem)] font-bold leading-[0.96] tracking-[-0.025em] lg:whitespace-nowrap"
+                className="font-display mt-5 text-[clamp(3rem,7.4vw,5.5rem)] font-bold leading-[0.96] tracking-[-0.025em] sm:mt-6"
                 style={{ color: colors.navy }}
               >
-                {SITE_SHORT_NAME}
+                Current Solutions
               </motion.h1>
-
-              <motion.p
-                initial={{ opacity: 0, y: 18 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{
-                  duration: 0.8,
-                  delay: 0.2,
-                  ease: [0.22, 1, 0.36, 1],
-                }}
-                className="font-display mt-8 max-w-[14ch] text-[clamp(1.85rem,3.8vw,2.75rem)] font-medium leading-[1.16] tracking-[-0.018em]"
-                style={{ color: colors.navy }}
-              >
-                Powering Florida&apos;s Nature Coast
-              </motion.p>
 
               <motion.div
                 initial={{ opacity: 0, scaleX: 0.55 }}
                 animate={{ opacity: 1, scaleX: 1 }}
-                transition={{ duration: 0.55, delay: 0.28 }}
-                className="mt-9 h-px w-28 origin-left"
-                style={{
-                  background: `linear-gradient(90deg, ${colors.gold}, rgba(212,175,55,0.15))`,
-                }}
+                transition={{ duration: 0.55, delay: 0.22 }}
+                className="mt-5 h-[2px] w-16 origin-left sm:mt-6 sm:w-20"
+                style={{ background: colors.gold }}
               />
-
-              <motion.p
-                initial={{ opacity: 0, y: 16 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{
-                  duration: 0.75,
-                  delay: 0.34,
-                  ease: [0.22, 1, 0.36, 1],
-                }}
-                className="mt-9 max-w-md text-base leading-[1.85] sm:text-lg"
-                style={{ color: "rgba(11,58,102,0.86)" }}
-              >
-                Dependable electrical solutions for homes and businesses across
-                Florida&apos;s Nature Coast — delivered with integrity, care, and
-                craftsmanship you can trust.
-              </motion.p>
 
               <motion.div
                 initial={{ opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{
                   duration: 0.75,
-                  delay: 0.42,
+                  delay: 0.3,
                   ease: [0.22, 1, 0.36, 1],
                 }}
-                className="mt-14 flex flex-col gap-4 sm:flex-row sm:items-center"
+                className="mt-6 max-w-md space-y-3 text-base leading-[1.75] sm:mt-8 sm:text-lg sm:leading-[1.8]"
+                style={{ color: "rgba(11,58,102,0.88)" }}
+              >
+                <p>
+                  Reliable electrical services for homes and businesses across
+                  Florida&apos;s Nature Coast.
+                </p>
+                <p>Quality workmanship. Honest service. Powered by integrity.</p>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{
+                  duration: 0.75,
+                  delay: 0.4,
+                  ease: [0.22, 1, 0.36, 1],
+                }}
+                className="mt-9 flex flex-col gap-3.5 sm:mt-12 sm:flex-row sm:items-center sm:gap-4"
               >
                 <Link
                   href="/contact"
-                  className="cta-gold hero-cta-primary inline-flex items-center justify-center gap-2.5 rounded-full px-9 py-5 text-[0.84rem] font-bold tracking-[0.12em] uppercase"
-                  style={{ color: colors.navy }}
+                  className="cta-gold hero-cta-primary inline-flex items-center justify-center gap-2.5 rounded-[0.65rem] px-8 py-4 text-[0.82rem] font-bold tracking-[0.12em] uppercase text-white sm:px-9 sm:py-[1.1rem]"
                 >
                   <Zap size={16} strokeWidth={2.4} fill="currentColor" />
                   Request a Quote
                 </Link>
                 <a
                   href={PHONE_HREF}
-                  className="hero-cta-secondary inline-flex items-center justify-center gap-2.5 rounded-full px-9 py-5 text-[0.84rem] font-bold tracking-[0.12em] uppercase"
+                  className="hero-cta-secondary inline-flex items-center justify-center gap-2.5 rounded-[0.65rem] px-8 py-4 text-[0.82rem] font-bold tracking-[0.12em] uppercase sm:px-9 sm:py-[1.1rem]"
                   style={{ color: colors.navy }}
                 >
                   <Phone size={16} strokeWidth={2.4} />
@@ -249,19 +226,19 @@ export default function HomePage() {
               </motion.div>
             </div>
 
-            {/* Right visual column — lighthouse artwork shows through */}
+            {/* Right visual column — lighthouse scene shows through */}
             <div className="hidden lg:block" aria-hidden="true" />
           </div>
 
-          {/* Floating trust bar — four premium cards over the bottom of the hero */}
-          <div className="pointer-events-none absolute inset-x-0 bottom-0 z-20 px-5 pb-6 sm:px-8 sm:pb-8 lg:px-10 lg:pb-10">
+          {/* Floating trust bar — four cards overlapping the hero bottom */}
+          <div className="relative z-20 mt-auto px-5 pb-5 pt-4 sm:px-8 sm:pb-7 lg:px-10 lg:pb-8">
             <motion.div
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true, amount: 0.3 }}
+              viewport={{ once: true, amount: 0.25 }}
               variants={stagger}
               aria-label="Why trust Current Solutions"
-              className="pointer-events-auto mx-auto grid max-w-7xl gap-4 sm:grid-cols-2 lg:grid-cols-4 lg:gap-5"
+              className="mx-auto grid max-w-7xl grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4 lg:grid-cols-4 lg:gap-5"
             >
               {trustCards.map((card) => {
                 const Icon = card.icon;
@@ -270,31 +247,33 @@ export default function HomePage() {
                     key={card.title}
                     variants={fadeUp}
                     transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-                    whileHover={{ y: -5 }}
-                    className="trust-card px-5 py-7 text-center sm:px-6 sm:py-8"
+                    whileHover={{ y: -4 }}
+                    className="trust-card px-5 py-5 sm:px-6 sm:py-6"
                   >
                     <div
-                      className="mx-auto mb-4 flex h-11 w-11 items-center justify-center rounded-2xl"
-                      style={{
-                        background: `linear-gradient(145deg, ${colors.seaGlass}, rgba(220,239,247,0.35))`,
-                        color: colors.navy,
-                        boxShadow: "inset 0 0 0 1px rgba(11,58,102,0.05)",
-                      }}
+                      className="trust-card-icon mb-3.5 flex h-10 w-10 shrink-0 items-center justify-center"
+                      style={{ color: colors.navy }}
+                      aria-hidden="true"
                     >
-                      <Icon size={20} strokeWidth={1.5} />
+                      <Icon size={26} strokeWidth={1.6} className="block" />
                     </div>
                     <h3
-                      className="text-[0.76rem] font-semibold tracking-[0.1em] uppercase"
+                      className="text-[0.95rem] font-bold tracking-tight"
                       style={{ color: colors.navy }}
                     >
                       {card.title}
                     </h3>
                     <p
-                      className="mt-2.5 text-sm leading-relaxed"
-                      style={{ color: "rgba(11,58,102,0.62)" }}
+                      className="mt-2 text-sm leading-relaxed"
+                      style={{ color: "rgba(11,58,102,0.68)" }}
                     >
                       {card.description}
                     </p>
+                    <div
+                      className="mt-4 h-[2px] w-10"
+                      style={{ background: colors.gold }}
+                      aria-hidden="true"
+                    />
                   </motion.article>
                 );
               })}

@@ -52,28 +52,28 @@ export default function Header() {
     pathname.startsWith("/services") || pathname === "/";
 
   return (
-    <header className="sticky top-0 z-50 px-3 pt-3.5 sm:px-5 sm:pt-4.5 lg:px-7">
+    <header className="sticky top-0 z-50 px-3 pt-4 sm:px-5 sm:pt-5 lg:px-7">
       <div
         className={`glass-nav mx-auto w-full max-w-7xl transition-[background,box-shadow,border-radius,border-color] duration-300 ${
           mobileOpen ? "rounded-[1.85rem]" : "rounded-full"
         } ${scrolled ? "glass-nav-scrolled" : ""}`}
       >
-        <div className="relative flex items-center justify-between gap-3 px-4.5 py-3 sm:gap-4 sm:px-6 sm:py-3.5 lg:px-7">
+        <div className="relative flex items-center justify-between gap-3 px-5 py-3.5 sm:gap-4 sm:px-6 sm:py-4 lg:px-7 lg:py-4">
           <Link
             href="/"
             className="group relative z-10 flex shrink-0 items-center gap-2.5"
           >
-            <LighthouseMark size={46} />
+            <LighthouseMark size={48} />
             <span className="leading-tight">
               <span
-                className="block font-display text-[1.1rem] font-bold tracking-[0.02em] sm:text-[1.22rem]"
+                className="block font-display text-[1.12rem] font-bold tracking-[0.02em] sm:text-[1.24rem]"
                 style={{ color: colors.navy }}
               >
                 CURRENT SOLUTIONS
               </span>
               <span
                 className="block text-[0.6rem] font-semibold tracking-[0.16em] uppercase sm:text-[0.64rem]"
-                style={{ color: colors.gold }}
+                style={{ color: colors.navy }}
               >
                 Electrical Services
               </span>
@@ -84,7 +84,7 @@ export default function Header() {
             className="pointer-events-none absolute inset-y-0 left-1/2 hidden -translate-x-1/2 items-center xl:flex"
             aria-label="Primary"
           >
-            <ul className="pointer-events-auto flex items-center gap-0.5">
+            <ul className="pointer-events-auto flex items-center gap-0">
               {primaryNav
                 .filter((link) => link.href === "/")
                 .map((link) => (
@@ -100,7 +100,7 @@ export default function Header() {
               <li ref={servicesRef} className="relative">
                 <button
                   type="button"
-                  className={`nav-link inline-flex items-center gap-1.5 px-2.5 py-2 text-[0.74rem] font-semibold tracking-[0.1em] uppercase transition-colors duration-200 ${
+                  className={`nav-link inline-flex items-center gap-1 px-2 py-2 text-[0.7rem] font-semibold tracking-[0.08em] uppercase transition-colors duration-200 ${
                     servicesActive ? "nav-link-active" : ""
                   }`}
                   style={{ color: colors.navy }}
@@ -110,7 +110,7 @@ export default function Header() {
                 >
                   Services
                   <ChevronDown
-                    size={14}
+                    size={13}
                     strokeWidth={2.4}
                     className={`transition-transform duration-200 ${
                       servicesOpen ? "rotate-180" : ""
@@ -174,31 +174,24 @@ export default function Header() {
             </ul>
           </nav>
 
-          <div className="relative z-10 hidden shrink-0 items-center gap-3 lg:flex xl:gap-3.5">
+          <div className="relative z-10 hidden shrink-0 items-center gap-3 bg-gradient-to-l from-white/40 via-white/20 to-transparent pl-6 lg:flex xl:gap-3.5">
             <a
               href={PHONE_HREF}
               className="group whitespace-nowrap text-right leading-tight"
               aria-label={`Call ${PHONE_DISPLAY}`}
             >
               <span
-                className="flex items-center justify-end gap-1.5 text-[0.95rem] font-bold tracking-wide"
-                style={{ color: colors.gold }}
+                className="flex items-center justify-end gap-1.5 text-[0.9rem] font-bold tracking-wide"
+                style={{ color: colors.navy }}
               >
                 <Phone size={15} strokeWidth={2.4} />
                 {PHONE_DISPLAY}
-              </span>
-              <span
-                className="mt-0.5 block text-[0.56rem] font-semibold tracking-[0.14em] uppercase"
-                style={{ color: colors.navy }}
-              >
-                24/7 Emergency Service
               </span>
             </a>
 
             <Link
               href="/contact"
-              className="cta-gold inline-flex shrink-0 items-center gap-2 whitespace-nowrap rounded-full px-5 py-3 text-[0.76rem] font-bold tracking-[0.1em] uppercase transition-transform duration-200 hover:-translate-y-0.5 xl:px-6 xl:py-3.5"
-              style={{ color: colors.navy }}
+              className="cta-gold inline-flex shrink-0 items-center gap-2 whitespace-nowrap rounded-[0.65rem] px-4 py-2.5 text-[0.72rem] font-bold tracking-[0.1em] uppercase text-white transition-transform duration-200 hover:-translate-y-0.5 xl:px-5 xl:py-3"
             >
               <Zap size={14} strokeWidth={2.4} fill="currentColor" />
               Request a Quote
@@ -298,8 +291,7 @@ export default function Header() {
                   </a>
                   <Link
                     href="/contact"
-                    className="cta-gold flex w-full items-center justify-center gap-2 rounded-full px-5 py-3.5 text-sm font-bold tracking-[0.12em] uppercase"
-                    style={{ color: colors.navy }}
+                    className="cta-gold flex w-full items-center justify-center gap-2 rounded-[0.65rem] px-5 py-3.5 text-sm font-bold tracking-[0.12em] uppercase text-white"
                     onClick={() => setMobileOpen(false)}
                   >
                     Request a Quote
@@ -326,7 +318,7 @@ function NavItem({
   return (
     <Link
       href={href}
-      className={`nav-link block px-2.5 py-2 text-[0.74rem] font-semibold tracking-[0.1em] uppercase transition-colors duration-200 ${
+      className={`nav-link block px-2 py-2 text-[0.7rem] font-semibold tracking-[0.08em] uppercase transition-colors duration-200 ${
         active ? "nav-link-active" : ""
       }`}
       style={{ color: colors.navy }}
