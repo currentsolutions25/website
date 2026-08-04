@@ -61,11 +61,19 @@ export default function Header() {
         <div className="relative flex items-center justify-between gap-3 px-5 py-3.5 sm:gap-4 sm:px-6 sm:py-4 lg:px-7 lg:py-4">
           <Link
             href="/"
-            className="group relative z-10 flex shrink-0 items-center"
+            className="group relative z-10 flex min-w-0 shrink items-center"
             aria-label="Current Solutions Electrical Services home"
           >
-            <BrandLogo height={52} className="sm:hidden" />
-            <BrandLogo height={58} className="hidden sm:inline-flex" />
+            <BrandLogo
+              height={44}
+              showName
+              className="sm:hidden"
+            />
+            <BrandLogo
+              height={50}
+              showName
+              className="hidden sm:inline-flex"
+            />
           </Link>
 
           <nav
