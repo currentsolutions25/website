@@ -139,6 +139,48 @@ export default function HomePage() {
             <div className="hero-sky-wash" />
             <div className="hero-ocean-depth" />
             <div className="hero-text-veil" />
+
+            {/* Animated sky lightning */}
+            <div className="hero-sky-lightning" aria-hidden="true">
+              <svg
+                className="hero-sky-lightning-svg"
+                viewBox="0 0 1600 900"
+                preserveAspectRatio="xMidYMid slice"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <defs>
+                  <filter id="skyBoltGlow" x="-40%" y="-40%" width="180%" height="180%">
+                    <feGaussianBlur stdDeviation="3" result="blur" />
+                    <feMerge>
+                      <feMergeNode in="blur" />
+                      <feMergeNode in="SourceGraphic" />
+                    </feMerge>
+                  </filter>
+                </defs>
+                <path
+                  className="hero-bolt hero-bolt-a"
+                  d="M420 40L310 210H390L250 430L520 170H410L420 40Z"
+                  fill="#EAF6FF"
+                  filter="url(#skyBoltGlow)"
+                />
+                <path
+                  className="hero-bolt hero-bolt-b"
+                  d="M560 70L490 190H545L430 340L640 150H565L560 70Z"
+                  fill="#BFDFFF"
+                  filter="url(#skyBoltGlow)"
+                />
+                <path
+                  className="hero-bolt hero-bolt-c"
+                  d="M280 90L220 200H265L170 320L340 160H285L280 90Z"
+                  fill="#FFFFFF"
+                  filter="url(#skyBoltGlow)"
+                />
+              </svg>
+              <div className="hero-sky-flash" />
+            </div>
+
+            {/* Lighthouse lantern slowly turning on */}
+            <div className="hero-lantern-glow" aria-hidden="true" />
           </motion.div>
 
           <div className="relative z-10 mx-auto grid w-full max-w-7xl flex-1 grid-cols-1 content-center items-center px-5 pb-8 pt-14 sm:px-8 sm:pb-10 sm:pt-16 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] lg:gap-10 lg:px-10 lg:pb-12 lg:pt-20">

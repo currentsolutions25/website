@@ -50,187 +50,8 @@ body {
   box-shadow: 0 10px 30px -18px rgba(11, 58, 102, 0.35);
 }
 
-/* —— Brand logo lightning motion —— */
 .brand-logo {
   background: #000000;
-}
-
-.brand-lightning-layer {
-  pointer-events: none;
-  position: absolute;
-  inset: 0;
-  z-index: 2;
-  overflow: hidden;
-}
-
-.brand-bolt-glow {
-  position: absolute;
-  left: 2%;
-  top: 8%;
-  width: 34%;
-  height: 84%;
-  border-radius: 40% 30% 45% 35%;
-  background: radial-gradient(
-    ellipse at 45% 40%,
-    rgba(255, 236, 140, 0.55) 0%,
-    rgba(255, 200, 60, 0.22) 38%,
-    transparent 70%
-  );
-  mix-blend-mode: screen;
-  animation: brand-bolt-flicker 1.8s ease-in-out infinite;
-  transform-origin: 40% 35%;
-}
-
-.brand-arc-runner {
-  position: absolute;
-  top: 12%;
-  left: 18%;
-  width: 10px;
-  height: 10px;
-  border-radius: 999px;
-  background: radial-gradient(circle, #ffffff 0%, #9fd9ff 45%, transparent 72%);
-  box-shadow:
-    0 0 10px 3px rgba(159, 217, 255, 0.85),
-    0 0 18px 6px rgba(80, 170, 255, 0.45);
-  animation: brand-arc-travel 2.4s linear infinite;
-}
-
-.brand-burst {
-  animation: brand-burst-pulse 1.15s ease-in-out infinite;
-  transform-origin: center;
-}
-
-.brand-burst-core {
-  animation: brand-burst-core 0.9s ease-in-out infinite;
-}
-
-.brand-burst-rays,
-.brand-burst-jag {
-  animation: brand-burst-crack 0.7s steps(2, end) infinite;
-  transform-origin: center;
-}
-
-@keyframes brand-bolt-flicker {
-  0%,
-  100% {
-    opacity: 0.35;
-    transform: scale(1) translateY(0);
-  }
-  8% {
-    opacity: 0.95;
-    transform: scale(1.04) translateY(-1px);
-  }
-  14% {
-    opacity: 0.4;
-  }
-  22% {
-    opacity: 1;
-    transform: scale(1.06) translateY(0);
-  }
-  40% {
-    opacity: 0.45;
-  }
-  55% {
-    opacity: 0.85;
-  }
-  70% {
-    opacity: 0.38;
-  }
-  82% {
-    opacity: 0.9;
-    transform: scale(1.03) translateY(1px);
-  }
-}
-
-@keyframes brand-arc-travel {
-  0% {
-    left: 22%;
-    top: 18%;
-    opacity: 0;
-    transform: scale(0.7);
-  }
-  10% {
-    opacity: 1;
-    transform: scale(1);
-  }
-  35% {
-    left: 48%;
-    top: 10%;
-  }
-  65% {
-    left: 70%;
-    top: 14%;
-    opacity: 1;
-  }
-  100% {
-    left: 84%;
-    top: 24%;
-    opacity: 0;
-    transform: scale(0.65);
-  }
-}
-
-@keyframes brand-burst-pulse {
-  0%,
-  100% {
-    opacity: 0.55;
-    transform: scale(0.85);
-  }
-  40% {
-    opacity: 1;
-    transform: scale(1.18);
-  }
-  60% {
-    opacity: 0.72;
-    transform: scale(0.95);
-  }
-  80% {
-    opacity: 1;
-    transform: scale(1.22);
-  }
-}
-
-@keyframes brand-burst-core {
-  0%,
-  100% {
-    opacity: 0.7;
-    transform: scale(0.85);
-  }
-  50% {
-    opacity: 1;
-    transform: scale(1.25);
-  }
-}
-
-@keyframes brand-burst-crack {
-  0% {
-    opacity: 0.35;
-  }
-  50% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0.45;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .brand-bolt-glow,
-  .brand-arc-runner,
-  .brand-burst,
-  .brand-burst-core,
-  .brand-burst-rays,
-  .brand-burst-jag {
-    animation: none !important;
-  }
-
-  .brand-bolt-glow {
-    opacity: 0.45;
-  }
-
-  .brand-arc-runner {
-    display: none;
-  }
 }
 
 .nav-link:hover {
@@ -340,6 +161,231 @@ body {
       transparent 74%,
       rgba(246, 241, 231, 0.3) 100%
     );
+}
+
+/* —— Hero sky lightning + lighthouse lantern —— */
+.hero-sky-lightning {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  overflow: hidden;
+}
+
+.hero-sky-lightning-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.hero-bolt {
+  opacity: 0;
+  transform-origin: 40% 10%;
+}
+
+.hero-bolt-a {
+  animation: hero-sky-bolt-a 7.5s ease-in-out infinite;
+}
+
+.hero-bolt-b {
+  animation: hero-sky-bolt-b 7.5s ease-in-out infinite;
+  animation-delay: 0.08s;
+}
+
+.hero-bolt-c {
+  animation: hero-sky-bolt-c 7.5s ease-in-out infinite;
+  animation-delay: 2.8s;
+}
+
+.hero-sky-flash {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 55% 45% at 28% 18%, rgba(180, 220, 255, 0.42) 0%, transparent 60%),
+    linear-gradient(180deg, rgba(200, 230, 255, 0.18) 0%, transparent 45%);
+  opacity: 0;
+  mix-blend-mode: screen;
+  animation: hero-sky-flash 7.5s ease-in-out infinite;
+}
+
+.hero-lantern-glow {
+  pointer-events: none;
+  position: absolute;
+  z-index: 2;
+  /* Anchored near the lighthouse lantern on the right */
+  top: 18%;
+  right: 11%;
+  width: min(28vw, 220px);
+  height: min(28vw, 220px);
+  border-radius: 50%;
+  background:
+    radial-gradient(
+      circle,
+      rgba(255, 230, 140, 0.95) 0%,
+      rgba(255, 190, 70, 0.55) 22%,
+      rgba(255, 160, 40, 0.2) 48%,
+      transparent 70%
+    );
+  mix-blend-mode: screen;
+  filter: blur(1px);
+  transform: translate(20%, -10%);
+  animation: hero-lantern-warm 9s ease-in-out infinite;
+}
+
+@keyframes hero-sky-bolt-a {
+  0%,
+  8%,
+  100% {
+    opacity: 0;
+    transform: scaleY(0.92) translateY(-2%);
+  }
+  9% {
+    opacity: 1;
+    transform: scaleY(1.04) translateY(0);
+  }
+  10.5% {
+    opacity: 0.15;
+  }
+  11.5% {
+    opacity: 0.95;
+  }
+  13.5%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes hero-sky-bolt-b {
+  0%,
+  9%,
+  100% {
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.85;
+  }
+  11% {
+    opacity: 0.1;
+  }
+  12% {
+    opacity: 0.7;
+  }
+  14%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes hero-sky-bolt-c {
+  0%,
+  46%,
+  100% {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+  47% {
+    opacity: 1;
+    transform: scale(1.03);
+  }
+  48.5% {
+    opacity: 0.2;
+  }
+  49.5% {
+    opacity: 0.9;
+  }
+  52%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes hero-sky-flash {
+  0%,
+  8%,
+  100% {
+    opacity: 0;
+  }
+  9% {
+    opacity: 0.55;
+  }
+  11% {
+    opacity: 0.1;
+  }
+  12% {
+    opacity: 0.35;
+  }
+  14%,
+  46% {
+    opacity: 0;
+  }
+  47% {
+    opacity: 0.4;
+  }
+  50%,
+  100% {
+    opacity: 0;
+  }
+}
+
+/* Slow lighthouse lamp warm-up, then a gentle hold */
+@keyframes hero-lantern-warm {
+  0% {
+    opacity: 0.08;
+    transform: translate(20%, -10%) scale(0.72);
+  }
+  35% {
+    opacity: 0.45;
+    transform: translate(20%, -10%) scale(0.9);
+  }
+  55% {
+    opacity: 0.95;
+    transform: translate(20%, -10%) scale(1.08);
+  }
+  70% {
+    opacity: 0.8;
+    transform: translate(20%, -10%) scale(1);
+  }
+  100% {
+    opacity: 0.15;
+    transform: translate(20%, -10%) scale(0.78);
+  }
+}
+
+@media (max-width: 1023px) {
+  .hero-lantern-glow {
+    top: 22%;
+    right: 8%;
+    width: min(42vw, 180px);
+    height: min(42vw, 180px);
+  }
+
+  .hero-sky-lightning-svg {
+    transform: scale(1.15);
+    transform-origin: 30% 20%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-bolt-a,
+  .hero-bolt-b,
+  .hero-bolt-c,
+  .hero-sky-flash,
+  .hero-lantern-glow {
+    animation: none !important;
+  }
+
+  .hero-bolt-a {
+    opacity: 0.35;
+  }
+
+  .hero-sky-flash {
+    opacity: 0;
+  }
+
+  .hero-lantern-glow {
+    opacity: 0.75;
+  }
 }
 
 .trust-card-icon svg {
