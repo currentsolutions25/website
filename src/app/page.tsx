@@ -128,16 +128,13 @@ export default function HomePage() {
             aria-hidden="true"
           >
             <Image
-              src="/images/florida-lighthouse-branded-dusk.png"
+              src="/images/florida-lighthouse-sunset-cottage.png"
               alt=""
               fill
               priority
               sizes="100vw"
-              className="hero-lighthouse-photo object-cover object-[88%_40%] sm:object-[82%_38%] lg:object-[74%_36%]"
+              className="hero-lighthouse-photo object-cover object-[72%_42%] sm:object-[68%_40%] lg:object-[62%_38%]"
             />
-
-            {/* Soften any baked-in bolt so the sky stays calm */}
-            <div className="hero-bolt-soften" />
 
             <div className="hero-atmosphere" />
             <div className="hero-sky-wash" />
