@@ -217,24 +217,24 @@ body {
     background:
       linear-gradient(
         180deg,
-        rgba(246, 241, 231, 0.72) 0%,
-        rgba(246, 241, 231, 0.58) 28%,
-        rgba(246, 241, 231, 0.48) 52%,
-        rgba(246, 241, 231, 0.62) 78%,
-        rgba(246, 241, 231, 0.78) 100%
+        rgba(246, 241, 231, 0.88) 0%,
+        rgba(246, 241, 231, 0.78) 24%,
+        rgba(246, 241, 231, 0.62) 48%,
+        rgba(246, 241, 231, 0.55) 70%,
+        rgba(246, 241, 231, 0.72) 100%
       ),
       linear-gradient(
         105deg,
-        rgba(246, 241, 231, 0.5) 0%,
-        rgba(246, 241, 231, 0.16) 58%,
-        transparent 82%
+        rgba(246, 241, 231, 0.55) 0%,
+        rgba(246, 241, 231, 0.2) 52%,
+        transparent 78%
       );
   }
 
   .hero-atmosphere {
     background:
-      radial-gradient(ellipse 58% 42% at 70% 40%, rgba(255, 178, 88, 0.22) 0%, transparent 55%),
-      radial-gradient(ellipse 48% 34% at 22% 12%, rgba(180, 150, 120, 0.06) 0%, transparent 55%);
+      radial-gradient(ellipse 58% 42% at 70% 40%, rgba(255, 178, 88, 0.18) 0%, transparent 55%),
+      radial-gradient(ellipse 48% 34% at 22% 12%, rgba(180, 150, 120, 0.05) 0%, transparent 55%);
   }
 }
 
