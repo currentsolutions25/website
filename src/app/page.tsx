@@ -128,12 +128,12 @@ export default function HomePage() {
             aria-hidden="true"
           >
             <Image
-              src="/images/florida-lighthouse-sunrise.png"
+              src="/images/florida-nature-coast-soft-sunrise.png"
               alt=""
               fill
               priority
               sizes="100vw"
-              className="hero-lighthouse-photo object-cover object-[85%_48%] sm:object-[78%_46%] lg:object-[70%_44%]"
+              className="hero-lighthouse-photo object-cover object-[78%_42%] sm:object-[70%_44%] lg:object-[62%_46%]"
             />
             <div className="hero-atmosphere" />
             <div className="hero-sky-wash" />
