@@ -291,38 +291,53 @@ body {
   animation-delay: 13s;
 }
 
-/* Rotating lighthouse beam — soft wedge across the water */
-.hero-beam-rig {
+/* Soft lighthouse wash — elliptical glow gliding on the water, never sky lines */
+.hero-beam-wash {
   pointer-events: none;
   position: absolute;
+  inset: 0;
   z-index: 2;
-  top: 20%;
-  right: 12.2%;
-  width: 2px;
-  height: 2px;
+  overflow: hidden;
+  /* Keep light on the Gulf / shoreline only */
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    transparent 38%,
+    rgba(0, 0, 0, 0.35) 48%,
+    rgba(0, 0, 0, 0.95) 58%,
+    rgba(0, 0, 0, 0.9) 78%,
+    transparent 92%
+  );
+  mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    transparent 38%,
+    rgba(0, 0, 0, 0.35) 48%,
+    rgba(0, 0, 0, 0.95) 58%,
+    rgba(0, 0, 0, 0.9) 78%,
+    transparent 92%
+  );
 }
 
-.hero-beam {
+.hero-beam-glow {
   position: absolute;
-  left: 0;
-  top: 50%;
-  width: min(68vw, 720px);
-  height: min(20vw, 170px);
-  margin-top: calc(min(20vw, 170px) * -0.5);
-  transform-origin: 0% 50%;
-  background: linear-gradient(
-    90deg,
-    rgba(255, 236, 180, 0.42) 0%,
-    rgba(255, 224, 150, 0.18) 26%,
-    rgba(255, 214, 140, 0.07) 52%,
-    transparent 76%
+  top: 42%;
+  right: 8%;
+  width: min(52vw, 560px);
+  height: min(22vw, 200px);
+  border-radius: 50%;
+  background: radial-gradient(
+    ellipse at 78% 40%,
+    rgba(255, 236, 190, 0.34) 0%,
+    rgba(255, 220, 150, 0.14) 32%,
+    rgba(255, 210, 130, 0.04) 58%,
+    transparent 74%
   );
-  clip-path: polygon(0 44%, 100% 10%, 100% 90%, 0 56%);
-  filter: blur(8px);
+  filter: blur(28px);
   mix-blend-mode: soft-light;
-  opacity: 0.58;
-  will-change: transform;
-  animation: hero-beam-rotate 13.5s linear infinite;
+  opacity: 0.55;
+  will-change: transform, opacity;
+  animation: hero-beam-wash 14s ease-in-out infinite;
 }
 
 .hero-lantern-glow {
@@ -413,9 +428,25 @@ body {
   95% { opacity: 0; }
 }
 
-@keyframes hero-beam-rotate {
-  from { transform: rotate(-28deg); }
-  to { transform: rotate(332deg); }
+/* Soft pool of light drifts left across the water, then eases back */
+@keyframes hero-beam-wash {
+  0%,
+  100% {
+    transform: translate3d(6%, 2%, 0) scale(0.92);
+    opacity: 0.22;
+  }
+  35% {
+    transform: translate3d(-18%, 4%, 0) scale(1.05);
+    opacity: 0.55;
+  }
+  55% {
+    transform: translate3d(-34%, 6%, 0) scale(1.08);
+    opacity: 0.4;
+  }
+  80% {
+    transform: translate3d(-12%, 3%, 0) scale(0.98);
+    opacity: 0.28;
+  }
 }
 
 @keyframes hero-lantern-breathe {
@@ -436,16 +467,33 @@ body {
     height: min(24vw, 96px);
   }
 
-  .hero-beam-rig {
-    top: 26%;
-    right: 11%;
+  .hero-beam-glow {
+    top: 48%;
+    right: 2%;
+    width: min(70vw, 360px);
+    height: min(28vw, 150px);
+    opacity: 0.42;
   }
 
-  .hero-beam {
-    width: min(78vw, 420px);
-    height: min(28vw, 140px);
-    margin-top: calc(min(28vw, 140px) * -0.5);
-    opacity: 0.34;
+  .hero-beam-wash {
+    -webkit-mask-image: linear-gradient(
+      to bottom,
+      transparent 0%,
+      transparent 42%,
+      rgba(0, 0, 0, 0.4) 52%,
+      rgba(0, 0, 0, 0.95) 62%,
+      rgba(0, 0, 0, 0.85) 82%,
+      transparent 94%
+    );
+    mask-image: linear-gradient(
+      to bottom,
+      transparent 0%,
+      transparent 42%,
+      rgba(0, 0, 0, 0.4) 52%,
+      rgba(0, 0, 0, 0.95) 62%,
+      rgba(0, 0, 0, 0.85) 82%,
+      transparent 94%
+    );
   }
 
   .hero-heat-lightning-glow-a {
@@ -486,7 +534,7 @@ body {
   .hero-lantern-glow,
   .hero-lighthouse-photo,
   .hero-clouds-drift,
-  .hero-beam,
+  .hero-beam-glow,
   .hero-oat-1,
   .hero-oat-2,
   .hero-oat-3,
@@ -501,9 +549,9 @@ body {
     opacity: 0;
   }
 
-  .hero-beam {
-    opacity: 0.18;
-    transform: rotate(18deg);
+  .hero-beam-glow {
+    opacity: 0.28;
+    transform: translate3d(-12%, 4%, 0);
   }
 
   .hero-lantern-glow {

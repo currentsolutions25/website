@@ -155,9 +155,9 @@ export default function HomePage() {
               <div className="hero-heat-lightning-glow hero-heat-lightning-glow-b" />
             </div>
 
-            {/* Slow lighthouse beam across the water */}
-            <div className="hero-beam-rig" aria-hidden="true">
-              <div className="hero-beam" />
+            {/* Soft lighthouse wash across the water only — never a sky streak */}
+            <div className="hero-beam-wash" aria-hidden="true">
+              <div className="hero-beam-glow" />
             </div>
             <div className="hero-lantern-glow" />
 
