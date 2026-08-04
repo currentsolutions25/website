@@ -218,7 +218,7 @@ export default function HomePage() {
                 className="text-[0.72rem] font-semibold tracking-[0.22em] uppercase sm:text-[0.76rem]"
                 style={{ color: colors.gold }}
               >
-                Electrical Solutions You Can Count On
+                Trusted Electrical Solutions Across Florida&apos;s Nature Coast
               </motion.p>
 
               <motion.h1
