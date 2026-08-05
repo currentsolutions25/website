@@ -623,6 +623,7 @@ export type SolutionCard = {
   title: string;
   description: string;
   icon: LucideIcon;
+  images?: string[];
 };
 
 /** Premium Solutions page offerings — brand-forward listing */
@@ -633,6 +634,11 @@ export const solutions: SolutionCard[] = [
     description:
       "Safe, dependable electrical solutions for homes throughout Florida's Nature Coast.",
     icon: Home,
+    images: [
+      "/images/solutions/residential-pendant-install.jpg",
+      "/images/solutions/residential-recessed-lighting.jpg",
+      "/images/solutions/residential-coastal-interior.jpg",
+    ],
   },
   {
     slug: "commercial",
