@@ -14,7 +14,7 @@ import {
   services,
 } from "@/lib/design";
 
-const primaryNav = navLinks.filter((link) => link.label !== "Services");
+const primaryNav = navLinks.filter((link) => link.label !== "Solutions");
 
 export default function Header() {
   const pathname = usePathname();
@@ -104,7 +104,7 @@ export default function Header() {
                   aria-haspopup="true"
                   onClick={() => setServicesOpen((open) => !open)}
                 >
-                  Services
+                  Solutions
                   <ChevronDown
                     size={13}
                     strokeWidth={2.4}
@@ -246,7 +246,7 @@ export default function Header() {
                     className="mb-2 text-[0.65rem] font-semibold tracking-[0.16em] uppercase"
                     style={{ color: "#000000" }}
                   >
-                    Services
+                    Solutions
                   </p>
                   <ul className="space-y-1 pl-1">
                     {services.map((service) => (
