@@ -677,6 +677,11 @@ export const solutions: SolutionCard[] = [
     description:
       "Safe electrical panel upgrades for growing electrical needs and older homes.",
     icon: PanelTop,
+    images: [
+      "/images/solutions/panel-upgrade-electrician-work.jpg",
+      "/images/solutions/panel-upgrade-inspection.jpg",
+      "/images/solutions/panel-upgrade-modern-panel.jpg",
+    ],
   },
   {
     slug: "surge-protection",
