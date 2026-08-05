@@ -171,8 +171,11 @@ export default function Header() {
             </ul>
           </nav>
 
-          <div className="relative z-10 hidden shrink-0 items-center gap-3 bg-gradient-to-l from-white/40 via-white/20 to-transparent pl-6 lg:flex xl:gap-3.5">
-            <div className="flex flex-col items-end gap-0.5 whitespace-nowrap leading-tight">
+          <div className="relative z-10 hidden shrink-0 items-center gap-3 bg-gradient-to-l from-white/40 via-white/20 to-transparent pl-6 md:flex xl:gap-3.5">
+            <div
+              className="flex flex-col items-end gap-1 whitespace-nowrap leading-tight"
+              aria-label="Call Current Solutions"
+            >
               {PHONES.map((phone) => (
                 <a
                   key={phone.display}
@@ -181,10 +184,10 @@ export default function Header() {
                   aria-label={`Call ${phone.display}`}
                 >
                   <span
-                    className="flex items-center justify-end gap-1.5 text-[0.86rem] font-bold tracking-wide"
+                    className="flex items-center justify-end gap-1.5 text-[0.9rem] font-bold tracking-wide"
                     style={{ color: colors.navy }}
                   >
-                    <Phone size={14} strokeWidth={2.4} />
+                    <Phone size={15} strokeWidth={2.4} />
                     {phone.display}
                   </span>
                 </a>
@@ -200,7 +203,7 @@ export default function Header() {
             </Link>
           </div>
 
-          <div className="relative z-10 flex items-center gap-1 xl:hidden">
+          <div className="relative z-10 flex items-center gap-1 md:hidden">
             <a
               href={PHONE_HREF}
               className="inline-flex h-10 w-10 items-center justify-center rounded-full"

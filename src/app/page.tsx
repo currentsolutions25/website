@@ -24,6 +24,7 @@ import {
   fadeUp,
   PHONE_DISPLAY,
   PHONE_HREF,
+  PHONES,
   stagger,
 } from "@/lib/design";
 
@@ -288,6 +289,29 @@ export default function HomePage() {
                   <Phone size={16} strokeWidth={2.4} />
                   Call Today
                 </a>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{
+                  duration: 0.65,
+                  delay: 0.48,
+                  ease: [0.22, 1, 0.36, 1],
+                }}
+                className="mt-5 flex flex-col gap-1.5 sm:flex-row sm:flex-wrap sm:items-center sm:gap-x-5 sm:gap-y-1"
+              >
+                {PHONES.map((phone) => (
+                  <a
+                    key={phone.display}
+                    href={phone.href}
+                    className="inline-flex items-center gap-2 text-[0.95rem] font-bold tracking-wide transition-opacity hover:opacity-75"
+                    style={{ color: colors.navy }}
+                  >
+                    <Phone size={15} strokeWidth={2.4} />
+                    {phone.display}
+                  </a>
+                ))}
               </motion.div>
             </div>
 
