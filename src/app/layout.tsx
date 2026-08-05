@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   ...buildPageMetadata({
     title: `${SITE_NAME} | Powering Florida's Nature Coast`,
     description:
-      "Family-owned electrical company serving Hernando, Pasco, Citrus, Pinellas, and Hillsborough with residential and commercial electrical services, panel upgrades, lighting, generator connections, and 24/7 emergency response. Call 813-377-5735.",
+      "Family-owned electrical company serving Hernando, Pasco, Citrus, Pinellas, and Hillsborough with residential and commercial electrical services, panel upgrades, lighting, generator connections, and 24/7 emergency response. Call 813-377-5735 or 352-777-1770.",
     path: "/",
   }),
   title: {

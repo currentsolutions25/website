@@ -34,7 +34,13 @@ export const SERVICE_AREA_LINE =
 
 export const PHONE_DISPLAY = "813-377-5735";
 export const PHONE_HREF = "tel:+18133775735";
+export const PHONE_DISPLAY_ALT = "352-777-1770";
+export const PHONE_HREF_ALT = "tel:+13527771770";
 export const PHONE_PLACEHOLDER_NOTE = "24/7 Emergency Service";
+export const PHONES = [
+  { display: PHONE_DISPLAY, href: PHONE_HREF },
+  { display: PHONE_DISPLAY_ALT, href: PHONE_HREF_ALT },
+] as const;
 
 export const EMAIL = "currentsolutions25@yahoo.com";
 export const EMAIL_PLACEHOLDER_NOTE = "Project inquiries welcome";

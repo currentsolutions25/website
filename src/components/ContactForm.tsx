@@ -50,7 +50,7 @@ export default function ContactForm() {
             name="phone"
             type="tel"
             autoComplete="tel"
-            placeholder="813-377-5735"
+            placeholder="813-377-5735 or 352-777-1770"
             className={fieldClass}
             style={{ borderColor: "rgba(11,58,102,0.12)", color: colors.navy }}
             required

@@ -15,8 +15,11 @@ import {
   FACEBOOK,
   fadeUp,
   PHONE_DISPLAY,
+  PHONE_DISPLAY_ALT,
   PHONE_HREF,
+  PHONE_HREF_ALT,
   PHONE_PLACEHOLDER_NOTE,
+  PHONES,
   SERVICE_AREA_LINE,
   serviceAreas,
   stagger,
@@ -80,6 +83,13 @@ export default function ContactPage() {
                   className="font-semibold underline-offset-2 hover:underline"
                 >
                   {PHONE_DISPLAY}
+                </a>{" "}
+                or{" "}
+                <a
+                  href={PHONE_HREF_ALT}
+                  className="font-semibold underline-offset-2 hover:underline"
+                >
+                  {PHONE_DISPLAY_ALT}
                 </a>
                 .
               </p>
@@ -111,13 +121,12 @@ export default function ContactPage() {
 
               <ul className="mt-10 space-y-6">
                 <li>
-                  <a
-                    href={PHONE_HREF}
-                    className="group inline-flex items-start gap-4 rounded-2xl p-1 transition-opacity duration-300 hover:opacity-80"
+                  <div
+                    className="group inline-flex items-start gap-4 rounded-2xl p-1"
                     title={PHONE_PLACEHOLDER_NOTE}
                   >
                     <span
-                      className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl transition-transform duration-300 group-hover:scale-105"
+                      className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl"
                       style={{
                         background:
                           "linear-gradient(145deg, rgba(212,175,55,0.28), rgba(212,175,55,0.1))",
@@ -134,9 +143,15 @@ export default function ContactPage() {
                       >
                         Phone
                       </span>
-                      <span className="mt-1 block text-xl font-semibold tracking-tight">
-                        {PHONE_DISPLAY}
-                      </span>
+                      {PHONES.map((phone) => (
+                        <a
+                          key={phone.display}
+                          href={phone.href}
+                          className="mt-1 block text-xl font-semibold tracking-tight transition-opacity hover:opacity-75"
+                        >
+                          {phone.display}
+                        </a>
+                      ))}
                       <span
                         className="mt-1 block text-xs"
                         style={{ color: "rgba(11,58,102,0.45)" }}
@@ -144,7 +159,7 @@ export default function ContactPage() {
                         {PHONE_PLACEHOLDER_NOTE}
                       </span>
                     </span>
-                  </a>
+                  </div>
                 </li>
 
                 <li>

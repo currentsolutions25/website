@@ -8,7 +8,7 @@ import {
   EMAIL,
   EMAIL_PLACEHOLDER_NOTE,
   navLinks,
-  PHONE_DISPLAY,
+  PHONES,
   PHONE_HREF,
   SERVICE_AREA_LINE,
   serviceAreas,
@@ -180,17 +180,19 @@ export default function Footer() {
               Contact Us
             </p>
             <ul className="space-y-4">
-              <li>
-                <a
-                  href={PHONE_HREF}
-                  className="inline-flex items-start gap-3 transition-opacity duration-300 hover:opacity-80"
-                >
-                  <Phone size={16} strokeWidth={1.8} style={{ color: colors.gold, marginTop: 2 }} />
-                  <span className="text-sm font-semibold text-white">
-                    {PHONE_DISPLAY}
-                  </span>
-                </a>
-              </li>
+              {PHONES.map((phone) => (
+                <li key={phone.display}>
+                  <a
+                    href={phone.href}
+                    className="inline-flex items-start gap-3 transition-opacity duration-300 hover:opacity-80"
+                  >
+                    <Phone size={16} strokeWidth={1.8} style={{ color: colors.gold, marginTop: 2 }} />
+                    <span className="text-sm font-semibold text-white">
+                      {phone.display}
+                    </span>
+                  </a>
+                </li>
+              ))}
               <li>
                 <a
                   href={`mailto:${EMAIL}`}

@@ -11,6 +11,7 @@ import {
   navLinks,
   PHONE_DISPLAY,
   PHONE_HREF,
+  PHONES,
   services,
 } from "@/lib/design";
 
@@ -171,19 +172,24 @@ export default function Header() {
           </nav>
 
           <div className="relative z-10 hidden shrink-0 items-center gap-3 bg-gradient-to-l from-white/40 via-white/20 to-transparent pl-6 lg:flex xl:gap-3.5">
-            <a
-              href={PHONE_HREF}
-              className="group whitespace-nowrap text-right leading-tight"
-              aria-label={`Call ${PHONE_DISPLAY}`}
-            >
-              <span
-                className="flex items-center justify-end gap-1.5 text-[0.9rem] font-bold tracking-wide"
-                style={{ color: colors.navy }}
-              >
-                <Phone size={15} strokeWidth={2.4} />
-                {PHONE_DISPLAY}
-              </span>
-            </a>
+            <div className="flex flex-col items-end gap-0.5 whitespace-nowrap leading-tight">
+              {PHONES.map((phone) => (
+                <a
+                  key={phone.display}
+                  href={phone.href}
+                  className="group"
+                  aria-label={`Call ${phone.display}`}
+                >
+                  <span
+                    className="flex items-center justify-end gap-1.5 text-[0.86rem] font-bold tracking-wide"
+                    style={{ color: colors.navy }}
+                  >
+                    <Phone size={14} strokeWidth={2.4} />
+                    {phone.display}
+                  </span>
+                </a>
+              ))}
+            </div>
 
             <Link
               href="/contact"
@@ -264,27 +270,34 @@ export default function Header() {
                   </ul>
                 </li>
                 <li className="pt-4">
-                  <a
-                    href={PHONE_HREF}
-                    className="mb-3 flex items-center gap-3 rounded-2xl px-4 py-3"
+                  <div
+                    className="mb-3 space-y-2 rounded-2xl px-4 py-3"
                     style={{ background: colors.softGrey }}
                   >
-                    <Phone size={18} style={{ color: "#000000" }} />
-                    <span>
-                      <span
-                        className="block text-base font-bold"
-                        style={{ color: colors.navy }}
+                    {PHONES.map((phone) => (
+                      <a
+                        key={phone.display}
+                        href={phone.href}
+                        className="flex items-center gap-3"
                       >
-                        {PHONE_DISPLAY}
-                      </span>
-                      <span
-                        className="text-xs font-semibold tracking-wide uppercase"
-                        style={{ color: "rgba(11,58,102,0.65)" }}
-                      >
-                        24/7 Emergency Service
-                      </span>
+                        <Phone size={18} style={{ color: "#000000" }} />
+                        <span>
+                          <span
+                            className="block text-base font-bold"
+                            style={{ color: colors.navy }}
+                          >
+                            {phone.display}
+                          </span>
+                        </span>
+                      </a>
+                    ))}
+                    <span
+                      className="block pl-9 text-xs font-semibold tracking-wide uppercase"
+                      style={{ color: "rgba(11,58,102,0.65)" }}
+                    >
+                      24/7 Emergency Service
                     </span>
-                  </a>
+                  </div>
                   <Link
                     href="/contact"
                     className="cta-gold flex w-full items-center justify-center gap-2 rounded-[0.65rem] px-5 py-3.5 text-sm font-bold tracking-[0.12em] uppercase text-white"
