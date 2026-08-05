@@ -95,25 +95,34 @@ export default function Header() {
                 ))}
 
               <li ref={servicesRef} className="relative">
-                <button
-                  type="button"
-                  className={`nav-link inline-flex items-center gap-1 px-2 py-2 text-[0.7rem] font-semibold tracking-[0.08em] uppercase transition-colors duration-200 ${
-                    servicesActive ? "nav-link-active" : ""
-                  }`}
-                  style={{ color: colors.navy }}
-                  aria-expanded={servicesOpen}
-                  aria-haspopup="true"
-                  onClick={() => setServicesOpen((open) => !open)}
-                >
-                  Solutions
-                  <ChevronDown
-                    size={13}
-                    strokeWidth={2.4}
-                    className={`transition-transform duration-200 ${
-                      servicesOpen ? "rotate-180" : ""
+                <div className="inline-flex items-center">
+                  <Link
+                    href="/solutions"
+                    className={`nav-link px-2 py-2 text-[0.7rem] font-semibold tracking-[0.08em] uppercase transition-colors duration-200 ${
+                      servicesActive ? "nav-link-active" : ""
                     }`}
-                  />
-                </button>
+                    style={{ color: colors.navy }}
+                  >
+                    Solutions
+                  </Link>
+                  <button
+                    type="button"
+                    className="nav-link -ml-1 inline-flex items-center py-2 pr-2 transition-colors duration-200"
+                    style={{ color: colors.navy }}
+                    aria-label="Open solutions menu"
+                    aria-expanded={servicesOpen}
+                    aria-haspopup="true"
+                    onClick={() => setServicesOpen((open) => !open)}
+                  >
+                    <ChevronDown
+                      size={13}
+                      strokeWidth={2.4}
+                      className={`transition-transform duration-200 ${
+                        servicesOpen ? "rotate-180" : ""
+                      }`}
+                    />
+                  </button>
+                </div>
                 <AnimatePresence>
                   {servicesOpen && (
                     <motion.div
@@ -121,7 +130,7 @@ export default function Header() {
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: 8 }}
                       transition={{ duration: 0.18 }}
-                      className="absolute left-1/2 top-full z-50 mt-3 w-64 -translate-x-1/2 overflow-hidden rounded-2xl border bg-white/95 py-2 shadow-xl backdrop-blur-xl"
+                      className="absolute left-1/2 top-full z-50 mt-3 w-72 -translate-x-1/2 overflow-hidden rounded-2xl border bg-white/95 py-2 shadow-xl backdrop-blur-xl"
                       style={{ borderColor: "rgba(11,58,102,0.1)" }}
                     >
                       <Link
@@ -130,7 +139,7 @@ export default function Header() {
                         style={{ color: colors.navy }}
                         onClick={() => setServicesOpen(false)}
                       >
-                        All Solutions
+                        View all solutions
                       </Link>
                       <div
                         className="my-1 h-px"
