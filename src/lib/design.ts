@@ -646,6 +646,11 @@ export const solutions: SolutionCard[] = [
     description:
       "Professional electrical solutions for offices, retail spaces, restaurants, and commercial properties.",
     icon: Building2,
+    images: [
+      "/images/solutions/commercial-office-wiring.jpg",
+      "/images/solutions/commercial-restaurant-lighting.jpg",
+      "/images/solutions/commercial-retail-buildout.jpg",
+    ],
   },
   {
     slug: "lighting",

@@ -19,9 +19,26 @@ import {
   whyChooseSolutions,
 } from "@/lib/design";
 
+const featuredImageAlts: Record<string, [string, string, string]> = {
+  residential: [
+    "Electrician installing pendant lighting in a bright Florida home",
+    "Recessed lighting installation in a modern living room",
+    "Premium coastal open-concept home with cove and pendant lighting",
+  ],
+  commercial: [
+    "Electrician working on commercial office wiring near glass partitions",
+    "Pendant lighting installation in a contemporary restaurant",
+    "Premium retail space lighting and electrical build-out",
+  ],
+};
+
 export default function SolutionsPage() {
-  const residential = solutions.find((s) => s.slug === "residential");
-  const otherSolutions = solutions.filter((s) => s.slug !== "residential");
+  const featuredSolutions = solutions.filter(
+    (s) => s.images && s.images.length >= 3,
+  );
+  const otherSolutions = solutions.filter(
+    (s) => !s.images || s.images.length < 3,
+  );
 
   return (
     <SiteShell>
@@ -63,93 +80,111 @@ export default function SolutionsPage() {
             </p>
           </motion.div>
 
-          {/* Featured Residential Solutions with photos */}
-          {residential && (() => {
-            const ResidentialIcon = residential.icon;
-            return (
-            <motion.article
-              id={residential.slug}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.2 }}
-              transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-              variants={fadeUp}
-              className="premium-card group mb-8 scroll-mt-32 overflow-hidden sm:mb-10"
-            >
-              <div className="grid gap-0 lg:grid-cols-[1.15fr_0.85fr]">
-                <div className="grid grid-cols-2 gap-2 p-3 sm:gap-3 sm:p-4 lg:p-5">
-                  <div className="relative col-span-2 aspect-[16/10] overflow-hidden rounded-2xl sm:aspect-[16/9]">
-                    <Image
-                      src={residential.images![0]}
-                      alt="Electrician installing pendant lighting in a bright Florida home"
-                      fill
-                      sizes="(max-width: 1024px) 100vw, 55vw"
-                      className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
-                      priority
-                    />
-                  </div>
-                  <div className="relative aspect-[4/3] overflow-hidden rounded-2xl">
-                    <Image
-                      src={residential.images![1]}
-                      alt="Recessed lighting installation in a modern living room"
-                      fill
-                      sizes="(max-width: 1024px) 50vw, 28vw"
-                      className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
-                    />
-                  </div>
-                  <div className="relative aspect-[4/3] overflow-hidden rounded-2xl">
-                    <Image
-                      src={residential.images![2]}
-                      alt="Premium coastal open-concept home with cove and pendant lighting"
-                      fill
-                      sizes="(max-width: 1024px) 50vw, 28vw"
-                      className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
-                    />
-                  </div>
-                </div>
+          {/* Featured photo solutions */}
+          <div className="mb-8 space-y-8 sm:mb-10 sm:space-y-10">
+            {featuredSolutions.map((solution, index) => {
+              const Icon = solution.icon;
+              const alts = featuredImageAlts[solution.slug] ?? [
+                solution.title,
+                solution.title,
+                solution.title,
+              ];
+              const reverse = index % 2 === 1;
 
-                <div className="flex flex-col justify-center px-8 py-10 sm:px-10 sm:py-12 lg:pr-12">
+              return (
+                <motion.article
+                  key={solution.slug}
+                  id={solution.slug}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true, amount: 0.2 }}
+                  transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+                  variants={fadeUp}
+                  className="premium-card group scroll-mt-32 overflow-hidden"
+                >
                   <div
-                    className="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl"
-                    style={{
-                      background: `linear-gradient(145deg, ${colors.seaGlass}, rgba(220,239,247,0.35))`,
-                      color: colors.navy,
-                      boxShadow: "inset 0 0 0 1px rgba(11,58,102,0.05)",
-                    }}
+                    className={`grid gap-0 lg:grid-cols-[1.15fr_0.85fr] ${
+                      reverse ? "lg:[&>*:first-child]:order-2" : ""
+                    }`}
                   >
-                    <ResidentialIcon size={24} strokeWidth={1.5} />
+                    <div className="grid grid-cols-2 gap-2 p-3 sm:gap-3 sm:p-4 lg:p-5">
+                      <div className="relative col-span-2 aspect-[16/10] overflow-hidden rounded-2xl sm:aspect-[16/9]">
+                        <Image
+                          src={solution.images![0]}
+                          alt={alts[0]}
+                          fill
+                          sizes="(max-width: 1024px) 100vw, 55vw"
+                          className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                          priority={index === 0}
+                        />
+                      </div>
+                      <div className="relative aspect-[4/3] overflow-hidden rounded-2xl">
+                        <Image
+                          src={solution.images![1]}
+                          alt={alts[1]}
+                          fill
+                          sizes="(max-width: 1024px) 50vw, 28vw"
+                          className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                        />
+                      </div>
+                      <div className="relative aspect-[4/3] overflow-hidden rounded-2xl">
+                        <Image
+                          src={solution.images![2]}
+                          alt={alts[2]}
+                          fill
+                          sizes="(max-width: 1024px) 50vw, 28vw"
+                          className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                        />
+                      </div>
+                    </div>
+
+                    <div
+                      className={`flex flex-col justify-center px-8 py-10 sm:px-10 sm:py-12 ${
+                        reverse ? "lg:pl-12 lg:pr-10" : "lg:pr-12"
+                      }`}
+                    >
+                      <div
+                        className="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl"
+                        style={{
+                          background: `linear-gradient(145deg, ${colors.seaGlass}, rgba(220,239,247,0.35))`,
+                          color: colors.navy,
+                          boxShadow: "inset 0 0 0 1px rgba(11,58,102,0.05)",
+                        }}
+                      >
+                        <Icon size={24} strokeWidth={1.5} />
+                      </div>
+                      <h3 className="font-display text-[1.85rem] font-semibold tracking-tight sm:text-[2.15rem]">
+                        {solution.title}
+                      </h3>
+                      <p
+                        className="mt-5 text-base leading-relaxed sm:text-lg"
+                        style={{ color: "rgba(11,58,102,0.72)" }}
+                      >
+                        {solution.description}
+                      </p>
+                      <Link
+                        href="/contact"
+                        className="mt-8 inline-flex items-center gap-2 text-sm font-semibold tracking-wide transition-opacity duration-300 hover:opacity-70"
+                        style={{ color: colors.navy }}
+                      >
+                        Request a quote
+                        <ArrowRight
+                          size={16}
+                          strokeWidth={2.25}
+                          className="transition-transform duration-300 group-hover:translate-x-1"
+                        />
+                      </Link>
+                      <div
+                        className="mt-6 h-[2px] w-12"
+                        style={{ background: colors.gold }}
+                        aria-hidden="true"
+                      />
+                    </div>
                   </div>
-                  <h3 className="font-display text-[1.85rem] font-semibold tracking-tight sm:text-[2.15rem]">
-                    {residential.title}
-                  </h3>
-                  <p
-                    className="mt-5 text-base leading-relaxed sm:text-lg"
-                    style={{ color: "rgba(11,58,102,0.72)" }}
-                  >
-                    {residential.description}
-                  </p>
-                  <Link
-                    href="/contact"
-                    className="mt-8 inline-flex items-center gap-2 text-sm font-semibold tracking-wide transition-opacity duration-300 hover:opacity-70"
-                    style={{ color: colors.navy }}
-                  >
-                    Request a quote
-                    <ArrowRight
-                      size={16}
-                      strokeWidth={2.25}
-                      className="transition-transform duration-300 group-hover:translate-x-1"
-                    />
-                  </Link>
-                  <div
-                    className="mt-6 h-[2px] w-12"
-                    style={{ background: colors.gold }}
-                    aria-hidden="true"
-                  />
-                </div>
-              </div>
-            </motion.article>
-            );
-          })()}
+                </motion.article>
+              );
+            })}
+          </div>
 
           <motion.div
             initial="hidden"
