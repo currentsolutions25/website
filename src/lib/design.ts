@@ -703,6 +703,18 @@ export const solutions: SolutionCard[] = [
     ],
   },
   {
+    slug: "backup-power",
+    title: "Backup Power Solutions",
+    description:
+      "Standby generator connections, transfer switches, and storm-ready backup power for Nature Coast homes and businesses.",
+    icon: Zap,
+    images: [
+      "/images/solutions/backup-power-luxury-standby.jpg",
+      "/images/solutions/backup-power-dual-generators.jpg",
+      "/images/solutions/backup-power-home-generator.jpg",
+    ],
+  },
+  {
     slug: "maintenance",
     title: "Maintenance Solutions",
     description:

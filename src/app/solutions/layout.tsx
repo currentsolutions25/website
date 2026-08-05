@@ -4,7 +4,7 @@ import { buildPageMetadata } from "@/lib/design";
 export const metadata: Metadata = buildPageMetadata({
   title: "Solutions",
   description:
-    "Explore Current Solutions electrical offerings — residential, commercial, lighting, repairs, panel upgrades, surge protection, EV charging, and maintenance across Florida's Nature Coast.",
+    "Explore Current Solutions electrical offerings — residential, commercial, lighting, repairs, panel upgrades, surge protection, EV charging, backup power, and maintenance across Florida's Nature Coast.",
   path: "/solutions",
 });
 

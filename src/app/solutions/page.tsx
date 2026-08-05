@@ -45,6 +45,11 @@ const featuredImageAlts: Record<string, [string, string, string]> = {
     "Electrician installing a residential EV charging station while a car charges",
     "Technician mounting an EV charger on a brick home exterior",
   ],
+  "backup-power": [
+    "Standby backup generator installed beside a modern luxury home at sunset",
+    "Residential backup power setup with generators and transfer equipment",
+    "Whole-home standby generator on a concrete pad with clean conduit work",
+  ],
 };
 
 export default function SolutionsPage() {
