@@ -129,7 +129,7 @@ export default function Header() {
                         style={{ color: colors.navy }}
                         onClick={() => setServicesOpen(false)}
                       >
-                        All Services
+                        All Solutions
                       </Link>
                       <div
                         className="my-1 h-px"

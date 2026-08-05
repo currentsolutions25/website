@@ -78,7 +78,7 @@ export const FACEBOOK = socialLinks[0];
 export const navLinks = [
   { label: "Home", href: "/" },
   { label: "Solutions", href: "/#services" },
-  { label: "Service Areas", href: "/service-areas" },
+  { label: "Solution Areas", href: "/service-areas" },
   { label: "About", href: "/about" },
   { label: "Gallery", href: "/gallery" },
   { label: "Reviews", href: "/reviews" },
