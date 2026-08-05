@@ -12,12 +12,12 @@ import {
   PHONE_HREF,
   SERVICE_AREA_LINE,
   serviceAreas,
-  services,
+  solutions,
   SITE_NAME,
   socialLinks,
 } from "@/lib/design";
 
-const quickLinks = navLinks.filter((link) => link.href !== "/#services");
+const quickLinks = navLinks.filter((link) => link.href !== "/solutions");
 
 function SocialIcon({ label }: { label: string }) {
   if (label === "Facebook") {
@@ -116,36 +116,36 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Services */}
+          {/* Solutions */}
           <div className="lg:col-span-2">
             <p
               className="mb-5 text-[0.68rem] font-bold tracking-[0.22em] uppercase"
               style={{ color: colors.gold }}
             >
-              Our Services
+              Our Solutions
             </p>
             <ul className="flex flex-col gap-3 text-sm tracking-wide">
-              {services.map((service) => (
-                <li key={service.slug}>
+              {solutions.map((solution) => (
+                <li key={solution.slug}>
                   <Link
-                    href={`/services/${service.slug}`}
+                    href={`/solutions#${solution.slug}`}
                     className="transition-opacity duration-300 hover:opacity-70"
                     style={{ color: "rgba(246,241,231,0.78)" }}
                   >
-                    {service.shortTitle}
+                    {solution.title.replace(" Solutions", "")}
                   </Link>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Service Areas */}
+          {/* Solution Areas */}
           <div className="lg:col-span-2">
             <p
               className="mb-5 text-[0.68rem] font-bold tracking-[0.22em] uppercase"
               style={{ color: colors.gold }}
             >
-              Service Areas
+              Solution Areas
             </p>
             <ul className="flex flex-col gap-2.5 text-sm tracking-wide">
               {serviceAreas.slice(0, 8).map((area) => (

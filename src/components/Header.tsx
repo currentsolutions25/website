@@ -12,7 +12,7 @@ import {
   PHONE_DISPLAY,
   PHONE_HREF,
   PHONES,
-  services,
+  solutions,
 } from "@/lib/design";
 
 const primaryNav = navLinks.filter((link) => link.label !== "Solutions");
@@ -50,7 +50,7 @@ export default function Header() {
   }, []);
 
   const servicesActive =
-    pathname.startsWith("/services") || pathname === "/";
+    pathname.startsWith("/solutions") || pathname.startsWith("/services");
 
   return (
     <header className="sticky top-0 z-50 px-3 pt-4 sm:px-5 sm:pt-5 lg:px-7">
@@ -125,7 +125,7 @@ export default function Header() {
                       style={{ borderColor: "rgba(11,58,102,0.1)" }}
                     >
                       <Link
-                        href="/#services"
+                        href="/solutions"
                         className="block px-4 py-2.5 text-sm font-medium transition-colors hover:bg-[rgba(11,58,102,0.04)]"
                         style={{ color: colors.navy }}
                         onClick={() => setServicesOpen(false)}
@@ -136,15 +136,15 @@ export default function Header() {
                         className="my-1 h-px"
                         style={{ background: "rgba(11,58,102,0.08)" }}
                       />
-                      {services.map((service) => (
+                      {solutions.map((solution) => (
                         <Link
-                          key={service.slug}
-                          href={`/services/${service.slug}`}
+                          key={solution.slug}
+                          href={`/solutions#${solution.slug}`}
                           className="block px-4 py-2.5 text-sm transition-colors hover:bg-[rgba(11,58,102,0.04)]"
                           style={{ color: "rgba(11,58,102,0.82)" }}
                           onClick={() => setServicesOpen(false)}
                         >
-                          {service.title}
+                          {solution.title}
                         </Link>
                       ))}
                     </motion.div>
@@ -258,15 +258,15 @@ export default function Header() {
                     Solutions
                   </p>
                   <ul className="space-y-1 pl-1">
-                    {services.map((service) => (
-                      <li key={service.slug}>
+                    {solutions.map((solution) => (
+                      <li key={solution.slug}>
                         <Link
-                          href={`/services/${service.slug}`}
+                          href={`/solutions#${solution.slug}`}
                           className="block py-1.5 text-sm"
                           style={{ color: "rgba(11,58,102,0.78)" }}
                           onClick={() => setMobileOpen(false)}
                         >
-                          {service.title}
+                          {solution.title}
                         </Link>
                       </li>
                     ))}

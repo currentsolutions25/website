@@ -9,6 +9,12 @@ import {
   Landmark,
   Waves,
   Anchor,
+  Wrench,
+  Shield,
+  Car,
+  ClipboardCheck,
+  HeartHandshake,
+  Clock,
   type LucideIcon,
 } from "lucide-react";
 
@@ -83,7 +89,7 @@ export const FACEBOOK = socialLinks[0];
 
 export const navLinks = [
   { label: "Home", href: "/" },
-  { label: "Solutions", href: "/#services" },
+  { label: "Solutions", href: "/solutions" },
   { label: "Solution Areas", href: "/service-areas" },
   { label: "About", href: "/about" },
   { label: "Gallery", href: "/gallery" },
@@ -610,6 +616,83 @@ export const serviceAreas: ServiceArea[] = [
     ],
     icon: Building2,
   },
+];
+
+export type SolutionCard = {
+  slug: string;
+  title: string;
+  description: string;
+  icon: LucideIcon;
+};
+
+/** Premium Solutions page offerings — brand-forward listing */
+export const solutions: SolutionCard[] = [
+  {
+    slug: "residential",
+    title: "Residential Solutions",
+    description:
+      "Safe, dependable electrical solutions for homes throughout Florida's Nature Coast.",
+    icon: Home,
+  },
+  {
+    slug: "commercial",
+    title: "Commercial Solutions",
+    description:
+      "Professional electrical solutions for offices, retail spaces, restaurants, and commercial properties.",
+    icon: Building2,
+  },
+  {
+    slug: "lighting",
+    title: "Lighting Solutions",
+    description:
+      "Indoor lighting, outdoor lighting, landscape lighting, security lighting, and LED upgrades.",
+    icon: Lightbulb,
+  },
+  {
+    slug: "electrical-repair",
+    title: "Electrical Repair Solutions",
+    description:
+      "Troubleshooting, breaker issues, outlets, switches, storm damage, and electrical repairs.",
+    icon: Wrench,
+  },
+  {
+    slug: "panel-upgrades",
+    title: "Panel Upgrade Solutions",
+    description:
+      "Safe electrical panel upgrades for growing electrical needs and older homes.",
+    icon: PanelTop,
+  },
+  {
+    slug: "surge-protection",
+    title: "Whole-Home Surge Protection Solutions",
+    description:
+      "Protection for valuable electronics and appliances from Florida storms and power surges.",
+    icon: Shield,
+  },
+  {
+    slug: "ev-charging",
+    title: "EV Charging Solutions",
+    description:
+      "Professional installation of residential and commercial EV charging stations.",
+    icon: Car,
+  },
+  {
+    slug: "maintenance",
+    title: "Maintenance Solutions",
+    description:
+      "Preventive maintenance and inspections to keep electrical systems operating safely.",
+    icon: ClipboardCheck,
+  },
+];
+
+export const whyChooseSolutions: { title: string; icon: LucideIcon }[] = [
+  { title: "Licensed & Insured", icon: Shield },
+  { title: "Family Owned", icon: Home },
+  { title: "Honest Communication", icon: ClipboardCheck },
+  { title: "Quality Workmanship", icon: Wrench },
+  { title: "Respect for Your Home", icon: HeartHandshake },
+  { title: "Reliable Scheduling", icon: Clock },
+  { title: "Serving Florida's Nature Coast", icon: Waves },
 ];
 
 export const fadeUp = {
