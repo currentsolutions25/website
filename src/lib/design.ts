@@ -658,6 +658,11 @@ export const solutions: SolutionCard[] = [
     description:
       "Indoor lighting, outdoor lighting, landscape lighting, security lighting, and LED upgrades.",
     icon: Lightbulb,
+    images: [
+      "/images/solutions/lighting-coastal-pathway.jpg",
+      "/images/solutions/lighting-modern-exterior.jpg",
+      "/images/solutions/lighting-interior-layered.jpg",
+    ],
   },
   {
     slug: "electrical-repair",

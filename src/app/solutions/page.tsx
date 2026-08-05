@@ -30,6 +30,11 @@ const featuredImageAlts: Record<string, [string, string, string]> = {
     "Pendant lighting installation in a contemporary restaurant",
     "Premium retail space lighting and electrical build-out",
   ],
+  lighting: [
+    "Coastal home pathway and landscape lighting at sunset",
+    "Modern home exterior architectural and landscape lighting at dusk",
+    "Layered living room lighting with cove, chandelier, and shelf accents",
+  ],
 };
 
 export default function SolutionsPage() {
