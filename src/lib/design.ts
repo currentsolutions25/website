@@ -696,6 +696,11 @@ export const solutions: SolutionCard[] = [
     description:
       "Professional installation of residential and commercial EV charging stations.",
     icon: Car,
+    images: [
+      "/images/solutions/ev-charging-garage-station.jpg",
+      "/images/solutions/ev-charging-installation-service.jpg",
+      "/images/solutions/ev-charging-brick-install.jpg",
+    ],
   },
   {
     slug: "maintenance",

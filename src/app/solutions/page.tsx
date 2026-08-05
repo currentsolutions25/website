@@ -40,6 +40,11 @@ const featuredImageAlts: Record<string, [string, string, string]> = {
     "Electrician inspecting a breaker panel with a digital tablet",
     "Clean, professionally wired modern electrical breaker panel",
   ],
+  "ev-charging": [
+    "Wall-mounted home EV charger beside an open garage with an electric vehicle",
+    "Electrician installing a residential EV charging station while a car charges",
+    "Technician mounting an EV charger on a brick home exterior",
+  ],
 };
 
 export default function SolutionsPage() {
