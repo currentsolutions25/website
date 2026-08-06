@@ -694,6 +694,11 @@ export const solutions: SolutionCard[] = [
     description:
       "Protection for valuable electronics and appliances from Florida storms and power surges.",
     icon: Shield,
+    images: [
+      "/images/solutions/surge-protection-storm-home.jpg",
+      "/images/solutions/surge-protection-connected-home.jpg",
+      "/images/solutions/surge-protection-panel-install.jpg",
+    ],
   },
   {
     slug: "ev-charging",

@@ -45,6 +45,11 @@ const featuredImageAlts: Record<string, [string, string, string]> = {
     "Electrician inspecting a breaker panel with a digital tablet",
     "Clean, professionally wired modern electrical breaker panel",
   ],
+  "surge-protection": [
+    "Coastal home during a nighttime thunderstorm with lightning in the distance",
+    "Family in a modern connected living room filled with electronics",
+    "Electrician installing a whole-home surge protector in a service panel",
+  ],
   "ev-charging": [
     "Wall-mounted home EV charger beside an open garage with an electric vehicle",
     "Electrician installing a residential EV charging station while a car charges",
