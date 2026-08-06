@@ -35,6 +35,11 @@ const featuredImageAlts: Record<string, [string, string, string]> = {
     "Modern home exterior architectural and landscape lighting at dusk",
     "Layered living room lighting with cove, chandelier, and shelf accents",
   ],
+  "electrical-repair": [
+    "Electrician diagnosing a breaker panel with a digital multimeter",
+    "Technician testing a wall-mounted electrical component during a repair",
+    "Electrician repairing a low wall electrical unit with tools nearby",
+  ],
   "panel-upgrades": [
     "Electrician upgrading a modern electrical panel with tools nearby",
     "Electrician inspecting a breaker panel with a digital tablet",

@@ -670,6 +670,11 @@ export const solutions: SolutionCard[] = [
     description:
       "Troubleshooting, breaker issues, outlets, switches, storm damage, and electrical repairs.",
     icon: Wrench,
+    images: [
+      "/images/solutions/electrical-repair-panel-diagnostics.jpg",
+      "/images/solutions/electrical-repair-wall-testing.jpg",
+      "/images/solutions/electrical-repair-floor-work.jpg",
+    ],
   },
   {
     slug: "panel-upgrades",
