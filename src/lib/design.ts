@@ -730,6 +730,11 @@ export const solutions: SolutionCard[] = [
     description:
       "Preventive maintenance and inspections to keep electrical systems operating safely.",
     icon: ClipboardCheck,
+    images: [
+      "/images/solutions/maintenance-industrial-inspection.jpg",
+      "/images/solutions/maintenance-tablet-diagnostics.jpg",
+      "/images/solutions/maintenance-hallway-panel-check.jpg",
+    ],
   },
 ];
 

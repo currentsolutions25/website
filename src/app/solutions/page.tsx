@@ -60,6 +60,11 @@ const featuredImageAlts: Record<string, [string, string, string]> = {
     "Residential backup power setup with generators and transfer equipment",
     "Whole-home standby generator on a concrete pad with clean conduit work",
   ],
+  maintenance: [
+    "Electrician testing an industrial electrical panel during maintenance",
+    "Technician reviewing electrical schematics on a rugged tablet",
+    "Friendly electrician checking a residential panel with a multimeter",
+  ],
 };
 
 export default function SolutionsPage() {
@@ -216,64 +221,66 @@ export default function SolutionsPage() {
             })}
           </div>
 
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.08 }}
-            variants={stagger}
-            className="grid gap-7 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 lg:gap-8"
-          >
-            {otherSolutions.map((solution) => {
-              const Icon = solution.icon;
-              return (
-                <motion.article
-                  key={solution.slug}
-                  id={solution.slug}
-                  variants={fadeUp}
-                  transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-                  whileHover={{ y: -8 }}
-                  className="premium-card group flex scroll-mt-32 flex-col p-8 sm:p-9"
-                >
-                  <div
-                    className="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl transition-transform duration-400 group-hover:scale-105"
-                    style={{
-                      background: `linear-gradient(145deg, ${colors.seaGlass}, rgba(220,239,247,0.35))`,
-                      color: colors.navy,
-                      boxShadow: "inset 0 0 0 1px rgba(11,58,102,0.05)",
-                    }}
+          {otherSolutions.length > 0 && (
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.08 }}
+              variants={stagger}
+              className="grid gap-7 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 lg:gap-8"
+            >
+              {otherSolutions.map((solution) => {
+                const Icon = solution.icon;
+                return (
+                  <motion.article
+                    key={solution.slug}
+                    id={solution.slug}
+                    variants={fadeUp}
+                    transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+                    whileHover={{ y: -8 }}
+                    className="premium-card group flex scroll-mt-32 flex-col p-8 sm:p-9"
                   >
-                    <Icon size={24} strokeWidth={1.5} />
-                  </div>
-                  <h3 className="font-display text-[1.45rem] font-semibold tracking-tight sm:text-[1.55rem]">
-                    {solution.title}
-                  </h3>
-                  <p
-                    className="mt-4 flex-1 text-sm leading-relaxed sm:text-[0.95rem]"
-                    style={{ color: "rgba(11,58,102,0.7)" }}
-                  >
-                    {solution.description}
-                  </p>
-                  <Link
-                    href="/contact"
-                    className="mt-8 inline-flex items-center gap-2 text-sm font-semibold tracking-wide transition-opacity duration-300 hover:opacity-70"
-                    style={{ color: colors.navy }}
-                  >
-                    Request a quote
-                    <ArrowRight
-                      size={16}
-                      strokeWidth={2.25}
-                      className="transition-transform duration-300 group-hover:translate-x-1"
+                    <div
+                      className="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl transition-transform duration-400 group-hover:scale-105"
+                      style={{
+                        background: `linear-gradient(145deg, ${colors.seaGlass}, rgba(220,239,247,0.35))`,
+                        color: colors.navy,
+                        boxShadow: "inset 0 0 0 1px rgba(11,58,102,0.05)",
+                      }}
+                    >
+                      <Icon size={24} strokeWidth={1.5} />
+                    </div>
+                    <h3 className="font-display text-[1.45rem] font-semibold tracking-tight sm:text-[1.55rem]">
+                      {solution.title}
+                    </h3>
+                    <p
+                      className="mt-4 flex-1 text-sm leading-relaxed sm:text-[0.95rem]"
+                      style={{ color: "rgba(11,58,102,0.7)" }}
+                    >
+                      {solution.description}
+                    </p>
+                    <Link
+                      href="/contact"
+                      className="mt-8 inline-flex items-center gap-2 text-sm font-semibold tracking-wide transition-opacity duration-300 hover:opacity-70"
+                      style={{ color: colors.navy }}
+                    >
+                      Request a quote
+                      <ArrowRight
+                        size={16}
+                        strokeWidth={2.25}
+                        className="transition-transform duration-300 group-hover:translate-x-1"
+                      />
+                    </Link>
+                    <div
+                      className="mt-6 h-[2px] w-10 transition-all duration-400 group-hover:w-16"
+                      style={{ background: colors.gold }}
+                      aria-hidden="true"
                     />
-                  </Link>
-                  <div
-                    className="mt-6 h-[2px] w-10 transition-all duration-400 group-hover:w-16"
-                    style={{ background: colors.gold }}
-                    aria-hidden="true"
-                  />
-                </motion.article>
-              );
-            })}
-          </motion.div>
+                  </motion.article>
+                );
+              })}
+            </motion.div>
+          )}
         </section>
 
         <WaveDivider topColor={colors.warmSand} bottomColor={colors.white} />
