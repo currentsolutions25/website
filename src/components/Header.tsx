@@ -303,12 +303,6 @@ export default function Header() {
                         </span>
                       </a>
                     ))}
-                    <span
-                      className="block pl-9 text-xs font-semibold tracking-wide uppercase"
-                      style={{ color: "rgba(11,58,102,0.65)" }}
-                    >
-                      24/7 Emergency Service
-                    </span>
                   </div>
                   <Link
                     href="/contact"

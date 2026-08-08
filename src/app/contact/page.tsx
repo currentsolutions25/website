@@ -71,13 +71,13 @@ export default function ContactPage() {
             </span>
             <div>
               <p className="font-display text-xl font-semibold tracking-tight">
-                Emergency Electrical Service
+                Need Urgent Electrical Help?
               </p>
               <p
                 className="mt-1.5 text-sm leading-relaxed sm:text-base"
                 style={{ color: "rgba(11,58,102,0.72)" }}
               >
-                {EMERGENCY_HOURS_NOTE}. For urgent issues, call{" "}
+                {EMERGENCY_HOURS_NOTE} at{" "}
                 <a
                   href={PHONE_HREF}
                   className="font-semibold underline-offset-2 hover:underline"

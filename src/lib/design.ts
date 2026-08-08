@@ -42,7 +42,7 @@ export const PHONE_DISPLAY = "813-377-5735";
 export const PHONE_HREF = "tel:+18133775735";
 export const PHONE_DISPLAY_ALT = "352-777-1770";
 export const PHONE_HREF_ALT = "tel:+13527771770";
-export const PHONE_PLACEHOLDER_NOTE = "24/7 Emergency Service";
+export const PHONE_PLACEHOLDER_NOTE = "Call for a free quote";
 export const PHONES = [
   { display: PHONE_DISPLAY, href: PHONE_HREF },
   { display: PHONE_DISPLAY_ALT, href: PHONE_HREF_ALT },
@@ -61,10 +61,11 @@ export const ADDRESS_LINES = [
 export const BUSINESS_HOURS = [
   { day: "Monday – Friday", hours: "7:00 AM – 6:00 PM" },
   { day: "Saturday", hours: "8:00 AM – 2:00 PM" },
-  { day: "Sunday", hours: "Emergency Only" },
+  { day: "Sunday", hours: "Closed" },
 ] as const;
 
-export const EMERGENCY_HOURS_NOTE = "24/7 Emergency Electrical Service";
+export const EMERGENCY_HOURS_NOTE =
+  "For urgent electrical issues during business hours, call us";
 
 /** Replace with real social profile URLs when available. */
 export const socialLinks = [
@@ -472,7 +473,7 @@ export const services: Service[] = [
     title: "Emergency Service",
     shortTitle: "Emergency",
     description:
-      "Prompt response when you need electrical help most—day or night.",
+      "Prompt response when you need electrical help most.",
     metaDescription:
       "Emergency electrical service for Nature Coast homes and businesses — urgent troubleshooting, safety guidance, and practical repairs from Current Solutions.",
     heroEyebrow: "When You Need Us Most",
@@ -513,9 +514,9 @@ export const services: Service[] = [
           "If it is safe to do so, avoid using the affected area or equipment. If you smell burning or see sparking, prioritize safety and follow local emergency guidance. Never attempt repairs that put you at risk.",
       },
       {
-        question: "Do you offer after-hours emergency support?",
+        question: "How quickly can you respond to an urgent issue?",
         answer:
-          "Emergency availability details should be confirmed with the live business contact information. Replace the placeholder phone number and emergency hours note with real details when ready.",
+          "Call during business hours and describe what you’re seeing. We’ll help prioritize safety and schedule the soonest practical visit based on the situation and our current workload.",
       },
       {
         question: "Will you explain what caused the issue?",

@@ -246,14 +246,15 @@ export default function Footer() {
               <div className="flex items-center gap-2" style={{ color: colors.gold }}>
                 <Zap size={18} strokeWidth={2.2} fill="currentColor" />
                 <p className="text-[0.72rem] font-bold tracking-[0.16em] uppercase">
-                  24/7 Emergency Service
+                  Call for Service
                 </p>
               </div>
               <p
                 className="mt-2 text-sm leading-relaxed"
                 style={{ color: "rgba(246,241,231,0.72)" }}
               >
-                Need urgent electrical help? We&apos;re ready day or night.
+                Need electrical help? Reach out and we&apos;ll guide the next
+                step.
               </p>
               <a
                 href={PHONE_HREF}
